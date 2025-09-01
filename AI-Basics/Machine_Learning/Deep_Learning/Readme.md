@@ -100,10 +100,70 @@ It can generate:
 This chart shows how raw input moves through layers, extracting features and producing predictions.
 
 
+# 🧠 Deep Learning
+
+Deep Learning is a subset of Machine Learning that uses **neural networks with multiple layers** to learn complex data patterns.  
+This section organizes concepts into **basics, architectures, generative AI, and applications**.
+
 ---
 
-## 📚 Navigation
-- ← Back to [Machine Learning](../Machine_Learning.md)  
-- → Explore [Neural Networks](./Neural_Networks.md)  
-- → Explore [Generative AI](./Generative_AI.md)  
-- 🏠 Back to [AI Basics Home](../../README.md)
+## 📂 Folder Structure & Navigation
+
+
+### 🔹 Basics
+- [Perceptron](./Basics/01_Perceptron.md)
+- [MLPs](./Basics/02_MLPs.md)
+- [Activation Functions](./Basics/03_Activation_Functions.md)
+- [Loss Functions](./Basics/04_Loss_Functions.md)
+- [Optimizers](./Basics/05_Optimizers.md)
+- [Regularization](./Basics/06_Regularization.md)
+- [Training Techniques](./Basics/07_Training_Techniques.md)
+
+### 🔹 Neural Networks
+- [Neural Networks Overview](./Neural_Networks.md)
+
+#### 🖼️ CNNs
+- [Image Classification](./Neural_Nets/CNNs/01_Image_Classification.md)
+- [Object Detection](./Neural_Nets/CNNs/02_Object_Detection.md)
+- [Segmentation](./Neural_Nets/CNNs/03_Segmentation.md)
+- [Advanced CNNs](./Neural_Nets/CNNs/04_Advanced_CNNs.md)
+
+#### 🔄 RNNs
+- [Vanilla RNNs](./Neural_Nets/RNNs/01_Vanilla_RNNs.md)
+- [LSTMs](./Neural_Nets/RNNs/02_LSTMs.md)
+- [GRUs](./Neural_Nets/RNNs/03_GRUs.md)
+- [Seq2Seq](./Neural_Nets/RNNs/04_Seq2Seq.md)
+
+#### 🔦 Transformers
+- [Attention Mechanism](./Neural_Nets/Transformers/01_Attention_Mechanism.md)
+- [BERT](./Neural_Nets/Transformers/02_BERT.md)
+- [GPT](./Neural_Nets/Transformers/03_GPT.md)
+- [Vision Transformers](./Neural_Nets/Transformers/04_Vision_Transformers.md)
+- [Hybrid Models](./Neural_Nets/Transformers/05_Hybrid_Models.md)
+
+#### 🎨 GANs
+- [Vanilla GAN](./Neural_Nets/GANs/01_Vanilla_GAN.md)
+- [DCGAN](./Neural_Nets/GANs/02_DCGAN.md)
+- [Conditional GAN](./Neural_Nets/GANs/03_Conditional_GAN.md)
+- [CycleGAN](./Neural_Nets/GANs/04_CycleGAN.md)
+- [Diffusion Models](./Neural_Nets/GANs/05_Diffusion_Models.md)
+
+---
+
+## 📂 Generative AI
+- [Generative AI Overview](./Generative_AI.md)
+
+### 🔹 LLMs
+- [Pretraining](./Gen_AI/LLMs/01_Pretraining.md)
+- [Fine-tuning](./Gen_AI/LLMs/02_FineTuning.md)
+- [Prompt Engineering](./Gen_AI/LLMs/03_Prompt_Engineering.md)
+- [Evaluation](./Gen_AI/LLMs/04_Evaluation.md)
+
+### 🔹 Text-to-Image
+- [Diffusion Models](./Gen_AI/Text_to_Image/01_Diffusion.md)
+- [StyleGAN](./Gen_AI/Text_to_Image/02_StyleGAN.md)
+- [Applications](./Gen_AI/Text_to_Image/03_Applications.md)
+
+### 🔹 Text-to-Video
+- [Diffusion Models](./Gen_AI/Text_to_Video/01_Diffusion.md)
+- [Applications](./Gen_AI/)

@@ -2,7 +2,7 @@
 
 Neural Networks (NNs) are the backbone of **deep learning**, designed to simulate how the human brain processes and learns from information. They’re made of interconnected layers of artificial neurons that pass signals and adjust themselves over time to improve accuracy.
 
----
+ 
 
 ## 🌍 Real-World Example
 Imagine you upload a **photo of your pet** to an online service, and it instantly tags it as *“Golden Retriever”*.  
@@ -53,7 +53,7 @@ Used in **email spam filtering**. The network is trained with examples of “spa
 
 ![](https://media.licdn.com/dms/image/v2/D4D12AQHoA0HmXImM6Q/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1695815600274?e=2147483647&v=beta&t=KtofGi4bPcWCsUu9YI-t_P_PBdEEEJouenfZ60TbnB4)
 
----
+ 
 
 ### 2️⃣ Convolutional Neural Network (CNN)
 **Definition:**  
@@ -75,7 +75,7 @@ Think of a CNN like a detective scanning a photo with a magnifying glass — sta
 ![CNN Diagram](https://upload.wikimedia.org/wikipedia/commons/6/63/Typical_cnn.png)  
 
 
----
+ 
 
 ### 3️⃣ Recurrent Neural Network (RNN)
 **Definition:**  
@@ -96,7 +96,7 @@ It’s like reading a sentence — you remember earlier words to understand the 
 ![RNN Diagram](https://upload.wikimedia.org/wikipedia/commons/b/b5/Recurrent_neural_network_unfold.svg)  
 
 
----
+ 
 
 ### 4️⃣ Generative Adversarial Network (GAN)
 **Definition:**  
@@ -117,7 +117,7 @@ Like a counterfeiter making fake money and a detective trying to spot the fake b
 ![GAN Diagram](https://c02.purpledshub.com/uploads/sites/41/2022/10/GANSpreview-tb-f1fb529.jpg?w=1029&webp=1)  
 
 
----
+ 
 
 ### 5️⃣ Transformers
 **Definition:**  
@@ -139,7 +139,7 @@ Imagine reading an entire paragraph at once instead of word-by-word — you unde
 ![Transformer Diagram](https://upload.wikimedia.org/wikipedia/commons/1/10/Transformer_Model_Architecture_-_Attention_Mechanism.png)  
 *Source: Wikimedia Commons*
 
----
+ 
 
 ### 6️⃣ Radial Basis Function Neural Network (RBFNN)
 **Definition:**  
@@ -153,7 +153,7 @@ Uses radial basis functions as activation functions, great for interpolation and
 Predicting the price of a product based on features like size, brand, and demand.
 
 
----
+ 
 
 ### 7️⃣ Modular Neural Networks
 **Definition:**  
@@ -165,7 +165,7 @@ In self-driving cars:
 - Another detects road signs.
 - Another manages vehicle speed.
 
----
+ 
 
 ### 8️⃣ Recurrent Hopfield Network
 **Definition:**  
