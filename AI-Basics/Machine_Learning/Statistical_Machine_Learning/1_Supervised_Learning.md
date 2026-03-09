@@ -4,7 +4,7 @@ Imagine you’re teaching a child how to recognize fruits. You show them an appl
 
 This process of *learning from labeled examples* is exactly what **supervised learning** in machine learning is about. We provide the model with **inputs (features)** and **outputs (labels)**, it learns the mapping, and then we ask it to predict outputs for new unseen inputs.  
 
----
+ 
 
 ## What is Supervised Learning?
 Supervised learning is a type of machine learning where we train a model using a dataset that contains both the **input data** and the **correct output labels**. The model’s job is to learn the relationship between them so it can predict labels for new, unseen data.  
@@ -45,7 +45,7 @@ Example: Predicting if an email is “spam” or “not spam.”
 - **Neural Networks**: Layers of interconnected “neurons” that capture complex patterns.  
   Example: Identifying objects in photos (cat, car, person).  
 
----
+ 
 
 ## Why do we need Supervised Learning?
 Supervised learning solves the problem of **predicting outcomes from past experience**. It replaces brittle human-written rules with flexible patterns learned from data.  
@@ -69,7 +69,7 @@ With supervised learning:
 - Missed fraud → huge financial losses.  
 Thus, supervised learning provides a smarter, adaptable solution.
 
----
+ 
 
 ## Interview Q&A
 
@@ -104,7 +104,7 @@ Thus, supervised learning provides a smarter, adaptable solution.
 **Q10. Scenario: Your model performs well on training data but poorly on test data. What’s happening?**  
 *Overfitting. Fix using regularization (L1/L2), more training data, feature selection, or simpler models.*  
 
----
+ 
 
 ## Key Takeaways
 - **Supervised learning = learning from labeled data (inputs + outputs).**  
