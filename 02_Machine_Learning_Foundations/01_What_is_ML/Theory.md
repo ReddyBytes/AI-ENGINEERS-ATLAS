@@ -13,6 +13,7 @@ Instead, you do something smarter — you show them pictures.
 
 *"Dog. Dog. Cat. Dog. Bird. Dog."*
 
+
 After enough examples, something clicks. They just **know**. They see a dog they've never seen before and say "dog!" without thinking about any rules.
 
 👉 This is exactly what **Machine Learning** is — instead of writing rules, you show examples and let the computer figure out the rules itself.
