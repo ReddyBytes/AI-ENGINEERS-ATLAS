@@ -7,7 +7,7 @@
 <div align="center">
 
 [![](https://img.shields.io/badge/160%2B%20Topics-6366f1?style=for-the-badge&logoColor=white)](#full-curriculum)&nbsp;
-[![](https://img.shields.io/badge/690%2B%20Files-0ea5e9?style=for-the-badge)](#full-curriculum)&nbsp;
+[![](https://img.shields.io/badge/760%2B%20Files-0ea5e9?style=for-the-badge)](#full-curriculum)&nbsp;
 [![](https://img.shields.io/badge/20%20Sections-10b981?style=for-the-badge)](#full-curriculum)&nbsp;
 [![](https://img.shields.io/badge/100%25%20Complete-22c55e?style=for-the-badge)](#full-curriculum)
 
