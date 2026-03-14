@@ -71,9 +71,15 @@
 
 </div>
 
+</div>
+
 <img src="./assets/divider.svg" width="100%"/>
 
+<div align="center">
+
 ## 📚 Full Curriculum
+
+</div>
 
 > Click any section to expand every topic inside.
 
@@ -477,7 +483,11 @@
 
 <img src="./assets/divider.svg" width="100%"/>
 
+<div align="center">
+
 ## 📦 What Every Topic Includes
+
+</div>
 
 <div align="center">
 
@@ -518,73 +528,76 @@
 
 <img src="./assets/paths_header.svg" width="100%"/>
 
-## 🛤️ Choose Your Path
-
 <div align="center">
 
-<table>
-<tr valign="top">
-<td align="center" width="280">
-<br/>
-<h3>🟢 &nbsp;Beginner</h3>
-
-```
-00 → Learning Guide
-01 → Math for AI
-02 → ML Foundations
-03 → Classical ML
-```
-
-<sub>New to AI/ML? Start here.<br/>Build the mental models first.</sub>
-<br/><br/>
-</td>
-<td align="center" width="280">
-<h3>🟡 &nbsp;Intermediate</h3>
-
-```
-04 → Neural Networks
-05 → NLP Foundations
-06 → Transformers
-07 → Large Language Models
-```
-
-<sub>You know the basics.<br/>Go deeper into modern AI.</sub>
-<br/><br/>
-</td>
-<td align="center" width="280">
-<h3>🔴 &nbsp;Advanced</h3>
-
-```
-08 → LLM Applications
-09 → RAG Systems
-10 → AI Agents
-11 → MCP Protocol
-12 → Production AI
-13 → System Design
-```
-
-<sub>Ship real AI systems.<br/>Own the full stack.</sub>
-<br/><br/>
-</td>
-<td align="center" width="280">
-<h3>🟣 &nbsp;Expert</h3>
-
-```
-14 → Hugging Face
-15 → LangGraph
-16 → Diffusion Models
-17 → Multimodal AI
-18 → AI Evaluation
-19 → Reinforcement Learning
-```
-
-<sub>Master the frontier.<br/>Go beyond the stack.</sub>
-<br/><br/>
-</td>
-</tr>
-</table>
+## 🛤️ Choose Your Path
 
 </div>
+
+<details>
+<summary><kbd>&nbsp;🟢&nbsp;</kbd>&nbsp; <b>Beginner</b> &nbsp; <code>Sections 00–03</code> &nbsp;—&nbsp; <i>New to AI/ML? Build the mental models first.</i></summary>
+
+<br/>
+
+| Section | Topic | What You'll Cover |
+|---|---|---|
+| `00` | [Learning Guide](./00_Learning_Guide/) | How to use the repo, your personal learning path, progress tracker |
+| `01` | [Math for AI](./01_Math_for_AI/) | Probability, Statistics, Linear Algebra, Calculus, Information Theory |
+| `02` | [ML Foundations](./02_Machine_Learning_Foundations/) | How machines learn, training vs inference, overfitting, evaluation |
+| `03` | [Classical ML](./03_Classical_ML_Algorithms/) | Linear regression, decision trees, SVM, clustering, PCA, Naive Bayes |
+
+<br/>
+</details>
+
+<details>
+<summary><kbd>&nbsp;🟡&nbsp;</kbd>&nbsp; <b>Intermediate</b> &nbsp; <code>Sections 04–07</code> &nbsp;—&nbsp; <i>Know the basics? Go deeper into modern AI.</i></summary>
+
+<br/>
+
+| Section | Topic | What You'll Cover |
+|---|---|---|
+| `04` | [Neural Networks & Deep Learning](./04_Neural_Networks_and_Deep_Learning/) | Perceptron → CNNs, RNNs, GANs, backprop, optimizers |
+| `05` | [NLP Foundations](./05_NLP_Foundations/) | Tokenization, embeddings, Word2Vec, semantic similarity |
+| `06` | [Transformers](./06_Transformers/) | Attention, self-attention, BERT, GPT, ViT |
+| `07` | [Large Language Models](./07_Large_Language_Models/) | Pretraining, fine-tuning, RLHF, hallucination, LLM APIs |
+
+<br/>
+</details>
+
+<details>
+<summary><kbd>&nbsp;🔴&nbsp;</kbd>&nbsp; <b>Advanced</b> &nbsp; <code>Sections 08–13</code> &nbsp;—&nbsp; <i>Ship real AI systems. Own the full stack.</i></summary>
+
+<br/>
+
+| Section | Topic | What You'll Cover |
+|---|---|---|
+| `08` | [LLM Applications](./08_LLM_Applications/) | Prompt engineering, tool calling, vector DBs, memory, streaming |
+| `09` | [RAG Systems](./09_RAG_Systems/) | Full RAG pipeline, chunking, retrieval, advanced techniques, build project |
+| `10` | [AI Agents](./10_AI_Agents/) | ReAct, tool use, memory, multi-agent systems, capstone |
+| `11` | [MCP Protocol](./11_MCP_Model_Context_Protocol/) | Architecture, building MCP servers, ecosystem |
+| `12` | [Production AI](./12_Production_AI/) | Serving, latency, cost, observability, safety, scaling |
+| `13` | [AI System Design](./13_AI_System_Design/) | Real-world blueprints — support agent, RAG app, coding assistant |
+
+<br/>
+</details>
+
+<details>
+<summary><kbd>&nbsp;🟣&nbsp;</kbd>&nbsp; <b>Expert</b> &nbsp; <code>Sections 14–19</code> &nbsp;—&nbsp; <i>Master the frontier. Go beyond the stack.</i></summary>
+
+<br/>
+
+| Section | Topic | What You'll Cover |
+|---|---|---|
+| `14` | [Hugging Face Ecosystem](./14_Hugging_Face_Ecosystem/) | Hub, Transformers, Datasets, PEFT/LoRA, Trainer, Spaces |
+| `15` | [LangGraph](./15_LangGraph/) | Stateful agents, nodes/edges, human-in-the-loop, multi-agent graphs |
+| `16` | [Diffusion Models](./16_Diffusion_Models/) | DDPM, Stable Diffusion, ControlNet, FLUX, GANs vs diffusion |
+| `17` | [Multimodal AI](./17_Multimodal_AI/) | Vision-language models, image understanding, audio AI, multimodal agents |
+| `18` | [AI Evaluation](./18_AI_Evaluation/) | Benchmarks, LLM-as-judge, RAG eval, red teaming, eval pipelines |
+| `19` | [Reinforcement Learning](./19_Reinforcement_Learning/) | MDPs, Q-learning, DQN, PPO, RLHF connection |
+
+<br/>
+</details>
+
 
 <img src="./assets/divider.svg" width="100%"/>
 
