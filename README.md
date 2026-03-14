@@ -19,7 +19,7 @@
 
 <br/>
 
----
+<img src="./assets/divider.svg" width="100%"/>
 
 <div align="center">
 
@@ -32,7 +32,8 @@
 
 </div>
 
----
+<img src="./assets/divider.svg" width="100%"/>
+<div align="center">
 
 ## 🗺️ Section Overview
 
@@ -70,7 +71,7 @@
 
 </div>
 
----
+<img src="./assets/divider.svg" width="100%"/>
 
 ## 📚 Full Curriculum
 
@@ -474,7 +475,7 @@
 <br/>
 </details>
 
----
+<img src="./assets/divider.svg" width="100%"/>
 
 ## 📦 What Every Topic Includes
 
@@ -513,7 +514,9 @@
 
 </div>
 
----
+<img src="./assets/divider.svg" width="100%"/>
+
+<img src="./assets/paths_header.svg" width="100%"/>
 
 ## 🛤️ Choose Your Path
 
@@ -583,9 +586,11 @@
 
 </div>
 
----
+<img src="./assets/divider.svg" width="100%"/>
 
-## 🚀 Start Here
+<img src="./assets/start_here_banner.svg" width="100%"/>
+
+<br/>
 
 | Step | File | What It Does |
 |:---:|---|---|
@@ -593,7 +598,7 @@
 | `2` | [✅ Progress Tracker](./00_Learning_Guide/Progress_Tracker.md) | Track what you've covered |
 | `3` | [📖 Probability — Theory.md](./01_Math_for_AI/01_Probability/Theory.md) | Begin the journey |
 
----
+<img src="./assets/divider.svg" width="100%"/>
 
 <div align="center">
 <br/>
