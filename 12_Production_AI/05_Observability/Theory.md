@@ -2,39 +2,51 @@
 
 ## The Story 📖
 
-Imagine a hospital Intensive Care Unit. Every patient in the ICU is connected to a set of monitors: heart rate, blood pressure, oxygen saturation, respiratory rate, temperature. Nurses watch a bank of screens. When a number goes red, an alarm sounds. The team rushes to investigate before the situation becomes a crisis.
+Every patient in a hospital ICU is connected to monitors: heart rate, blood pressure, oxygen saturation. Nurses watch a bank of screens; when a number goes red, an alarm sounds. Remove those monitors — nurses check on patients every 30 minutes by eye — and outcomes collapse. By the time you notice a problem manually, it's too late.
 
-Now imagine removing all those monitors. No displays, no alarms. The nurses still check on patients every 30 minutes. Do you think outcomes would be the same? Of course not — by the time you notice a problem with your eyes alone, it may be too late.
+A production AI system without observability is exactly that. Requests are flowing, users are getting answers, but you don't know if it's getting slower, costing more, or silently failing 5% of users — until a customer tweets about it.
 
-A production AI system without observability is exactly that. Your model is running, requests are flowing, users are getting answers — but you have no idea if it's getting slower, costing more than expected, producing worse answers, or silently failing for 5% of users. You only find out when a user tweets about it or a customer cancels.
-
-Observability is the ICU monitor system for your AI application. It gives you real-time visibility into every dimension of your system's health, so you can catch and fix problems before they become crises.
-
-👉 This is **Observability** — the infrastructure, practices, and tools that give you deep, real-time understanding of what your AI system is doing, how fast, at what cost, and with what quality.
+👉 This is **Observability** — the infrastructure and practices that give you real-time visibility into every dimension of your AI system's health.
 
 ---
 
 ## What is Observability?
 
-**Observability** is the ability to understand the internal state of your system from its external outputs. A system is observable if you can answer "Why is this happening?" just from the data it produces.
-
-Think of it as: **the difference between flying blind and flying with instruments.**
+**Observability** is the ability to understand the internal state of your system from its external outputs. A system is observable if you can answer "Why is this happening?" from the data it produces.
 
 ### The Three Pillars
 
-Every observability system rests on three data types:
+- **Logs** — *What happened*: timestamped events ("Request 1234 arrived at 10:30:15, returned after 340ms, 1,200 input tokens")
+- **Metrics** — *How fast / how much*: "Requests/sec: 142. P99 latency: 840ms. Cost/hr: $2.34"
+- **Traces** — *Where time was spent*: "Request 1234: 5ms auth, 12ms embedding, 320ms LLM inference, 3ms postprocessing"
 
-- **Logs** — Records of *what happened*. Timestamped events: "Request 1234 arrived at 10:30:15. Model returned response after 340ms. 1,200 input tokens consumed."
-- **Metrics** — Numerical measurements of *how much / how fast*. "Requests per second: 142. P99 latency: 840ms. Cost per hour: $2.34."
-- **Traces** — The journey of *where time was spent*. "Request 1234 spent: 5ms in auth, 12ms in embedding, 320ms in LLM inference, 3ms in postprocessing."
+```mermaid
+flowchart LR
+    subgraph "Three Pillars"
+        Logs["📝 Logs\nWhat happened?\nTimestamped events"]
+        Metrics["📊 Metrics\nHow fast / how much?\nCounters, histograms"]
+        Traces["🔍 Traces\nWhere did time go?\nSpan breakdown per request"]
+    end
+    subgraph "AI-Specific"
+        Quality["🎯 Quality\nLLM judge scores\nHallucination rate"]
+        Tokens["🪙 Token Usage\nCost per request\nInput vs output"]
+        PromptLog["📋 Prompt/Response\nFull request logs\nFor debugging"]
+    end
+    Logs --> Dashboard["📈 Dashboard + Alerts"]
+    Metrics --> Dashboard
+    Traces --> Dashboard
+    Quality --> Dashboard
+    Tokens --> Dashboard
+    PromptLog --> Dashboard
+```
 
 ### AI-Specific Additions
 
-Traditional software observability covers performance. AI systems need additional layers:
-- **LLM quality monitoring**: Are the answers actually good? Are they hallucinating?
-- **Token usage tracking**: How many tokens per request? What's the cost per request?
-- **Prompt/response logging**: Capturing the actual prompts and responses for debugging and quality analysis
-- **Model drift detection**: Is the model's output distribution changing over time?
+Traditional observability covers performance. AI systems additionally need:
+- **LLM quality monitoring** — are answers actually good? hallucination rate?
+- **Token usage tracking** — tokens per request, cost per request
+- **Prompt/response logging** — actual prompts and responses for debugging
+- **Model drift detection** — is output distribution changing over time?
 
 ---
 
@@ -61,61 +73,59 @@ flowchart TD
     Alerts -->|notify| OnCall["👨‍💻 On-Call Engineer"]
 ```
 
-The pipeline:
-1. **Instrument the application** — Add logging, metrics, and tracing code to your application
-2. **Collect data** — Ship data to centralized stores (Prometheus for metrics, ELK for logs, Jaeger for traces)
-3. **Visualize** — Build dashboards that show your key health indicators in real time
-4. **Alert** — Set threshold-based alerts: "If error_rate > 1% for 5 minutes, page me"
-5. **Investigate** — When alerted, use traces to drill into specific requests and understand root cause
-6. **Improve** — Fix the problem, verify via metrics, and potentially set tighter SLOs
+1. **Instrument** — add logging, metrics, and tracing code to your application
+2. **Collect** — ship to centralized stores (Prometheus, ELK, Jaeger)
+3. **Visualize** — dashboards showing key health indicators in real time
+4. **Alert** — threshold-based alerts ("if error_rate > 1% for 5 min, page me")
+5. **Investigate** — use traces to drill into specific requests and find root cause
+6. **Improve** — fix, verify via metrics, tighten SLOs
 
 ---
 
 ## Real-World Examples
 
-1. **Detecting a latency regression**: After a model update, the Grafana dashboard shows P99 latency jumping from 800ms to 3,200ms. Traces reveal the new model has 4x more parameters. Team rolls back the update within 10 minutes — before most users notice.
-
-2. **Catching cost overrun**: A new feature was accidentally sending 20x more context than intended (a bug in the history truncation logic). The daily cost alert fires when the day's spend reaches 120% of the 7-day average at 10am. The engineer finds and fixes the bug by noon, saving $2,000 in API costs.
-
-3. **Quality degradation detection via LangSmith**: After a prompt change, the LLM-as-judge quality score drops from 4.2/5 to 3.1/5. The observability system catches this before any user reports a problem. The prompt change is reverted.
-
-4. **Abuse detection**: A single user is making 10,000 requests per hour (likely an automated attack or crawl). The per-user token usage metric triggers an alert. The account is rate-limited automatically.
-
-5. **Prompt injection detection**: A Langfuse dashboard showing unusual system prompt override attempts (prompt injection) triggers an alert. The security team investigates and patches the input validation.
+1. **Latency regression**: After a model update, Grafana shows P99 jumping from 800ms to 3,200ms. Traces reveal the new model has 4x more parameters. Rollback in 10 minutes — before most users notice.
+2. **Cost overrun**: A bug sends 20x more context than intended. The daily cost alert fires at 120% of 7-day average at 10am. Fixed by noon, saving $2,000 in API costs.
+3. **Quality degradation via LangSmith**: After a prompt change, LLM-as-judge score drops from 4.2/5 to 3.1/5. Caught before any user report. Prompt change reverted.
+4. **Abuse detection**: A single user makes 10,000 requests/hour. Per-user token metric triggers auto rate-limiting.
+5. **Prompt injection detection**: Langfuse dashboard shows unusual system prompt override attempts. Security team investigates and patches input validation.
 
 ---
 
 ## Common Mistakes to Avoid ⚠️
 
-**1. Only logging errors, not happy paths**
-You need to log every request — successful and failed. Otherwise, your observability data is a biased sample and you can't calculate error rates, latency percentiles, or cost.
+**1. Only logging errors** — Log every request — successful and failed. Without it, you can't calculate error rates, latency percentiles, or cost.
 
-**2. Not setting up alerts until something breaks**
-Alerts should be set up before you need them. "We'll add alerting after launch" is how you first learn about an outage from an angry customer tweet. Set up at minimum: error rate alert, latency spike alert, and daily cost threshold alert before going live.
+**2. Adding alerts after something breaks** — Set up at minimum: error rate alert, latency spike alert, and daily cost threshold alert *before* going live.
 
-**3. Logging prompts and responses without considering privacy**
-Your logs will contain user inputs, which may include personal information, passwords accidentally typed, sensitive business data. Before logging prompt/response pairs, implement PII scrubbing, set appropriate log retention policies, and ensure only authorized personnel can access raw logs.
+**3. Logging prompts without considering privacy** — User inputs may contain PII, passwords, sensitive data. Implement PII scrubbing, set log retention policies, and restrict access to raw logs.
 
-**4. Alert fatigue from too many low-signal alerts**
-If your alerts fire constantly for minor variations, engineers start ignoring them. Set thresholds at genuinely actionable levels. A P99 alert at "200ms" will fire constantly in normal conditions. A P99 alert at "3x the baseline rolling average" fires only on real anomalies.
+**4. Alert fatigue from low-signal alerts** — A P99 alert at "200ms" fires constantly. A P99 alert at "3x the baseline rolling average" fires only on real anomalies.
 
 ---
 
 ## Connection to Other Concepts 🔗
 
-- **Model Serving** → Observability is layered on top of your serving infrastructure. Inference servers emit the raw data. See [01_Model_Serving](../01_Model_Serving/Theory.md).
-- **Latency Optimization** → You find latency problems through observability. Traces show exactly where time is spent. See [02_Latency_Optimization](../02_Latency_Optimization/Theory.md).
-- **Cost Optimization** → You find cost problems through observability. Token usage logs power cost tracking. See [03_Cost_Optimization](../03_Cost_Optimization/Theory.md).
-- **Evaluation Pipelines** → Online evaluation (monitoring quality in production) is a part of observability. See [06_Evaluation_Pipelines](../06_Evaluation_Pipelines/Theory.md).
-- **Safety and Guardrails** → Guardrail trigger rates (how often inputs are blocked) are an important observability metric. See [07_Safety_and_Guardrails](../07_Safety_and_Guardrails/Theory.md).
+- **Model Serving** → Inference servers emit the raw observability data: [01_Model_Serving](../01_Model_Serving/Theory.md)
+- **Latency Optimization** → Traces show exactly where time is spent: [02_Latency_Optimization](../02_Latency_Optimization/Theory.md)
+- **Cost Optimization** → Token usage logs power cost tracking: [03_Cost_Optimization](../03_Cost_Optimization/Theory.md)
+- **Evaluation Pipelines** → Online evaluation is the quality dimension of observability: [06_Evaluation_Pipelines](../06_Evaluation_Pipelines/Theory.md)
+- **Safety and Guardrails** → Guardrail trigger rates are an important observability metric: [07_Safety_and_Guardrails](../07_Safety_and_Guardrails/Theory.md)
 
 ---
 
-✅ **What you just learned:** Observability is the three pillars (logs, metrics, traces) plus AI-specific layers (prompt/response logging, token tracking, quality monitoring). Without it, you're flying blind in production. Start with basic logging and cost tracking, add tracing and quality monitoring as you grow.
+✅ **What you just learned:** Observability = three pillars (logs, metrics, traces) + AI-specific layers (prompt/response logging, token tracking, quality monitoring). Without it, you're flying blind in production. Start with basic logging and cost tracking; add tracing and quality monitoring as you grow.
 
-🔨 **Build this now:** Add a simple logging wrapper around every LLM call: log `timestamp`, `model`, `input_tokens`, `output_tokens`, `latency_ms`, and compute `cost`. Ship these to any log aggregation system (CloudWatch, Datadog free tier, or even a CSV file to start). Check the data daily.
+🔨 **Build this now:** Add a logging wrapper around every LLM call: log `timestamp`, `model`, `input_tokens`, `output_tokens`, `latency_ms`, and compute `cost`. Ship to any log aggregation system (CloudWatch, Datadog free tier, or even a CSV). Check daily.
 
-➡️ **Next step:** [06 Evaluation Pipelines](../06_Evaluation_Pipelines/Theory.md) — observability tells you *that* quality changed; evaluation pipelines tell you *why*.
+➡️ **Next step:** [06 Evaluation Pipelines](../06_Evaluation_Pipelines/Theory.md) — observability tells you *that* quality changed; evaluation tells you *why*.
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[A5: Fine-Tune → Evaluate → Deploy](../../20_Projects/02_Advanced_Projects/05_Fine_Tune_Evaluate_Deploy/Project_Guide.md)**
+> This project uses: latency tracking per request, token logging, cost per query dashboard, structured logs for debugging
 
 ---
 

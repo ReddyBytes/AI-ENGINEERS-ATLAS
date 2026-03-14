@@ -1,33 +1,13 @@
 # Agent Memory — Theory
 
-Think about three types of memory you use every day.
+Three types of memory you use every day:
+- **Short-term:** In a meeting, someone says "the budget is $50,000." You reference it five minutes later.
+- **Long-term:** You learned to drive years ago. That knowledge persists.
+- **Episodic:** You remember the specific time your car broke down on the highway last winter.
 
-**Short-term:** You're in a meeting. Someone says "the budget is $50,000." Five minutes later you reference it — you remember because it just happened.
-
-**Long-term:** You learned to drive years ago. You still remember. That knowledge is stored deep and lasts forever.
-
-**Episodic:** You remember the specific time your car broke down on the highway last winter. It's not just knowledge — it's a memory of a specific event.
-
-Without these, every conversation you have would start from scratch. You'd forget who you were talking to, what was said, and what you learned.
-
-AI agents have all three types of memory. Implemented differently, but the same idea.
+Without these, every conversation starts from scratch. AI agents have all three types — implemented differently, but the same idea.
 
 👉 This is why we need **Agent Memory** — so agents can remember what happened, what they know, and what to do differently next time.
-
----
-
-## Why Memory Matters
-
-Without memory, every conversation with an agent would go like this:
-
-```
-User: "My name is Sarah. I'm working on a Python project."
-Agent: "Hello! How can I help you?"
-User: "Can you help me debug it?"
-Agent: "Sure! Who are you and what are you working on?"
-```
-
-Useless. Every agent needs some form of memory.
 
 ---
 
@@ -35,9 +15,7 @@ Useless. Every agent needs some form of memory.
 
 ### 1. In-Context Memory (Short-Term)
 
-The simplest form. Everything from the current conversation is kept in the prompt.
-
-The agent "remembers" because the history is literally in its input.
+Everything from the current conversation is kept in the prompt. The agent "remembers" because the history is literally in its input.
 
 ```
 User: I want to plan a trip to Japan.
@@ -48,31 +26,19 @@ Agent: Perfect. [Agent remembers it's Japan, June 15-30 — it's right there in 
 
 **Limitation:** The context window has a size limit. Long conversations get truncated.
 
----
-
 ### 2. Summarization Memory
 
-Instead of keeping the full conversation, the agent periodically summarizes older parts.
+Instead of keeping the full conversation, the agent periodically summarizes older parts — preserving key facts while keeping the context window manageable.
 
 ```
-[Conversation so far]                   [Stored summary]
-User: I'm planning Japan trip           "User is planning a Japan trip
-Agent: What dates?                       for June 15-30, budget ~$3000,
-User: June 15-30                         interested in Tokyo and Kyoto."
-Agent: Budget?
-User: About $3000
-...50 more messages...
+[Stored summary]
+"User is planning a Japan trip for June 15-30, budget ~$3000,
+ interested in Tokyo and Kyoto."
 ```
-
-This keeps the context window manageable while preserving key facts.
-
----
 
 ### 3. Entity Memory
 
-Tracks specific named things — people, places, topics — and what's been said about them.
-
-The agent maintains a "fact sheet" that gets updated as the conversation progresses.
+Tracks specific named things — people, places, topics — and what's been said about them. Maintains a "fact sheet" that gets updated as the conversation progresses.
 
 ```
 Entities tracked:
@@ -83,15 +49,9 @@ Entities tracked:
 
 When Sarah says "fix the bug", the agent knows exactly which bug she means.
 
----
-
 ### 4. Vector (Long-Term) Memory
 
-Information stored in a vector database. Can persist across many conversations.
-
-When the agent needs something from memory, it does a **semantic search** — "find memories related to this current topic" — and retrieves the most relevant pieces.
-
-This is like long-term memory: stored outside the current conversation, retrieved on demand.
+Information stored in a vector database that persists across many conversations. When the agent needs something from memory, it does a **semantic search** — "find memories related to this current topic" — and retrieves the most relevant pieces.
 
 ---
 
@@ -125,12 +85,11 @@ flowchart TD
 ## A Practical Example
 
 A customer service agent helping users over many sessions:
-
 - **In-context** — remembers everything said in this support ticket
 - **Entity memory** — tracks that this user's account is Premium, their timezone is PST, their recurring issue is with billing
-- **Vector memory** — stores summaries of past tickets, so next time the user says "same issue as before", the agent can retrieve context from 3 months ago
+- **Vector memory** — stores summaries of past tickets; when the user says "same issue as before", retrieves context from 3 months ago
 
-Each memory type does a different job. Used together, the agent feels remarkably like talking to a human who actually knows you.
+Used together, the agent feels remarkably like talking to a human who actually knows you.
 
 ---
 
@@ -139,6 +98,13 @@ Each memory type does a different job. Used together, the agent feels remarkably
 🔨 **Build this now:** Think of a multi-session customer support scenario. Write out what each type of memory would store after the first conversation. What would in-context memory have? Entity memory? What would be stored in vector memory for future sessions?
 
 ➡️ **Next step:** Planning and Reasoning → `/Users/1065696/Github/AI/10_AI_Agents/05_Planning_and_Reasoning/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[I3: Multi-Tool Research Agent](../../20_Projects/01_Intermediate_Projects/03_Multi_Tool_Research_Agent/Project_Guide.md)**
+> This project uses: persisting conversation history across tool calls, summarizing past context when history gets too long
 
 ---
 

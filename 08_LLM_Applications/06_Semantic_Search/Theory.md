@@ -1,10 +1,8 @@
 # Semantic Search — Theory
 
-Google search before 2013 was all keyword matching. You typed "fix runny nose" and it found pages containing those exact words. If a page said "remedies for nasal congestion" — not found, even though it's exactly what you want.
+Google search before 2013 was all keyword matching. Search "fix runny nose" and it found pages containing those exact words. A page saying "remedies for nasal congestion" — not found, even though it's exactly what you want.
 
-Then Google introduced semantic search. Now you search "fix a runny nose" and it returns "remedies for nasal congestion," "tips for stuffy sinuses," and "how to recover from a cold" — because it understands what you mean, not just what you typed.
-
-Zero keyword overlap. Perfect result.
+Then Google introduced semantic search. Now "fix a runny nose" returns "remedies for nasal congestion," "tips for stuffy sinuses," and "how to recover from a cold" — because it understands meaning, not just words. Zero keyword overlap. Perfect result.
 
 👉 This is why we need **Semantic Search** — to find content based on meaning, not just matching words.
 
@@ -18,9 +16,8 @@ Zero keyword overlap. Perfect result.
 | "dog" query finds | Pages with "dog" | Pages about "canine," "puppy," "pets" |
 | Handles synonyms | No | Yes |
 | Handles paraphrasing | No | Yes |
-| Handles misspelling | Partially | Better (via fuzzy match) |
-| Works on short queries | Great | Good |
 | Very specific terms / codes | Better | Worse |
+| Works on short queries | Great | Good |
 
 ---
 
@@ -35,43 +32,31 @@ flowchart TD
     F --> G[Return matching documents]
 ```
 
-The key: both documents and queries go through the same embedding model. This puts them in the same "meaning space," so you can compare query vectors to document vectors.
-
----
-
-## The Semantic Search Pipeline
+Both documents and queries go through the same embedding model, placing them in the same "meaning space" so query vectors can be compared to document vectors.
 
 **Step 1: Indexing (done once, or when documents change)**
 ```
-Raw documents
-  → clean text
-  → embed with model
-  → store in vector DB
+Raw documents → clean text → embed with model → store in vector DB
 ```
 
 **Step 2: Query (done on every user search)**
 ```
-User's question
-  → embed with same model
-  → find top-K similar vectors
-  → return source documents
+User's question → embed with same model → find top-K similar vectors → return source documents
 ```
 
 ---
 
 ## Hybrid Search: The Best of Both Worlds
 
-Pure semantic search misses exact keyword matches. Pure keyword search misses synonyms and paraphrasing. Combine them.
+Pure semantic search misses exact keyword matches. Pure keyword search misses synonyms. Combine them.
 
-**Hybrid search** = semantic score + keyword score, then fuse the rankings.
+**Hybrid search** = semantic score + keyword score, fused via rankings.
 
-Common fusion approach: **RRF (Reciprocal Rank Fusion)**
-
+**RRF (Reciprocal Rank Fusion):**
 ```
 final_score = 1/(k + semantic_rank) + 1/(k + keyword_rank)
 ```
-
-Where `k` is typically 60. Documents that rank high in both methods float to the top.
+Where `k` is typically 60. Documents ranking high in both methods float to the top.
 
 ```mermaid
 flowchart LR
@@ -82,15 +67,15 @@ flowchart LR
     D --> E[Re-ranked Results]
 ```
 
-**When to use hybrid:** Most real-world search applications. Especially when users sometimes search by exact product codes, IDs, or proper nouns (keyword wins) AND sometimes search by concept (semantic wins).
+Use hybrid when users sometimes search by exact product codes or IDs (keyword wins) AND sometimes by concept (semantic wins) — which is most real-world search.
 
 ---
 
 ## Re-ranking
 
-The top-K results from vector search are ordered by cosine similarity. But cosine similarity isn't a perfect measure of relevance. Re-ranking adds a second, more powerful pass.
+Top-K vector search results are ordered by cosine similarity, which isn't a perfect relevance measure. Re-ranking adds a second, more powerful pass.
 
-A **cross-encoder** re-ranker takes the query and each candidate document together, processes them jointly, and produces a relevance score. Much more accurate than cosine similarity alone.
+A **cross-encoder** re-ranker takes the query and each candidate document together, processes them jointly, and outputs a relevance score — much more accurate than cosine similarity alone.
 
 ```
 Vector search: top-20 candidates (fast but approximate)
@@ -98,14 +83,14 @@ Vector search: top-20 candidates (fast but approximate)
   → Return top-5 by re-ranker score (accurate but can't scale to millions)
 ```
 
-This two-stage pipeline gives you speed (vector search) AND accuracy (re-ranking). Used in all serious production search systems.
+This two-stage pipeline gives speed (vector search) AND accuracy (re-ranking) — used in all serious production search systems.
 
 ---
 
 ## Performance Characteristics
 
-| Approach | Documents It Can Handle | Query Latency | Accuracy |
-|----------|------------------------|---------------|---------|
+| Approach | Documents | Query Latency | Accuracy |
+|----------|-----------|---------------|---------|
 | Brute force cosine | < 50K | Slow | Exact |
 | HNSW vector DB | Millions | Milliseconds | ~99% |
 | Hybrid search (HNSW + BM25) | Millions | Milliseconds | Better |
@@ -118,6 +103,13 @@ This two-stage pipeline gives you speed (vector search) AND accuracy (re-ranking
 🔨 **Build this now:** Take 10 diverse sentences and build a mini semantic search. Embed them all, then query with a sentence that shares no keywords with the answer but is semantically related.
 
 ➡️ **Next step:** Memory Systems → `08_LLM_Applications/07_Memory_Systems/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[I1: Semantic Search Engine](../../20_Projects/01_Intermediate_Projects/01_Semantic_Search_Engine/Project_Guide.md)**
+> This project uses: embedding queries and documents, cosine similarity ranking, returning top-K results
 
 ---
 

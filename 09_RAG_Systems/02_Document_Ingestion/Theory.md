@@ -1,8 +1,6 @@
 # Document Ingestion — Theory
 
-Setting up a new library takes a week before a single book is on the shelf. Step one: get all the books in the door. Before you can catalog them, shelve them, or let anyone search for them — you need to physically collect them from donations, purchases, and storage.
-
-Document ingestion is that first step for RAG. Before you can chunk, embed, or search your knowledge base — you need to get all your source material loaded and cleaned up. PDFs, web pages, spreadsheets, databases — all become clean, usable text.
+Setting up a new library takes a week before a single book is on the shelf — first, you get all the books in the door. Document ingestion is that first step for RAG: before you can chunk, embed, or search your knowledge base, you need to load all source material and clean it up.
 
 👉 This is why we need **Document Ingestion** — RAG can only search what you've loaded. Garbage in, garbage out.
 
@@ -10,16 +8,8 @@ Document ingestion is that first step for RAG. Before you can chunk, embed, or s
 
 ## What Document Ingestion Does
 
-Take raw source material in any format:
-```
-company_policy.pdf
-meeting_notes.docx
-product_catalog.csv
-https://docs.yourproduct.com/
-database table: support_tickets
-```
+Takes raw source material in any format and converts it to a standard structure:
 
-And convert everything to a standard structure:
 ```python
 Document(
     page_content="The refund policy states that...",
@@ -31,7 +21,16 @@ Document(
 )
 ```
 
-Every document becomes a `page_content` string plus `metadata` about where it came from.
+Every document becomes `page_content` (string) plus `metadata` (source, page, date, etc.).
+
+```mermaid
+flowchart LR
+    A[Raw Source] --> B[Parser\nPDF / DOCX / CSV / HTML]
+    B --> C[Raw Text]
+    C --> D[Cleaner\nstrip boilerplate, fix encoding]
+    D --> E[Document Object\npage_content + metadata]
+    E --> F[(Next step:\nChunking)]
+```
 
 ---
 
@@ -53,37 +52,21 @@ flowchart TD
 
 ## Key Challenges
 
-### Scanned PDFs
-A regular PDF has text embedded. A scanned PDF is just an image of text. Standard PDF loaders return empty strings for scanned PDFs.
+**Scanned PDFs** — Standard PDF loaders return empty strings for scanned PDFs (images of text). Fix: use OCR (`pytesseract` or AWS Textract) before loading.
 
-Fix: use OCR (Optical Character Recognition) like `pytesseract` or a cloud service like AWS Textract before loading.
+**Tables** — Tables in PDFs/Word lose their structure when extracted as plain text. Fix: use specialized loaders (`pdfplumber`, `camelot`) that preserve table structure, or convert to markdown.
 
-### Tables
-Tables in PDFs and Word documents lose their structure when extracted as plain text. A 5-column table might become garbled single-line text.
-
-Fix: use specialized loaders (`pdfplumber`, `camelot`) that preserve table structure, or convert tables to markdown format.
-
-### Long Documents with Irrelevant Sections
-A 100-page annual report has one relevant section for your question. Headers, footers, legal boilerplate, and table of contents add noise.
-
-Fix: add pre-processing to strip common boilerplate patterns. Store page numbers in metadata to help with context assembly.
+**Long documents with irrelevant sections** — Headers, footers, boilerplate, and table of contents add noise. Fix: pre-process to strip common patterns. Store page numbers in metadata.
 
 ---
 
 ## LangChain Document Loaders
 
-LangChain provides ready-made loaders for almost every format:
-
 ```python
 from langchain.document_loaders import PyPDFLoader, CSVLoader, WebBaseLoader
 
-# PDF
 pdf_docs = PyPDFLoader("report.pdf").load()
-
-# CSV
 csv_docs = CSVLoader("data.csv").load()
-
-# Web page
 web_docs = WebBaseLoader("https://example.com/docs").load()
 ```
 
@@ -93,12 +76,11 @@ Each returns a list of `Document` objects with `page_content` and `metadata`.
 
 ## Document Metadata
 
-Metadata is as important as the text. It lets you:
+Metadata lets you:
 - **Filter** searches ("only documents from Q4 2024")
 - **Display** sources in answers ("Source: Policy Manual, page 3")
 - **Debug** retrieval ("why did this chunk get returned?")
 
-Common metadata fields to store:
 ```python
 metadata = {
     "source": "company_handbook.pdf",
@@ -117,6 +99,13 @@ metadata = {
 🔨 **Build this now:** Use PyPDFLoader to load any PDF. Print the first 3 documents' page_content (first 200 chars each) and metadata. Notice how each page becomes a separate document.
 
 ➡️ **Next step:** Chunking Strategies → `09_RAG_Systems/03_Chunking_Strategies/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)**
+> This project uses: loading PDF and text files, extracting raw text, cleaning it before chunking
 
 ---
 

@@ -8,45 +8,31 @@ You step into the shower. The water is freezing. You turn the dial a little to t
 
 ## What Is a Derivative?
 
-A derivative measures how fast something is changing.
-
-You're driving on a highway. Your position changes over time. The derivative of your position is your speed — it tells you how fast your position is changing right now.
-
-In math terms: if you have a function f(x), the derivative f'(x) tells you the slope of that function at point x.
+A derivative measures how fast something is changing — it's the slope of a function at a point.
 
 - **Positive slope:** going uphill — f(x) increases as x increases
 - **Negative slope:** going downhill — f(x) decreases as x increases
-- **Zero slope:** flat at the top or bottom — this is often where the minimum or maximum lives
-
-That's it. A derivative is the slope of a curve at a point.
+- **Zero slope:** flat top or bottom — where the minimum or maximum lives
 
 ---
 
 ## Why AI Needs Derivatives
 
-An AI model has a **loss function** — a measure of how wrong the model is. When loss is high, predictions are bad. We want the loss to be as small as possible.
+An AI model has a **loss function** — a measure of how wrong the model is. The loss depends on the model's weights. The derivative of the loss with respect to a weight tells you which direction to change that weight to reduce loss: if derivative is positive, decrease the weight; if negative, increase it.
 
-The loss depends on the model's weights (parameters). Change the weights, and the loss changes. The question is: **which direction should we change each weight to reduce the loss?**
-
-The derivative answers this exactly. If the derivative of the loss with respect to a weight is positive, increasing that weight increases the loss (bad). So we should decrease it. If the derivative is negative, we should increase the weight.
-
-We always move in the direction opposite to the derivative. This is called **gradient descent**.
+Moving opposite to the derivative is called **gradient descent**.
 
 ---
 
 ## Gradient = Multi-Dimensional Derivative
 
-A neural network has millions of weights. Each one is a different "dial" you can turn. The derivative with respect to just one weight tells you how to adjust that one dial.
-
-The **gradient** is the collection of all these partial derivatives — one for every weight in the model.
+A neural network has millions of weights. The **gradient** is the collection of all partial derivatives — one for every weight:
 
 ```
 gradient = [∂loss/∂w1, ∂loss/∂w2, ∂loss/∂w3, ...]
 ```
 
-Each number says: "if you increase this particular weight by a tiny amount, the loss changes by this much."
-
-The gradient vector points in the direction of steepest increase in loss. Moving in the opposite direction decreases the loss most efficiently.
+Each number says: "if you increase this weight by a tiny amount, the loss changes by this much." The gradient points in the direction of steepest increase in loss — moving opposite decreases it most efficiently.
 
 ---
 
@@ -61,21 +47,31 @@ The gradient vector points in the direction of steepest increase in loss. Moving
 6. Repeat from step 2 until loss is small enough
 ```
 
-The **learning rate** controls how big each step is. Too big and you overshoot. Too small and training takes forever. Sound familiar? It's just the shower dial again.
+The **learning rate** controls how big each step is. Too big and you overshoot. Too small and training takes forever. It's the shower dial again.
+
+```mermaid
+flowchart TD
+    Start[Random Weights] --> Predict[Feed Data\nMake Prediction]
+    Predict --> Loss[Compute Loss\nhow wrong?]
+    Loss --> Grad[Compute Gradient\nwhich way is uphill?]
+    Grad --> Update[Update Weights\nstep opposite to gradient]
+    Update --> Check{Loss small\nenough?}
+    Check -->|No| Predict
+    Check -->|Yes| Done[Training Complete]
+```
 
 ---
 
 ## The Chain Rule — How Backpropagation Works
 
-Neural networks have many layers. To find the gradient of the loss with respect to the first layer's weights, you need to "chain" the derivatives through every layer back to the beginning.
+To find the gradient of the loss with respect to the first layer's weights, you "chain" derivatives through every layer back to the beginning:
 
-The **chain rule** says:
 ```
 if y depends on x through an intermediate z,
 then dy/dx = (dy/dz) × (dz/dx)
 ```
 
-Backpropagation is just applying the chain rule repeatedly, layer by layer, from the output back to the input. That's why it's called "back" propagation — gradients flow backwards through the network.
+Backpropagation is just applying the chain rule repeatedly, layer by layer, from output back to input — hence "back" propagation.
 
 ---
 
@@ -96,9 +92,7 @@ flowchart TD
 
 ## Local vs. Global Minimum
 
-One trap: gradient descent might find a local minimum (a small valley) instead of the global minimum (the deepest valley). From a local minimum, every small step uphill — so the algorithm stops. But there might be a better solution elsewhere.
-
-In practice with deep learning, local minima are rarely a big problem. The loss landscape has so many dimensions that most flat regions are saddle points (flat in some directions but not others), and large models have enough complexity to find good-enough solutions.
+Gradient descent might find a local minimum (a small valley) instead of the global minimum (the deepest valley). In practice with deep learning, local minima are rarely a big problem — the high-dimensional loss landscape has so many dimensions that most flat regions are saddle points, and large models find good-enough solutions.
 
 ---
 

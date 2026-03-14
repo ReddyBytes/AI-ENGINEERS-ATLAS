@@ -8,14 +8,12 @@ You check the weather app before leaving home. It says "70% chance of rain." You
 
 ## What Is Probability?
 
-Probability is a number between 0 and 1 that measures how likely something is to happen.
+Probability is a number between 0 and 1 measuring how likely something is to happen.
 
 - **0** = impossible (you roll a 7 on a standard die)
 - **1** = certain (the sun rises tomorrow)
 - **0.5** = 50/50 (a fair coin flip)
 - **0.7** = 70% likely (weather app saying rain)
-
-That's it. A single number. It just tells you: "out of all the times this situation happens, how often does this outcome occur?"
 
 ---
 
@@ -53,9 +51,7 @@ P(rain AND bus late) = 0.7 × 0.3 = 0.21 → about 1 in 5 days
 P(A or B) = P(A) + P(B) − P(A and B)
 ```
 
-We subtract the overlap so we don't count it twice.
-
-P(rain OR bus late) = 0.7 + 0.3 − 0.21 = 0.79
+Subtract the overlap to avoid counting it twice. P(rain OR bus late) = 0.7 + 0.3 − 0.21 = 0.79
 
 ---
 
@@ -67,25 +63,31 @@ P(rain OR bus late) = 0.7 + 0.3 − 0.21 = 0.79
 P(not A) = 1 − P(A)
 ```
 
-P(bus NOT late) = 1 − 0.3 = 0.7
-
-This is incredibly useful. Sometimes it's easier to calculate the opposite and subtract.
+P(bus NOT late) = 1 − 0.3 = 0.7. Sometimes it's easier to calculate the opposite and subtract.
 
 ---
 
 ## Conditional Probability (Given that something already happened)
 
-"It's raining. NOW what's the chance my bus is late?"
-
-New information changes our estimate. That's conditional probability.
+"It's raining. NOW what's the chance my bus is late?" New information changes our estimate.
 
 ```
 P(B | A) = P(A and B) / P(A)
 ```
 
-Read "P(B | A)" as: "probability of B, given A already happened."
+Read "P(B | A)" as: "probability of B, given A already happened." Real example: P(spam | email contains "FREE MONEY") is much higher than P(spam) alone — the word is new evidence.
 
-Real example: In a spam filter, P(spam | email contains "FREE MONEY") is much higher than P(spam) alone. The word "FREE MONEY" is new evidence.
+```mermaid
+graph TD
+    U[Universe: all outcomes]
+    U --> A[Event A\ne.g. It rains]
+    U --> notA[Not A\nno rain]
+    A --> AB[A AND B\nboth happen]
+    A --> AnotB[A only\nbus on time]
+    notA --> notAB[B only\nbus late no rain]
+    notA --> neither[Neither A nor B]
+    AB --> cond[Conditional P\nP of B given A\n= overlap / P of A]
+```
 
 ---
 
@@ -105,13 +107,13 @@ flowchart TD
 
 ## Why AI Cares
 
-Every AI model that makes a prediction is doing probability.
+Every AI model that makes a prediction is doing probability:
 
-- A spam filter says: "There's a 95% chance this is spam."
-- A self-driving car says: "There's a 12% chance that blob is a pedestrian."
-- A language model says: "The next word is 40% likely to be 'the'."
+- A spam filter: "95% chance this is spam."
+- A self-driving car: "12% chance that blob is a pedestrian."
+- A language model: "The next word is 40% likely to be 'the'."
 
-None of these are certainties. They're probabilities. Understanding probability means understanding how AI thinks.
+None of these are certainties — they're probabilities.
 
 ---
 
@@ -120,6 +122,13 @@ None of these are certainties. They're probabilities. Understanding probability 
 🔨 **Build this now:** Pick three things that might happen tomorrow (your alarm going off on time, your wifi being slow, it being sunny). Estimate a probability for each. Then use the AND rule to find the chance all three happen at once.
 
 ➡️ **Next step:** Statistics — `01_Math_for_AI/02_Statistics/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B1: Data & Probability Explorer](../../20_Projects/00_Beginner_Projects/01_Data_and_Probability_Explorer/Project_Guide.md)**
+> This project uses: sample space, P(A|B), AND/OR rules, conditional probability on a real dataset
 
 ---
 

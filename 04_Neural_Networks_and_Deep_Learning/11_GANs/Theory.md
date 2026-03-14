@@ -1,23 +1,21 @@
 # GANs — Theory
 
-A skilled counterfeiter is trying to forge currency. The central bank has a detective whose only job is to spot fakes. At first, the fakes are terrible — wrong color, wrong size. The detective easily catches them all. So the counterfeiter studies the detective's feedback and improves. The new fakes are better. The detective learns to spot those too. The counterfeiter improves again. This cycle continues, with each side getting better and better, until the fakes are completely indistinguishable from the real thing.
+A counterfeiter forges currency. A detective spots the fakes. The counterfeiter studies the feedback and improves. The detective learns to spot those too. The cycle continues until the fakes are indistinguishable from real.
 
-👉 This is why we need **GANs** — two networks competing against each other until the generator produces data so realistic that even an expert cannot tell it apart from real data.
+👉 This is why we need **GANs** — two networks competing until the generator produces data so realistic even an expert can't tell it apart from real.
 
 ---
 
 ## The Two Networks
 
-A GAN (Generative Adversarial Network) consists of two neural networks playing a game against each other:
-
-**The Generator (the counterfeiter):**
-- Input: random noise z (a vector of random numbers)
-- Output: a fake image (or text, audio, etc.)
+**The Generator (counterfeiter):**
+- Input: random noise z
+- Output: fake image (or text, audio, etc.)
 - Goal: generate fakes that fool the discriminator
 
-**The Discriminator (the detective):**
-- Input: an image — either real (from the training set) or fake (from the generator)
-- Output: a probability — "is this real or fake?"
+**The Discriminator (detective):**
+- Input: real image (from training data) or fake (from generator)
+- Output: probability — "is this real or fake?"
 - Goal: correctly classify real vs fake
 
 ---
@@ -35,52 +33,64 @@ flowchart LR
     SCORE -->|"backprop error"| DISC
 ```
 
-The loss function captures the competition:
 ```
 D wants to maximize: log(D(real)) + log(1 - D(G(z)))
-G wants to maximize: log(D(G(z)))   [equivalently: minimize log(1 - D(G(z)))]
+G wants to maximize: log(D(G(z)))
 ```
 
-When D sees a real image, it wants D(real) close to 1.
-When D sees a fake, it wants D(G(z)) close to 0.
-G wants D(G(z)) close to 1 — it wants D to mistake the fake for real.
+D wants D(real) ≈ 1 and D(G(z)) ≈ 0. G wants D(G(z)) ≈ 1.
 
 ---
 
 ## The Training Loop
 
-The key: you alternate between training D and G.
+Alternate between training D and G:
 
 **Step 1 — Train the Discriminator:**
-- Show D some real images → it should output ~1
-- Show D some fakes from G → it should output ~0
-- Update D's weights to improve at telling real from fake
+- Show D real images → should output ~1
+- Show D fakes from G → should output ~0
+- Update D's weights
 
 **Step 2 — Train the Generator:**
 - Generate fakes from G
-- Pass them through D (D's weights are FROZEN in this step)
-- D says "fake" → G gets a high error
+- Pass through D (D's weights frozen)
+- D says "fake" → G gets high error
 - Update G's weights to make D say "real"
 
-Repeat thousands of times. Both get better.
+```mermaid
+sequenceDiagram
+    participant G as Generator
+    participant D as Discriminator
+    participant Data as Real Data
+
+    Note over G,D: Step 1 — Train Discriminator
+    Data->>D: Real images → label 1
+    G->>D: Fake images → label 0
+    D->>D: Compute loss, update D weights
+
+    Note over G,D: Step 2 — Train Generator
+    G->>D: Fake images (D weights frozen)
+    D->>G: "fake" signal → high loss for G
+    G->>G: Update G weights to fool D
+
+    Note over G,D: Repeat until G fools D reliably
+```
 
 ---
 
 ## Nash Equilibrium
 
-The theoretical ideal endpoint is a **Nash Equilibrium**: the generator produces perfectly realistic data, and the discriminator can do no better than random guessing (50/50) because the generated data is indistinguishable from real. In practice, this is never perfectly achieved — but you aim to get close.
+The theoretical ideal endpoint: the generator produces perfectly realistic data and the discriminator can do no better than random guessing (50/50). In practice never perfectly achieved, but the aim.
 
 ---
 
 ## Mode Collapse — The Main Problem
 
-**Mode collapse** is when the generator finds one type of output that fools the discriminator and just keeps generating that one thing. For example, in a dataset of human faces, the generator might only produce faces of one gender or one ethnicity — because those fakes were successful, it keeps doing them.
+**Mode collapse:** the generator finds one type of output that fools the discriminator and only generates that. For a face dataset, it might only produce one gender or ethnicity.
 
-The generator has "collapsed" to a single mode of the data distribution instead of covering the full diversity.
+**Signs:** Samples all look similar — high quality but zero variety.
 
-**Signs:** Generated samples all look very similar to each other. High quality but zero variety.
-
-**Fixes:** Minibatch discrimination (show D groups of generated samples), Wasserstein GAN (better loss function), spectral normalization.
+**Fixes:** Minibatch discrimination, Wasserstein GAN (better loss), spectral normalization.
 
 ---
 
@@ -97,9 +107,9 @@ The generator has "collapsed" to a single mode of the data distribution instead 
 
 ---
 
-✅ **What you just learned:** A GAN is two neural networks — a generator that creates fake data and a discriminator that distinguishes real from fake — trained adversarially until the generator produces data that fools even the discriminator.
+✅ **What you just learned:** A GAN is two networks — a generator creating fake data and a discriminator distinguishing real from fake — trained adversarially until the generator produces data that fools the discriminator.
 
-🔨 **Build this now:** Think of three real-world examples of the counterfeiter-detective dynamic (where two competing systems improve each other). Examples: spam filters and spammers, immune system and pathogens, captcha and bots. How does the GAN metaphor apply to each?
+🔨 **Build this now:** Think of three real-world counterfeiter-detective dynamics (spam filters vs spammers, immune system vs pathogens, captcha vs bots). How does the GAN dynamic apply to each?
 
 ➡️ **Next step:** Training Techniques — `./12_Training_Techniques/Theory.md`
 

@@ -1,16 +1,14 @@
 # Advanced RAG Techniques — Theory
 
-You build a RAG system. It works pretty well. But sometimes it gives wrong answers. You look at the logs and discover: the right chunk was in the database, but the retrieval step didn't find it. Or the user's question was vague, so the embedding matched a chunk that sort of answered it — but not the right one.
+You build a RAG system. It works pretty well. But sometimes it gives wrong answers — the right chunk was in the database, but retrieval didn't find it. Or the user's question was vague, so the embedding matched a chunk that sort of answered it, but not the right one.
 
-Basic RAG retrieves the top-K chunks and passes them in. Advanced RAG asks: what if the initial retrieval missed something? What if we can improve the question before searching? What if we can verify the ranking after searching?
+Basic RAG retrieves top-K chunks and passes them in. Advanced RAG asks: what if we improve the question before searching? What if we verify the ranking after searching?
 
 👉 This is why we need **Advanced RAG Techniques** — because basic retrieval fails in predictable ways, and there are specific tools to fix each failure mode.
 
 ---
 
 ## The Three Levers
-
-Advanced RAG improves the system at three points:
 
 ```mermaid
 flowchart LR
@@ -24,9 +22,9 @@ flowchart LR
     style D fill:#ffd700
 ```
 
-1. **Before retrieval** — Query Transformation: rewrite, expand, or decompose the question to make retrieval more effective.
-2. **During retrieval** — Hybrid Search: combine semantic vectors with keyword search to catch what each method misses.
-3. **After retrieval** — Reranking: use a slower, more accurate model to re-order the retrieved chunks before passing them to the LLM.
+1. **Before retrieval** — Query Transformation: rewrite, expand, or decompose the question.
+2. **During retrieval** — Hybrid Search: combine semantic vectors with keyword search.
+3. **After retrieval** — Reranking: use a slower, more accurate model to re-order results.
 
 ---
 
@@ -40,15 +38,14 @@ Pure semantic search misses exact keyword matches. Pure keyword search misses pa
 | Keyword (BM25) | "API-2847" exact match | Paraphrased questions |
 | Hybrid | Both of the above | Less than either alone |
 
-The scores from each method are fused using **Reciprocal Rank Fusion (RRF)**:
+Scores are fused using **Reciprocal Rank Fusion (RRF)**:
 
 ```python
-# Each list returns ranked results. RRF combines them.
 score = sum(1 / (k + rank) for rank in ranks)
 # k=60 is standard. rank=1 (top result) → 1/61 ≈ 0.016
 ```
 
-A chunk ranked #1 in semantic search and #1 in keyword search gets the highest combined score. A chunk that appears in only one list still gets some credit.
+A chunk ranked #1 in both searches gets the highest combined score. A chunk appearing in only one list still gets partial credit.
 
 ---
 
@@ -64,11 +61,10 @@ flowchart LR
     D --> E[LLM]
 ```
 
-**Bi-encoder** (what you use for retrieval): embeds query and document separately. Fast, but loses the direct comparison between them.
+- **Bi-encoder** (retrieval): embeds query and document separately. Fast, but loses the direct comparison.
+- **Cross-encoder** (reranking): takes (query, document) as a pair, sees both simultaneously. More accurate, too slow for 10,000 chunks.
 
-**Cross-encoder** (what you use for reranking): takes (query, document) as a pair. Sees both simultaneously. More accurate, but too slow to run against 10,000 chunks.
-
-The pattern: retrieve 20 candidates fast, rerank to top 3 accurately. You get both speed and accuracy.
+Pattern: retrieve 20 candidates fast → rerank to top 3 accurately. You get both speed and accuracy.
 
 Popular reranking models: `cross-encoder/ms-marco-MiniLM-L-6-v2` (fast), `cohere-rerank-3`, `bge-reranker-large` (high accuracy).
 
@@ -76,17 +72,15 @@ Popular reranking models: `cross-encoder/ms-marco-MiniLM-L-6-v2` (fast), `cohere
 
 ## Query Transformation
 
-A user types a short, vague question. The embedding of that question doesn't match the detailed document that answers it. Query transformation fixes this before retrieval runs.
+A user types a short, vague question. The embedding doesn't match the detailed document that answers it. Three fixes:
 
-Three main techniques:
-
-**1. Query expansion / rewriting** — use an LLM to rewrite the question into a more detailed, retrieval-friendly form:
+**1. Query expansion / rewriting** — rewrite into a more detailed, retrieval-friendly form:
 ```
 User: "return policy?"
 Rewritten: "What is the product return policy, including the time window for returns and the refund process?"
 ```
 
-**2. Multi-query** — generate N variations of the question, retrieve for each, merge and deduplicate results:
+**2. Multi-query** — generate N variations, retrieve for each, merge and deduplicate:
 ```
 Original: "How do I get a refund?"
 Variant 1: "What is the refund process?"
@@ -95,7 +89,7 @@ Variant 3: "What steps do I follow to return a product for a refund?"
 → retrieve for all 3, merge, deduplicate → better coverage
 ```
 
-**3. HyDE (Hypothetical Document Embeddings)** — ask the LLM to write a *hypothetical* document that would answer the question, then embed that document for retrieval:
+**3. HyDE (Hypothetical Document Embeddings)** — ask the LLM to write a hypothetical document that would answer the question, then embed that document for retrieval:
 ```
 Question: "What is the return window for electronics?"
 → LLM generates: "Electronics can be returned within 30 days of purchase..."
@@ -122,6 +116,13 @@ Question: "What is the return window for electronics?"
 🔨 **Build this now:** Take your basic RAG pipeline. Add a reranker using `sentence-transformers` with `cross-encoder/ms-marco-MiniLM-L-6-v2`. Retrieve top-10 with ANN, rerank, keep top-3. Measure whether answer quality improves on your test questions.
 
 ➡️ **Next step:** RAG Evaluation → `09_RAG_Systems/08_RAG_Evaluation/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[A1: Advanced RAG with Reranking](../../20_Projects/02_Advanced_Projects/01_Advanced_RAG_with_Reranking/Project_Guide.md)**
+> This project uses: HyDE (generate fake answer → embed → retrieve), hybrid BM25+vector search, cross-encoder reranking top-20 → top-5
 
 ---
 

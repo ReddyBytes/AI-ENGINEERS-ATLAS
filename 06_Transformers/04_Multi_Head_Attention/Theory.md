@@ -1,39 +1,30 @@
 # Multi-Head Attention
 
-A detective arrives at a crime scene. She doesn't investigate alone — she brings eight specialists. One searches for fingerprints. Another analyzes tire tracks. Another maps witness positions. Another looks for the timeline. Each one is an expert looking at the same scene from a different angle. When they're done, they combine their findings into one report.
+A detective brings eight specialists to a crime scene. One searches for fingerprints. Another analyzes tire tracks. Another maps witness positions. Another examines the timeline. Each is an expert looking at the same scene from a different angle. They combine findings into one report.
 
-Multi-head attention works the same way. Instead of one attention mechanism looking at the sentence, you run several in parallel — each one free to learn a different type of relationship.
+Multi-head attention works the same way: several attention mechanisms run in parallel, each free to learn a different type of relationship.
 
-👉 This is why we need **Multi-Head Attention** — to let the model simultaneously capture different types of relationships (syntactic, semantic, positional, coreference) in the same sentence.
+👉 This is why we need **Multi-Head Attention** — to simultaneously capture different relationship types (syntactic, semantic, positional, coreference) in the same sentence.
 
 ---
 
 ## The problem with single-head attention
 
-With one attention head, each word computes one attention distribution over the sequence. But language has many types of relationships at once:
-
+With one attention head, each word computes one distribution over the sequence. But language has many relationship types at once:
 - "She" should attend to the verb (syntactic: subject-verb)
-- "she" should also attend to "Mary" earlier in the text (coreference)
-- "great" should attend to "not" (negation — "not great")
+- "she" should also attend to "Mary" earlier (coreference)
+- "great" should attend to "not" (negation)
 
-One attention distribution can't capture all of these simultaneously. It has to compromise.
+One distribution can't capture all of these simultaneously — it must compromise.
 
 ---
 
 ## How multi-head attention works
 
-Run h separate attention operations in parallel, each with its own W_Q, W_K, W_V matrices:
+Run h separate attention operations in parallel, each with its own W_Q, W_K, W_V:
 
 ```
-Head_1 = Attention(Q × W_Q_1, K × W_K_1, V × W_V_1)
-Head_2 = Attention(Q × W_Q_2, K × W_K_2, V × W_V_2)
-...
-Head_h = Attention(Q × W_Q_h, K × W_K_h, V × W_V_h)
-```
-
-Then concatenate all head outputs and project back to the model dimension:
-
-```
+Head_i = Attention(Q × W_Q_i, K × W_K_i, V × W_V_i)
 MultiHead(Q, K, V) = Concat(Head_1, ..., Head_h) × W_O
 ```
 
@@ -55,7 +46,7 @@ flowchart TD
 
 ## What each head might learn
 
-Heads are not hand-labeled — they learn their specializations through training. Research analyzing trained BERT models found patterns like:
+Heads learn their specializations through training. Research analyzing trained BERT models found patterns like:
 
 | Head type | What it learns |
 |---|---|
@@ -69,28 +60,25 @@ Heads are not hand-labeled — they learn their specializations through training
 
 ## Dimension math
 
-Model dimension: d_model (e.g., 512)
-Number of heads: h (e.g., 8)
-Per-head dimension: d_k = d_model / h = 512 / 8 = 64
+- Model dimension: d_model = 512
+- Number of heads: h = 8
+- Per-head dimension: d_k = 512 / 8 = 64
 
-Each head works with 64-dimensional Q, K, V vectors. After concatenation: 8 × 64 = 512 — back to d_model. The final linear layer W_O projects this back into the right shape.
+Each head works with 64-dimensional Q, K, V. After concatenation: 8 × 64 = 512 — back to d_model. W_O projects this back into the right shape.
 
-**Total parameters for multi-head attention:**
-- 3h weight matrices (W_Q, W_K, W_V per head): 3 × h × d_model × d_k
-- 1 output projection W_O: (h × d_v) × d_model
-- Combined: roughly 4 × d_model²
+**Total parameters:** roughly 4 × d_model²
 
 ---
 
 ## Why the final projection W_O matters
 
-Concatenating heads gives you a vector that mixes 8 different perspectives. The W_O projection lets the model learn the best linear combination of all heads' outputs. It's not just gluing — it's learned mixing.
+Concatenating heads gives a vector mixing 8 perspectives. W_O learns the best linear combination — not just gluing outputs, but learned mixing.
 
 ---
 
-✅ **What you just learned:** Multi-head attention runs h parallel attention operations on the same input, each with independent weight matrices, allowing the model to simultaneously capture different types of relationships in a sequence.
+✅ **What you just learned:** Multi-head attention runs h parallel attention operations on the same input, each with independent weights, allowing the model to simultaneously capture different relationship types in a sequence.
 
-🔨 **Build this now:** Take the sentence "The old man couldn't lift the box because it was too heavy." Think of 3 different relationship types a model would need to capture. Which head would handle each one?
+🔨 **Build this now:** For "The old man couldn't lift the box because it was too heavy," identify 3 relationship types a model needs. Which head would handle each?
 
 ➡️ **Next step:** Positional Encoding → `06_Transformers/05_Positional_Encoding/Theory.md`
 

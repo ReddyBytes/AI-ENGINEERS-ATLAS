@@ -2,15 +2,9 @@
 
 ## The Story
 
-A detective gets handed a box of raw evidence: hours of blurry surveillance footage, thousands of bank transactions, and stacks of phone records.
+A detective gets a box of raw evidence: blurry surveillance footage, thousands of transactions, stacks of phone records. None of it is useful raw. The detective extracts specific timestamps, flags suspicious transactions, maps phone-call patterns. That extraction — turning raw evidence into meaningful clues — is their most important skill.
 
-None of it is useful in raw form. You cannot hand a judge a hard drive and say "the answer is in there somewhere."
-
-The detective's job is to extract the right clues. They pull specific timestamps from the footage. They flag transactions over $9,000 (just under the reporting limit — suspicious). They map which phone numbers called each other and when. They create a pattern from noise.
-
-That extraction — turning raw evidence into meaningful clues — is the detective's most important skill.
-
-👉 This is why we need **Feature Engineering** — raw data is almost never in the right form for a model, and the features you create determine how well your model can learn.
+👉 This is why we need **Feature Engineering** — raw data is almost never in the right form, and the features you create determine how well your model learns.
 
 ---
 
@@ -60,11 +54,11 @@ Create new features from existing ones:
 - Interaction terms: `age × income` as a combined signal
 
 ### 3. Normalization and Scaling
-Models based on distance (KNN, SVM, neural networks) and gradient descent are sensitive to feature scale. A feature ranging 0–1,000,000 will dominate a feature ranging 0–1.
+Distance-based models (KNN, SVM, neural networks) are sensitive to scale. A feature ranging 0–1,000,000 dominates one ranging 0–1.
 
-- **Min-Max Scaling:** Rescales to [0, 1]. `(x - min) / (max - min)`
-- **StandardScaler (Z-score):** Mean=0, Std=1. `(x - mean) / std`
-- Tree-based models (decision trees, random forests) do NOT need scaling.
+- **Min-Max Scaling:** `(x - min) / (max - min)` → range [0, 1]
+- **StandardScaler (Z-score):** `(x - mean) / std` → mean=0, std=1
+- Tree-based models do **not** need scaling.
 
 ### 4. Encoding Categorical Variables
 Models need numbers. Categories (like "Red", "Blue", "Green") must be converted.
@@ -83,11 +77,7 @@ Missing data breaks most models. Options:
 
 ## Why Feature Engineering Often Matters More Than Algorithm Choice
 
-An expert-engineered feature set + simple logistic regression often beats raw data + neural network.
-
-The model can only learn patterns that exist in the features you give it. If you never tell it that the hour of the day matters, it cannot discover that on its own (unless you tell it explicitly).
-
-Good features encode domain knowledge into a form the model can use.
+An expert-engineered feature set + simple logistic regression often beats raw data + neural network. The model can only learn patterns that exist in the features you give it. Good features encode domain knowledge into a form the model can use.
 
 ---
 

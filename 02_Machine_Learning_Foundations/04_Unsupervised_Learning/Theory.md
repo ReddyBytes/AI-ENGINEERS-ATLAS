@@ -2,13 +2,7 @@
 
 ## The Story 📖
 
-Imagine you're a new librarian. Someone drops off 50,000 books with no titles, no categories, no labels. Just pages of content.
-
-Your job: organize them so people can find similar books together.
-
-You start reading. Slowly, patterns emerge. These 200 books keep mentioning wars and kings. These 500 are full of equations and proofs. These 1,000 are about cooking.
-
-Nobody told you those categories existed. You discovered them yourself — just by finding things that are similar to each other.
+You're a new librarian. Someone drops 50,000 books with no titles, no categories. You start reading. Slowly, patterns emerge: 200 books mention wars and kings, 500 are full of equations, 1,000 are about cooking. Nobody told you those categories existed — you discovered them by finding similar things.
 
 👉 This is **Unsupervised Learning** — finding patterns in data with no labels, no correct answers, no teacher.
 
@@ -30,19 +24,7 @@ Nobody told you those categories existed. You discovered them yourself — just 
 ## How It Works — Step by Step
 
 ### Step 1: Raw Data (No Labels)
-You have data, but no one has told you what it means or how to categorize it.
-
-```
-[User A: buys running shoes, fitness trackers, protein powder]
-[User B: buys mystery novels, tea, blankets]
-[User C: buys weights, gym clothes, supplements]
-```
-
-### Step 2: Find Similarities
-The model measures how similar each data point is to every other.
-
-### Step 3: Group / Compress
-It organizes data into clusters (groups of similar things) or finds a compressed representation.
+You have data, but no categories. The model measures how similar each data point is to every other, then organizes data into clusters or finds a compressed representation.
 
 ```mermaid
 flowchart TD

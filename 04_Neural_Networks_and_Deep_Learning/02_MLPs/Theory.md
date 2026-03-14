@@ -1,19 +1,19 @@
 # Multi-Layer Perceptrons (MLPs) — Theory
 
-Imagine you are studying for a big exam. First you collect your notes from every chapter (inputs). Then you summarize each chapter into key points (hidden layer 1 — finding patterns). Then you connect the key points across chapters (hidden layer 2 — finding patterns of patterns). Finally, you write your answers on the exam (output layer).
+You study for an exam: collect notes (inputs), summarize each chapter into key points (hidden layer 1), connect those key points across chapters (hidden layer 2), then write your answers (output). Stacking layers lets the network learn patterns of patterns.
 
-👉 This is why we need **MLPs** — stacking layers lets the network learn patterns of patterns, breaking through the limits of a single neuron.
+👉 This is why we need **MLPs** — stacking layers breaks through the limits of a single neuron.
 
 ---
 
 ## What is an MLP?
 
-MLP stands for **Multi-Layer Perceptron**. It is a neural network with:
+MLP stands for **Multi-Layer Perceptron** — a neural network with:
 - An **input layer** — raw data comes in
-- One or more **hidden layers** — the network processes and transforms the data
-- An **output layer** — the final prediction comes out
+- One or more **hidden layers** — the network transforms data
+- An **output layer** — the final prediction
 
-Every neuron in one layer connects to every neuron in the next layer. This is called **fully connected** (or dense).
+Every neuron in one layer connects to every neuron in the next: **fully connected** (or dense).
 
 ---
 
@@ -31,37 +31,30 @@ flowchart LR
     H2 --> O
 ```
 
-Each arrow has a weight. Each neuron also has a bias. The network learns by adjusting all these weights and biases.
+Each arrow has a weight; each neuron has a bias. Training adjusts all of them.
 
 ---
 
 ## Why Hidden Layers?
 
-A single perceptron draws one straight line. Two layers can draw a shape with corners. Three or more layers can draw almost any shape.
+A single perceptron draws one straight line. More layers can draw increasingly complex shapes:
+- **Layer 1** detects simple patterns: edges, specific words
+- **Layer 2** combines those: "edge + curve = nose"
+- **Layer 3** combines further: "nose + eyes + mouth = face"
 
-Think of it like this:
-- **Layer 1** detects simple patterns: "this edge is present," "this word appears"
-- **Layer 2** combines those: "an edge + a curve = a nose"
-- **Layer 3** combines those: "a nose + two eyes + a mouth = a face"
-
-Each layer builds on the previous one. This is called **hierarchical feature learning**.
+This is **hierarchical feature learning**.
 
 ---
 
 ## Why Activation Functions Are Essential
 
-Without activation functions, stacking layers does nothing. Here is why.
+Without activation functions, stacking layers does nothing new:
 
-A layer computes: `output = W × input + b`
-
-If you stack two linear layers:
 ```
 layer2(layer1(x)) = W2 × (W1 × x + b1) + b2 = (W2×W1)×x + (W2×b1 + b2)
 ```
 
-That is still just one linear transformation. You could replace the whole network with a single layer and get the same result.
-
-Activation functions introduce **non-linearity**. Now the layers cannot collapse into one. The network can learn curved, complex decision boundaries — and solve problems like XOR.
+That's still one linear transformation — the whole stack collapses to a single layer. Activation functions introduce **non-linearity**, allowing layers to learn curved, complex boundaries and solve problems like XOR.
 
 ---
 
@@ -82,21 +75,28 @@ Each layer: multiply by weights, add bias, apply activation. Repeat.
 
 ## Fully Connected vs Sparse
 
-In an MLP every input connects to every neuron in the next layer — that is **fully connected**. For images this gets huge fast (a 28×28 image = 784 inputs, each connecting to 128 neurons = 100,352 weights just in layer 1). That is why CNNs were invented — but we will get there in topic 09.
+In an MLP every input connects to every neuron in the next layer. For a 28×28 image: 784 inputs × 128 neurons = 100,352 weights in layer 1 alone. This is why CNNs were invented (topic 09).
 
 ---
 
 ## Universal Approximation Theorem
 
-A math fact worth knowing: an MLP with just **one hidden layer** with enough neurons can approximate any continuous function to any desired accuracy. This is the Universal Approximation Theorem. It means MLPs are theoretically powerful enough for almost anything. The challenge is finding the right weights — which is what training does.
+An MLP with just **one hidden layer** with enough neurons can approximate any continuous function to any desired accuracy. The challenge is finding the right weights — which is what training does.
 
 ---
 
-✅ **What you just learned:** An MLP is a network of stacked layers of neurons, where non-linear activation functions between layers allow it to learn complex, non-linear patterns that a single perceptron never could.
+✅ **What you just learned:** An MLP is a network of stacked layers where non-linear activation functions between layers allow it to learn complex, non-linear patterns a single perceptron never could.
 
-🔨 **Build this now:** Sketch an MLP on paper for this problem: predict if a student passes (yes/no) based on 3 inputs: hours studied, sleep hours, practice tests done. Draw 3 inputs → 4 hidden neurons → 1 output. Label the weights as w11, w12, etc. Count the total number of weights.
+🔨 **Build this now:** Sketch an MLP for predicting if a student passes based on 3 inputs: hours studied, sleep, practice tests. Draw 3 inputs → 4 hidden neurons → 1 output. Label weights w11, w12, etc. Count the total number of weights.
 
 ➡️ **Next step:** Activation Functions — `./03_Activation_Functions/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B3: Neural Net from Scratch](../../20_Projects/00_Beginner_Projects/03_Neural_Net_from_Scratch/Project_Guide.md)**
+> This project uses: 2-layer MLP built from scratch with numpy — no PyTorch, just matrix math and backprop
 
 ---
 

@@ -1,12 +1,8 @@
 # Fine-Tuning — Theory
 
-A new doctor graduates from medical school. They know biology, chemistry, pharmacology, anatomy, and general medicine. They've read thousands of textbooks. That's their pretraining.
+A new doctor graduates from medical school with broad knowledge — that's pretraining. Then they do a three-year cardiology residency: same base knowledge, now specialized. That's fine-tuning. Take a pretrained model with broad capabilities, train it further on a specific task or domain.
 
-Then they do a three-year residency in cardiology. Every day, they see heart patients, get corrected by senior doctors, and focus entirely on cardiovascular medicine. After the residency, they have the same base medical knowledge — but they've been specialized. They know cardiology deeply and instinctively.
-
-That's fine-tuning. Take a pretrained model with broad capabilities. Train it further on a specific task or domain. Same base knowledge, now specialized.
-
-👉 This is why we need **fine-tuning** — because pretraining gives you breadth, but most applications need depth in a specific area or style.
+👉 This is why we need **fine-tuning** — pretraining gives breadth, but most applications need depth in a specific area or style.
 
 ---
 
@@ -24,56 +20,54 @@ flowchart LR
     C --> G[Customer support]
 ```
 
-The key: you don't need billions of examples. A few thousand high-quality examples can meaningfully change model behavior.
+A few thousand high-quality examples can meaningfully change model behavior — you don't need billions.
 
 ---
 
 ## Supervised Fine-Tuning (SFT)
 
-The most common form. You provide (input, output) pairs. The model learns to produce the expected output for each input.
+The most common form: provide (input, output) pairs, the model learns to produce expected outputs.
 
-Format:
 ```
 Input:  "Explain what a P-E ratio is to a beginner investor."
 Output: "A P/E ratio, or price-to-earnings ratio, tells you how much investors..."
 ```
 
-The model trains on your examples the same way it trained during pretraining — minimizing loss on next-token prediction. But now the "tokens" it's learning to predict are your ideal outputs, not random internet text.
+Training is the same mechanism as pretraining — minimizing next-token prediction loss — but now predicting your ideal outputs, not random internet text.
 
 ---
 
 ## Types of fine-tuning
 
-**Full fine-tuning:**
-- Update all model parameters
-- Highest quality
-- Very expensive — needs same hardware as pretraining
-- Risk of "catastrophic forgetting" — old knowledge can be degraded
-- Used by major labs for production models
+**Full fine-tuning:** Update all model parameters. Highest quality but very expensive; same hardware as pretraining. Risk of **catastrophic forgetting** (old knowledge degraded). Used by major labs for production models.
 
-**Instruction fine-tuning:**
-- Fine-tune to follow instructions in a specific format
-- Dataset of (instruction, output) pairs
-- Teaches the model to be an assistant for a specific domain
-- This is what InstructGPT and ChatGPT were built on (more in topic 05)
+**Instruction fine-tuning:** SFT on (instruction, output) pairs for a specific domain. Teaches the model to be an assistant for that domain.
 
-**Domain adaptation:**
-- Fine-tune on domain-specific text (medical journals, legal contracts, company docs)
-- Improves fluency and accuracy in that domain
-- Often combined with instruction tuning
+**Domain adaptation:** Fine-tune on domain-specific text (medical journals, legal contracts, company docs). Often combined with instruction tuning.
 
-**LoRA / QLoRA (parameter-efficient fine-tuning):**
-- Most popular approach today for resource-limited teams
-- Don't update all parameters — add small trainable matrices alongside frozen original weights
-- 90–95% fewer trainable parameters
-- Near-full-fine-tuning quality at a fraction of the cost
-- Can run on consumer GPUs
+**LoRA / QLoRA (parameter-efficient fine-tuning):** Most popular approach today. Don't update all parameters — add small trainable matrices alongside frozen original weights. 90–95% fewer trainable parameters, near-full-quality results, can run on consumer GPUs.
+
+```mermaid
+flowchart LR
+    subgraph Full["Full Fine-Tuning"]
+        A1[Pretrained Model\nAll weights frozen] --> B1[Unfreeze ALL weights]
+        B1 --> C1[Train on task data]
+        C1 --> D1[Updated model\nAll weights changed]
+    end
+    subgraph LORA["LoRA / Parameter-Efficient"]
+        A2[Pretrained Model\nAll weights frozen] --> B2[Add small A×B matrices]
+        B2 --> C2[Train ONLY A and B]
+        C2 --> D2[Updated model\nBase weights unchanged\nAdapters added]
+    end
+    style D1 fill:#fff3cd,stroke:#ffc107
+    style D2 fill:#d4edda,stroke:#28a745
+```
 
 ---
 
 ## LoRA: Low-Rank Adaptation
 
-LoRA is clever. Instead of updating the full weight matrix W (which might be 4096 × 4096 = 16M parameters), it trains two small matrices:
+Instead of updating the full weight matrix W (e.g., 4096 × 4096 = 16M parameters), LoRA trains two small matrices:
 
 ```
 W_updated = W_original + A × B
@@ -85,9 +79,7 @@ where:
   r: rank, typically 4–64 (you choose)
 ```
 
-If r=16, A is 4096×16 and B is 16×4096. Total trainable params for this layer: 131k instead of 16M. That's 99% fewer parameters to update.
-
-After training, A×B can be merged into W to produce a single updated weight matrix with no inference overhead.
+With r=16: 131k trainable params instead of 16M — 99% fewer. After training, A×B can be merged into W with no inference overhead.
 
 ```mermaid
 flowchart TD
@@ -103,11 +95,7 @@ flowchart TD
 
 ## QLoRA: LoRA + Quantization
 
-QLoRA takes LoRA further. The frozen base model is stored in 4-bit quantized format (instead of 16-bit), reducing memory use by 4x. The LoRA adapters are still trained in 16-bit.
-
-Effect: Fine-tune a 65B parameter model on a single 48GB A100 GPU. Previously impossible without multiple GPUs.
-
-QLoRA is how most open-source community fine-tuning is done (Alpaca, Vicuna, WizardLM all used QLoRA or similar techniques).
+The frozen base model is stored in 4-bit quantized format (instead of 16-bit), reducing memory 4x. LoRA adapters are still trained in 16-bit. Effect: fine-tune a 65B model on a single 48GB A100 GPU — previously impossible. QLoRA is how most open-source community fine-tuning is done (Alpaca, Vicuna, WizardLM).
 
 ---
 
@@ -116,12 +104,10 @@ QLoRA is how most open-source community fine-tuning is done (Alpaca, Vicuna, Wiz
 | Fine-tuning changes | Fine-tuning does NOT change |
 |--------------------|-----------------------------|
 | Output style and format | Core knowledge from pretraining |
-| Task-specific accuracy | What the model fundamentally knows |
-| Domain vocabulary fluency | Context window size |
-| Instruction-following behavior | Fundamental reasoning capability |
-| Safety properties (somewhat) | Underlying architecture |
-
-A fine-tuned model still "knows" what the base model knew. You're adjusting behavior, not replacing knowledge.
+| Task-specific accuracy | Context window size |
+| Domain vocabulary fluency | Fundamental reasoning capability |
+| Instruction-following behavior | Underlying architecture |
+| Safety properties (somewhat) | What the model fundamentally knows |
 
 ---
 
@@ -135,23 +121,28 @@ A fine-tuned model still "knows" what the base model knew. You're adjusting beha
 | Full instruction following | 10,000–50,000 | 100,000+ |
 | Matching GPT-4 chat quality | 100,000+ | 1M+ |
 
-Data quality matters enormously. 1,000 high-quality expert examples often beats 100,000 low-quality examples.
+Data quality matters enormously — 1,000 high-quality expert examples often beats 100,000 low-quality ones.
 
 ---
 
 ## When to fine-tune vs just prompt
 
-Fine-tuning isn't always the answer. Sometimes you can get the same result with a well-crafted prompt. See `When_to_Use.md` in this folder for the full decision framework.
-
-Quick rule: if you need consistent behavior at scale, low latency, or your context window isn't big enough to include all your examples every time → fine-tune. If you're prototyping, tasks change often, or data is scarce → prompt engineer first.
+If you need consistent behavior at scale, low latency, or your context window can't fit all examples every time → fine-tune. If you're prototyping, tasks change often, or data is scarce → prompt engineer first. See `When_to_Use.md` for the full decision framework.
 
 ---
 
 ✅ **What you just learned:** Fine-tuning adapts a pretrained model to a specific task or domain using supervised examples, with LoRA/QLoRA making this affordable even without massive compute resources.
 
-🔨 **Build this now:** Look at the Code_Example.md in this folder. It shows a complete HuggingFace fine-tuning script. Even if you don't run it, trace through the code and identify: where is the dataset loaded? Where is LoRA configured? Where does training happen? Understanding the structure is the first step.
+🔨 **Build this now:** Look at Code_Example.md in this folder. Trace through the script: where is the dataset loaded? Where is LoRA configured? Where does training happen?
 
 ➡️ **Next step:** Instruction Tuning — [05_Instruction_Tuning/Theory.md](../05_Instruction_Tuning/Theory.md)
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[I4: Custom LoRA Fine-Tuning](../../20_Projects/01_Intermediate_Projects/04_Custom_LoRA_Fine_Tuning/Project_Guide.md)**
+> This project uses: fine-tuning a small LLM with LoRA on a custom dataset — seeing exactly when/why to fine-tune vs prompt
 
 ---
 

@@ -1,55 +1,48 @@
 # Training Techniques — Theory
 
-Training a dog takes skill. You do not just repeat the same trick forever until the dog collapses. You mix short sessions with breaks (early stopping). You vary the difficulty — easy tricks first, harder ones later. You adjust how many treats you give based on progress. You occasionally revisit old lessons so the dog doesn't forget. And sometimes you get a dog that already knows basic commands (transfer learning) and just teach it the new specific ones.
+Training a dog well takes skill: short sessions with breaks, variable difficulty, adjusting rewards based on progress, revisiting old lessons, starting with a dog that already knows basic commands (transfer learning).
 
-👉 This is why we need **training techniques** — the raw optimization algorithms are just tools; knowing how to use them well is what separates a model that trains in 2 hours from one that fails for 2 days.
+👉 This is why we need **training techniques** — the right combination separates a model that trains in 2 hours from one that fails for 2 days.
 
 ---
 
 ## Batch Size
 
-When training, you do not show the model all the data at once — you show it small batches.
+You show the model small batches of data, not all at once.
 
 **Small batch (8–32):**
-- Noisy gradients — updates are rough estimates of the true gradient
+- Noisy gradients — rough estimates of the true gradient
 - Noise helps escape sharp minima → often better generalization
-- Slower wall-clock time per epoch (more updates, but each is cheap)
+- Slower wall-clock time per epoch
 
 **Large batch (256–2048):**
 - Accurate gradients — nearly the true gradient
-- Fast wall-clock time (few updates, each is expensive but parallelized well on GPU)
+- Fast wall-clock time (well-parallelized on GPU)
 - Risk of converging to sharp, less-general minima
 
-**Common default:** 32–256. Start here. If you increase batch size, increase learning rate proportionally.
+**Common default:** 32–256. If you increase batch size, increase learning rate proportionally.
 
 ---
 
 ## Epochs
 
-One epoch = one full pass through the training data.
-
-Too few epochs = underfitting. Too many = overfitting. Use early stopping (covered in topic 08) to find the right number automatically.
+One epoch = one full pass through training data. Too few = underfitting. Too many = overfitting. Use early stopping (topic 08) to find the right number automatically.
 
 ---
 
 ## Weight Initialization
 
-Weights cannot start at zero — every neuron would compute the same thing and stay symmetric forever. They cannot be too large or too small — gradients explode or vanish immediately.
+Weights can't start at zero — every neuron would compute the same thing and stay symmetric. They can't be too large or too small — gradients explode or vanish immediately.
 
 **He initialization** (for ReLU): `w ~ N(0, sqrt(2 / n_in))`
 
-**Xavier/Glorot initialization** (for Sigmoid/Tanh): `w ~ N(0, sqrt(1 / n_in))` or `w ~ Uniform(-sqrt(6/(n_in+n_out)), sqrt(6/(n_in+n_out)))`
+**Xavier/Glorot initialization** (for Sigmoid/Tanh): `w ~ N(0, sqrt(1 / n_in))`
 
-Modern frameworks (PyTorch, Keras) apply the right initialization automatically. You rarely need to set this manually — but understand why it matters.
+Modern frameworks (PyTorch, Keras) apply the right initialization automatically.
 
 ---
 
 ## Learning Rate Scheduling
-
-The learning rate is not fixed. A good schedule:
-1. Start slightly warm (or with warmup from zero)
-2. Train at full learning rate
-3. Reduce progressively as loss converges
 
 ```mermaid
 flowchart LR
@@ -64,26 +57,33 @@ flowchart LR
 
 ## Transfer Learning
 
-Training a model from scratch needs massive data. Transfer learning reuses a model already trained on a large dataset.
+Take a model pretrained on massive data and adapt it to your task.
 
 **How it works:**
-1. Take a pretrained model (e.g., ResNet-50 trained on ImageNet — 1.2M images)
+1. Take a pretrained model (e.g., ResNet-50 on ImageNet — 1.2M images)
 2. Remove the final classification layer
 3. Add a new output layer for your task
-4. Either: freeze the pretrained weights and only train the new layer ("feature extraction"), OR unfreeze them gradually ("fine-tuning")
+4. Either freeze pretrained weights ("feature extraction") or unfreeze them ("fine-tuning")
 
-**When to use:** Any time you have limited data. Pre-trained vision models, BERT/GPT for NLP.
+**Use when:** You have limited data. Works for vision (ResNet) and NLP (BERT/GPT).
+
+```mermaid
+flowchart TD
+    PT["Pretrained Model\nResNet / BERT / GPT\ntrained on massive data"] --> FREEZE["Freeze early layers\nkeep learned features"]
+    PT --> REPLACE["Replace final layer\nwith new task head"]
+    FREEZE --> FE["Feature Extraction\nOnly train new head\nFast, less data needed"]
+    REPLACE --> FT["Fine-Tuning\nUnfreeze + retrain all layers\nSlower, needs more data"]
+    FE --> OUT["Adapted model\nfor your task"]
+    FT --> OUT
+```
 
 ---
 
 ## Mixed Precision Training
 
-Modern GPUs support float16 (half precision) in addition to float32.
+**float32:** Standard, 4 bytes per value. **float16:** Half precision, 2 bytes, 2–8× faster on modern GPUs.
 
-**float32:** Standard. High precision. Uses 4 bytes per value.
-**float16:** Half precision. Uses 2 bytes. Operations are 2–8× faster on modern GPUs.
-
-**Mixed precision:** Keep model weights in float32 (for numerical stability) but compute forward/backward passes in float16 (for speed). A "loss scaler" prevents float16 underflow for small gradients.
+**Mixed precision:** Keep weights in float32 (numerical stability), compute forward/backward in float16 (speed). A loss scaler prevents float16 underflow.
 
 **Result:** 2–3× training speedup with minimal accuracy impact.
 
@@ -91,15 +91,15 @@ Modern GPUs support float16 (half precision) in addition to float32.
 
 ## Batch Normalization (Training Behavior)
 
-Batch normalization normalizes activations within each mini-batch during training. This stabilizes training dramatically — allows higher learning rates, is less sensitive to initialization, and provides mild regularization.
+Normalizes activations within each mini-batch: stabilizes training, allows higher learning rates, less sensitive to initialization, mild regularization.
 
-**Important:** BatchNorm behaves differently in training mode (uses batch statistics) vs eval mode (uses running statistics collected during training). Always call `model.train()` before training and `model.eval()` before inference in PyTorch.
+**Critical:** BatchNorm behaves differently in training mode (batch statistics) vs eval mode (running statistics). Always call `model.train()` before training and `model.eval()` before inference in PyTorch.
 
 ---
 
-✅ **What you just learned:** Successful training combines the right batch size, learning rate schedule, weight initialization, and techniques like transfer learning and mixed precision — these are the practical knobs that determine whether a model trains successfully.
+✅ **What you just learned:** Successful training combines the right batch size, learning rate schedule, weight initialization, and techniques like transfer learning and mixed precision — these are the knobs that determine whether a model trains successfully.
 
-🔨 **Build this now:** Think of the last project you worked on (code, sport, skill). Which of these training techniques has an analogy in how you learned that skill? Examples: curriculum learning = starting easy, early stopping = taking a break when stuck, transfer learning = applying existing knowledge to a new domain.
+🔨 **Build this now:** Think of the last skill you learned. Which training technique has an analogy? Curriculum learning = starting easy. Early stopping = taking a break when stuck. Transfer learning = applying existing knowledge to a new domain.
 
 ➡️ **Next step:** You have completed the Neural Networks and Deep Learning section. Next up: 05_NLP_Foundations.
 

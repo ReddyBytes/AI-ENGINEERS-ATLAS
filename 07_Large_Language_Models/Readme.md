@@ -1,104 +1,82 @@
-# 07 — Large Language Models
+# 🧠 Large Language Models
 
-## What is this section about?
+<div align="center">
 
-Large Language Models (LLMs) are the technology behind ChatGPT, Claude, Gemini, and most modern AI assistants. This section walks you from "what is an LLM?" all the way to "how do I build with one and keep costs under control?"
+⬅️ [06 Transformers](../06_Transformers/Readme.md) &nbsp;|&nbsp; [🏠 Home](../00_Learning_Guide/Readme.md) &nbsp;|&nbsp; [08 LLM Applications ➡️](../08_LLM_Applications/Readme.md)
 
-You don't need a PhD. You need curiosity and this guide.
+</div>
 
----
+> From raw text on the internet to a model that writes code, passes exams, and holds conversations — this section explains every step.
 
-## Why LLMs matter
-
-A few years ago, getting a computer to write a coherent paragraph was hard. Now LLMs write code, pass bar exams, summarize documents, and hold conversations. Understanding how they work — and where they break — is the most valuable AI skill you can have right now.
+**[▶ Start here → LLM Fundamentals Theory](./01_LLM_Fundamentals/Theory.md)**
 
 ---
 
-## Section map
+## At a Glance
 
-| # | Topic | What you will learn |
-|---|-------|---------------------|
-| 01 | LLM Fundamentals | What an LLM is, scale, emergent abilities, famous models |
-| 02 | How LLMs Generate Text | Token-by-token prediction, temperature, sampling |
-| 03 | Pretraining | Self-supervised learning, data, compute, what the model absorbs |
-| 04 | Fine-Tuning | Specializing a model, LoRA, when to fine-tune vs prompt |
-| 05 | Instruction Tuning | Why base models aren't chatbots, InstructGPT, FLAN |
-| 06 | RLHF | Reinforcement Learning from Human Feedback, reward models, PPO |
-| 07 | Context Windows and Tokens | What a token is, context limits, KV cache |
-| 08 | Hallucination and Alignment | Why LLMs make things up, how to reduce it, Constitutional AI |
-| 09 | Using LLM APIs | API calls, cost management, streaming, structured output |
+| | |
+|---|---|
+| 📚 Topics | 9 topics |
+| ⏱️ Est. Time | 5–7 hours |
+| 📋 Prerequisites | [06 Transformers](../06_Transformers/Readme.md) |
+| 🔓 Unlocks | [08 LLM Applications](../08_LLM_Applications/Readme.md) |
 
 ---
 
-## Recommended reading order
+## What's in This Section
 
-If you are brand new: go 01 → 02 → 07 → 08 → 09. That gives you the practical foundation.
+```mermaid
+flowchart TD
+    A[🌐 Raw Text Data\nTrillions of tokens] --> B[03 Pretraining\nSelf-supervised learning\non massive corpora]
+    B --> C[Base Model\nPredicts next token,\nknows a lot, follows nothing]
+    C --> D[05 Instruction Tuning\nTeach the model to follow\ninstructions & be a chatbot]
+    D --> E[06 RLHF\nHuman feedback shapes\nthe model's values]
+    E --> F[Aligned Model\nHelpful · Harmless · Honest]
+    F --> G[04 Fine-Tuning\nOptional: specialize for\na domain or task]
+    G --> H[Deployed Model]
+    F --> H
+    H --> I[09 Using LLM APIs\nCall the model, stream\nresponses, manage cost]
 
-If you want the full picture: go 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09.
+    subgraph Foundations
+        J[01 LLM Fundamentals\nWhat is an LLM? Scale,\nemergent abilities, model families]
+        K[02 How LLMs Generate Text\nTokens, temperature,\nsampling strategies]
+        L[07 Context Windows & Tokens\nWhat fits in memory,\nKV cache, long-context tricks]
+        M[08 Hallucination & Alignment\nWhy models confabulate\nand how to reduce it]
+    end
 
----
-
-## Prerequisites
-
-Before diving in, make sure you have covered:
-- **06_Transformers** — LLMs are built on transformers. Understanding attention makes everything here click.
-- **05_NLP_Foundations** — Helps with tokenization and vocabulary concepts.
-
----
-
-## What you will be able to do after this section
-
-- Explain what an LLM is and how it generates text, to anyone
-- Understand the difference between pretraining, fine-tuning, and instruction tuning
-- Know when to fine-tune vs when to just prompt engineer
-- Understand why LLMs hallucinate and how to mitigate it
-- Call LLM APIs, handle errors, stream responses, and manage costs
-- Speak confidently in LLM interviews at beginner, intermediate, and advanced level
-
----
-
-## Key files in each topic
-
-Every topic folder contains:
-- **Theory.md** — The concept explained simply, with diagrams
-- **Cheatsheet.md** — Quick reference card
-- **Interview_QA.md** — 9 interview questions with full answers
-
-Some topics also include:
-- **Timeline.md** — History of LLMs
-- **Architecture_Deep_Dive.md** — How it works under the hood
-- **Code_Example.md / Code_Cookbook.md** — Working code you can run
-- **When_to_Use.md / Mitigation_Strategies.md / Cost_Guide.md** — Practical decision guides
+    Foundations -.->|understand these\nbefore going deeper| B
+```
 
 ---
 
-## How long will this take?
+## Topics
 
-| Goal | Time |
-|------|------|
-| Read Theory.md for all 9 topics | ~3–4 hours |
-| Read everything + do all hands-on tasks | ~2–3 days |
-| Deep study including code and architecture dives | ~1 week |
+| # | Topic | What You'll Learn | Files |
+|---|---|---|---|
+| 01 | [LLM Fundamentals](./01_LLM_Fundamentals/) | What an LLM is, scale laws, emergent abilities, and the landscape of famous models | [📖 Theory](./01_LLM_Fundamentals/Theory.md) · [⚡ Cheatsheet](./01_LLM_Fundamentals/Cheatsheet.md) · [🎯 Interview Q&A](./01_LLM_Fundamentals/Interview_QA.md) · [📅 Timeline](./01_LLM_Fundamentals/Timeline.md) |
+| 02 | [How LLMs Generate Text](./02_How_LLMs_Generate_Text/) | Token-by-token prediction, probability distributions, temperature, top-p/top-k sampling | [📖 Theory](./02_How_LLMs_Generate_Text/Theory.md) · [⚡ Cheatsheet](./02_How_LLMs_Generate_Text/Cheatsheet.md) · [🎯 Interview Q&A](./02_How_LLMs_Generate_Text/Interview_QA.md) |
+| 03 | [Pretraining](./03_Pretraining/) | Self-supervised learning on web-scale data, what the model actually absorbs, compute costs | [📖 Theory](./03_Pretraining/Theory.md) · [⚡ Cheatsheet](./03_Pretraining/Cheatsheet.md) · [🎯 Interview Q&A](./03_Pretraining/Interview_QA.md) · [🏗️ Architecture Deep Dive](./03_Pretraining/Architecture_Deep_Dive.md) |
+| 04 | [Fine-Tuning](./04_Fine_Tuning/) | Specializing a pretrained model, LoRA, QLoRA, when to fine-tune vs just prompt | [📖 Theory](./04_Fine_Tuning/Theory.md) · [⚡ Cheatsheet](./04_Fine_Tuning/Cheatsheet.md) · [🎯 Interview Q&A](./04_Fine_Tuning/Interview_QA.md) · [💻 Code Example](./04_Fine_Tuning/Code_Example.md) · [🗺️ When to Use](./04_Fine_Tuning/When_to_Use.md) |
+| 05 | [Instruction Tuning](./05_Instruction_Tuning/) | Why base models aren't chatbots, supervised fine-tuning on instructions, InstructGPT, FLAN | [📖 Theory](./05_Instruction_Tuning/Theory.md) · [⚡ Cheatsheet](./05_Instruction_Tuning/Cheatsheet.md) · [🎯 Interview Q&A](./05_Instruction_Tuning/Interview_QA.md) |
+| 06 | [RLHF](./06_RLHF/) | Reinforcement Learning from Human Feedback, reward models, PPO, DPO | [📖 Theory](./06_RLHF/Theory.md) · [⚡ Cheatsheet](./06_RLHF/Cheatsheet.md) · [🎯 Interview Q&A](./06_RLHF/Interview_QA.md) · [🏗️ Architecture Deep Dive](./06_RLHF/Architecture_Deep_Dive.md) |
+| 07 | [Context Windows & Tokens](./07_Context_Windows_and_Tokens/) | What a token is, context length limits, KV cache, positional encoding, long-context strategies | [📖 Theory](./07_Context_Windows_and_Tokens/Theory.md) · [⚡ Cheatsheet](./07_Context_Windows_and_Tokens/Cheatsheet.md) · [🎯 Interview Q&A](./07_Context_Windows_and_Tokens/Interview_QA.md) |
+| 08 | [Hallucination & Alignment](./08_Hallucination_and_Alignment/) | Why LLMs confidently say wrong things, Constitutional AI, grounding, mitigation strategies | [📖 Theory](./08_Hallucination_and_Alignment/Theory.md) · [⚡ Cheatsheet](./08_Hallucination_and_Alignment/Cheatsheet.md) · [🎯 Interview Q&A](./08_Hallucination_and_Alignment/Interview_QA.md) · [🛡️ Mitigation Strategies](./08_Hallucination_and_Alignment/Mitigation_Strategies.md) |
+| 09 | [Using LLM APIs](./09_Using_LLM_APIs/) | Calling Claude & OpenAI APIs, streaming, structured output, error handling, cost management | [📖 Theory](./09_Using_LLM_APIs/Theory.md) · [⚡ Cheatsheet](./09_Using_LLM_APIs/Cheatsheet.md) · [🎯 Interview Q&A](./09_Using_LLM_APIs/Interview_QA.md) · [📚 Code Cookbook](./09_Using_LLM_APIs/Code_Cookbook.md) · [💰 Cost Guide](./09_Using_LLM_APIs/Cost_Guide.md) |
 
 ---
 
-➡️ Start here: [01_LLM_Fundamentals/Theory.md](01_LLM_Fundamentals/Theory.md)
+## Key Concepts at a Glance
+
+| Concept | Why It Matters in AI |
+|---|---|
+| Pretraining creates capability | A base model learns language, facts, and reasoning from trillions of tokens via next-token prediction — all without any labeled data |
+| Instruction tuning + RLHF create behaviour | These alignment steps are what turn a raw base model into a helpful, safe, and steerable assistant |
+| Fine-tuning is optional and expensive | For most tasks, smart prompting beats fine-tuning; reach for fine-tuning only when you have labeled data and a narrow, consistent task |
+| Hallucination is structural, not a bug | LLMs generate probable text, not verified facts; understanding this shapes every production decision you will make |
+| Tokens are the unit of everything | Cost, speed, context limits, and generation all revolve around tokens; knowing the math here saves real money |
 
 ---
 
 ## 📂 Navigation
 
-**In this section:**
-| Folder | |
-|---|---|
-| [📁 01_LLM_Fundamentals](./01_LLM_Fundamentals/Theory.md) | What an LLM is, scale, emergent abilities, famous models |
-| [📁 02_How_LLMs_Generate_Text](./02_How_LLMs_Generate_Text/Theory.md) | Token-by-token prediction, temperature, sampling |
-| [📁 03_Pretraining](./03_Pretraining/Theory.md) | Self-supervised learning, data, compute, what the model absorbs |
-| [📁 04_Fine_Tuning](./04_Fine_Tuning/Theory.md) | Specializing a model, LoRA, when to fine-tune vs prompt |
-| [📁 05_Instruction_Tuning](./05_Instruction_Tuning/Theory.md) | Why base models aren't chatbots, InstructGPT, FLAN |
-| [📁 06_RLHF](./06_RLHF/Theory.md) | Reinforcement Learning from Human Feedback, reward models, PPO |
-| [📁 07_Context_Windows_and_Tokens](./07_Context_Windows_and_Tokens/Theory.md) | What a token is, context limits, KV cache |
-| [📁 08_Hallucination_and_Alignment](./08_Hallucination_and_Alignment/Theory.md) | Why LLMs make things up, how to reduce it, Constitutional AI |
-| [📁 09_Using_LLM_APIs](./09_Using_LLM_APIs/Theory.md) | API calls, cost management, streaming, structured output |
-
-⬅️ **Prev:** [06 Transformers](../06_Transformers/) &nbsp;&nbsp;&nbsp; ➡️ **Next:** [08 LLM Applications](../08_LLM_Applications/)
+⬅️ **Prev:** [06 Transformers](../06_Transformers/Readme.md) &nbsp;&nbsp; ➡️ **Next:** [08 LLM Applications](../08_LLM_Applications/Readme.md)

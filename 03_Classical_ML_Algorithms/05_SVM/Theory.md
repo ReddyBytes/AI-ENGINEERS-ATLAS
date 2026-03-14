@@ -1,6 +1,6 @@
 # Support Vector Machines (SVM)
 
-Imagine you're sorting oranges and apples on a table. You want to draw a single line between them. But not just any line — you want the line that leaves the most breathing room on both sides. The fruits sitting right on the edge of that space, closest to the line, are the trickiest ones to separate. Those edge fruits are what SVM obsesses over.
+Imagine sorting oranges and apples on a table. You want to draw a line between them — not just any line, but the one with the most breathing room on both sides. The fruits sitting right at the edge of that space are the trickiest to separate. SVM obsesses over those edge fruits.
 
 👉 This is why we need **Support Vector Machines** — to find the decision boundary with the maximum possible margin between classes.
 
@@ -8,9 +8,7 @@ Imagine you're sorting oranges and apples on a table. You want to draw a single 
 
 ## The Core Idea
 
-SVM does not just find *a* line that separates two groups. It finds the *best* line — the one that maximizes the gap between the two groups.
-
-That gap is called the **margin**. The data points sitting at the edges of that margin are called **support vectors**. They literally "support" (define) the boundary. Remove any other point and the boundary stays the same. Remove a support vector and the boundary shifts.
+SVM finds the *best* line — the one that maximizes the gap between two groups. That gap is the **margin**. The data points at the edges of that margin are **support vectors** — they define the boundary. Remove any other point and the boundary stays the same. Remove a support vector and it shifts.
 
 ```mermaid
 flowchart LR
@@ -27,29 +25,19 @@ flowchart LR
 
 ### Hyperplane
 
-In 2D, the decision boundary is a line. In 3D, it is a flat plane. In higher dimensions, it is called a **hyperplane**. It is just the flat surface that divides one class from another.
-
-For a 2D problem: the hyperplane is a line `w·x + b = 0`
-- Points on one side: positive class
-- Points on the other side: negative class
+In 2D: decision boundary is a line. In 3D: a flat plane. In higher dimensions: a **hyperplane** — just the flat surface dividing one class from another. For 2D: `w·x + b = 0`.
 
 ### Maximum Margin Classifier
 
-SVM does not just want to classify correctly. It wants to classify with *confidence*. A wide margin means the model is far from being wrong. A narrow margin means a small shift in data could cause misclassification.
-
-Think of it like parking a car in a space. You could park centred (maximum margin) or squeeze to one side (small margin). Centred is safer.
+SVM classifies with *confidence*. A wide margin means the model is far from being wrong. Narrow margin = a small data shift could cause misclassification. Think: parking centred in a space (max margin) vs. squeezing to one side.
 
 ### Support Vectors
 
-These are the data points closest to the hyperplane. They are the only points that matter for defining the boundary. Everything else is irrelevant. This is one reason SVM is memory-efficient — it only remembers the support vectors, not all the data.
+The data points closest to the hyperplane. Only these define the boundary — everything else is irrelevant. This makes SVM memory-efficient.
 
 ### The Kernel Trick (For Non-Linear Data)
 
-What if the data cannot be separated by a straight line? Like if oranges and apples are mixed together in a circle pattern?
-
-The **kernel trick** solves this by transforming the data into a higher dimension where it *can* be separated linearly.
-
-Imagine you have dots on a table mixed together (2D). You cannot draw a straight line to separate them. But if you lift some dots up (into 3D), suddenly a flat plane can separate them perfectly. The kernel trick mathematically does this lifting — without actually computing the new coordinates explicitly.
+What if data can't be separated by a straight line? The **kernel trick** projects data into a higher dimension where it *can* be separated linearly — without computing the new coordinates explicitly. Like lifting mixed dots from a table (2D) into 3D so a flat plane can separate them.
 
 Common kernels:
 - **Linear** — for data that is already linearly separable
@@ -69,40 +57,32 @@ flowchart TD
 
 ## When SVM Shines
 
-SVM is not always the best tool. Here is when it works really well:
-
 | Situation | Why SVM Works |
 |---|---|
 | Small to medium datasets | Efficient with limited data |
-| High-dimensional data | Works well even with many features (e.g. text) |
+| High-dimensional data | Works well with many features (e.g. text) |
 | Clear margin of separation | Maximum margin assumption holds |
 | Image classification (historically) | Was state of the art before deep learning |
 
-### When SVM Struggles
-
-- Very large datasets — training is slow (quadratic in time)
-- Overlapping classes — unclear what margin to maximize
-- Needing probability estimates — SVM gives class labels, not probabilities (by default)
+**When SVM Struggles:** Very large datasets (training is slow), overlapping classes, or when probability estimates are needed.
 
 ---
 
 ## The C Parameter — Trading Off Margin vs Mistakes
 
-Real data is messy. Sometimes you cannot perfectly separate the classes. SVM has a parameter called **C** that controls this trade-off:
+**C** controls the trade-off between margin width and classification errors:
 
-- **High C** — tries hard to classify everything correctly. Smaller margin, risk of overfitting.
-- **Low C** — allows some misclassifications. Larger margin, better generalization.
-
-Think of C as your tolerance for mistakes. Low tolerance = tight fit. High tolerance = relaxed fit.
+- **High C** — classify everything correctly; smaller margin, risk of overfitting
+- **Low C** — allow some misclassifications; larger margin, better generalization
 
 ---
 
 ## Quick Recap
 
-- SVM finds the hyperplane with the **maximum margin** between classes
-- **Support vectors** are the data points closest to the boundary — they define it
-- The **kernel trick** handles non-linear data by projecting it to a higher dimension
-- **C** controls the trade-off between a wide margin and fewer classification errors
+- SVM finds the hyperplane with **maximum margin** between classes
+- **Support vectors** are the closest data points — they define the boundary
+- **Kernel trick** handles non-linear data by projecting to a higher dimension
+- **C** controls the trade-off between wide margin and fewer classification errors
 
 ---
 

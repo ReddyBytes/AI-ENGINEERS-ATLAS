@@ -2,17 +2,9 @@
 
 ## The Story
 
-You need to make a big financial decision — should you invest your savings in a particular company?
+Big financial decision: ask one friend and risk their bias, or ask 100 friends, each looking at different information? With 100 opinions, individual errors cancel out. Collective judgment is more reliable.
 
-You could ask one friend. But what if their view is biased? What if they missed something important?
-
-So instead you ask 100 friends. Each one looks at slightly different information — one focuses on the financials, one on the management, one on the industry trends, one on recent news. Some are more optimistic by nature, some more conservative.
-
-You listen to all 100 of them, then go with the majority vote.
-
-The result? Much better than any single friend's advice. Their individual errors and blind spots cancel each other out. Their collective judgment is more reliable than anyone's individual opinion.
-
-👉 This is why we need **Random Forests** — a collection of diverse decision trees that vote together, canceling each other's mistakes to produce more accurate and robust predictions.
+👉 This is why we need **Random Forests** — a collection of diverse decision trees that vote together, canceling each other's mistakes.
 
 ---
 
@@ -28,12 +20,10 @@ For regression: average the predictions.
 ## Two Key Ideas: Bagging and Feature Randomness
 
 ### Bagging (Bootstrap Aggregating)
-Each tree in the forest is trained on a different random sample of the training data (sampled with replacement — the same example can appear multiple times). This means no two trees see exactly the same data. Each tree has slightly different "knowledge."
-
-This sampling process is called **bootstrapping**. Aggregating (combining) the results is the "aggregating" in bagging.
+Each tree trains on a different random sample of training data (sampled with replacement). No two trees see the same data — each has slightly different "knowledge."
 
 ### Random Feature Selection
-At each split in each tree, only a random subset of features is considered. For a dataset with 10 features, each split might only consider 3 randomly chosen features. This ensures trees are not all asking the same questions.
+At each split, only a random subset of features is considered (e.g., 3 of 10). Trees are not all asking the same questions.
 
 These two sources of randomness create a diverse collection of different trees.
 
@@ -57,17 +47,13 @@ flowchart TD
 
 ## Why Ensembles Beat Single Trees
 
-Each individual tree has high variance — it memorizes its particular training sample and differs significantly from tree to tree.
+Each individual tree has high variance — it memorizes its training sample. When you average many high-variance models that are each independently noisy, errors cancel out. What remains is the shared signal — patterns appearing consistently across all trees.
 
-When you average many high-variance models that are each independently noisy, their errors cancel each other out. What remains is the shared signal — the patterns that appear consistently across all trees regardless of which specific data points they saw.
-
-This is the magic of ensembles: **individual errors average away; shared patterns survive.**
-
----
+**Individual errors average away; shared patterns survive.**
 
 ## Feature Importance
 
-Random forests provide a useful side product: **feature importance**. Each feature gets a score based on how much it contributed to reducing impurity across all trees. This helps you understand which inputs actually drive predictions — very useful for feature selection and explaining the model.
+Random forests provide **feature importance** as a side product: each feature's score reflects how much it contributed to reducing impurity across all trees. Useful for feature selection and model explanation.
 
 ---
 
@@ -86,7 +72,7 @@ Random forests provide a useful side product: **feature importance**. Each featu
 
 ## The One Weakness
 
-Random forests are harder to interpret than single decision trees. You cannot print 500 trees and explain them. For single-prediction explanations, tools like SHAP can help. But random forests give up the clean "here is the rule" transparency of a single tree in exchange for much better accuracy.
+Random forests are harder to interpret than single trees — you can't print 500 trees and explain them. They trade the clean "here is the rule" transparency of a single tree for much better accuracy. SHAP can help with single-prediction explanations.
 
 ---
 
@@ -95,6 +81,13 @@ Random forests are harder to interpret than single decision trees. You cannot pr
 🔨 **Build this now:** Train a `RandomForestClassifier(n_estimators=100)` on any dataset alongside a single `DecisionTreeClassifier`. Compare test accuracy. The forest will almost always win. Then compare the test accuracy gap between training and test — the forest's gap will be smaller.
 
 ➡️ **Next step:** What about drawing the sharpest possible boundary between classes? → `05_SVM/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
+> This project uses: Random Forest as the strongest baseline, feature importance, comparing ensemble vs single tree
 
 ---
 

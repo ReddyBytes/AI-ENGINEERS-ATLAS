@@ -1,10 +1,6 @@
 # Planning and Reasoning — Theory
 
-You're going on a cross-country road trip from New York to Los Angeles.
-
-You don't just get in the car and start driving, hoping to end up in LA. You plan. You pick checkpoints: Philadelphia, Pittsburgh, Columbus, St. Louis, Tulsa, Albuquerque, Flagstaff, LA. You estimate how long each leg takes. You book motels in advance. And you have a backup plan — if a road is closed, which route do you take? What if the car breaks down in the middle of Texas?
-
-Planning turns a vague goal ("get to LA") into a concrete, manageable sequence of steps.
+You're driving cross-country from New York to Los Angeles. You don't just start driving and hope you end up in LA. You pick checkpoints, estimate leg times, book motels in advance, and plan backup routes. Planning turns a vague goal into a concrete, manageable sequence of steps.
 
 AI agents do exactly this when faced with complex tasks.
 
@@ -14,15 +10,10 @@ AI agents do exactly this when faced with complex tasks.
 
 ## Why Simple Agents Fail on Complex Tasks
 
-A basic ReAct agent works well for 2-3 step tasks. But what about:
-
-"Research the top 5 AI startups of 2024, summarize their products, compare their funding rounds, identify the common themes, and write a 500-word analysis."
-
-A simple agent might:
+A basic ReAct agent works well for 2-3 step tasks. But for something like "Research the top 5 AI startups, summarize their products, compare funding rounds, identify common themes, and write a 500-word analysis" — a simple agent might:
 - Get lost after step 2
 - Run the same search multiple times
 - Forget it hasn't done step 4 yet
-- Give up too early
 
 Complex tasks need explicit planning.
 
@@ -30,11 +21,9 @@ Complex tasks need explicit planning.
 
 ## Chain-of-Thought Planning
 
-The simplest form of planning. Ask the LLM to think through the steps before acting.
+The simplest form: ask the LLM to think through the steps before acting.
 
 ```
-User: Research AI startups and write an analysis.
-
 LLM Thought:
 To complete this task, I need to:
 1. Search for top AI startups of 2024
@@ -52,9 +41,8 @@ Just asking the model to plan before acting dramatically improves multi-step tas
 
 ## Plan-and-Execute
 
-A more structured approach. Uses **two separate LLMs** (or two calls):
-
-1. **Planner** — takes the goal, produces a full list of tasks
+Uses **two separate LLMs** (or two calls):
+1. **Planner** — takes the goal, produces a full task list
 2. **Executor** — takes each task one at a time, executes it using tools
 
 ```mermaid
@@ -67,37 +55,37 @@ flowchart TD
     T3 --> Synth["Synthesize all results\n→ Final Answer"]
 ```
 
-The planner sees the big picture. The executor focuses on one task at a time.
-
-This is much more reliable than a single agent trying to track both the plan and the current step simultaneously.
+The planner sees the big picture. The executor focuses on one task at a time. Much more reliable than a single agent tracking both the plan and current step simultaneously.
 
 ---
 
 ## Tree of Thoughts
 
-Instead of one linear plan, explore multiple paths simultaneously.
+Instead of one linear plan, explore multiple paths simultaneously — like a chess player considering different moves.
 
-Think of it like a chess player considering different moves. For each step, generate 3 possible approaches. Evaluate which is most promising. Explore the best branch. Backtrack if needed.
+```mermaid
+flowchart TD
+    Goal["Goal"] --> A["Plan A"]
+    Goal --> B["Plan B"]
+    A --> A1["A.1"]
+    A --> A2["A.2\n(best path)"]
+    B --> B1["B.1\n(decent)"]
+    A1 --> Dead["Dead end"]
+    A2 --> A2a["A.2.a\nContinue..."]
+    B1 --> B1a["B.1.a\nContinue..."]
 
+    style Dead fill:#ff9999
+    style A2 fill:#90EE90
+    style A2a fill:#90EE90
 ```
-                    Goal
-                   /    \
-            Plan A      Plan B
-           /    \          \
-        A.1    A.2        B.1
-         |      |          |
-      (dead   (best     (decent)
-       end)   path)
-```
 
-Tree of Thoughts is slower but finds better solutions for complex reasoning problems.
+Slower but finds better solutions for complex reasoning problems.
 
 ---
 
 ## BabyAGI-Style Task Management
 
 An autonomous planning loop:
-
 1. Start with one goal
 2. Complete the first task
 3. Based on the result, generate new tasks automatically
@@ -105,17 +93,22 @@ An autonomous planning loop:
 5. Execute the next highest-priority task
 6. Repeat until the goal is reached
 
-The agent doesn't just execute a fixed plan — it generates the plan dynamically, based on what it's learned so far.
+```mermaid
+flowchart TD
+    Start["Initial Goal"] --> Task1["Execute highest-priority task"]
+    Task1 --> Result["Observe result"]
+    Result --> NewTasks["Generate new tasks\nbased on result"]
+    NewTasks --> Prioritize["Prioritize task list"]
+    Prioritize --> Done{"Goal\ncomplete?"}
+    Done -->|No| Task1
+    Done -->|Yes| Final["Final output"]
+```
 
-This is closer to how humans actually work on complex projects.
+The agent doesn't execute a fixed plan — it generates the plan dynamically based on what it's learned.
 
 ---
 
-## How Agents Handle Multi-Step Reasoning
-
-The key insight across all planning approaches:
-
-**Don't try to solve everything at once. Decompose.**
+## Approach Comparison
 
 | Approach | How it decomposes | Best for |
 |---|---|---|
@@ -124,27 +117,7 @@ The key insight across all planning approaches:
 | Tree of Thoughts | Explore multiple plan branches | Problems needing creative solutions |
 | BabyAGI-style | Dynamically generate next tasks | Open-ended research and exploration |
 
----
-
-## A Planning Failure and Its Fix
-
-**Failure:** "Write me a full business plan for a coffee shop."
-
-Without planning, the agent might just start writing and produce a disorganized wall of text.
-
-**With planning:**
-```
-Step 1: Research the coffee shop market in the target location
-Step 2: Define the concept and unique value proposition
-Step 3: Write the executive summary
-Step 4: Write the market analysis section
-Step 5: Write the financial projections section
-Step 6: Write the operations plan
-Step 7: Review and ensure all sections are consistent
-Step 8: Format the final document
-```
-
-Each step is small enough to execute reliably. The final result is structured and complete.
+**The key insight:** Don't try to solve everything at once. Decompose.
 
 ---
 
@@ -153,6 +126,13 @@ Each step is small enough to execute reliably. The final result is structured an
 🔨 **Build this now:** Take a complex task: "Create a one-week study plan for learning machine learning from scratch." Write out the full task list a planner LLM should generate — aim for 8-12 specific, executable sub-tasks.
 
 ➡️ **Next step:** Reflection and Self-Correction → `/Users/1065696/Github/AI/10_AI_Agents/06_Reflection_and_Self_Correction/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[A4: Multi-Agent Research System](../../20_Projects/02_Advanced_Projects/04_Multi_Agent_Research_System/Project_Guide.md)**
+> This project uses: supervisor decomposes research question into sub-tasks, plans which specialist to use for each
 
 ---
 

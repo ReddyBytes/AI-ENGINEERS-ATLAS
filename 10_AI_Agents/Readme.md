@@ -1,112 +1,86 @@
-# 10 — AI Agents
+# 🤖 10 — AI Agents
 
-This section is about building AI agents — systems that don't just answer questions, but actually **do things** in the world.
+<div align="center">
 
-A chatbot answers. An agent acts.
+⬅️ [09 RAG Systems](../09_RAG_Systems/Readme.md) &nbsp;|&nbsp; [🏠 Home](../00_Learning_Guide/Readme.md) &nbsp;|&nbsp; [11 MCP Protocol ➡️](../11_MCP_Model_Context_Protocol/Readme.md)
 
----
+</div>
 
-## What You'll Learn
+> Agents don't just answer — they act, observe, and loop until the job is done.
 
-By the end of this section you'll be able to:
-
-- Explain what an AI agent is and how it differs from a chatbot or a RAG pipeline
-- Understand the agent loop: perceive → think → act → observe → repeat
-- Build agents with tools, memory, and planning
-- Use frameworks like LangChain, CrewAI, and AutoGen
-- Build a working research agent from scratch
+**[▶ Start here → Agent Fundamentals Theory](./01_Agent_Fundamentals/Theory.md)**
 
 ---
 
-## Section Map
+## At a Glance
 
-```
-10_AI_Agents/
-├── Readme.md                        ← You are here
-├── Agent_vs_Chain_vs_RAG.md         ← When to use what (start here)
-│
-├── 01_Agent_Fundamentals/           ← What is an agent?
-├── 02_ReAct_Pattern/                ← How agents reason and act
-├── 03_Tool_Use/                     ← Giving agents capabilities
-├── 04_Agent_Memory/                 ← How agents remember things
-├── 05_Planning_and_Reasoning/       ← Breaking big goals into steps
-├── 06_Reflection_and_Self_Correction/ ← Agents that check their own work
-├── 07_Multi_Agent_Systems/          ← Teams of AI agents
-├── 08_Agent_Frameworks/             ← LangChain, CrewAI, AutoGen
-└── 09_Build_an_Agent/               ← Capstone: build a research agent
-```
+| | |
+|---|---|
+| 📚 Topics | 9 topics |
+| ⏱️ Est. Time | 8–10 hours |
+| 📋 Prerequisites | [09 RAG Systems](../09_RAG_Systems/Readme.md) |
+| 🔓 Unlocks | [11 MCP Protocol](../11_MCP_Model_Context_Protocol/Readme.md) |
 
 ---
 
-## Recommended Order
-
-**If you're new to agents:**
-1. Read `Agent_vs_Chain_vs_RAG.md` first — this sets the stage
-2. Work through `01` → `02` → `03` → `04` in order
-3. Then `05`, `06`, `07` as you get comfortable
-4. Pick a framework in `08` and build with `09`
-
-**If you already know LLMs/RAG:**
-- Start at `01_Agent_Fundamentals/Theory.md` for the mental model
-- Jump to `02_ReAct_Pattern` and `03_Tool_Use` for the core patterns
-- Go straight to `09_Build_an_Agent` for the hands-on project
-
----
-
-## Prerequisites
-
-Before this section, make sure you're comfortable with:
-
-- How LLMs work (see `06_Transformers/`)
-- Prompt engineering basics (see `07_Large_Language_Models/`)
-- RAG systems (see `09_RAG_Systems/`)
-
----
-
-## The Big Picture
-
-Here's how all the pieces fit together:
+## What's in This Section
 
 ```mermaid
 flowchart TD
-    User["User Goal"] --> Agent["AI Agent"]
-    Agent --> Tools["Tools\n(search, code, APIs)"]
-    Agent --> Memory["Memory\n(context, history)"]
-    Agent --> Planning["Planning\n(task breakdown)"]
-    Tools --> Loop["Agent Loop\nPerceive → Think → Act → Observe"]
-    Memory --> Loop
-    Planning --> Loop
-    Loop -->|"task done"| Answer["Final Answer"]
-    Loop -->|"need more info"| Agent
+    User["👤 User Goal"] --> Perceive["Perceive\n(read context, tools, memory)"]
+    Perceive --> Think["Think\n(ReAct: Reason + Act)"]
+    Think --> Act["Act\n(call Tools: search, code, APIs)"]
+    Act --> Observe["Observe\n(read tool output)"]
+    Observe --> Memory["Memory\n(store to working/long-term)"]
+    Memory -->|"goal incomplete"| Think
+    Memory -->|"goal complete"| Answer["✅ Final Answer"]
+
+    subgraph Multi-Agent Layer
+        Orchestrator["Orchestrator Agent"] -->|"delegates subtasks"| AgentA["Specialist A\n(Research)"]
+        Orchestrator -->|"delegates subtasks"| AgentB["Specialist B\n(Code)"]
+        Orchestrator -->|"delegates subtasks"| AgentC["Specialist C\n(Write)"]
+        AgentA & AgentB & AgentC -->|"results"| Orchestrator
+    end
+
+    Answer -.->|"multi-agent upgrade"| Orchestrator
 ```
 
 ---
 
-## Key Insight
+## Topics
 
-The difference between a chatbot and an agent is simple:
-
-- A **chatbot** takes input and produces output. One step. Done.
-- An **agent** takes a goal and keeps working — using tools, checking results, adjusting — until the goal is complete.
-
-Agents are closer to how humans work. You don't just think of an answer. You research, try things, see what happens, and adjust.
+| # | Topic | What You'll Learn | Files |
+|---|---|---|---|
+| 01 | [Agent Fundamentals](./01_Agent_Fundamentals/) | What makes something an agent vs a chain vs a chatbot — the loop, the goal, the autonomy | [📖 Theory](./01_Agent_Fundamentals/Theory.md) · [⚡ Cheatsheet](./01_Agent_Fundamentals/Cheatsheet.md) · [🎯 Interview Q&A](./01_Agent_Fundamentals/Interview_QA.md) · [🧠 Mental Model](./01_Agent_Fundamentals/Mental_Model.md) |
+| 02 | [ReAct Pattern](./02_ReAct_Pattern/) | The core reasoning loop — Reason, Act, Observe — that drives every modern agent | [📖 Theory](./02_ReAct_Pattern/Theory.md) · [⚡ Cheatsheet](./02_ReAct_Pattern/Cheatsheet.md) · [🎯 Interview Q&A](./02_ReAct_Pattern/Interview_QA.md) · [💻 Code](./02_ReAct_Pattern/Code_Example.md) |
+| 03 | [Tool Use](./03_Tool_Use/) | How agents call functions, APIs, and external services — and how to build custom tools | [📖 Theory](./03_Tool_Use/Theory.md) · [⚡ Cheatsheet](./03_Tool_Use/Cheatsheet.md) · [🎯 Interview Q&A](./03_Tool_Use/Interview_QA.md) · [💻 Code](./03_Tool_Use/Code_Example.md) · [🔧 Building Tools](./03_Tool_Use/Building_Custom_Tools.md) |
+| 04 | [Agent Memory](./04_Agent_Memory/) | Working memory, episodic memory, semantic memory — and when to use each | [📖 Theory](./04_Agent_Memory/Theory.md) · [⚡ Cheatsheet](./04_Agent_Memory/Cheatsheet.md) · [🎯 Interview Q&A](./04_Agent_Memory/Interview_QA.md) · [💻 Code](./04_Agent_Memory/Code_Example.md) · [⚖️ Comparison](./04_Agent_Memory/Comparison.md) |
+| 05 | [Planning & Reasoning](./05_Planning_and_Reasoning/) | Task decomposition, chain-of-thought, tree-of-thought — how agents break big goals into steps | [📖 Theory](./05_Planning_and_Reasoning/Theory.md) · [⚡ Cheatsheet](./05_Planning_and_Reasoning/Cheatsheet.md) · [🎯 Interview Q&A](./05_Planning_and_Reasoning/Interview_QA.md) · [🏗️ Deep Dive](./05_Planning_and_Reasoning/Architecture_Deep_Dive.md) |
+| 06 | [Reflection & Self-Correction](./06_Reflection_and_Self_Correction/) | Agents that critique and revise their own outputs before returning an answer | [📖 Theory](./06_Reflection_and_Self_Correction/Theory.md) · [⚡ Cheatsheet](./06_Reflection_and_Self_Correction/Cheatsheet.md) · [🎯 Interview Q&A](./06_Reflection_and_Self_Correction/Interview_QA.md) · [💻 Code](./06_Reflection_and_Self_Correction/Code_Example.md) |
+| 07 | [Multi-Agent Systems](./07_Multi_Agent_Systems/) | Orchestrators, specialists, shared state — how teams of agents divide and conquer | [📖 Theory](./07_Multi_Agent_Systems/Theory.md) · [⚡ Cheatsheet](./07_Multi_Agent_Systems/Cheatsheet.md) · [🎯 Interview Q&A](./07_Multi_Agent_Systems/Interview_QA.md) · [💻 Code](./07_Multi_Agent_Systems/Code_Example.md) · [🏗️ Deep Dive](./07_Multi_Agent_Systems/Architecture_Deep_Dive.md) |
+| 08 | [Agent Frameworks](./08_Agent_Frameworks/) | LangChain, CrewAI, AutoGen side-by-side — which to reach for and when | [📖 Theory](./08_Agent_Frameworks/Theory.md) · [⚡ Cheatsheet](./08_Agent_Frameworks/Cheatsheet.md) · [🎯 Interview Q&A](./08_Agent_Frameworks/Interview_QA.md) · [⚖️ Comparison](./08_Agent_Frameworks/Comparison.md) · [🦜 LangChain](./08_Agent_Frameworks/LangChain_Guide.md) · [👥 CrewAI](./08_Agent_Frameworks/CrewAI_Guide.md) · [🤝 AutoGen](./08_Agent_Frameworks/AutoGen_Guide.md) |
+| 09 | [Build an Agent](./09_Build_an_Agent/) | Capstone: build a working research agent with tools, memory, and reflection from scratch | [🗺️ Architecture](./09_Build_an_Agent/Architecture_Blueprint.md) · [📋 Project Guide](./09_Build_an_Agent/Project_Guide.md) · [👣 Step by Step](./09_Build_an_Agent/Step_by_Step.md) · [🔧 Troubleshooting](./09_Build_an_Agent/Troubleshooting.md) |
 
 ---
 
-## What's Next
+## Key Concepts at a Glance
 
-Start with [Agent vs Chain vs RAG](./Agent_vs_Chain_vs_RAG.md) to understand when you need an agent at all.
+| Concept | Why It Matters |
+|---|---|
+| **The agent loop** | The fundamental unit: perceive → reason (ReAct) → act (tool call) → observe → repeat until done |
+| **Tools are the hands** | Without them, an agent can only think; with them, it can search the web, run code, query databases, send emails |
+| **Memory comes in layers** | In-context (fast, limited), episodic (past conversations), semantic (facts in a vector store) |
+| **Multi-agent systems** | Solve the context window problem — each specialist handles its own subtask, the orchestrator coordinates results |
+| **Reflection** | What separates good agents from great ones — an agent that checks its own work catches errors a single-pass chain never would |
 
-Then dive into [01 — Agent Fundamentals](./01_Agent_Fundamentals/Theory.md).
+---
+
+## Also in This Section
+
+[🔀 Agent vs Chain vs RAG](./Agent_vs_Chain_vs_RAG.md) — not sure which pattern you need? Start here before picking an architecture.
 
 ---
 
 ## 📂 Navigation
 
-**In this folder:**
-| File | |
-|---|---|
-| 📄 **Readme.md** | ← you are here |
-| [📄 Agent_vs_Chain_vs_RAG.md](./Agent_vs_Chain_vs_RAG.md) | When to use what |
-
-⬅️ **Prev:** [09 Build a RAG App](../09_RAG_Systems/09_Build_a_RAG_App/Project_Guide.md) &nbsp;&nbsp;&nbsp; ➡️ **Next:** [01 Agent Fundamentals](./01_Agent_Fundamentals/Theory.md)
+⬅️ **Prev:** [09 RAG Systems](../09_RAG_Systems/Readme.md) &nbsp;&nbsp; ➡️ **Next:** [11 MCP — Model Context Protocol](../11_MCP_Model_Context_Protocol/Readme.md)

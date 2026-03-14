@@ -1,12 +1,6 @@
 # Multi-Agent Systems — Theory
 
-Picture a fast-growing startup.
-
-The founder can't do everything alone. They're brilliant but there's only one of them. So they hire people. A developer who writes code all day. A designer who lives in Figma. A marketer who creates content. An analyst who lives in spreadsheets.
-
-The CEO (orchestrator) doesn't do the actual work. They break down goals into pieces, delegate to the right person, review what comes back, and synthesize it all into results.
-
-Each specialist focuses on what they're best at. The whole team accomplishes more than any single person could alone.
+A fast-growing startup founder can't do everything alone. So they hire people: a developer, a designer, a marketer, an analyst. The CEO (orchestrator) breaks down goals, delegates to the right person, reviews results, and synthesizes everything. Each specialist focuses on what they're best at. The whole team accomplishes more than any single person could.
 
 AI multi-agent systems work exactly the same way.
 
@@ -17,13 +11,10 @@ AI multi-agent systems work exactly the same way.
 ## Why One Agent Isn't Always Enough
 
 A single agent faces fundamental limitations:
-
-1. **Context overload** — one agent handling a long, complex task fills up its context window
-2. **Role confusion** — an agent trying to be a researcher, writer, and critic simultaneously does all three worse
-3. **No parallelism** — one agent must do everything sequentially
-4. **No specialization** — you can't optimize one agent for coding and another for creative writing simultaneously
-
-Multi-agent systems solve all of these.
+1. **Context overload** — handling a long complex task fills up its context window
+2. **Role confusion** — trying to be a researcher, writer, and critic simultaneously does all three worse
+3. **No parallelism** — must do everything sequentially
+4. **No specialization** — can't optimize simultaneously for different skills
 
 ---
 
@@ -31,18 +22,7 @@ Multi-agent systems solve all of these.
 
 ### Pattern 1: Orchestrator + Specialists
 
-One orchestrator agent manages multiple specialist agents.
-
-The orchestrator:
-- Understands the overall goal
-- Decides which specialist to call for each sub-task
-- Passes results between agents
-- Synthesizes the final output
-
-Specialists each have:
-- A focused role ("you are a Python expert" or "you are a research agent")
-- Specific tools matching their role
-- A narrow, well-defined job
+One orchestrator manages multiple specialists. The orchestrator understands the overall goal, decides which specialist to call for each sub-task, passes results between agents, and synthesizes the final output. Each specialist has a focused role with matching tools.
 
 ```mermaid
 flowchart TD
@@ -57,73 +37,60 @@ flowchart TD
     Orch --> Answer["Final Answer"]
 ```
 
----
-
 ### Pattern 2: Pipeline (Sequential)
 
 Agents work in a chain. Each passes its output to the next.
 
+```mermaid
+flowchart LR
+    A["Agent 1\nResearch"] --> B["Agent 2\nAnalyze"]
+    B --> C["Agent 3\nWrite"]
+    C --> D["Agent 4\nEdit"]
+    D --> E["Final\nOutput"]
 ```
-Agent 1 (Research) → Agent 2 (Analyze) → Agent 3 (Write) → Agent 4 (Edit) → Final
-```
-
-Clean and predictable. Each agent handles one stage of a larger workflow.
 
 Use when: the work naturally flows in stages where each stage builds on the previous.
-
----
 
 ### Pattern 3: Parallel Agents
 
 Multiple agents work simultaneously on different parts of the task.
 
+```mermaid
+flowchart TD
+    Goal["Goal: Research 5 companies"] --> A1["Agent 1\nCompany A"]
+    Goal --> A2["Agent 2\nCompany B"]
+    Goal --> A3["Agent 3\nCompany C"]
+    Goal --> A4["Agent 4\nCompany D"]
+    Goal --> A5["Agent 5\nCompany E"]
+    A1 --> Merge["Aggregator\nCombine results"]
+    A2 --> Merge
+    A3 --> Merge
+    A4 --> Merge
+    A5 --> Merge
+    Merge --> Report["Final Report"]
 ```
-Goal: Research 5 AI companies
-Agent 1 → Research Company A ─────────────────────┐
-Agent 2 → Research Company B ─────────────────────┤
-Agent 3 → Research Company C ─────────────────────┼──► Aggregator → Final report
-Agent 4 → Research Company D ─────────────────────┤
-Agent 5 → Research Company E ─────────────────────┘
-```
 
-5x faster than one agent doing them sequentially. Crucial for tasks that can be parallelized.
-
----
-
-## The Startup Analogy in Detail
-
-| Startup Role | Multi-Agent Equivalent |
-|---|---|
-| CEO | Orchestrator agent |
-| Developer | Code-writing specialist agent |
-| Designer | Visual/UI specialist agent |
-| Marketer | Content/copy specialist agent |
-| Analyst | Data analysis specialist agent |
-| Project Manager | Task tracker component |
-| Slack/Email | Inter-agent communication |
-
-Each specialist has their own context, tools, and role. The CEO coordinates without doing every task.
+5x faster than one agent doing them sequentially.
 
 ---
 
 ## Inter-Agent Communication
 
 Agents communicate through:
-
-1. **Shared memory** — a common store that all agents can read from and write to
+1. **Shared memory** — a common store all agents can read/write
 2. **Message passing** — agents send structured messages to each other
 3. **Tool calls** — one agent calls another agent as a "tool"
 4. **Shared queue** — a task queue that agents pull from
 
-In frameworks like CrewAI, this is handled automatically. In AutoGen, agents communicate through a managed conversation loop.
+In CrewAI, this is handled automatically. In AutoGen, agents communicate through a managed conversation loop.
 
 ---
 
 ## CrewAI and AutoGen
 
-**CrewAI** — think of it as a crew of specialized workers. You define agents with roles, tools, and goals. You define tasks. The framework handles who does what.
+**CrewAI** — define agents with roles, tools, and goals; define tasks; the framework handles who does what. Best for role-based workflows.
 
-**AutoGen** — Microsoft's framework. Agents are "conversable" — they can talk to each other through a group chat. Great for code generation and execution workflows.
+**AutoGen** — Microsoft's framework. Agents are "conversable" — they talk to each other through a group chat. Great for code generation and execution workflows.
 
 ---
 
@@ -132,6 +99,13 @@ In frameworks like CrewAI, this is handled automatically. In AutoGen, agents com
 🔨 **Build this now:** Design a multi-agent system to produce a research report. List: the agents you'd create (names + roles + tools), which pattern you'd use (orchestrator? pipeline?), and how results would flow from one agent to the next.
 
 ➡️ **Next step:** Agent Frameworks → `/Users/1065696/Github/AI/10_AI_Agents/08_Agent_Frameworks/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[A4: Multi-Agent Research System](../../20_Projects/02_Advanced_Projects/04_Multi_Agent_Research_System/Project_Guide.md)**
+> This project uses: supervisor + 4 specialist workers (WebResearcher, DataAnalyst, Writer, FactChecker) running in parallel via LangGraph
 
 ---
 

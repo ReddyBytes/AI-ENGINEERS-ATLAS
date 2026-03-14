@@ -1,12 +1,8 @@
 # Agent Frameworks — Theory
 
-Think about building a house.
+Building a house: you could mix cement by hand and hammer every nail one at a time — or use a cement mixer, a miter saw, and a nail gun. Same work, but the power tools handle the repetitive error-prone parts so you can focus on the design and structure.
 
-You could mix cement by hand. Measure every board with a tape measure. Hammer every nail one at a time. Nothing stopping you.
-
-Or you could use power tools. A cement mixer, a miter saw, a nail gun. You're doing the same work — building a house — but the tools handle the repetitive, error-prone parts so you can focus on the design and structure.
-
-Agent frameworks are the power tools for building AI agents. They handle the hard parts: the agent loop, tool routing, memory management, prompt formatting, error handling. You focus on what your agent actually does.
+Agent frameworks are the power tools for building AI agents — they handle the agent loop, tool routing, memory management, prompt formatting, and error handling.
 
 👉 This is why we need **Agent Frameworks** — they abstract away the plumbing so you can build faster, with fewer bugs, and focus on your agent's actual purpose.
 
@@ -15,11 +11,10 @@ Agent frameworks are the power tools for building AI agents. They handle the har
 ## Why Frameworks Exist
 
 Without a framework, building an agent means:
-
 - Writing the prompt template for the agent loop manually
 - Parsing the LLM output to detect tool calls
 - Calling the tools yourself
-- Appending the tool output back to the prompt
+- Appending tool output back to the prompt
 - Looping until "Final Answer"
 - Handling errors when the LLM outputs malformed tool calls
 - Managing conversation history
@@ -30,8 +25,6 @@ That's hundreds of lines of boilerplate. Frameworks do it for you.
 
 ## The Tradeoffs: Convenience vs Control
 
-Every framework makes tradeoffs:
-
 ```
 More convenient ────────────────────── More control
 
@@ -40,22 +33,9 @@ CrewAI          LangChain      Custom code
  convenience)                   most work)
 ```
 
-**High convenience (CrewAI):**
-- Works in minutes
-- Less flexible
-- Abstractions hide what's happening
-- Hard to customize edge cases
-
-**Balanced (LangChain):**
-- More verbose but more flexible
-- Can see and modify most of what happens
-- Huge ecosystem of tools and integrations
-- Steeper learning curve
-
-**Custom code:**
-- Full control
-- Weeks to build properly
-- Only for production systems with very specific requirements
+- **High convenience (CrewAI):** works in minutes, less flexible, abstractions hide what's happening
+- **Balanced (LangChain):** more verbose but more flexible, can see and modify most of what happens, huge ecosystem
+- **Custom code:** full control, weeks to build properly, only for production systems with very specific requirements
 
 ---
 
@@ -74,8 +54,6 @@ Core concepts:
 
 Best for: learning, prototyping, production systems that need maximum flexibility.
 
----
-
 ### CrewAI
 
 Built specifically for multi-agent systems. Simpler and more opinionated than LangChain.
@@ -87,8 +65,6 @@ Core concepts:
 - **Process** — sequential or hierarchical execution order
 
 Best for: multi-agent workflows, content production, research pipelines.
-
----
 
 ### AutoGen (Microsoft)
 
@@ -106,8 +82,6 @@ Best for: code generation and debugging workflows, iterative agent conversations
 
 ## Choosing a Framework
 
-Use this guide:
-
 | If you need... | Use |
 |---|---|
 | Learning or prototyping | LangChain or CrewAI |
@@ -116,6 +90,18 @@ Use this guide:
 | Maximum flexibility | LangChain |
 | Simple single agent with tools | LangChain |
 | Custom workflow logic | LangChain + custom code |
+
+```mermaid
+flowchart TD
+    Start["What do you need to build?"] --> Multi{"Multi-agent\nsystem?"}
+    Multi -->|Yes| Roles{"Role-based\nspecialists?"}
+    Roles -->|Yes| CrewAI["CrewAI"]
+    Roles -->|No, code-focused| AutoGen["AutoGen"]
+    Multi -->|No, single agent| Flex{"Need maximum\nflexibility?"}
+    Flex -->|Yes| LangChain["LangChain"]
+    Flex -->|No, fast prototype| CrewAI2["CrewAI or LangChain"]
+    Flex -->|Full control, production| Custom["Custom code\n+ LangChain core"]
+```
 
 ---
 

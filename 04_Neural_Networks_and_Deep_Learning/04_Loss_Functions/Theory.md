@@ -1,20 +1,14 @@
 # Loss Functions — Theory
 
-Your GPS is routing you to a destination. You make a small wrong turn — it calmly says "recalculating" and suggests a gentle correction. You make a massive wrong turn and end up on a motorway going the wrong direction — it urgently recalculates, gives a sharp correction, and even adds extra time to your ETA. The size of the correction depends on how wrong you are.
+Your GPS makes small corrections for a small wrong turn, and urgent corrections when you're going the wrong direction entirely. The size of the correction depends on how wrong you are.
 
-👉 This is why we need **loss functions** — they measure exactly how wrong the model's predictions are, so the network knows how strongly to correct itself.
+👉 This is why we need **loss functions** — they measure exactly how wrong the model's predictions are so the network knows how strongly to correct itself.
 
 ---
 
 ## What is a Loss Function?
 
-A loss function takes two things:
-1. What the model predicted
-2. What the correct answer actually is
-
-It outputs a single number: **the loss**. Higher loss = more wrong. Lower loss = more right.
-
-During training, the goal is simple: make the loss as small as possible.
+A loss function takes the model's prediction and the correct answer, then outputs a single number: **the loss**. Higher = more wrong. During training, the goal is to minimize it.
 
 ---
 
@@ -28,20 +22,15 @@ During training, the goal is simple: make the loss as small as possible.
 MSE = (1/n) × Σ (predicted - actual)²
 ```
 
-You take every prediction, subtract the real answer, square it (making it positive and punishing large errors harder), and average them all.
-
-**Why square it?**
-- A prediction that is 10 off gets penalized 100 (10²)
-- A prediction that is 2 off gets penalized 4 (2²)
-- Large errors get punished much more than small ones
+Squaring makes all errors positive and punishes large errors disproportionately:
+- Error of 10 → penalty 100
+- Error of 2 → penalty 4
 
 **Example:**
 - Predicted: 80, Actual: 75 → error = 5, squared = 25
-- Predicted: 60, Actual: 75 → error = -15, squared = 225
+- Predicted: 60, Actual: 75 → error = −15, squared = 225
 
-The model hates big errors more than many small ones.
-
-**When to use:** Predicting house prices, temperatures, stock values — any continuous output.
+**Use for:** House prices, temperatures, any continuous output.
 
 ---
 
@@ -53,11 +42,9 @@ The model hates big errors more than many small ones.
 BCE = -( y × log(p) + (1-y) × log(1-p) )
 ```
 
-Where y is the true label (0 or 1) and p is the predicted probability.
+Where y is the true label (0 or 1) and p is the predicted probability. If the true label is 1 and you predicted 0.99 → tiny loss. Predicted 0.01 → massive loss (log(0.01) is a large negative number).
 
-**The intuition:** If the true label is 1 and you predicted 0.99, loss is tiny. If you predicted 0.01 (totally wrong), loss is massive — because log(0.01) is a very large negative number.
-
-**When to use:** Any binary classification — spam/not spam, cancer/no cancer.
+**Use for:** Binary classification — spam/not spam, cancer/no cancer.
 
 ---
 
@@ -67,11 +54,9 @@ Where y is the true label (0 or 1) and p is the predicted probability.
 CE = -Σ y_i × log(p_i)
 ```
 
-For multiple classes. Only the true class contributes to the loss (because all other y_i are 0). It simplifies to: `-log(probability assigned to correct class)`.
+For multiple classes. Only the true class contributes (all other y_i = 0), simplifying to `-log(probability assigned to correct class)`. Model 90% confident in right answer → small loss. 10% confident → large loss.
 
-If the model is 90% confident in the right answer, loss is small. If it is only 10% confident, loss is huge.
-
-**When to use:** Any multi-class classification — image recognition, language models.
+**Use for:** Multi-class classification — image recognition, language models.
 
 ---
 
@@ -91,7 +76,7 @@ flowchart TD
 
 ## Choosing the Right Loss
 
-The loss function is determined by your task — it is not a hyperparameter to experiment with freely.
+The loss function is determined by your task — it is not a free hyperparameter.
 
 | Task | Loss Function |
 |------|--------------|
@@ -104,9 +89,9 @@ Getting this wrong causes silent failure — the model trains but never converge
 
 ---
 
-✅ **What you just learned:** Loss functions quantify how wrong a model is — MSE penalizes large errors heavily for regression, and cross-entropy heavily penalizes confident wrong predictions for classification.
+✅ **What you just learned:** Loss functions quantify how wrong a model is — MSE penalizes large regression errors heavily, and cross-entropy heavily penalizes confident wrong predictions in classification.
 
-🔨 **Build this now:** Manually compute MSE for these three (predicted, actual) pairs: (5, 3), (10, 10), (2, 8). Then identify which pair contributed the most to the total loss. Answer: (2, 8) — error of 6, squared to 36.
+🔨 **Build this now:** Manually compute MSE for (5, 3), (10, 10), (2, 8). Which pair contributed the most to total loss? Answer: (2, 8) — error of 6, squared to 36.
 
 ➡️ **Next step:** Forward Propagation — `./05_Forward_Propagation/Theory.md`
 

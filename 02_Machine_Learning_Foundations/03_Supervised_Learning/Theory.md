@@ -2,15 +2,7 @@
 
 ## The Story 📖
 
-It's your first week as a new bank employee. Your job: decide if a loan application should be approved or rejected.
-
-Your manager doesn't give you a rulebook. Instead, they pull out a stack of 10,000 past applications — each one has the details of the applicant AND a note at the bottom saying "Approved ✅" or "Rejected ❌".
-
-"Study these," they say. "Figure out the pattern."
-
-After a few weeks you've read thousands of cases. You start noticing: applicants with stable income and low existing debt almost always got approved. Applicants with multiple missed payments almost always got rejected.
-
-You've learned the pattern — from **labeled examples**.
+It's your first week as a bank employee. Your job: approve or reject loan applications. Your manager doesn't give you a rulebook — they hand you 10,000 past applications, each with the details AND a note: "Approved ✅" or "Rejected ❌". After weeks of study, you notice: stable income + low debt = approved; multiple missed payments = rejected. You've learned the pattern from **labeled examples**.
 
 👉 This is **Supervised Learning** — training a model using data where every example already has the correct answer attached.
 
@@ -29,26 +21,24 @@ The model learns to map inputs → outputs by studying these pairs.
 | **Classification** | A category/class | Spam or not spam? Dog or cat? |
 | **Regression** | A number | What's the house price? |
 
+```mermaid
+flowchart TD
+    SL[Supervised Learning] --> C[Classification\npredict a category]
+    SL --> R[Regression\npredict a number]
+    C --> C1[Binary\n2 classes: spam or not]
+    C --> C2[Multi-class\n3+ classes: cat dog bird]
+    R --> R1[House price prediction]
+    R --> R2[Temperature forecasting]
+```
+
 ---
 
 ## How It Works — Step by Step
 
-### Step 1: Labeled Data
-You start with a dataset where every example has an input and a known correct answer (the **label**).
-
-```
-Input: [income=80k, debt=5k, missed_payments=0]  →  Label: Approved ✅
-Input: [income=30k, debt=20k, missed_payments=3]  →  Label: Rejected ❌
-```
-
-### Step 2: Train
-The model looks at thousands of these pairs and adjusts itself to predict the label from the input.
-
-### Step 3: Predict
-Give the model a new application it has never seen. It predicts: Approved or Rejected?
-
-### Step 4: Evaluate
-Check how often it got it right. If it's wrong too often, retrain with more data or a better model.
+1. **Labeled Data** — every example has an input and a known correct answer (the **label**)
+2. **Train** — model studies thousands of pairs and adjusts to predict labels from inputs
+3. **Predict** — give the model a new application; it predicts Approved or Rejected
+4. **Evaluate** — check accuracy; retrain if wrong too often
 
 ```mermaid
 flowchart TD
@@ -76,22 +66,11 @@ flowchart TD
 
 ## Why It Works (The Intuition)
 
-The model is essentially learning a function:
-
-```
-f(input) = output
-```
-
-It doesn't know the formula in advance — it discovers it by looking at enough examples. The more examples, the better the approximation of the true pattern.
-
----
+The model learns a function `f(input) = output`. It doesn't know the formula in advance — it discovers it from enough examples. More examples = better approximation of the true pattern.
 
 ## The Catch: You Need Labels
 
-The biggest challenge of supervised learning is **getting labeled data**. Someone has to manually attach the correct answers to every training example.
-
-- Labeling 100,000 images as "cat" or "dog" = expensive and time-consuming
-- This is why labeled datasets are valuable — they represent real human effort
+**Getting labeled data** is the biggest challenge. Someone must manually attach correct answers to every training example — labeling 100,000 images takes real human effort, which is why labeled datasets are valuable.
 
 ---
 

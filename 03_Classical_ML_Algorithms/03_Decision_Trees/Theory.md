@@ -2,30 +2,15 @@
 
 ## The Story
 
-You are playing the game "20 Questions." Your friend is thinking of an animal.
+Playing "20 Questions" — your friend thinks of an animal. You ask: mammal? four legs? larger than a dog? horse? Found in 4 questions. Each question cut remaining possibilities roughly in half.
 
-You start asking questions:
-1. "Is it a mammal?" — Yes.
-2. "Does it have four legs?" — Yes.
-3. "Is it larger than a dog?" — Yes.
-4. "Is it a horse?" — Yes!
-
-You found it in 4 questions. Why did that work? Because each question cut the remaining possibilities roughly in half. You did not ask random questions — you asked the most useful ones first.
-
-A decision tree does exactly this. It automatically figures out which questions to ask, in what order, to best separate your data into classes.
-
-👉 This is why we need **Decision Trees** — they learn the most useful series of yes/no questions to classify data, and you can read every decision.
+👉 A decision tree does exactly this — it automatically figures out which questions to ask, in what order, to best separate data into classes.
 
 ---
 
 ## What Does a Decision Tree Do?
 
-A decision tree learns a hierarchy of if/else rules from your training data. It can be used for:
-
-- **Classification** — "Is this email spam or not?"
-- **Regression** — "What price should this house sell for?"
-
-The result is a tree you can actually read. Every prediction traces a path from the root to a leaf.
+A decision tree learns a hierarchy of if/else rules from training data. Used for **classification** ("Is this spam?") or **regression** ("What's the house price?"). Every prediction traces a path from root to leaf — fully readable.
 
 ---
 
@@ -50,25 +35,25 @@ flowchart TD
 
 ## How Does the Tree Choose Which Question to Ask First?
 
-It tries every possible split on every feature and picks the one that creates the purest groups.
+It tries every possible split on every feature and picks the one creating the purest groups. **Gini Impurity** measures how mixed a group is (0 = pure, 0.5 = max mix). The tree picks the split that reduces impurity most — called **information gain**.
 
-**Gini Impurity** measures how mixed a group is:
-- Gini = 0: perfectly pure (all one class)
-- Gini = 0.5: maximally impure (50/50 mix)
-
-The tree picks the split that reduces impurity the most. This is called **information gain**.
-
-For the 20 Questions game: asking "Is it a living thing?" when everything is already a living thing gives you zero information gain. Asking "Is it a mammal?" when there are equal animals of all types gives you high information gain.
+```mermaid
+flowchart TD
+    A["For each feature and threshold:\nTry the split"] --> B["Calculate Gini impurity\nof each resulting group"]
+    B --> C["Calculate information gain\n= impurity_before - weighted_impurity_after"]
+    C --> D["Pick the split with\nhighest information gain"]
+    D --> E["Create node with that split"]
+    E --> F{"Max depth\nreached?"}
+    F -->|"No"| G["Recurse on\neach child node"]
+    F -->|"Yes"| H["Create leaf node\nwith majority class"]
+    G --> A
+```
 
 ---
 
 ## Depth and Overfitting
 
-A tree with no depth limit will grow until it has one example per leaf — it memorizes every training example perfectly. 100% training accuracy, terrible test accuracy.
-
-**max_depth** limits how many questions the tree can ask. Shallow trees (depth 3–5) generalize better. They make simpler, more robust decisions.
-
-This is the main hyperparameter to tune in decision trees.
+A tree with no depth limit grows until it has one example per leaf — 100% training accuracy, terrible test accuracy. **max_depth** limits questions asked. Shallow trees (depth 3–5) generalize better — this is the main hyperparameter to tune.
 
 ---
 
@@ -89,6 +74,13 @@ This is the main hyperparameter to tune in decision trees.
 🔨 **Build this now:** In sklearn, train a `DecisionTreeClassifier(max_depth=3)` on the Iris dataset. Then run `sklearn.tree.export_text(model, feature_names=iris.feature_names)` to print the actual tree rules. You will see exactly what questions the model learned.
 
 ➡️ **Next step:** What if one tree is not enough? → `04_Random_Forests/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
+> This project uses: Decision Tree classifier, tree depth tuning, visualizing the confusion matrix
 
 ---
 

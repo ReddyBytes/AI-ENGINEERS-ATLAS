@@ -1,47 +1,44 @@
 # Naive Bayes
 
-You are a doctor. A patient walks in with three symptoms: fever, cough, and fatigue. You have seen thousands of patients before. You know from experience: fever makes flu very likely. Cough also makes flu likely. Fatigue is common with flu too. Each symptom individually pushes you toward "flu." You multiply these independent signals together and arrive at your diagnosis.
+A doctor sees a patient with three symptoms: fever, cough, fatigue. From experience, each symptom individually pushes toward "flu." The doctor asks each symptom separately — "how much does *this alone* shift the odds?" — then multiplies those independent signals together.
 
-You never said "what combination of all three symptoms points to flu?" You just asked each symptom separately: "how much does *this alone* shift the odds?" Then you multiplied.
-
-👉 This is why we need **Naive Bayes** — to classify by combining independent probabilities, making it extremely fast and surprisingly effective, especially for text.
+👉 This is why we need **Naive Bayes** — to classify by combining independent probabilities, making it extremely fast and effective, especially for text.
 
 ---
 
 ## Bayes' Theorem — Plain English First
 
-Bayes' theorem answers one question: given that I just observed something, how should I update my belief?
+Bayes' theorem answers: given that I just observed something, how should I update my belief?
 
-Formal version: `P(class | features) = P(features | class) × P(class) / P(features)`
+`P(class | features) = P(features | class) × P(class) / P(features)`
 
-Plain English version:
 - `P(class | features)` = probability of this class given what I see (what we want)
 - `P(features | class)` = how likely is this feature pattern if the class is true (learned from data)
-- `P(class)` = how common is this class in general (prior knowledge)
-- `P(features)` = how common is this feature pattern overall (just a normalizing constant)
+- `P(class)` = how common is this class in general (prior)
+- `P(features)` = how common is this feature pattern overall (normalizing constant)
 
-Example: You get an email with the word "FREE." What is the probability it is spam?
+Example: email with "FREE" → P("FREE" | spam) is high, P(spam) = 40% → high probability of spam.
 
-- `P(spam | "FREE")` = ?
-- `P("FREE" | spam)` = very high — spammers love "FREE"
-- `P(spam)` = maybe 40% of all emails you get are spam
-- Combine them → high probability of spam
+```mermaid
+flowchart LR
+    OBS["Observe: word FREE\nin email"] --> PRIOR["Prior\nP(spam) = 40%"]
+    OBS --> LIKE["Likelihood\nP(FREE | spam) = high"]
+    PRIOR --> BAYES["Bayes Update"]
+    LIKE --> BAYES
+    BAYES --> POST["Posterior\nP(spam | FREE) = high\n→ Mark as spam"]
+```
 
 ---
 
 ## The Naive Part
 
-Real Bayes theorem with many features is expensive to compute. You would need to model the joint probability of all features together. For a text document with 10,000 unique words, that is essentially impossible.
+Real Bayes with many features is expensive — you'd need to model the joint probability of all features. For 10,000 unique words, essentially impossible.
 
-The "naive" assumption: **treat every feature as independent**.
+The "naive" assumption: **treat every feature as independent.**
 
-This means instead of: `P(fever AND cough AND fatigue | flu)`
+Instead of: `P(fever AND cough AND fatigue | flu)` compute: `P(fever | flu) × P(cough | flu) × P(fatigue | flu)`
 
-You compute: `P(fever | flu) × P(cough | flu) × P(fatigue | flu)`
-
-Is this assumption always true? Almost never. Fever and cough are correlated. Words in a document are related to each other.
-
-Does it work anyway? Often remarkably well. Especially for text classification.
+Is this always true? Almost never. Does it work anyway? Often remarkably well, especially for text.
 
 ```mermaid
 flowchart TD
@@ -56,15 +53,10 @@ flowchart TD
 
 ## Why Naive Bayes Works for Text
 
-Text classification is Naive Bayes' strongest domain. Here is why:
-
-- Each word is one feature. A document might have 10,000 features.
-- Most ML models struggle with 10,000 features.
-- Naive Bayes treats each word independently — so 10,000 features becomes 10,000 small probability calculations. Easy.
-- Training is just counting: how many times does each word appear in spam vs ham emails?
-- No gradient descent, no optimization — just counting.
-
-This makes Naive Bayes extremely fast to train and to predict.
+- Each word is a feature — a document can have 10,000 features
+- NB treats each word independently → 10,000 small probability calculations
+- Training is just **counting**: how often does each word appear in spam vs ham?
+- No gradient descent, no optimization — just counting → extremely fast to train and predict
 
 ---
 
@@ -82,11 +74,7 @@ For spam detection and document classification, **Multinomial NB** is the standa
 
 ## The Laplace Smoothing Problem
 
-What if a word appears in test data that was never in training data? Its probability would be 0. Multiplying 0 into the chain of probabilities kills the whole calculation.
-
-**Laplace smoothing** (also called additive smoothing) adds a small count to every word's frequency, even words that never appeared. This ensures no probability is ever exactly 0.
-
-In sklearn, this is controlled by the `alpha` parameter (default: 1.0).
+If a word appears in test data but never in training data, its probability is 0 — and multiplying 0 into the chain kills the whole calculation. **Laplace smoothing** adds a small count to every word's frequency to ensure no probability is ever exactly 0. Controlled by the `alpha` parameter in sklearn (default: 1.0).
 
 ---
 

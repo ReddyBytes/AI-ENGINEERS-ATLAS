@@ -1,23 +1,21 @@
 # Vector Databases — Theory
 
-Picture a library where books aren't organized alphabetically or by Dewey Decimal code. Instead, they're arranged by vibe and theme. You walk in and tell the librarian: "I want something like The Alchemist — a journey of self-discovery with philosophical undertones." The librarian doesn't search a title catalog. They instantly point to 10 books with similar energy, from completely different authors, genres, and decades.
+Picture a library where books aren't organized alphabetically — they're arranged by vibe and theme. You tell the librarian: "I want something like The Alchemist — a journey of self-discovery with philosophical undertones." They instantly point to 10 books with similar energy, from completely different authors, genres, and decades.
 
-That's a vector database. Instead of storing books, it stores embeddings (the numeric "vibe signatures" of your documents). Instead of looking up by ID, you search by meaning.
+That's a vector database: instead of storing books, it stores embeddings (numeric "vibe signatures" of your documents). Instead of looking up by ID, you search by meaning.
 
-👉 This is why we need **Vector Databases** — regular databases can't do semantic search, but vector databases can find "things with similar meaning" at scale, in milliseconds.
+👉 This is why we need **Vector Databases** — regular databases can't do semantic search, but vector databases find "things with similar meaning" at scale, in milliseconds.
 
 ---
 
 ## Why Regular Databases Can't Do This
 
-A regular SQL database stores rows and columns. You query with exact matches and ranges:
+A regular SQL database queries with exact matches and ranges:
 ```sql
 SELECT * FROM docs WHERE topic = 'machine learning'
 ```
 
-This only works if someone already labeled the document as "machine learning." It can't find a document about "gradient descent and neural networks" when you search for "AI learning systems."
-
-For semantic search, you need to compare thousands of floating-point vectors — a completely different type of query.
+This only works if someone already labeled the document. It can't find a document about "gradient descent and neural networks" when you search for "AI learning systems." For semantic search, you need to compare thousands of floating-point vectors — a completely different query type.
 
 ---
 
@@ -32,32 +30,39 @@ flowchart TD
     F --> G[Top-K most similar docs returned]
 ```
 
-1. At indexing time: convert each document to a vector, store it alongside metadata.
-2. At query time: convert the user's question to a vector, find the stored vectors most similar to it.
+At indexing time: convert each document to a vector, store it with metadata. At query time: convert the user's question to a vector, find the most similar stored vectors.
 
 ---
 
 ## Approximate Nearest Neighbor (ANN) Search
 
-Finding the exact closest vector in a collection of 10 million would require comparing your query to all 10 million. Too slow.
+Finding the exact closest vector in 10 million entries requires comparing to all 10 million — too slow. ANN algorithms trade a small amount of accuracy for massive speed gains.
 
-ANN algorithms trade a small amount of accuracy for massive speed gains. The key one: **HNSW** (Hierarchical Navigable Small World).
+**HNSW (Hierarchical Navigable Small World)** builds a multi-layer graph where each vector connects to its nearest neighbors. Search starts at the top layer and navigates toward the query, moving down as you get closer — like a GPS navigating from highway to street to exact address.
 
-HNSW builds a multi-layer graph where each vector is connected to its nearest neighbors. At search time, you start at the top layer and navigate toward the query, moving down layers as you get closer. It's like a GPS system — you first navigate at the highway level, then streets, then the exact address.
+Result: top-K matches in milliseconds across 100 million vectors.
 
-**Result:** ANN finds the top-K matches in milliseconds even across 100 million vectors. Exact nearest neighbor would take minutes.
+```mermaid
+flowchart TD
+    A[Query vector] --> B[Top layer of HNSW graph\nCoarse navigation]
+    B --> C[Middle layers\nFiner navigation]
+    C --> D[Bottom layer\nExact neighborhood]
+    D --> E[Top-K nearest neighbors returned]
+    style A fill:#fff3cd,stroke:#ffc107
+    style E fill:#d4edda,stroke:#28a745
+```
 
 ---
 
 ## What Makes a Vector Database
 
-Beyond just storing vectors, a vector database provides:
+Beyond storing vectors, a vector database provides:
 
 - **Indexing** (HNSW, IVF): fast ANN search
-- **Metadata storage**: store extra fields alongside each vector (title, date, source, etc.)
-- **Metadata filtering**: "find the 10 most similar documents, but only from source=legal"
+- **Metadata storage**: extra fields alongside each vector (title, date, source)
+- **Metadata filtering**: "find the 10 most similar docs, but only from source=legal"
 - **CRUD operations**: add, update, delete individual vectors
-- **Namespaces/collections**: logical separation of different document sets
+- **Namespaces/collections**: logical separation of document sets
 - **Persistence**: data survives restarts
 
 ---
@@ -69,18 +74,17 @@ Beyond just storing vectors, a vector database provides:
 | **Pinecone** | Cloud-managed | Production, no infrastructure headache |
 | **ChromaDB** | Local + cloud | Prototyping, local development, open-source |
 | **Weaviate** | Self-hosted + cloud | Advanced features, multi-modal, hybrid search |
-| **pgvector** | PostgreSQL extension | You already use PostgreSQL and want to avoid a new system |
+| **pgvector** | PostgreSQL extension | You already use PostgreSQL |
 | **Qdrant** | Self-hosted + cloud | High performance, Rust-based, good free tier |
 
 ---
 
 ## Metadata Filtering
 
-One of the most important features. You can combine vector similarity search with exact metadata filters:
+Combine vector similarity search with exact metadata filters:
 
 ```python
-# Find the 5 most similar docs, but only from the "legal" department,
-# and only from 2024
+# Find the 5 most similar docs, but only from the "legal" department in 2024
 collection.query(
     query_embeddings=[query_vector],
     n_results=5,
@@ -97,6 +101,14 @@ This is how enterprise RAG systems scope results to the right data source, user,
 🔨 **Build this now:** Install ChromaDB. Create a collection. Add 5 documents with different topics. Query it with a question and see which documents it returns.
 
 ➡️ **Next step:** Semantic Search → `08_LLM_Applications/06_Semantic_Search/Theory.md`
+
+---
+
+## 🛠️ Practice Projects
+
+Apply what you just learned:
+- → **[I1: Semantic Search Engine](../../20_Projects/01_Intermediate_Projects/01_Semantic_Search_Engine/Project_Guide.md)** — in-memory numpy vector store with cosine similarity
+- → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)** — ChromaDB as the vector store for your full RAG pipeline
 
 ---
 

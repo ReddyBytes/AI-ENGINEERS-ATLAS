@@ -1,10 +1,8 @@
 # Tool Calling — Theory
 
-You hire a brilliant analyst. They can write flawlessly, reason through complex problems, and draft strategies overnight. But there's one catch — they can't look anything up. No internet. No phone. No calculator. Just what they already know.
+You hire a brilliant analyst. They can write flawlessly and reason through complex problems, but they can't look anything up — no internet, no phone, no calculator. So you give them a specific phone: Button 1 calls the weather service, Button 2 calls the company database, Button 3 calls a calculator. Now they can say "Let me check the weather" (press 1), get the answer, and fold it into their response.
 
-So you give them a phone. Not any phone — a very specific one. Button 1 calls the weather service. Button 2 calls the company database. Button 3 calls a calculator. Now your analyst can say "Let me check the weather" (press 1), get the answer, and fold it into their response.
-
-That's tool calling. You give an LLM specific "phones" it can use when it decides it needs them.
+That's tool calling: giving an LLM specific "phones" it can use when it decides it needs them.
 
 👉 This is why we need **Tool Calling** — so LLMs can take real actions in the world, not just speak from memory.
 
@@ -12,15 +10,11 @@ That's tool calling. You give an LLM specific "phones" it can use when it decide
 
 ## What Is Tool Calling?
 
-Tool calling (also called function calling) lets you define a set of functions the model can request to use. The model decides when to use them, and you execute them in your code.
-
-The model doesn't run the tool itself. It just says "I want to call this tool with these inputs." Your code runs it and sends back the result.
+Tool calling (also called function calling) lets you define functions the model can request to use. The model decides when to use them; your code executes them and sends back results. The model doesn't run the tool itself — it says "I want to call this tool with these inputs."
 
 ---
 
 ## The Tool Call Cycle
-
-Here's exactly what happens:
 
 ```mermaid
 flowchart TD
@@ -32,11 +26,10 @@ flowchart TD
     B -- No --> F
 ```
 
-**Step by step:**
 1. User asks: "What's the weather in Paris?"
-2. LLM sees it has a `get_weather` tool. Returns a `tool_use` response (not a text response yet).
-3. Your code sees the tool request, calls the actual weather API.
-4. Your code sends the weather data back to the LLM as a `tool_result` message.
+2. LLM sees it has a `get_weather` tool. Returns a `tool_use` response (not text yet).
+3. Your code calls the actual weather API.
+4. Your code sends the result back as a `tool_result` message.
 5. LLM generates the final user-facing response using the real data.
 
 ---
@@ -51,26 +44,19 @@ Without tools, an LLM can only use what it was trained on. With tools, it can:
 - Call **external APIs** (send emails, create calendar events)
 - Run **code** and get actual results
 
-The model becomes an orchestrator — it reasons about what needs to happen, delegates the actual action to tools, and synthesizes the results.
+The model becomes an orchestrator — it reasons about what needs to happen, delegates to tools, and synthesizes the results.
 
 ---
 
 ## How the Model Decides to Use a Tool
 
-You give the model tool definitions. Each definition has:
-- A **name** (e.g., `get_weather`)
-- A **description** — this is critical, it tells the model WHEN to use it
-- An **input schema** — what parameters the tool takes
-
-The model reads your tool descriptions and decides "does this question require one of these tools?" If yes, it returns a structured tool call request instead of a text response.
-
-**Key insight:** Write clear, specific tool descriptions. The model uses them to decide when and how to call the tool. A vague description leads to misuse.
+Each tool definition has a **name**, a **description** (critical — tells the model WHEN to use it), and an **input schema**. The model reads descriptions and decides "does this question require one of these tools?" A vague description leads to misuse — write clear, specific descriptions.
 
 ---
 
 ## Parallel Tool Calls
 
-The model can request multiple tools in one response. This is called parallel tool calling.
+The model can request multiple tools in one response:
 
 ```
 User: "What's the weather in Paris and London?"
@@ -80,7 +66,24 @@ LLM response (single turn):
   tool_use: get_weather("London")
 ```
 
-Your code runs both in parallel, returns both results, and the model generates a single answer comparing the two cities. Much faster than sequential calls.
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant App as Your Code
+    participant LLM as LLM API
+    participant T as Tool / External API
+
+    U->>App: "What's the weather in Paris and London?"
+    App->>LLM: Send message + tool definitions
+    LLM->>App: tool_use: get_weather("Paris")\ntool_use: get_weather("London")
+    App->>T: Call get_weather("Paris")
+    App->>T: Call get_weather("London") [parallel]
+    T->>App: {"temp": "18°C", "condition": "sunny"}
+    T->>App: {"temp": "12°C", "condition": "cloudy"}
+    App->>LLM: tool_result: Paris data + London data
+    LLM->>App: "Paris is 18°C and sunny, London is 12°C and cloudy."
+    App->>U: Final response
+```
 
 ---
 

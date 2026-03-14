@@ -1,6 +1,6 @@
 # LLM Fundamentals — Theory
 
-Imagine a student who spent years reading the entire internet. Every Wikipedia article. Every book ever scanned. Every Reddit thread, news article, academic paper, GitHub repo, and forum post. Billions of pages of human knowledge. After all that reading, this student can answer almost any question, write in any style, explain any concept, and even write code. That student is an LLM.
+Imagine a student who spent years reading the entire internet — every Wikipedia article, book, Reddit thread, academic paper, and GitHub repo. After all that reading, they can answer almost any question, write in any style, explain any concept, and write code. That student is an LLM.
 
 👉 This is why we need **Large Language Models** — they compress the patterns of human language and knowledge into a single model that can generate useful text on demand.
 
@@ -8,14 +8,11 @@ Imagine a student who spent years reading the entire internet. Every Wikipedia a
 
 ## What actually is an LLM?
 
-An LLM (Large Language Model) is a neural network trained to predict text.
+An LLM (Large Language Model) is a neural network trained to predict text. Three things make it "large":
 
-That's it. The magic comes from doing that one thing at a truly enormous scale.
-
-Three things make an LLM "large":
-1. **Parameters** — the adjustable numbers inside the model (like billions of dials)
+1. **Parameters** — the adjustable numbers inside the model (billions of dials)
 2. **Training data** — the text it learned from (terabytes to petabytes)
-3. **Compute** — the GPU time used to train it (millions of dollars worth)
+3. **Compute** — the GPU time used to train it (millions of dollars)
 
 ```mermaid
 flowchart TD
@@ -40,22 +37,19 @@ flowchart TD
 | Claude 3 Opus | Unknown | Unknown | 2024 |
 | Llama 3 70B | 70B | 15T | 2024 |
 
-A **parameter** is a single number stored in the model. GPT-3 has 175 billion of them. Adjusting all those numbers during training is what makes the model "learn."
-
-A **token** is roughly 3/4 of a word. "training" = 1 token. "I am training a model" = 5 tokens. Training on 300 billion tokens means the model has processed something like 225 billion words.
+A **parameter** is a single number stored in the model — adjusting all of them during training is what makes the model "learn." A **token** is roughly 3/4 of a word.
 
 ---
 
 ## What does an LLM actually learn?
 
-When the model learns to predict the next word on trillions of examples, something surprising happens. It doesn't just memorize text. It learns:
+Training to predict the next word on trillions of examples teaches the model far more than text patterns. It emerges with:
 
 - **Facts** — "The capital of France is Paris"
 - **Reasoning patterns** — "If A > B and B > C, then A > C"
 - **Code** — syntax, logic, common patterns
-- **Style** — how to write formally, casually, poetically
-- **Arithmetic** — basic math patterns
-- **Common sense** — things that go without saying in most text
+- **Style** — formal, casual, poetic writing
+- **Common sense** — things implicit in most text
 
 Nobody explicitly programmed these. They emerge from the training task.
 
@@ -63,48 +57,39 @@ Nobody explicitly programmed these. They emerge from the training task.
 
 ## Emergent capabilities
 
-Here's something wild. Small models can't do certain things. But once you scale up enough, new abilities appear that weren't expected. This is called **emergence**.
+Once models scale up enough, new abilities appear that weren't expected — called **emergence**.
 
-Examples of emergent capabilities:
-- **Few-shot learning** — GPT-3 can do tasks after seeing just 3 examples in the prompt. GPT-2 couldn't.
-- **Chain-of-thought reasoning** — Large models can "think step by step" and get right answers. Small models can't.
-- **Code generation** — GPT-3 could write some code. GPT-4 can write complex, working programs.
+- **Few-shot learning** — GPT-3 can solve tasks after seeing just 3 examples. GPT-2 couldn't.
+- **Chain-of-thought reasoning** — Large models can "think step by step." Small models can't.
+- **Code generation** — GPT-3 wrote some code; GPT-4 writes complex working programs.
 
-Nobody added these features manually. They appeared when the model got big enough.
+```mermaid
+flowchart TD
+    A[Small model\n~1B params] -->|scale up| B[Medium model\n~7B params]
+    B -->|scale up| C[Large model\n~70B params]
+    C -->|scale up| D[Frontier model\n~175B+ params]
+    A --> A1[Basic text completion]
+    B --> B1[Basic instruction following]
+    C --> C1[Multi-step reasoning\nCode generation]
+    D --> D1[Few-shot learning\nChain-of-thought\nProfessional-exam performance]
+    style D1 fill:#d4edda,stroke:#28a745
+```
 
 ---
 
 ## Famous LLMs you should know
 
-**GPT-4 (OpenAI, 2023)**
-- Multimodal (text + images)
-- Passes bar exam, medical licensing exam
-- Powers ChatGPT and GitHub Copilot
-- Closed source (you access it via API)
+**GPT-4 (OpenAI, 2023)** — Multimodal; passes bar and medical exams; powers ChatGPT and GitHub Copilot. Closed source.
 
-**Claude (Anthropic, 2023–2024)**
-- Built with safety in mind (Constitutional AI)
-- Very long context window (up to 200k tokens)
-- Claude 3 Opus = frontier quality, Haiku = fast and cheap
-- Closed source (API access)
+**Claude (Anthropic, 2023–2024)** — Built with Constitutional AI safety; up to 200k token context. Claude 3 Opus = frontier quality, Haiku = fast and cheap. Closed source.
 
-**Gemini (Google, 2023–2024)**
-- Built natively multimodal (text, image, video, audio)
-- Gemini Ultra rivals GPT-4
-- Powers Google products
-- Closed source (API access)
+**Gemini (Google, 2023–2024)** — Natively multimodal (text, image, video, audio); powers Google products. Closed source.
 
-**Llama (Meta, 2023–2024)**
-- Open weights — you can download and run it yourself
-- Llama 3 70B rivals GPT-3.5 in many benchmarks
-- Huge open-source community building on top of it
-- Key for privacy, local AI, and research
+**Llama (Meta, 2023–2024)** — Open weights; Llama 3 70B rivals GPT-3.5; key for privacy, local AI, and research.
 
 ---
 
 ## Base model vs chat model
-
-Important distinction you need to know:
 
 | | Base model | Chat model |
 |---|------------|-----------|
@@ -113,21 +98,19 @@ Important distinction you need to know:
 | Example | Llama base | ChatGPT, Claude |
 | Useful for | Research, fine-tuning | Most applications |
 
-When you chat with Claude or ChatGPT, you're not using a raw base model. You're using one that has been extensively trained to be helpful and follow instructions. More on that in topics 05 and 06.
+When you chat with Claude or ChatGPT, you're using a model that has been extensively trained to be helpful. More on that in topics 05 and 06.
 
 ---
 
 ## Why "large" matters
 
-Bigger models are not just faster or better at the same things. They gain qualitatively new capabilities. A 7B model can follow basic instructions. A 70B model can reason multi-step. A 175B+ model can write working complex code, pass professional exams, and generalize to tasks it's never seen.
-
-Size isn't the only factor — data quality and training techniques matter too — but scale remains the biggest driver of LLM capability.
+Bigger models don't just improve at the same things — they gain qualitatively new capabilities. A 7B model follows basic instructions; a 70B model reasons multi-step; a 175B+ model writes complex working code and passes professional exams. Size isn't the only factor — data quality and training techniques matter — but scale remains the biggest driver.
 
 ---
 
 ✅ **What you just learned:** LLMs are massive neural networks trained on trillions of words that develop language understanding, reasoning, and coding ability as emergent properties of scale.
 
-🔨 **Build this now:** Go to claude.ai or chat.openai.com. Ask: "Explain quantum entanglement to a 10-year-old, then explain it again to a PhD physicist." Notice how the same model shifts style completely. That's the flexibility that comes from training on all kinds of text.
+🔨 **Build this now:** Go to claude.ai or chat.openai.com. Ask: "Explain quantum entanglement to a 10-year-old, then explain it again to a PhD physicist." Notice how the same model shifts style completely.
 
 ➡️ **Next step:** How LLMs Generate Text — [02_How_LLMs_Generate_Text/Theory.md](../02_How_LLMs_Generate_Text/Theory.md)
 

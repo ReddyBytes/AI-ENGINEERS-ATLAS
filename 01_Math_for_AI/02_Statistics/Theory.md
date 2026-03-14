@@ -8,9 +8,7 @@ Ms. Chen just finished grading 30 exams. She spreads them on her desk. One score
 
 ## From Raw Data to Insight
 
-Imagine these 7 exam scores: **55, 60, 70, 72, 75, 88, 95**
-
-Seven numbers. Hard to see anything. Statistics gives us tools to summarize them.
+These 7 exam scores: **55, 60, 70, 72, 75, 88, 95** — statistics gives us tools to summarize them.
 
 ---
 
@@ -24,9 +22,7 @@ Mean = (55 + 60 + 70 + 72 + 75 + 88 + 95) / 7
      ≈ 73.6
 ```
 
-The mean is the "center of gravity" of the data. Pull it too far either way and something outlier-ish happened.
-
-**Problem with the mean:** One extreme value destroys it. If one student scored 5 instead of 55, the mean drops a lot. A single outlier can make the mean misleading.
+The mean is the "center of gravity" of the data. **Problem:** one extreme value destroys it. If one student scored 5 instead of 55, the mean drops a lot — a single outlier makes it misleading.
 
 ---
 
@@ -38,7 +34,7 @@ Sorted: 55, 60, 70, **72**, 75, 88, 95
 
 The median is **72**. Three numbers below it, three above it.
 
-The median doesn't care about extreme values. A billionaire moving into a neighborhood raises the mean income hugely — but barely moves the median. That's why median income is often more useful than mean income.
+The median doesn't care about extreme values. A billionaire moving into a neighborhood raises mean income hugely — barely moves the median. That's why median income is often more useful.
 
 ---
 
@@ -58,43 +54,40 @@ Useful when you want to know "what's the most popular result?"
 
 ## Variance — How Spread Out Is the Data?
 
-The mean tells you where the center is. Variance tells you how far the data points scatter from that center.
+The mean tells you where the center is. Variance tells you how far data points scatter from it.
 
-Step 1: Find the mean (say it's 73.6).
-Step 2: For each score, find the distance from the mean.
-Step 3: Square those distances (so negatives don't cancel out).
-Step 4: Average the squared distances.
+1. Find the mean (say 73.6)
+2. For each score, find the distance from the mean
+3. Square those distances (so negatives don't cancel)
+4. Average the squared distances
 
 ```
 Variance = average of (each value - mean)²
 ```
 
-High variance = scores are all over the place.
-Low variance = scores are tightly clustered.
+High variance = scores are all over the place. Low variance = tightly clustered.
 
 ---
 
 ## Standard Deviation — Variance in Plain Units
 
-Variance uses squared units, which is awkward. Take the square root and you get standard deviation (SD).
+Variance uses squared units, which is awkward. Take the square root to get standard deviation (SD).
 
 ```
 Standard Deviation = √Variance
 ```
 
-If the mean score is 73.6 and the SD is 12, that means most scores are roughly within 12 points of 73.6 — so between about 62 and 86.
-
-**SD is the most useful measure of spread.** It's in the same units as your data.
+If the mean is 73.6 and SD is 12, most scores are within 12 points of 73.6 — between about 62 and 86. **SD is the most useful measure of spread** because it's in the same units as your data.
 
 ---
 
 ## The Normal Distribution
 
-When you have a lot of data that clusters naturally around an average, it often forms a bell curve — also called the normal distribution.
+When data clusters naturally around an average, it forms a bell curve — the **normal distribution**:
 
 - Most values cluster near the mean
-- Fewer values are further away
-- The curve is symmetric
+- Fewer values further away
+- Symmetric curve
 
 ```
               |
@@ -113,6 +106,15 @@ In a normal distribution:
 - ~99.7% falls within 3 SDs
 
 This is called the **68-95-99.7 rule**. An AI model trained on normally distributed data behaves very predictably.
+
+```mermaid
+graph LR
+    A[Data Point] --> B{How far from mean?}
+    B -->|Within 1 SD| C[68% of all data\nmost typical values]
+    B -->|Within 2 SD| D[95% of all data\nslightly unusual]
+    B -->|Within 3 SD| E[99.7% of all data\nvery rare]
+    B -->|Beyond 3 SD| F[Outlier\nflag for review]
+```
 
 ---
 
@@ -133,14 +135,10 @@ flowchart LR
 
 ## Why AI Cares
 
-Statistics is the foundation of every ML algorithm.
-
 - **Feature scaling:** subtract the mean, divide by SD — called normalization
-- **Model evaluation:** accuracy, precision, recall are all statistical measures
+- **Model evaluation:** accuracy, precision, recall are statistical measures
 - **Detecting outliers:** data points more than 3 SDs from the mean are suspicious
 - **Comparing models:** is model A actually better, or just got lucky on this dataset?
-
-Every time a data scientist says "this model performs at 94%," that's a statistical statement. Every time they say "results are statistically significant," that's statistics.
 
 ---
 
@@ -149,6 +147,13 @@ Every time a data scientist says "this model performs at 94%," that's a statisti
 🔨 **Build this now:** Take any 5 numbers (your 5 most recent grades, temperatures, or prices). Calculate the mean by hand. Then calculate the median. Are they different? What does that difference tell you?
 
 ➡️ **Next step:** Linear Algebra — `01_Math_for_AI/03_Linear_Algebra/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B1: Data & Probability Explorer](../../20_Projects/00_Beginner_Projects/01_Data_and_Probability_Explorer/Project_Guide.md)**
+> This project uses: mean, variance, standard deviation, distributions, descriptive statistics on real data
 
 ---
 

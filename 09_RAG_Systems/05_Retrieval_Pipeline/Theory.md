@@ -1,8 +1,6 @@
 # Retrieval Pipeline — Theory
 
-The search engine moment. A user types a question. Somewhere in your collection of 10,000 documents, there are 3 chunks that directly answer it. The retrieval pipeline's job: find those 3 chunks in milliseconds.
-
-It works like a fingerprint matching system. Every chunk in your database has a "fingerprint" (its embedding). When a question arrives, you create a fingerprint for it using the same method. Then you find the database fingerprints that look most similar to the question's fingerprint.
+A user types a question. Somewhere in your 10,000 documents, there are 3 chunks that directly answer it. The retrieval pipeline's job: find those 3 chunks in milliseconds — like a fingerprint matching system. Every chunk has a "fingerprint" (its embedding). The question gets a fingerprint using the same method. Then you find the database fingerprints most similar to the question's.
 
 👉 This is why we need the **Retrieval Pipeline** — converting a user question into the same "language" as indexed documents so we can find the most relevant ones instantly.
 
@@ -20,49 +18,39 @@ flowchart LR
     F --> G[Return ranked\nchunks + metadata]
 ```
 
-**Step 1: Embed the query**
-Pass the user's question through the same embedding model used to index documents. This puts the question in the same vector space as the stored chunks.
-
-**Step 2: ANN search**
-The vector DB searches for the K stored vectors most similar to the query vector (using cosine similarity or dot product).
-
-**Step 3: Return results**
-Get back the top-K chunks with their text, metadata, and similarity scores.
+1. **Embed the query** — pass the user's question through the same embedding model used at indexing time, putting the question in the same vector space as stored chunks.
+2. **ANN search** — the vector DB finds the K stored vectors most similar to the query vector (cosine similarity or dot product).
+3. **Return results** — top-K chunks with text, metadata, and similarity scores.
 
 ---
 
 ## Cosine Similarity at Retrieval Time
 
-When the user asks "what's the refund timeline?", the query vector is compared to every stored chunk's vector. The chunks with the highest cosine similarity scores are returned.
+In ChromaDB: `distances` are cosine distances (0 = identical, 2 = opposite). Convert to similarity with `1 - distance`.
 
 ```python
 # Simplified — ChromaDB does this internally
 query_vector = embed("what's the refund timeline?")
-# Now compare against all 20,000 stored vectors
-# Return top-3 by cosine similarity
+# Compares against all 20,000 stored vectors, returns top-3 by cosine similarity
 ```
-
-In ChromaDB: `distances` are cosine distances (0 = identical, 2 = opposite). Convert to similarity with `1 - distance`.
 
 ---
 
 ## Top-K: How Many to Retrieve?
 
 K is a hyperparameter. Typical values: 3–10.
-
 - Too few (K=1–2): might miss the right chunk
-- Too many (K=10–20): returns irrelevant chunks that confuse the LLM, increases token cost
+- Too many (K=10–20): irrelevant chunks confuse the LLM, increases token cost
 
-Start with K=3–5. If your RAG answers are missing information, increase K. If answers are vague or conflated, decrease K.
+Start with K=3–5. If answers are missing information, increase K. If answers are vague or conflated, decrease K.
 
 ---
 
 ## Metadata Filtering
 
-Combine semantic search with exact attribute filters. This is essential for scoping retrieval:
+Combine semantic search with exact attribute filters:
 
 ```python
-# Retrieve from legal documents only
 results = collection.query(
     query_texts=["termination conditions"],
     n_results=5,
@@ -70,7 +58,7 @@ results = collection.query(
 )
 ```
 
-This runs the vector search AND the filter simultaneously. Documents that don't match the metadata filter are excluded before similarity ranking.
+Documents that don't match the metadata filter are excluded before similarity ranking.
 
 ---
 
@@ -98,9 +86,7 @@ for doc, meta, dist in zip(
 
 ## The Retrieval Quality Problem
 
-Retrieval quality is the #1 factor in RAG accuracy. If the right chunk isn't retrieved, the LLM can't answer correctly.
-
-Common retrieval failures:
+Retrieval quality is the #1 factor in RAG accuracy. Common failures:
 - Query asks about "30-day refund" but the chunk says "one month return window" — semantics missed
 - The relevant information spans two chunks — neither chunk alone answers completely
 - The chunk is retrieved but it's from the wrong product version
@@ -114,6 +100,13 @@ Fixes: hybrid search (semantic + keyword), better chunking, re-ranking (see Adva
 🔨 **Build this now:** Use the ChromaDB collection from the previous section. Write a `retrieve(query, top_k=3)` function. Test it with 5 different questions and print the similarity scores and chunk text for each.
 
 ➡️ **Next step:** Context Assembly → `09_RAG_Systems/06_Context_Assembly/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)**
+> This project uses: querying the vector store, returning top-K chunks, filtering by metadata
 
 ---
 

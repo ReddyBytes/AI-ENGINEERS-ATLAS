@@ -2,51 +2,37 @@
 
 ## The Story
 
-You are planning a road trip. You have done a few trips before and kept notes: 200 km took about 2 hours, 350 km took around 3.5 hours, 100 km took about 1 hour.
+Planning a road trip: 200 km took 2 hours, 350 km took 3.5 hours, 100 km took 1 hour. You want to estimate 280 km. Draw points, draw a best-fit line, read off the answer: about 2.8 hours.
 
-You want to estimate: if the next trip is 280 km, how long will it take?
-
-You grab a piece of paper and draw the points you know. Then you draw a single straight line through them that fits the pattern as closely as possible.
-
-Now you just read off the line at 280 km. The answer: about 2.8 hours.
-
-That line you drew — that is a linear regression model.
-
-👉 This is why we need **Linear Regression** — it finds the best-fit straight line through data so you can predict continuous values for inputs you have never seen.
+👉 That line is a linear regression model — **Linear Regression** finds the best-fit straight line so you can predict continuous values for inputs you've never seen.
 
 ---
 
 ## What Does Linear Regression Do?
 
-Linear regression predicts a **continuous numeric value** (a number, not a category) based on one or more input features.
+Linear regression predicts a **continuous numeric value** based on one or more input features:
 
-Examples:
 - House square footage → predicted price
 - Hours studied → predicted exam score
 - Distance → predicted travel time
-
-The model is literally a straight line (or a flat plane in higher dimensions). Given new inputs, it reads off the predicted value.
 
 ---
 
 ## The Best-Fit Line
 
-With one feature, the model is:
 ```
 prediction = m × input + b
 ```
 
-- **m** = the slope — how much the output changes per unit of input
-- **b** = the intercept — what the output is when input = 0
+- **m** = slope — how much output changes per unit of input
+- **b** = intercept — output when input = 0
 
-"Best fit" means: out of all the possible lines you could draw, find the one where the total error (distance from each point to the line) is smallest.
-
-The error we minimize is **MSE — Mean Squared Error:**
+"Best fit" means the line where total error (distance from each point to the line) is smallest, using **MSE:**
 ```
 MSE = (1/n) × Σ (predicted - actual)²
 ```
 
-Gradient descent adjusts m and b repeatedly until MSE is as small as possible.
+Gradient descent adjusts m and b until MSE is minimized.
 
 ---
 
@@ -67,15 +53,21 @@ flowchart LR
 
 ## Multiple Features (Multiple Linear Regression)
 
-With more than one feature, you get a plane (or hyperplane):
-
 ```
 prediction = m₁×feature₁ + m₂×feature₂ + ... + mₙ×featureₙ + b
 ```
 
-For house prices: `price = 150×sqft + 20000×bedrooms + 5000×bathrooms + 30000`
+Example: `price = 150×sqft + 20000×bedrooms + 5000×bathrooms + 30000`
 
-Each coefficient (m) tells you how much that feature contributes to the prediction, holding all others constant. This interpretability is one of the biggest advantages of linear regression.
+Each coefficient (m) shows how much that feature contributes, holding others constant. This interpretability is one of linear regression's biggest advantages.
+
+```mermaid
+flowchart LR
+    F1["sqft\nx1"] -->|"m1 = 150"| SUM["Weighted Sum\n+ bias b"]
+    F2["bedrooms\nx2"] -->|"m2 = 20000"| SUM
+    F3["bathrooms\nx3"] -->|"m3 = 5000"| SUM
+    SUM --> PRED["Predicted Price\nŷ"]
+```
 
 ---
 
@@ -93,11 +85,11 @@ Each coefficient (m) tells you how much that feature contributes to the predicti
 ## Assumptions to Know About
 
 Linear regression assumes:
-1. A linear relationship between inputs and output
+1. Linear relationship between inputs and output
 2. Errors are randomly distributed (not systematically biased)
-3. Features are not perfectly correlated with each other (no perfect multicollinearity)
+3. Features are not perfectly correlated (no perfect multicollinearity)
 
-Violating these does not make the model crash — it makes its predictions less reliable.
+Violating these doesn't crash the model — it makes predictions less reliable.
 
 ---
 
@@ -106,6 +98,13 @@ Violating these does not make the model crash — it makes its predictions less 
 🔨 **Build this now:** In your head (or on paper), plot 5 points: (1,2), (2,4), (3,5), (4,7), (5,9). Try to draw the best-fit line. Roughly: m≈1.8, b≈0.2. That line is your linear regression model.
 
 ➡️ **Next step:** What if you need to predict a category instead of a number? → `02_Logistic_Regression/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
+> This project uses: training a Logistic Regression classifier, evaluating it, comparing it against tree-based models
 
 ---
 

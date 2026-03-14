@@ -1,33 +1,27 @@
 # Hallucination and Alignment — Theory
 
-Picture a very confident intern on their first week. You ask them a question they don't know the answer to. Instead of saying "I don't know," they fill in the gaps with their best guess — stated with total confidence. The answer sounds perfectly plausible. It has the right structure. But it's wrong.
+Picture a very confident intern on their first week. Asked a question they don't know, instead of saying "I don't know," they fill the gap with a plausible-sounding guess — stated with total confidence. Now imagine that intern has read everything ever written and is incredibly articulate. Their guesses are so fluent you can't tell them from real answers. That's LLM hallucination.
 
-Now imagine that intern has read everything ever written and is incredibly articulate. They still guess — but their guesses are so fluent and well-structured that you have no idea they're guessing. That's LLM hallucination.
-
-👉 This is why we need to understand **hallucination and alignment** — because a fluent, confident wrong answer is often worse than "I don't know," and making AI reliably helpful and honest is an unsolved engineering challenge.
+👉 This is why we need to understand **hallucination and alignment** — a fluent, confident wrong answer is often worse than "I don't know," and making AI reliably helpful and honest is an unsolved engineering challenge.
 
 ---
 
 ## What hallucination actually is
 
-Hallucination is when an LLM generates text that is factually incorrect, made up, or unsupported — but presented with the same fluency and confidence as correct information.
-
-The term comes from neuroscience (the brain perceiving things that aren't there). In LLMs, the "hallucination" is the model generating plausible-sounding text that isn't grounded in reality.
+Hallucination is when an LLM generates factually incorrect, made-up, or unsupported content — presented with the same fluency and confidence as correct information.
 
 Examples:
 - Citing a scientific paper that doesn't exist
-- Stating that a historical event happened on the wrong date
+- Stating a historical event happened on the wrong date
 - Making up a quote attributed to a real person
 - Claiming a company has a feature it doesn't have
 - Inventing legal statutes or court cases
 
-The danger: it's hard to tell a hallucination from a correct answer. Both look the same.
+The danger: hallucinations and correct answers look identical.
 
 ---
 
 ## Why hallucination happens
-
-LLMs don't look things up. They generate text based on statistical patterns.
 
 ```mermaid
 flowchart LR
@@ -38,69 +32,78 @@ flowchart LR
     E --> F[Stated with same\nconfidence as D]
 ```
 
-The model doesn't "know" the difference between "I'm confident about this" and "I'm guessing." It just generates what tokens are most probable given the context. If the training data was sparse or ambiguous about a fact, the model generates something plausible — not something verified.
+LLMs don't "know" the difference between "I'm confident about this" and "I'm guessing" — they generate the most probable tokens given context. When training data was sparse or ambiguous about a fact, the model generates something plausible, not something verified.
 
-**Key insight**: LLMs are pattern matchers, not databases. When you query a database, it either finds the data or says "not found." When you query an LLM, it always generates something — whether it knows the answer or not.
+**Key insight:** LLMs are pattern matchers, not databases. A database either finds the data or returns "not found." An LLM always generates something — whether it knows the answer or not.
 
 ---
 
-## Factuality vs fluency tradeoff
+## Factuality vs fluency
 
-There's a fundamental tension in language model training:
-
-- The pretraining objective (next-token prediction) rewards **fluency** — coherent, readable text
-- But fluency and factuality are not the same thing
-- A made-up fact stated confidently can have higher probability than an honest "I'm not sure"
-- RLHF helps, but humans who rated responses sometimes preferred confident-sounding answers over hedged-but-honest ones
-
-This means models are, at their core, trained to produce plausible-sounding text — not to produce true text.
+The pretraining objective rewards **fluency** — coherent, readable text. But fluency and factuality are not the same. A made-up fact stated confidently can have higher probability than an honest "I'm not sure." RLHF helps, but raters sometimes preferred confident-sounding answers over hedged-but-honest ones. Models are trained to produce plausible-sounding text — not necessarily true text.
 
 ---
 
 ## Types of hallucination
 
-**Factual hallucination**: States incorrect facts ("Einstein won the Nobel Prize in 1912" — it was 1921).
-
-**Entity hallucination**: Makes up names, titles, dates, URLs ("You can read more at arxiv.org/abs/2024.99999").
-
-**Attribution hallucination**: Attributes real quotes to wrong people, or invents quotes entirely.
-
-**Logical hallucination**: The reasoning seems valid but contains subtle errors that lead to wrong conclusions.
-
-**Temporal hallucination**: The model states current facts about the world but uses outdated information from its training data as if it's current.
-
-**Self-hallucination**: The model invents things about itself — "I was trained with X technique" (may be wrong).
+- **Factual**: Incorrect facts ("Einstein won the Nobel Prize in 1912" — it was 1921)
+- **Entity**: Made-up names, titles, URLs ("arxiv.org/abs/2024.99999")
+- **Attribution**: Real quotes attributed to wrong people, or invented quotes
+- **Logical**: Valid-seeming reasoning with subtle errors leading to wrong conclusions
+- **Temporal**: Current-sounding facts based on outdated training data
+- **Self-hallucination**: Invented claims about itself ("I was trained with X technique")
 
 ---
 
 ## What is alignment?
 
-Alignment is the broader challenge of making AI systems behave in accordance with human values and intentions. Hallucination is one alignment failure. But alignment also covers:
+Alignment is the broader challenge of making AI behave in accordance with human values and intentions. Hallucination is one failure mode; others include:
 
 - **Harmful content**: Does the model refuse to help with dangerous activities?
 - **Honesty**: Does the model accurately represent its uncertainty?
-- **Helpfulness**: Is the model actually useful, or just technically compliant?
 - **Sycophancy**: Does the model tell users what they want to hear rather than what's true?
-- **Fairness**: Does the model treat all users equally? Does it have biases?
+- **Fairness**: Does it treat users equally? Does it have biases?
 
-The famous Anthropic framing: **Helpful, Harmless, Honest** (HHH).
+Anthropic's framing: **Helpful, Harmless, Honest (HHH)**. Getting all three simultaneously is hard — being very "Harmless" makes the model refuse too much (less "Helpful"); being very "Helpful" can lead to providing dangerous information.
 
-Getting all three right simultaneously is hard. Being very "Harmless" can make the model refuse too much and become less "Helpful." Being very "Helpful" can lead to providing dangerous information.
+```mermaid
+graph TD
+    A[Alignment Goal: HHH] --> B[Helpful]
+    A --> C[Harmless]
+    A --> D[Honest]
+    B <-->|tension| C
+    B <-->|tension| D
+    C <-->|tension| D
+    B --> B1[Answers all questions\nProvides detailed info]
+    C --> C1[Refuses dangerous requests\nAdds safety caveats]
+    D --> D1[Admits uncertainty\nHedges claims]
+    style A fill:#d4edda,stroke:#28a745
+```
 
 ---
 
 ## Constitutional AI (Anthropic's approach)
 
-Constitutional AI is Anthropic's method for teaching models to be aligned using a written set of principles (a "constitution") and AI feedback.
+Constitutional AI uses a written set of principles (a "constitution") and AI feedback to scale alignment training.
 
-The process:
-1. Give the model a harmful prompt
-2. Ask the model to critique its own response based on the constitution
-3. Ask the model to revise the response to better align with the principles
-4. Use AI (not just humans) to rate which response is more aligned
-5. Train on these AI-generated preference comparisons
+```mermaid
+sequenceDiagram
+    participant P as Prompt
+    participant M as Model
+    participant C as Constitution
+    participant R as RLAIF Rater
 
-This scales alignment training beyond what's possible with human raters alone and makes the guiding principles explicit and auditable.
+    P->>M: Harmful prompt
+    M->>M: Generate initial response
+    M->>C: Critique: does this violate principles?
+    C->>M: Critique feedback
+    M->>M: Revise response to align with principles
+    M->>R: Show original vs revised response
+    R->>M: AI rates which response is more aligned
+    M->>M: Train on AI preference comparisons
+```
+
+The model critiques its own response, revises it, then AI (not just humans) rates the comparisons. This scales beyond what human raters alone can cover and makes guiding principles explicit and auditable.
 
 ---
 
@@ -111,17 +114,24 @@ Even after RLHF and Constitutional AI, models still:
 - Are occasionally sycophantic
 - Have blind spots and biases from training data
 - Can be "jailbroken" with clever prompting
-- May have behaviors that differ between evaluations and deployment
+- May behave differently between evaluations and deployment
 
-The alignment problem is not fully solved. Every major model has known failure modes. The field continues to develop new techniques — but it's an arms race between alignment improvements and the complexity of the models being aligned.
+The alignment problem is not fully solved. Every major model has known failure modes, and the field is an ongoing arms race between alignment improvements and model complexity.
 
 ---
 
 ✅ **What you just learned:** LLM hallucination happens because models generate statistically probable text, not verified facts — and alignment is the ongoing challenge of making AI helpful, safe, and honest simultaneously.
 
-🔨 **Build this now:** Ask an LLM: "List 5 academic papers on [a very specific niche topic]." Then Google each paper title. How many actually exist? Count the hallucinations. Now ask the same question but add: "Only list papers you're very confident exist. If you're unsure, say so." See if the behavior changes.
+🔨 **Build this now:** Ask an LLM: "List 5 academic papers on [a very specific niche topic]." Google each title. How many actually exist? Now add: "Only list papers you're very confident exist. If unsure, say so." See if behavior changes.
 
 ➡️ **Next step:** Using LLM APIs — [09_Using_LLM_APIs/Theory.md](../09_Using_LLM_APIs/Theory.md)
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B5: Intelligent Document Analyzer](../../20_Projects/00_Beginner_Projects/05_Intelligent_Document_Analyzer/Project_Guide.md)**
+> This project uses: prompts that reduce hallucination (cite sources, say "I don't know"), grounding the model in document context
 
 ---
 

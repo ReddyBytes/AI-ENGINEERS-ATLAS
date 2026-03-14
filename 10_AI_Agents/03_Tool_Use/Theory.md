@@ -1,12 +1,8 @@
 # Tool Use — Theory
 
-Think about a brilliant surgeon. Years of training. Deep knowledge. Exceptional judgment.
+A brilliant surgeon without instruments can't do surgery. No scalpel, no incision. No imaging system, no diagnosis. Their knowledge is useless without tools to act on it. Give them a fully equipped operating theater and that brilliance becomes unstoppable.
 
-Without instruments, they can't do surgery. No scalpel, no incision. No imaging system, no diagnosis. No anesthesia monitor, no safe operation. Their knowledge is useless without the tools to act on it.
-
-Give them a fully equipped operating theater and that brilliance becomes unstoppable.
-
-LLMs are the same. Without tools, they're limited to what they know from training. With tools, they can search the web, run code, query databases, send emails, and interact with any system in the world.
+LLMs are the same. Without tools, they're limited to training knowledge. With tools, they can search the web, run code, query databases, send emails, and interact with any system in the world.
 
 👉 This is why we need **Tool Use** — it's how AI agents go from knowing things to actually doing things.
 
@@ -14,23 +10,17 @@ LLMs are the same. Without tools, they're limited to what they know from trainin
 
 ## What Are Tools?
 
-A tool is just a **function the agent can call**.
-
-Every tool has three parts:
+A tool is a **function the agent can call**. Every tool has three parts:
 
 1. **Name** — how the agent refers to it: `"search_web"`
 2. **Description** — what it does, in plain English: `"Searches the internet for current information"`
 3. **Parameters** — what inputs it needs: `{"query": "the search terms to look up"}`
 
-The LLM reads the name and description to decide when to use the tool. It reads the parameters to know what to pass in.
-
-That's it. A tool is a function + a description.
+The LLM reads the name and description to decide when to use the tool, and the parameters to know what to pass in.
 
 ---
 
 ## How the Agent Decides Which Tool to Use
-
-The agent has a list of all available tools with their descriptions. When it needs to do something, it looks at this list and picks the tool whose description best matches what it needs.
 
 ```mermaid
 flowchart TD
@@ -42,15 +32,13 @@ flowchart TD
     Match -->|"Have enough info"| Answer["No tool needed\nWrite final answer"]
 ```
 
-This is why **tool descriptions matter so much**. The description is the only thing guiding this decision.
+**Tool descriptions matter** — the description is the only thing guiding this decision.
 
 ---
 
 ## Built-in vs Custom Tools
 
-### Built-in Tools (Common Examples)
-
-These come with agent frameworks or are easy to add:
+**Built-in Tools:**
 
 | Tool | What it does |
 |---|---|
@@ -61,9 +49,7 @@ These come with agent frameworks or are easy to add:
 | Wikipedia | Look up structured knowledge |
 | Weather API | Get current weather data |
 
-### Custom Tools
-
-These are tools you build for your specific use case:
+**Custom Tools** — built for your specific use case:
 
 | Tool | What it does |
 |---|---|
@@ -71,15 +57,14 @@ These are tools you build for your specific use case:
 | `get_customer_info` | Pull data from your CRM |
 | `send_slack_message` | Post to a Slack channel |
 | `create_jira_ticket` | Open a bug report |
-| `read_from_s3` | Load a file from cloud storage |
 
-The pattern is always the same: define a Python function → give it a name and description → add it to the agent's toolbox.
+Pattern: define a Python function → give it a name and description → add it to the agent's toolbox.
 
 ---
 
 ## Tool Schemas
 
-Modern LLMs (especially with function calling) use a **schema** to understand tools. The schema is a structured definition:
+Modern LLMs use a **schema** to understand tools:
 
 ```json
 {
@@ -103,15 +88,11 @@ Modern LLMs (especially with function calling) use a **schema** to understand to
 }
 ```
 
-The LLM reads this and knows: when someone asks about weather, call this function with the city name (required) and optionally the units.
-
-OpenAI, Anthropic, and Google all support this format natively — it's called **function calling** or **tool use** in the API.
+OpenAI, Anthropic, and Google all support this format natively — called **function calling** or **tool use** in the API.
 
 ---
 
 ## The Tool Use Flow
-
-Here's what happens when an agent uses a tool:
 
 ```mermaid
 flowchart LR
@@ -123,13 +104,11 @@ flowchart LR
     Back --> Next["LLM reasons with\nnew information"]
 ```
 
-The LLM itself doesn't execute the function. It **outputs a structured request** to call the tool. Your framework or code reads that request, actually calls the function, and passes the result back.
+The LLM itself doesn't execute the function — it **outputs a structured request**. Your framework reads that request, calls the function, and passes the result back.
 
 ---
 
 ## Good Tool Design
-
-The difference between a well-designed tool and a bad one is the description.
 
 **Bad description:**
 ```
@@ -148,20 +127,9 @@ description: "Retrieves the current price of a product from our inventory system
 Rules for good tool descriptions:
 - Say **when to use it** ("use this when...")
 - Say **what it returns** ("returns the price in USD")
-- Say **what it doesn't do** to prevent confusion
-- Be specific about edge cases ("if not found, returns...")
+- Include edge cases ("if not found, returns...")
 
----
-
-## Giving Agents the Right Toolbox
-
-More tools is not always better. An agent with 20 tools will be confused. Start with 3-5 focused tools.
-
-Good toolbox design:
-- Each tool does **one thing well**
-- Tools don't overlap in purpose
-- Each tool has a clear, specific description
-- The set of tools covers what the agent actually needs
+More tools is not always better. An agent with 20 tools will be confused. Start with 3–5 focused tools where each does one thing well and tools don't overlap in purpose.
 
 ---
 
@@ -170,6 +138,13 @@ Good toolbox design:
 🔨 **Build this now:** Think of a task you do at work. List 3-4 tools an AI agent would need to do that task. For each tool, write: name, one-sentence description, and what it returns.
 
 ➡️ **Next step:** Agent Memory → `/Users/1065696/Github/AI/10_AI_Agents/04_Agent_Memory/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[I3: Multi-Tool Research Agent](../../20_Projects/01_Intermediate_Projects/03_Multi_Tool_Research_Agent/Project_Guide.md)**
+> This project uses: defining 3 tools (web_search, calculator, wikipedia), handling tool_use responses, executing tools and returning results
 
 ---
 

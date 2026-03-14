@@ -1,8 +1,8 @@
 # GPT
 
-Imagine an author writing a novel. They sit down at the typewriter and write one word at a time. They can see everything they've written so far — the whole manuscript — but they have no idea what comes next. They predict the best next word, write it down, then look at the updated manuscript and predict the next word again. Word by word, sentence by sentence, the story emerges.
+An author writing a novel sits at a typewriter and writes one word at a time. They can see everything written so far but don't know what comes next. They predict the best next word, write it, then look at the updated manuscript and predict again.
 
-GPT works exactly like this. It generates text by predicting the next token, given all previous tokens. Autoregressive. Left to right. One step at a time.
+GPT works exactly like this: generate text by predicting the next token, given all previous tokens. Autoregressive. Left to right. One step at a time.
 
 👉 This is why **GPT** is the dominant architecture for AI assistants — it's a natural text-completing machine that scales spectacularly.
 
@@ -10,33 +10,38 @@ GPT works exactly like this. It generates text by predicting the next token, giv
 
 ## What GPT is
 
-GPT (Generative Pretrained Transformer) is a decoder-only transformer. It uses causal (masked) self-attention — each token can only see tokens before it, never after.
+GPT (Generative Pretrained Transformer) is a decoder-only transformer using causal (masked) self-attention — each token sees only tokens before it, never after.
 
-Training objective: **next-token prediction** (also called causal language modeling).
+**Training objective:** next-token prediction (causal language modeling). Given "The cat sat on the", predict "mat."
 
-Given the sequence "The cat sat on the", predict "mat".
-
-This is trained on massive text corpora — the model learns to predict any next token from any context. In doing so, it learns grammar, facts, reasoning patterns, style, and more.
+Trained on massive text corpora, the model learns grammar, facts, reasoning patterns, and style by predicting any next token from any context.
 
 ---
 
 ## Why decoder-only (no encoder)?
 
-There's no separate "reading phase." The input (your prompt) and the output (the generation) are all part of the same sequence. The model reads the prompt and generates the continuation.
+There's no separate reading phase. Input prompt and output generation are part of the same sequence. The model reads the prompt as context and generates the continuation.
 
 ```
 "Tell me a joke about computers"
-→ [reads this as context, predicts what comes after]
+→ [reads as context, predicts continuation]
 → "Why do programmers prefer dark mode? Because light attracts bugs."
 ```
 
-The prompt is just the first part of the sequence. Generation is predicting more of it.
+```mermaid
+flowchart LR
+    P[Prompt tokens] --> SEQ[Combined sequence]
+    G[Generated tokens] --> SEQ
+    SEQ --> MASK[Causal mask: each token sees only past tokens]
+    MASK --> ATTN[Self-Attention Layers]
+    ATTN --> NEXT[Predict next token]
+```
 
 ---
 
 ## Autoregressive generation
 
-Generation happens one token at a time:
+One token at a time, each step running the whole model:
 
 ```
 Step 1: "The cat" → predict "sat"
@@ -53,8 +58,6 @@ flowchart LR
     D --> A
 ```
 
-Each step runs the whole model. For a 100-token generation, you run the model 100 times.
-
 ---
 
 ## The GPT family: scale matters
@@ -67,13 +70,11 @@ Each step runs the whole model. For a 100-token generation, you run the model 10
 | InstructGPT | 2022 | 175B | RLHF — follows instructions |
 | GPT-4 | 2023 | ~1T (est.) | Multimodal, near-human reasoning |
 
-The consistent finding: bigger models + more data + better training = qualitatively new capabilities. GPT-3 could translate, summarize, code, and reason from just a few examples in the prompt — no fine-tuning needed.
+Consistent finding: bigger models + more data + better training = qualitatively new capabilities. GPT-3 could translate, summarize, code, and reason from a few examples in the prompt — no fine-tuning needed.
 
 ---
 
 ## Zero-shot and few-shot learning
-
-GPT-3 demonstrated that large language models can perform tasks just from a description in the prompt:
 
 **Zero-shot:** "Translate to French: Hello"
 
@@ -85,19 +86,17 @@ The model generalizes the pattern from the examples. This emerged from scale —
 
 ## Temperature and sampling
 
-When GPT generates text, it doesn't always pick the most probable token. You can control randomness:
-
-- **Temperature = 0:** Always pick the highest-probability token (greedy, deterministic)
+- **Temperature = 0:** Always pick highest-probability token (greedy, deterministic)
 - **Temperature = 1.0:** Sample proportional to probabilities (default)
-- **Temperature = 1.5:** More random, creative, sometimes incoherent
+- **Temperature = 1.5:** More random and creative, sometimes incoherent
 
 High temperature → diverse, creative text. Low temperature → focused, predictable text.
 
 ---
 
-✅ **What you just learned:** GPT is a decoder-only transformer trained on next-token prediction, generating text autoregressively one token at a time; its capabilities scale dramatically with model size, enabling zero/few-shot learning at scale.
+✅ **What you just learned:** GPT is a decoder-only transformer trained on next-token prediction, generating text autoregressively one token at a time; capabilities scale dramatically with model size, enabling zero/few-shot learning.
 
-🔨 **Build this now:** Load GPT-2 from HuggingFace. Generate text from the prompt "The future of artificial intelligence is". Try temperature=0.7 and temperature=1.3. Notice the difference in creativity vs coherence.
+🔨 **Build this now:** Load GPT-2 from HuggingFace. Generate text from "The future of artificial intelligence is". Try temperature=0.7 and temperature=1.3. Notice the difference in creativity vs coherence.
 
 ➡️ **Next step:** Vision Transformers → `06_Transformers/10_Vision_Transformers/Theory.md`
 

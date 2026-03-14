@@ -1,8 +1,6 @@
 # Chunking Strategies — Theory
 
-You're studying for an exam on a 500-page textbook. You can't memorize the whole thing. Instead, you make flashcards — one concept per card. "What is photosynthesis?" on one card. "What is the Krebs cycle?" on another. When exam time comes, you don't flip through all 500 pages. You find the right flashcard and read just that.
-
-Chunking splits documents into those flashcards. When a user asks a question, you don't retrieve the whole document — you retrieve the 3 most relevant flashcards. And each flashcard needs to be focused enough to match specific questions, but complete enough to make sense on its own.
+You're studying for an exam on a 500-page textbook. You don't memorize the whole thing — you make flashcards, one concept per card. When exam time comes, you flip to the right flashcard, not all 500 pages. Chunking splits documents into those flashcards: focused enough to match specific questions, complete enough to make sense alone.
 
 👉 This is why we need **Chunking Strategies** — the right chunk size and split method determines whether retrieval finds the right information.
 
@@ -10,14 +8,11 @@ Chunking splits documents into those flashcards. When a user asks a question, yo
 
 ## Why Chunking Matters
 
-Embedding models convert text to vectors. But a 20-page document embedded as a single vector captures everything and nothing specifically. If you ask "what is the refund policy?" a full-document embedding will be about the entire HR manual, not specifically refunds.
+A 20-page document embedded as a single vector captures everything and nothing specifically. A 300-token chunk about just the refund policy will match "what is the refund policy?" precisely.
 
-A 300-token chunk about just the refund policy will match that query precisely.
-
-Too small: not enough context, answers lack background.
-Too large: diluted embeddings, matches many queries poorly.
-
-The sweet spot: typically 256–512 tokens.
+- Too small: not enough context, answers lack background
+- Too large: diluted embeddings, matches many queries poorly
+- Sweet spot: typically **256–512 tokens**
 
 ---
 
@@ -28,27 +23,21 @@ The sweet spot: typically 256–512 tokens.
 Split text every N characters or tokens, with optional overlap.
 
 ```
-Document: "ABCDE FGHIJ KLMNO PQRST..."
 Chunk size: 10, overlap: 3
-
 Chunk 1: "ABCDE FGHIJ"
 Chunk 2: "GHIJ KLMNO"  (3 char overlap from Chunk 1)
 Chunk 3: "LMNO PQRST"
 ```
 
-Simple and fast. The overlap prevents information from being cut exactly at a chunk boundary.
-
-**Problem:** Splits mid-sentence, mid-paragraph. A concept that spans the boundary gets split.
+Simple and fast. **Problem:** splits mid-sentence; concepts at boundaries get cut.
 
 ---
 
 ### 2. Recursive Character Text Splitting
 
-The most common approach. Tries to split on natural boundaries (paragraphs → sentences → words) before falling back to character count.
+The most common approach. Tries natural boundaries (paragraphs → sentences → words) before falling back to character count.
 
 Priority list: `["\n\n", "\n", " ", ""]`
-
-First tries to split on double newlines (paragraphs). If a paragraph is still too long, splits on single newlines. Still too long? Splits on spaces. Last resort: splits on characters.
 
 ```python
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -65,14 +54,7 @@ splitter = RecursiveCharacterTextSplitter(
 
 ### 3. Sentence-Based Chunking
 
-Split at sentence boundaries. Each chunk contains N complete sentences.
-
-```
-"Transformers changed NLP. They use self-attention. [SPLIT]
-Self-attention lets models weigh each word. The result is better context. [SPLIT]"
-```
-
-Chunks are semantically cleaner — no cut mid-sentence. But sentences vary in length, so chunks have variable token counts.
+Split at sentence boundaries. Each chunk contains N complete sentences. Chunks are semantically cleaner but have variable token counts.
 
 **Best for:** Documents with clear sentence structure (articles, reports).
 
@@ -80,7 +62,7 @@ Chunks are semantically cleaner — no cut mid-sentence. But sentences vary in l
 
 ### 4. Semantic Chunking
 
-Group sentences together until the topic changes. Uses embedding similarity to detect topic shifts.
+Group sentences together until the topic changes, using embedding similarity to detect topic shifts.
 
 ```mermaid
 flowchart LR
@@ -90,9 +72,7 @@ flowchart LR
     D --> E[Sentence 5 about cats]
 ```
 
-More intelligent — topic boundaries become chunk boundaries. But slower and more complex.
-
-**Best for:** Long documents with clearly distinct sections. News articles, research papers.
+More intelligent but slower. **Best for:** Long documents with clearly distinct sections.
 
 ---
 
@@ -107,13 +87,32 @@ Parent chunk: whole paragraph (1000 tokens)
   └── Child chunk 3: last 3 sentences (150 tokens)
 ```
 
-Retrieval: search by child chunks (precise match). Return: parent chunk (full context). Best of both worlds — precise retrieval, rich context.
+Search by child chunks (precise match). Return parent chunk (full context). Best of both worlds.
+
+---
+
+## Chunking Strategy Comparison
+
+```mermaid
+flowchart TD
+    Start["Document Text"] --> Fixed["Fixed-Size\nSplit every N chars"]
+    Start --> Recursive["Recursive\nTry paragraphs → sentences → words"]
+    Start --> Sentence["Sentence-Based\nSplit at sentence boundaries"]
+    Start --> Semantic["Semantic\nSplit when topic changes"]
+    Start --> ParentChild["Parent-Child\nSmall chunks for retrieval\nParent returned as context"]
+
+    Fixed --> F1["Fast\nSimple\nMay split mid-sentence"]
+    Recursive --> R1["Best general-purpose\nRespects natural boundaries"]
+    Sentence --> S1["Clean sentences\nVariable chunk length"]
+    Semantic --> Se1["Topic-aware\nSlow, uses embeddings"]
+    ParentChild --> P1["Precise retrieval\nRich context returned"]
+```
 
 ---
 
 ## Chunk Overlap
 
-Overlap is how many tokens/characters two adjacent chunks share. It prevents information loss at chunk boundaries.
+Overlap prevents information loss at chunk boundaries. Without it, a question about "30-day refunds" might miss the chunk where that sentence was cut in half.
 
 ```
 Chunk 1: "...The policy states that refunds are available within 30..."
@@ -121,9 +120,7 @@ Chunk 2: "...refunds are available within 30 days of purchase. Exceptions..."
          ← overlap →
 ```
 
-Without overlap, a question about "30-day refunds" might miss the chunk where that sentence was cut in half.
-
-Typical overlap: 10–20% of chunk size.
+Typical overlap: **10–20% of chunk size**.
 
 ---
 
@@ -132,6 +129,13 @@ Typical overlap: 10–20% of chunk size.
 🔨 **Build this now:** Use `RecursiveCharacterTextSplitter` on a Wikipedia article. Try chunk sizes of 200 and 800 tokens. Print 3 chunks from each. Notice how different they feel — the small chunks are precise, the large ones have more context.
 
 ➡️ **Next step:** Embedding and Indexing → `09_RAG_Systems/04_Embedding_and_Indexing/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)**
+> This project uses: choosing chunk size and overlap, splitting documents, seeing how chunking affects retrieval quality
 
 ---
 

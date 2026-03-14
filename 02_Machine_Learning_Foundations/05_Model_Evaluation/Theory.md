@@ -2,13 +2,7 @@
 
 ## The Story
 
-You took a practice exam. You got 80% correct. You feel pretty good.
-
-Then your teacher says: "By the way, 90% of the questions were on the easy topic you already know. The hard topic — the one that actually matters for the final — you got almost all of those wrong."
-
-Your 80% score was misleading. The raw number hid what was really going on.
-
-A model's accuracy can do the same thing. You need better tools to really understand how well it is performing.
+You took a practice exam and got 80% correct. Then your teacher says: "90% of the questions were on the easy topic. The hard topic — the one that actually matters — you got almost all wrong." Your 80% score was misleading.
 
 👉 This is why we need **Model Evaluation** — to measure what actually matters, not just the headline number.
 
@@ -16,15 +10,7 @@ A model's accuracy can do the same thing. You need better tools to really unders
 
 ## Why Accuracy Alone Lies
 
-Imagine you build a model to detect a rare disease. It affects 1% of people.
-
-Your model predicts "No disease" for everyone. 100% of the time.
-
-Its accuracy? **99%.**
-
-But it is completely useless — it never catches any actual cases.
-
-This is the **imbalanced data** problem. When one class is much rarer than the other, accuracy is a misleading metric. You need metrics that focus on specific types of errors.
+A model detecting a rare disease (1% prevalence) that predicts "No disease" for everyone gets **99% accuracy** — but is completely useless. When one class is much rarer, accuracy is misleading. You need metrics that focus on specific error types.
 
 ---
 
@@ -101,13 +87,13 @@ High recall = fewer missed cases.
 ---
 
 ### F1 Score
-**What it is:** The balance between precision and recall. One number that captures both.
+**What it is:** The balance between precision and recall — the harmonic mean.
 
 ```
 F1 = 2 × (Precision × Recall) / (Precision + Recall)
 ```
 
-It is the harmonic mean — it is only high when BOTH precision AND recall are high. One high number cannot cancel out the other.
+Only high when BOTH precision AND recall are high — one high number cannot cancel the other.
 
 ---
 
@@ -121,6 +107,16 @@ Precision and recall fight each other. Improving one usually hurts the other.
 | Cancer screening | Recall | You don't want to miss real cancer (false negatives are dangerous) |
 | Credit fraud | Recall | Missing fraud is more costly than a few false alerts |
 | Legal document review | Precision | A false positive flags an innocent person |
+
+```mermaid
+flowchart LR
+    T[Lower decision threshold\npredict Positive more often] --> RP[Recall goes UP\ncatch more real positives]
+    T --> PP[Precision goes DOWN\nmore false alarms]
+    T2[Raise decision threshold\npredict Positive less often] --> RP2[Recall goes DOWN\nmiss more real positives]
+    T2 --> PP2[Precision goes UP\nfewer false alarms]
+    RP --> F1[F1 Score balances both]
+    PP2 --> F1
+```
 
 ---
 
@@ -141,6 +137,13 @@ Precision and recall fight each other. Improving one usually hurts the other.
 🔨 **Build this now:** Write a confusion matrix by hand. Make up 10 predictions: 5 "positive" and 5 "negative." Then make up the reality. Count your TP, TN, FP, FN, then calculate precision and recall manually. It takes 5 minutes and makes these concepts click instantly.
 
 ➡️ **Next step:** What happens when a model is too good on training data? → `06_Overfitting_and_Regularization/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
+> This project uses: accuracy, precision, recall, F1, confusion matrix, train/test split, cross-validation
 
 ---
 

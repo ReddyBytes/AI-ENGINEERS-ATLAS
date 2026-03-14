@@ -2,48 +2,30 @@
 
 ## The Story 📖
 
-You're blindfolded in the mountains. Your goal: reach the lowest valley.
+You're blindfolded in the mountains, trying to reach the lowest valley. You can't see anything, but you can feel the slope. So you take a small step in whichever direction feels downhill. Repeat until you reach the bottom.
 
-You can't see anything. But you can feel the slope under your feet.
-
-So you do the only sensible thing — you take a small step in whichever direction feels downhill. Then check the slope again. Take another small step downhill. Repeat.
-
-Eventually, step by step, you reach the bottom of a valley.
-
-You didn't need a map. You didn't need to see the whole landscape. You just kept asking: *"which way is downhill right now?"* and took a small step.
-
-👉 This is **Gradient Descent** — the algorithm that trains almost every AI model by repeatedly nudging it in the direction that reduces its mistakes.
+👉 This is **Gradient Descent** — the algorithm that trains almost every AI model by repeatedly nudging it in the direction that reduces mistakes.
 
 ---
 
 ## What is Gradient Descent?
 
-**Gradient Descent** is the optimization algorithm used to train ML models. It minimizes the **loss** (how wrong the model is) by repeatedly adjusting the model's weights in the direction that reduces the loss.
+**Gradient Descent** minimizes the **loss** by repeatedly adjusting weights in the direction that reduces it.
 
 - **Gradient** = the slope (which direction is "downhill" for the loss)
 - **Descent** = moving downhill (reducing the loss)
 
-The "landscape" being navigated is the **loss surface** — a mathematical surface where the height represents how wrong the model is. The goal is to find the lowest point (minimum loss).
+The "landscape" navigated is the **loss surface** — height represents how wrong the model is; the goal is the lowest point.
 
 ---
 
 ## How It Works — Step by Step
 
-### Step 1: Make a Prediction
-The model uses its current weights to make a prediction.
-
-### Step 2: Calculate the Loss
-Compare the prediction to the correct answer. How wrong was it?
-
-### Step 3: Calculate the Gradient
-Compute which direction each weight should move to reduce the loss.
-- Analogy: feel the slope under your feet — which way is downhill?
-
-### Step 4: Update the Weights
-Move each weight a small amount in the downhill direction.
-
-### Step 5: Repeat
-Do this millions of times until the loss stops decreasing.
+1. Make a prediction with current weights
+2. Calculate the loss (how wrong?)
+3. Calculate the gradient (which direction is downhill?)
+4. Update weights: small step in downhill direction
+5. Repeat until loss stops decreasing
 
 ```mermaid
 flowchart TD
@@ -72,6 +54,16 @@ The **learning rate** controls how big each step is.
 Too large:   ↓↑↓↑↓ (bouncing)
 Too small:   ↓↓↓↓↓↓↓↓↓↓ (crawling)
 Just right:  ↓↓↓↓ ✅
+```
+
+```mermaid
+flowchart TD
+    LR[Learning Rate choice] --> TL[Too Large]
+    LR --> TS[Too Small]
+    LR --> JR[Just Right]
+    TL --> TLR[Overshoots minimum\nloss bounces or diverges]
+    TS --> TSR[Correct direction\nbut takes thousands\nof extra steps]
+    JR --> JRR[Smooth convergence\nreaches minimum efficiently]
 ```
 
 ---
@@ -109,6 +101,13 @@ Almost all modern training uses **mini-batch** gradient descent.
 🔨 **Build this now:** Imagine a simple function `loss = (weight - 5)²`. The minimum is at weight=5. Start at weight=0, compute the gradient (2*(weight-5)), subtract 0.1 × gradient, repeat. Watch weight creep toward 5. That's gradient descent in 3 lines of math.
 
 ➡️ **Next step:** What does the model actually try to minimize? → `09_Loss_Functions/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B3: Neural Net from Scratch](../../20_Projects/00_Beginner_Projects/03_Neural_Net_from_Scratch/Project_Guide.md)**
+> This project uses: gradient descent weight update loop, learning rate tuning, watching loss decrease epoch by epoch
 
 ---
 

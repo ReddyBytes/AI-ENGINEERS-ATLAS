@@ -189,6 +189,81 @@ Copy this file and edit it locally, or just mentally check things off as you go.
 | 04 AI Research Assistant | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
 | 05 Multi-Agent Workflow | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ |
 
+## 14 Hugging Face Ecosystem
+
+| Topic | Theory | Cheatsheet | Interview QA | Extra Files |
+|---|---|---|---|---|
+| 01 Hub and Model Cards | ☐ | ☐ | ☐ | Code_Example |
+| 02 Transformers Library | ☐ | ☐ | ☐ | Code_Example · Pipeline_Guide |
+| 03 Datasets Library | ☐ | ☐ | ☐ | Code_Example |
+| 04 PEFT and LoRA | ☐ | ☐ | ☐ | Code_Example · When_to_Use |
+| 05 Trainer API | ☐ | ☐ | ☐ | Code_Example |
+| 06 Inference Optimization | ☐ | ☐ | ☐ | Code_Example · Comparison |
+| 07 Spaces and Gradio | ☐ | ☐ | ☐ | Code_Example |
+
+## 15 LangGraph
+
+| Topic | Theory | Cheatsheet | Interview QA | Extra Files |
+|---|---|---|---|---|
+| 01 LangGraph Fundamentals | ☐ | ☐ | ☐ | Mental_Model |
+| 02 Nodes and Edges | ☐ | ☐ | ☐ | Code_Example |
+| 03 State Management | ☐ | ☐ | ☐ | Code_Example |
+| 04 Cycles and Loops | ☐ | ☐ | ☐ | Code_Example |
+| 05 Human-in-the-Loop | ☐ | ☐ | ☐ | Code_Example |
+| 06 Multi-Agent with LangGraph | ☐ | ☐ | ☐ | Architecture_Deep_Dive · Code_Example |
+| 07 Streaming and Checkpointing | ☐ | ☐ | ☐ | Code_Example |
+| 08 Build with LangGraph | ☐ Project_Guide | ☐ Step_by_Step | ☐ Troubleshooting | Architecture_Blueprint |
+
+## 16 Diffusion Models
+
+| Topic | Theory | Cheatsheet | Interview QA | Extra Files |
+|---|---|---|---|---|
+| 01 Diffusion Fundamentals | ☐ | ☐ | ☐ | Intuition_First |
+| 02 How Diffusion Works | ☐ | ☐ | ☐ | Math_Intuition · Architecture_Deep_Dive |
+| 03 Stable Diffusion | ☐ | ☐ | ☐ | Architecture_Deep_Dive · Code_Example |
+| 04 Guidance and Conditioning | ☐ | ☐ | ☐ | Code_Example |
+| 05 Modern Diffusion Models | ☐ | ☐ | ☐ | Comparison |
+| 06 ControlNet and Adapters | ☐ | ☐ | ☐ | Code_Example |
+| 07 Diffusion vs GANs | ☐ | ☐ | ☐ | Comparison |
+
+## 17 Multimodal AI
+
+| Topic | Theory | Cheatsheet | Interview QA | Extra Files |
+|---|---|---|---|---|
+| 01 Multimodal Fundamentals | ☐ | ☐ | ☐ | — |
+| 02 Vision-Language Models | ☐ | ☐ | ☐ | Architecture_Deep_Dive |
+| 03 Image Understanding | ☐ | ☐ | ☐ | Code_Example |
+| 04 Using Vision APIs | ☐ | ☐ | ☐ | Code_Example · Code_Cookbook |
+| 05 Audio and Speech AI | ☐ | ☐ | ☐ | Code_Example |
+| 06 Multimodal Embeddings | ☐ | ☐ | ☐ | Code_Example |
+| 07 Multimodal Agents | ☐ | ☐ | ☐ | Architecture_Deep_Dive · Code_Example |
+
+## 18 AI Evaluation
+
+| Topic | Theory | Cheatsheet | Interview QA | Extra Files |
+|---|---|---|---|---|
+| 01 Evaluation Fundamentals | ☐ | ☐ | ☐ | — |
+| 02 Benchmarks | ☐ | ☐ | ☐ | Benchmark_Comparison |
+| 03 LLM-as-Judge | ☐ | ☐ | ☐ | Code_Example · Prompt_Templates |
+| 04 RAG Evaluation | ☐ | ☐ | ☐ | Code_Example · Metrics_Guide |
+| 05 Agent Evaluation | ☐ | ☐ | ☐ | Code_Example |
+| 06 Red Teaming | ☐ | ☐ | ☐ | Common_Attack_Patterns |
+| 07 Eval Frameworks | ☐ | ☐ | ☐ | Comparison · Code_Example |
+| 08 Build an Eval Pipeline | ☐ Project_Guide | ☐ Step_by_Step | ☐ Code_Example | Metrics_Guide |
+
+## 19 Reinforcement Learning
+
+| Topic | Theory | Cheatsheet | Interview QA | Extra Files |
+|---|---|---|---|---|
+| 01 RL Fundamentals | ☐ | ☐ | ☐ | Intuition_First |
+| 02 Markov Decision Processes | ☐ | ☐ | ☐ | Math_Intuition |
+| 03 Q-Learning | ☐ | ☐ | ☐ | Math_Intuition · Code_Example |
+| 04 Deep Q-Networks | ☐ | ☐ | ☐ | Architecture_Deep_Dive · Code_Example |
+| 05 Policy Gradients | ☐ | ☐ | ☐ | Math_Intuition · Code_Example |
+| 06 PPO | ☐ | ☐ | ☐ | Math_Intuition · Code_Example |
+| 07 RL in Practice | ☐ | ☐ | ☐ | Code_Example · Frameworks_Guide |
+| 08 RL for LLMs | ☐ | ☐ | ☐ | Connection_to_RLHF |
+
 ---
 
 ## 📂 Navigation

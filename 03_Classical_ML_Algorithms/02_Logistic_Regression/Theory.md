@@ -2,19 +2,9 @@
 
 ## The Story
 
-It is 2 AM at the hospital emergency room. A patient walks in.
+2 AM at the ER. A patient walks in: heart rate 140 bpm, age 68, clutching chest, sweating. The receptionist can't run every test — but makes a judgment call: "Emergency care, now." Not a certainty, but a probability: "Given these signals, 94% chance this is an emergency."
 
-The receptionist needs to make one quick decision: does this person need emergency care right now, or can they wait?
-
-They look at a few signals: heart rate is 140 bpm (very high), age is 68, and the patient is clutching their chest and sweating.
-
-The receptionist does not know for certain. They cannot run every test right now. But based on those signals they make a judgment call: "This person needs emergency care — right now."
-
-They are not calculating an exact risk number to 12 decimal places. They are making a decision: emergency or not emergency. Yes or no.
-
-But underneath that decision? A probability. "Given these signals, there is a 94% chance this is an emergency."
-
-👉 This is why we need **Logistic Regression** — it takes input signals and converts them into a probability of belonging to a class, then makes a decision.
+👉 This is why we need **Logistic Regression** — it converts input signals into a probability of belonging to a class, then makes a decision.
 
 ---
 
@@ -33,9 +23,7 @@ Examples:
 
 ## The Sigmoid Function — The Secret Ingredient
 
-The problem: we have a linear equation (like linear regression) that can output any number from -∞ to +∞. But we need a probability between 0 and 1.
-
-**The sigmoid function squishes any number into the range (0, 1):**
+A linear equation outputs any number (-∞ to +∞), but we need a probability between 0 and 1. The **sigmoid function** squishes any number into (0, 1):
 
 ```
 sigmoid(z) = 1 / (1 + e^(-z))
@@ -43,13 +31,9 @@ sigmoid(z) = 1 / (1 + e^(-z))
 
 | Input z | Sigmoid output |
 |---|---|
-| -10 | ~0.00005 (near 0) |
-| -2 | 0.119 |
+| -10 | ~0.00005 |
 | 0 | 0.5 |
-| +2 | 0.881 |
-| +10 | ~0.99995 (near 1) |
-
-No matter what the linear equation outputs, sigmoid converts it to a valid probability.
+| +10 | ~0.99995 |
 
 ---
 
@@ -69,25 +53,22 @@ flowchart LR
 
 ## The Decision Boundary
 
-The decision boundary is the input values where the model outputs exactly 0.5 — the line between "predict class 0" and "predict class 1."
+The decision boundary is where the model outputs exactly 0.5 — the line between "predict class 0" and "predict class 1." For logistic regression this is always a straight line (2D) or flat plane (higher dimensions):
 
-For logistic regression, this boundary is always a straight line (in 2D) or a flat plane (in higher dimensions).
-
-This is both a strength and a limitation:
 - Strength: simple, interpretable
-- Limitation: cannot model curved decision boundaries (some problems need curves)
+- Limitation: can't model curved boundaries → use Decision Tree or Neural Network
 
 ---
 
 ## Training: Log Loss
 
-Logistic regression is trained using **log loss (cross-entropy)**:
+Trained using **log loss (cross-entropy):**
 
 ```
 Loss = -[y × log(ŷ) + (1-y) × log(1-ŷ)]
 ```
 
-This penalizes confident wrong predictions severely. If the model says 99% probability of emergency and the person was fine — that is a large loss. Gradient descent minimizes this loss to find the best weights.
+Confident wrong predictions get a large loss. Gradient descent minimizes this to find the best weights.
 
 ---
 
@@ -108,6 +89,13 @@ This penalizes confident wrong predictions severely. If the model says 99% proba
 🔨 **Build this now:** Open Python and compute sigmoid(2), sigmoid(0), sigmoid(-2). Use: `import math; 1 / (1 + math.exp(-2))`. See how 2 maps to ~0.88, 0 maps to 0.5, and -2 maps to ~0.12. That is the sigmoid doing its job.
 
 ➡️ **Next step:** What if the decision boundary is not a straight line? → `03_Decision_Trees/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
+> This project uses: Logistic Regression as one of 4 classifiers you train, compare, and evaluate on the Iris dataset
 
 ---
 

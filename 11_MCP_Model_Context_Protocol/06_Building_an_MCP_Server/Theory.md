@@ -2,15 +2,11 @@
 
 ## The Story 📖
 
-You are setting up a new specialist office. Before you can take any clients, you need to do three things. First, you **hang your sign** — you publish what services you offer, your hours, and your contact information. Anyone who needs a plumber, an accountant, or a lawyer needs to know what you do before they call.
+Setting up a specialist office requires three things: **hang your sign** (publish what services you offer so clients can find you), **set up your phone line** (connect to communications infrastructure so clients can reach you), and **answer the calls** (execute requested services and deliver results).
 
-Second, you **set up your phone line** — you connect to the communications infrastructure. When someone calls, you can hear them and they can hear you. Without the phone, having the best skills in the world means nothing.
+Building an MCP server is exactly that: declare your capabilities, set up the transport, implement handlers that execute tool logic.
 
-Third, you **wait for the call and respond** — when a client calls asking for a specific service, you execute it professionally and deliver the result. You handle requests one by one, and each result is sent back to the caller.
-
-That is exactly what building an MCP server means. You declare your capabilities (hang the sign), set up the transport (install the phone line), and implement handlers that execute tool logic and return results (answer the calls and do the work).
-
-👉 This is **Building an MCP Server** — capability declaration, transport setup, and handler implementation. Three things, in that order.
+👉 This is **Building an MCP Server** — capability declaration, transport setup, and handler implementation.
 
 ---
 
@@ -22,7 +18,6 @@ An MCP server is a program that:
 3. Executes requested operations and returns results
 
 **The anatomy of an MCP server:**
-
 - **Server object** — the central coordinator that registers handlers and manages state
 - **Tool handlers** — functions that execute when a tool is called (`list_tools`, `call_tool`)
 - **Resource handlers** — functions that list and serve resource data (optional)
@@ -30,25 +25,14 @@ An MCP server is a program that:
 - **Transport setup** — the code that starts the communication channel (stdio or SSE)
 
 **The server lifecycle:**
-
-1. **Initialize phase**: Client connects and sends `initialize`. Server responds with its capabilities.
-2. **Discovery phase**: Client calls `tools/list`, `resources/list`, `prompts/list` to learn what is available.
-3. **Operation phase**: Client calls `tools/call`, `resources/read`, `prompts/get` repeatedly.
-4. **Shutdown phase**: Client disconnects. Server cleans up any resources it holds.
+1. **Initialize**: Client connects and sends `initialize`. Server responds with capabilities.
+2. **Discovery**: Client calls `tools/list`, `resources/list`, `prompts/list`.
+3. **Operation**: Client calls `tools/call`, `resources/read`, `prompts/get` repeatedly.
+4. **Shutdown**: Client disconnects. Server cleans up.
 
 ---
 
 ## How It Works — Step by Step 🔧
-
-Here is the process of building a minimal but complete MCP server from scratch:
-
-1. **Install the SDK**: `pip install mcp`
-2. **Create the server object**: `app = Server("server-name")`
-3. **Define tools**: Use `@app.list_tools()` to declare tools, `@app.call_tool()` to implement them
-4. **Add resources** (optional): Use `@app.list_resources()` and `@app.read_resource()`
-5. **Add prompts** (optional): Use `@app.list_prompts()` and `@app.get_prompt()`
-6. **Set up transport**: Wrap in `async with mcp.server.stdio.stdio_server()` (or SSE)
-7. **Run the server**: `asyncio.run(main())`
 
 ```mermaid
 graph TD
@@ -62,31 +46,39 @@ graph TD
     H --> I["Test with MCP Inspector\nor Claude Desktop"]
 ```
 
+1. **Install the SDK**: `pip install mcp`
+2. **Create the server object**: `app = Server("server-name")`
+3. **Define tools**: Use `@app.list_tools()` to declare, `@app.call_tool()` to implement
+4. **Add resources** (optional): Use `@app.list_resources()` and `@app.read_resource()`
+5. **Add prompts** (optional): Use `@app.list_prompts()` and `@app.get_prompt()`
+6. **Set up transport**: Wrap in `async with mcp.server.stdio.stdio_server()` (or SSE)
+7. **Run the server**: `asyncio.run(main())`
+
 ---
 
 ## Real-World Examples 🌍
 
-- **Filesystem server** (used by Claude Desktop): Implements `list_directory`, `read_file`, `write_file`, `search_files`. Simple Python script that wraps `pathlib` operations. Runs via stdio.
-- **GitHub MCP server**: Implements `create_branch`, `list_prs`, `merge_pr`, `post_comment`. Wraps the GitHub REST API using `httpx`. Can run via stdio with a personal access token in the env vars.
+- **Filesystem server**: Implements `list_directory`, `read_file`, `write_file`, `search_files`. Wraps `pathlib` operations. Runs via stdio.
+- **GitHub MCP server**: Implements `create_branch`, `list_prs`, `merge_pr`, `post_comment`. Wraps the GitHub REST API using `httpx`.
 - **Database server**: Implements `run_query`, `list_tables`, `describe_table`. Wraps `psycopg2` or `sqlite3`. Takes database URL from environment variable.
-- **Weather server**: Implements `get_current_weather(city)` and `get_forecast(city, days)`. Calls a weather REST API under the hood. A clean example for beginners.
-- **Internal company knowledge base**: Implements `search_docs(query)` and `get_document(id)`. Wraps an Elasticsearch index or a vector database. Runs as an SSE server shared across the whole company.
+- **Weather server**: Implements `get_current_weather(city)` and `get_forecast(city, days)`. Calls a weather REST API. A clean example for beginners.
+- **Internal knowledge base**: Implements `search_docs(query)` and `get_document(id)`. Runs as an SSE server shared across the whole company.
 
 ---
 
 ## Common Mistakes to Avoid ⚠️
 
 **Mistake 1: Writing to stdout in a stdio server**
-This is worth repeating — `print()` in a stdio server destroys your JSON-RPC channel. Every debug print breaks the client. Always use `sys.stderr` for logging.
+`print()` in a stdio server destroys your JSON-RPC channel. Every debug print breaks the client. Always use `sys.stderr` for logging.
 
 **Mistake 2: Not handling errors gracefully in tool handlers**
-If your tool crashes with an unhandled exception, the client receives an internal error. The AI model gets confused. Instead, wrap tool logic in try/except and return descriptive error messages as text content — the AI can then understand and report the error to the user.
+Wrap tool logic in try/except and return descriptive error messages as text content — the AI can then understand and report the error to the user.
 
 **Mistake 3: Hardcoding credentials in the server file**
 Never put API keys, database passwords, or tokens directly in your server code. Use environment variables. The host (Claude Desktop config) can pass environment variables to your server process.
 
 **Mistake 4: Making one server do too much**
-A server that reads files AND queries databases AND calls external APIs AND manages email is hard to test, hard to debug, and over-privileged. Build focused servers. It is easy to connect multiple servers to one host.
+A server that reads files AND queries databases AND calls external APIs is hard to test, debug, and over-privileged. Build focused servers.
 
 ---
 

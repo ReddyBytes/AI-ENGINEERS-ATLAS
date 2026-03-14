@@ -1,10 +1,8 @@
 # Structured Outputs — Theory
 
-You need a quote from a contractor. You ask: "How much to repaint the living room?" They send back a three-page letter with their business history, paint preferences, three anecdotes about their best work, and somewhere buried on page two: "$800."
+You need a quote from a contractor. You ask: "How much to repaint the living room?" They send back a three-page letter with their history, paint preferences, and three anecdotes — buried on page two: "$800." You just needed the number. In a specific format. For your spreadsheet.
 
-You just needed the number. In a specific format. For your spreadsheet.
-
-LLMs are the same. Ask a free-form question and you get an essay. But in production code, you need clean JSON you can parse, a specific list format, or a fixed template — every single time.
+LLMs are the same. Ask a free-form question and you get an essay. In production, you need clean JSON your code can parse, every single time.
 
 👉 This is why we need **Structured Outputs** — to make LLMs respond in exact, predictable formats your code can reliably parse.
 
@@ -12,9 +10,7 @@ LLMs are the same. Ask a free-form question and you get an essay. But in product
 
 ## Why This Matters
 
-LLMs generate text token by token. By default, they'll write in natural language — paragraphs, prose, conversational sentences.
-
-Your code doesn't speak prose. It speaks JSON. It needs fields, types, and predictable shapes.
+LLMs generate text token by token — natural language prose by default. Your code needs JSON with fields, types, and predictable shapes.
 
 **Without structured outputs:**
 ```
@@ -40,7 +36,7 @@ Same information. Completely different usefulness in code.
 
 ### Method 1: Output Format Prompting
 
-Tell the model in the prompt exactly what format you want. The simplest approach.
+Tell the model in the prompt exactly what format you want.
 
 ```
 Extract contact info from this email.
@@ -54,7 +50,7 @@ Works most of the time. Fails sometimes. Needs validation.
 
 ### Method 2: Tool-Based Structured Output
 
-Define a tool schema that matches your desired data structure. Tell the model to use the tool. The model's `tool_use` input IS your structured output — no text parsing needed.
+Define a tool schema matching your desired data structure. Tell the model to use the tool. The model's `tool_use` input IS your structured output — no text parsing needed.
 
 ```python
 tools = [{
@@ -72,7 +68,7 @@ tools = [{
 }]
 ```
 
-More reliable than prompt-based. The model fills in the schema fields directly.
+More reliable than prompt-based — the model fills in schema fields directly.
 
 ---
 
@@ -99,7 +95,7 @@ print(contact.name)   # "Sarah Chen"
 print(contact.email)  # "sarah@acme.com"
 ```
 
-You get a typed Python object. Validation is automatic. This is the cleanest approach for production.
+You get a typed Python object with automatic validation. The cleanest approach for production.
 
 ---
 
@@ -139,7 +135,6 @@ raw = response.content[0].text
 
 try:
     data = json.loads(raw)
-    # Check required fields exist
     assert "name" in data, "Missing name field"
     assert "email" in data, "Missing email field"
 except (json.JSONDecodeError, AssertionError) as e:
@@ -156,6 +151,13 @@ For production: set `temperature=0`, add retry logic, and use Pydantic for autom
 🔨 **Build this now:** Write a prompt that extracts name, email, and urgency from a sample support email. Parse the JSON in Python. Handle the case where the JSON is malformed.
 
 ➡️ **Next step:** Embeddings → `08_LLM_Applications/04_Embeddings/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B5: Intelligent Document Analyzer](../../20_Projects/00_Beginner_Projects/05_Intelligent_Document_Analyzer/Project_Guide.md)**
+> This project uses: extracting entities as structured JSON using Pydantic models, validating LLM output schema
 
 ---
 

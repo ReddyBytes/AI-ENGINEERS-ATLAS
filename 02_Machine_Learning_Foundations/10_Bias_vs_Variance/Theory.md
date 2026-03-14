@@ -85,6 +85,17 @@ The sweet spot is the complexity level where the total error (bias² + variance 
 | Train error high, test error very high | Both bias and variance | Major model redesign needed |
 | Train and test error both low | Sweet spot | You're done |
 
+```mermaid
+flowchart TD
+    Start[Evaluate your model] --> TrainErr{Is training\nerror high?}
+    TrainErr -->|Yes| BiasProb[High Bias\nUnderfitting]
+    TrainErr -->|No| TestErr{Is test error\nmuch higher\nthan train?}
+    TestErr -->|Yes| VarProb[High Variance\nOverfitting]
+    TestErr -->|No| Sweet[Sweet Spot\nmodel is working well]
+    BiasProb --> FixBias[Fix: more complex model\nadd features\ntrain longer]
+    VarProb --> FixVar[Fix: regularization\nmore training data\nsimplify model]
+```
+
 ---
 
 ## Real Model Examples

@@ -8,23 +8,17 @@ Imagine two weather forecasters. Forecaster A works in the Sahara Desert and pre
 
 ## What Is Information?
 
-Claude Shannon (1948) asked a brilliant question: can we measure information like we measure weight or temperature?
+Claude Shannon (1948) asked: can we measure information like we measure weight or temperature? His answer: the information in an event is related to how surprising it is.
 
-His answer: the information in an event is related to how surprising it is.
+- P = 1 (certain): carries **zero** information
+- P = 0.5 (coin flip): 1 bit of information
+- P = 0.001 (rare): ~10 bits of information
 
-- An event with probability 1 (certain) carries **zero** information. You already knew it.
-- An event with probability 0.5 (coin flip) carries more information.
-- An event with probability 0.001 (extremely rare) carries a lot of information.
-
-Formally:
 ```
 Information(event) = -log₂(P(event))
 ```
 
-If P = 1:   -log₂(1) = 0 bits (no surprise, no info)
-If P = 0.5: -log₂(0.5) = 1 bit (one coin flip worth of info)
-If P = 0.25: -log₂(0.25) = 2 bits
-If P = 0.001: -log₂(0.001) ≈ 10 bits (very surprising, very informative)
+If P = 1: 0 bits (no surprise) · If P = 0.5: 1 bit · If P = 0.25: 2 bits · If P = 0.001: ≈10 bits
 
 The rarer the event, the more bits of information it carries.
 
@@ -32,73 +26,44 @@ The rarer the event, the more bits of information it carries.
 
 ## Entropy — Average Surprise
 
-What if you want to measure the average surprise of an entire situation — not just one event?
-
-**Entropy** measures the average amount of information (surprise) across all possible events.
+**Entropy** measures average information across all possible events:
 
 ```
 H = -Σ P(x) × log₂(P(x))
-     for all x
 ```
 
-In plain English: for each possible outcome, weight its surprise by how often it occurs, then average everything up.
+For each possible outcome, weight its surprise by how often it occurs, then average.
 
-**Example 1 — Low entropy situation:**
-A bag of 100 marbles, all red.
-- P(red) = 1.0, P(blue) = 0.0
-- H = -(1.0 × log₂(1.0)) = 0 bits
-
-Zero entropy. Zero surprise. You always know what you'll get.
-
-**Example 2 — High entropy situation:**
-A bag of 100 marbles, 50 red, 50 blue.
-- H = -(0.5 × log₂(0.5) + 0.5 × log₂(0.5)) = 1 bit
-
-Maximum entropy for two outcomes. Maximum surprise.
+- **Low entropy:** bag of 100 red marbles — H = 0 bits. Zero surprise.
+- **High entropy:** 50 red + 50 blue — H = 1 bit. Maximum surprise for two outcomes.
 
 ---
 
 ## Cross-Entropy — Comparing Two Distributions
 
-Now suppose you have a model that predicts the distribution of outcomes. The true distribution is P (reality). Your model predicts distribution Q.
-
-**Cross-entropy** measures how surprised your model is by the true outcomes:
+True distribution is P (reality). Your model predicts Q.
 
 ```
 H(P, Q) = -Σ P(x) × log₂(Q(x))
 ```
 
-If your model predicts perfectly (Q = P), cross-entropy equals entropy — the irreducible minimum.
+If Q = P: cross-entropy equals entropy (irreducible minimum). If Q ≠ P: cross-entropy is higher.
 
-If your model is wrong (Q is different from P), cross-entropy is higher than entropy.
-
-**Cross-entropy loss** in machine learning is literally this. When a model predicts class probabilities and we compare them to the true labels:
-- Model says P(cat) = 0.9, true label is cat → small loss (model was right)
-- Model says P(cat) = 0.1, true label is cat → large loss (model was very wrong)
-
-The worse the model's predictions, the higher the cross-entropy loss. Training minimizes it.
+**Cross-entropy loss** in ML: model says P(cat) = 0.9, true label is cat → small loss. Model says P(cat) = 0.1, true label is cat → large loss. Training minimizes it.
 
 ---
 
 ## KL Divergence — How Different Are Two Distributions?
 
-**KL Divergence** (Kullback-Leibler divergence) measures how different distribution Q is from distribution P:
-
 ```
 KL(P || Q) = Σ P(x) × log(P(x) / Q(x))
 ```
 
-Key properties:
-- KL(P || Q) = 0 when P = Q (they're identical)
-- KL(P || Q) > 0 when P ≠ Q (always non-negative)
-- KL(P || Q) ≠ KL(Q || P) — it's NOT symmetric
+- KL = 0 when P = Q
+- KL > 0 always when P ≠ Q
+- NOT symmetric: KL(P || Q) ≠ KL(Q || P)
 
-**Connection to cross-entropy:**
-```
-Cross-entropy H(P,Q) = Entropy H(P) + KL(P || Q)
-```
-
-So minimizing cross-entropy is the same as minimizing KL divergence (since entropy is fixed for the true distribution). This is why cross-entropy loss is the default in classification problems.
+**Connection:** `H(P,Q) = H(P) + KL(P || Q)` — minimizing cross-entropy is the same as minimizing KL divergence (entropy is fixed for the true distribution).
 
 ---
 
@@ -119,8 +84,6 @@ flowchart TD
 
 ## Why This Matters for AI
 
-Information theory is not abstract philosophy. It's literally built into AI training:
-
 | AI Concept | Information Theory Concept |
 |---|---|
 | Classification loss | Cross-entropy loss = H(P, Q) |
@@ -129,8 +92,6 @@ Information theory is not abstract philosophy. It's literally built into AI trai
 | Model compression | Minimum description length (entropy) |
 | Variational Autoencoders (VAE) | KL divergence in the loss function |
 | ChatGPT's training objective | Minimize cross-entropy over human-written text |
-
-Every time a language model predicts the next word, it's outputting a probability distribution. Cross-entropy measures how close that distribution is to reality (the actual next word). Training minimizes this — over trillions of word predictions.
 
 ---
 

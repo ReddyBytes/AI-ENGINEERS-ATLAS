@@ -1,8 +1,8 @@
 # Transformer Architecture
 
-Picture a professional UN interpreter working in a glass booth. Before translating, they listen to the entire speech first to understand the full context — the argument, the tone, the references. Then, word by word, they speak the translation into the microphone, constantly glancing back at the original speech and what they've already said to make sure it all stays coherent.
+A UN interpreter listens to the entire speech first to understand the full context — the argument, the tone, the references. Then word by word they speak the translation, constantly glancing back at the original speech and what they've already said to stay coherent.
 
-That's the transformer. The encoder reads everything. The decoder generates one token at a time, using both what was said and what it has generated so far.
+That's the transformer: the encoder reads everything; the decoder generates one token at a time using both the original and what it has generated so far.
 
 👉 This is why the **Transformer Architecture** works — it separates understanding (encoder) from generation (decoder) and connects them through attention.
 
@@ -18,7 +18,7 @@ Used for: understanding, classification, encoding meaning.
 
 ### Decoder
 
-Generates the output sequence one token at a time. Uses:
+Generates output one token at a time using:
 1. Masked self-attention on what it's generated so far (can't see the future)
 2. Cross-attention to attend to the encoder's output (the source material)
 
@@ -37,65 +37,85 @@ flowchart TD
     E --> F[Output to Next Layer]
 ```
 
-Each encoder layer has two sub-layers:
-1. Multi-head self-attention
-2. Position-wise feed-forward network
-
-Around each sub-layer: a residual connection + layer normalization.
+Two sub-layers: multi-head self-attention, then position-wise feed-forward network. Each wrapped in a residual connection + layer normalization.
 
 ---
 
 ## One decoder layer
 
-Each decoder layer has three sub-layers:
+Three sub-layers:
 1. Masked multi-head self-attention (on generated tokens so far)
 2. Multi-head cross-attention (attends to encoder output)
 3. Position-wise feed-forward network
 
 Same residual + layer norm around each.
 
+```mermaid
+flowchart TD
+    A[Generated tokens so far + Positional Encoding] --> B[Masked Multi-Head Self-Attention]
+    B --> C[Add & Layer Norm]
+    ENC[Encoder Output] --> D[Multi-Head Cross-Attention]
+    C --> D
+    D --> E[Add & Layer Norm]
+    E --> F[Feed-Forward Network]
+    F --> G[Add & Layer Norm]
+    G --> H[Output to Next Decoder Layer]
+```
+
 ---
 
 ## Residual connections — why they matter
-
-Each sub-layer computes its output and adds it to its own input:
 
 ```
 output = LayerNorm(x + SubLayer(x))
 ```
 
-This is a residual (skip) connection. The original signal passes through directly alongside the transformation.
-
-**Why it matters:**
-- Gradients can flow directly back to early layers without vanishing
-- The model only needs to learn the "correction" on top of the identity — easier to optimize
-- Enables training very deep networks (the original had 6 encoder + 6 decoder layers; GPT-3 has 96 layers)
+The original signal passes through alongside the transformation. Benefits:
+- Gradients flow directly to early layers without vanishing
+- The model only learns the "correction" on top of identity — easier to optimize
+- Enables very deep networks (original: 6+6 layers; GPT-3: 96 layers)
 
 ---
 
 ## Layer normalization
 
-After each sub-layer (attention or FFN), layer norm is applied. It normalizes the activations within each sample to have zero mean and unit variance.
-
-This stabilizes training — prevents activations from exploding or vanishing during deep network training.
+Applied after each sub-layer. Normalizes activations within each sample to zero mean and unit variance — prevents exploding/vanishing activations during deep network training.
 
 ---
 
 ## Feed-forward network (FFN)
 
-Despite the name, this is simple: two linear transformations with a ReLU in between.
-
 ```
 FFN(x) = max(0, x × W1 + b1) × W2 + b2
 ```
 
-The inner dimension is typically 4× the model dimension. For a 512-dim model, the FFN inner layer is 2048.
-
-**Why it's there:** Attention is good at gathering information from context. The FFN is where the model applies learned transformations to process that information — it stores facts, patterns, and knowledge from pretraining.
+Two linear transformations with ReLU between. Inner dimension is typically 4× the model dimension (512-dim model → 2048 inner). Attention gathers context; the FFN applies learned transformations to process that information — storing facts and patterns from pretraining.
 
 ---
 
-✅ **What you just learned:** The transformer has an encoder (bidirectional self-attention) and a decoder (masked self-attention + cross-attention), with each layer containing attention → FFN wrapped in residual connections and layer norm.
+✅ **What you just learned:** The transformer has an encoder (bidirectional self-attention) and decoder (masked self-attention + cross-attention), each layer containing attention → FFN wrapped in residual connections and layer norm.
+
+```mermaid
+flowchart TD
+    subgraph ENC [Encoder Stack × N layers]
+        PE1[Input + Positional Encoding] --> SA[Multi-Head Self-Attention]
+        SA --> AN1[Add & Norm]
+        AN1 --> FF1[Feed-Forward Network]
+        FF1 --> AN2[Add & Norm]
+        AN2 --> EO[Encoder Output]
+    end
+    subgraph DEC [Decoder Stack × N layers]
+        PE2[Output tokens + Positional Encoding] --> MSA[Masked Self-Attention]
+        MSA --> AN3[Add & Norm]
+        AN3 --> CA[Cross-Attention ← Encoder Output]
+        EO --> CA
+        CA --> AN4[Add & Norm]
+        AN4 --> FF2[Feed-Forward Network]
+        FF2 --> AN5[Add & Norm]
+        AN5 --> LIN[Linear + Softmax]
+        LIN --> TOK[Next Token]
+    end
+```
 
 🔨 **Build this now:** Draw the transformer architecture from memory. Label: encoder stack, decoder stack, self-attention, cross-attention, FFN, residual connections, positional encoding.
 

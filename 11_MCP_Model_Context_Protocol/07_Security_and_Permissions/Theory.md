@@ -2,11 +2,9 @@
 
 ## The Story 📖
 
-It is your first day at a new job. You are handed an employee badge. It opens the front door and the office floor — that is all you need for now. It does not open the server room. It does not open the executive suite. It does not open the chemical storage. Even though you are a trusted employee, your access is limited to what your role actually requires.
+It's your first day at a new job. Your employee badge opens the front door and your office floor — that's all you need. It doesn't open the server room, the executive suite, or chemical storage. Even as a trusted employee, your access is limited to what your role requires.
 
-When you need to access a new room, you do not just walk in. You file a request. Someone reviews it. If it makes sense for your role, your badge gets updated. There is a clear, transparent process — not a free-for-all where everyone can go everywhere.
-
-Now imagine an AI assistant in this company. Without careful design, it could be given a badge that opens every door. It could read confidential files, access production databases, send emails as the CEO. The AI does not intend harm — but if its access is not carefully scoped, and if every action is not checked, accidents happen. Or worse, an attacker manipulates the AI into misusing its broad access.
+Now imagine an AI assistant in this company given a badge that opens every door. It could read confidential files, access production databases, send emails as the CEO. The AI doesn't intend harm — but without carefully scoped access and action checks, accidents happen. Or an attacker manipulates the AI into misusing its broad access.
 
 👉 This is **Security and Permissions in MCP** — designing AI tool access like proper employee badges: **minimum necessary access**, **human approval for sensitive actions**, and **clear visibility into what the AI is doing**.
 
@@ -14,39 +12,39 @@ Now imagine an AI assistant in this company. Without careful design, it could be
 
 ## What Are MCP Security and Permissions? 🤔
 
-MCP security is about ensuring that AI models can only access what they should, that humans remain in control of sensitive operations, and that your MCP servers are built with safety in mind from the start.
+**The core security principles:**
 
-**The core security principles in MCP:**
+- **Principle of Least Privilege** — a server should only expose the tools it absolutely needs. A weather server shouldn't have file-write tools.
+- **Human-in-the-Loop** — for destructive or irreversible operations (delete files, send emails, charge customers), the host should ask the user for confirmation before the tool is called.
+- **Trust Boundaries** — the host decides which servers to connect to. Only connect to servers from sources you trust.
+- **Capability Scoping** — separate read operations from write operations. Separate safe operations from dangerous ones.
+- **Secret Management** — API keys and tokens should never appear in server code. Use environment variables or a secrets manager.
 
-- **Principle of Least Privilege** — a server should only expose the tools it absolutely needs. A weather server should not have file-write tools. A read-only analytics server should not have database-delete tools.
+```mermaid
+flowchart TD
+    subgraph "Attack Surface"
+        PI["Prompt Injection\nUser overrides system prompt"]
+        Creds["Credential Leak\nAPI keys in server code"]
+        OverPriv["Over-Privilege\nServer exposes delete + write"]
+        NoConfirm["No Confirmation\nDestructive action runs automatically"]
+    end
 
-- **Human-in-the-Loop** — for destructive or irreversible operations (delete files, send emails, charge customers), the host should ask the user for explicit confirmation before the tool is called. The AI can suggest, but humans approve.
+    subgraph "Defense"
+        InputVal["Input Validation\nDetect injection patterns"]
+        EnvVars["Environment Variables\nNever hardcode secrets"]
+        MinScope["Least Privilege\nOnly expose needed tools"]
+        HumanLoop["Human-in-the-Loop\nConfirm before destructive calls"]
+    end
 
-- **Trust Boundaries** — the host decides which MCP servers to connect to. Users are responsible for only connecting to servers they trust. Servers should not be treated as trusted by default.
-
-- **Capability Scoping** — design servers with the smallest possible capability surface. Separate read operations from write operations. Separate safe operations from dangerous ones.
-
-- **Secret Management** — API keys, database passwords, and tokens should never appear in server code. They must come from environment variables or a secrets manager.
+    PI --> InputVal
+    Creds --> EnvVars
+    OverPriv --> MinScope
+    NoConfirm --> HumanLoop
+```
 
 ---
 
 ## How It Works — Step by Step 🔧
-
-Here is how security works at each layer of MCP:
-
-1. **User approves servers** — The user (or admin) configures which MCP servers the host connects to. This is the first and most important security gate. Only connect to servers from sources you trust.
-
-2. **Server declares minimal capabilities** — A well-designed server only exposes tools it truly needs. A filesystem server for reading code should expose `read_file` and `list_directory`, not `delete_file` or `write_file`.
-
-3. **Host controls AI's tool access** — The host can filter which of a server's tools it exposes to the AI model. You can give Claude access to some tools from a server but not all.
-
-4. **Tool call is triggered** — The AI model decides to call a tool. Before it happens, the host should check whether this tool requires human confirmation.
-
-5. **Human confirms dangerous actions** — For tools marked as dangerous (or any write/delete operation), the host shows the user what is about to happen and asks for approval. The user can approve or deny.
-
-6. **Tool executes with scoped permissions** — The server runs the tool. The server should validate all inputs, operate with the minimum OS/file/database permissions needed.
-
-7. **Result returned to AI** — The result flows back. Sensitive data in results (passwords, tokens) should not be logged or stored unnecessarily.
 
 ```mermaid
 sequenceDiagram
@@ -69,31 +67,39 @@ sequenceDiagram
     AI->>User: "Done. Deleted 47 .tmp files."
 ```
 
+Security at each layer:
+1. **User approves servers** — first and most important gate
+2. **Server declares minimal capabilities** — only expose truly needed tools
+3. **Host controls AI's tool access** — can filter which of a server's tools the AI sees
+4. **Human confirms dangerous actions** — for tools that are destructive or irreversible
+5. **Server validates inputs** — validate all inputs, operate with minimum OS/file/database permissions
+6. **Results handled carefully** — sensitive data (passwords, tokens) not logged unnecessarily
+
 ---
 
 ## Real-World Examples 🌍
 
-- **Read-only vs read-write servers**: For an analytics AI, create a database server that only exposes `SELECT` queries. Keep the write operations in a separate server that requires extra confirmation.
-- **Sandboxed code execution**: A code execution MCP server should run code in a container (Docker/sandbox) with no network access and limited filesystem access, not directly on the host machine.
-- **Secret rotation**: Store API keys in a secrets manager (AWS Secrets Manager, HashiCorp Vault). Load them at server startup via environment variables — never hardcode them.
-- **Audit logging**: Log every MCP tool call with: timestamp, session ID, tool name, arguments (sanitized), outcome. This creates an audit trail for compliance and debugging.
-- **Rate limiting tools**: A web search tool should have rate limiting to prevent the AI from making thousands of API calls (and racking up costs or hitting limits).
+- **Read-only vs read-write servers**: For analytics AI, create a database server exposing only `SELECT` queries; keep write operations in a separate server requiring extra confirmation.
+- **Sandboxed code execution**: Run code in a container (Docker/sandbox) with no network access and limited filesystem access.
+- **Secret rotation**: Store API keys in a secrets manager (AWS Secrets Manager, HashiCorp Vault). Load at server startup via environment variables.
+- **Audit logging**: Log every MCP tool call with: timestamp, session ID, tool name, arguments (sanitized), outcome.
+- **Rate limiting tools**: A web search tool should have rate limiting to prevent the AI from making thousands of API calls.
 
 ---
 
 ## Common Mistakes to Avoid ⚠️
 
 **Mistake 1: Giving the AI "god mode" access**
-A single all-purpose server with tools to read files, delete records, send emails, and charge customers is a disaster waiting to happen. Separate capabilities. Use multiple servers. Apply least privilege.
+A single all-purpose server with tools to read files, delete records, send emails, and charge customers is a disaster. Separate capabilities. Use multiple servers. Apply least privilege.
 
 **Mistake 2: Not requiring confirmation for irreversible actions**
-The AI might confidently decide to delete files, send emails, or make payments. Without a human confirmation step, a misunderstood instruction can cause irreversible damage. Mark destructive tools clearly and require user approval.
+The AI might confidently decide to delete files, send emails, or make payments. Without a human confirmation step, a misunderstood instruction can cause irreversible damage.
 
 **Mistake 3: Hardcoding credentials in server files**
-`api_key = "sk-abc123..."` in your source code is a security incident waiting to happen. If the file is ever version-controlled, shared, or leaked, the key is compromised. Always use environment variables.
+`api_key = "sk-abc123..."` in source code is a security incident waiting to happen. Always use environment variables.
 
 **Mistake 4: Trusting server input without validation**
-An AI model may pass malformed or adversarial arguments to your tools (either by mistake or due to prompt injection). Always validate and sanitize tool inputs in your server before executing them.
+An AI model may pass malformed or adversarial arguments to your tools. Always validate and sanitize tool inputs before executing.
 
 ---
 
@@ -102,7 +108,7 @@ An AI model may pass malformed or adversarial arguments to your tools (either by
 - **[Building an MCP Server](../06_Building_an_MCP_Server/Theory.md)** — Security starts with server design
 - **[Tools, Resources, Prompts](../04_Tools_Resources_Prompts/Theory.md)** — Dangerous tools need careful design
 - **[Best Practices](./Best_Practices.md)** — Numbered security checklist
-- **[MCP Ecosystem](../08_MCP_Ecosystem/Theory.md)** — What community servers expose and how to evaluate them
+- **[MCP Ecosystem](../08_MCP_Ecosystem/Theory.md)** — How to evaluate community servers
 - **[Connect MCP to Agents](../09_Connect_MCP_to_Agents/Theory.md)** — Agents amplify security risks since they take many actions automatically
 
 ---

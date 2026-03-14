@@ -1,10 +1,6 @@
 # RAG Fundamentals — Theory
 
-Imagine a brilliant analyst who has spent years reading millions of financial reports, research papers, and news articles. They're exceptional at analysis and reasoning. But there's a problem: their training data ended two years ago.
-
-You ask them about last week's market crash. Without any help, they'll guess — maybe confidently, probably wrong. They don't know what happened last week.
-
-Now give them access to a stack of last week's actual market reports. They read the relevant ones, then answer. Now they're combining their analytical brilliance with the actual facts. The answer is accurate, specific, and citable.
+A brilliant analyst has memorized millions of financial reports — but their knowledge cut off two years ago. Ask about last week's market crash and they'll guess, probably wrong. Hand them last week's actual reports and they read the relevant ones, then answer accurately and citably.
 
 That's RAG: Retrieval-Augmented Generation. Retrieval = look up the facts. Generation = use LLM reasoning to answer from those facts.
 
@@ -25,8 +21,6 @@ flowchart LR
     C --> D[LLM Generates Answer]
     D --> E[Grounded Answer + Sources]
 ```
-
-Without RAG, the LLM answers from memory (training data). With RAG, it reads the actual documents first.
 
 ---
 
@@ -82,19 +76,15 @@ flowchart TD
 | **Cost** | Low (API + vector DB) | High (GPU training) |
 | **Speed to deploy** | Hours | Days to weeks |
 
-**The rule:** RAG for knowledge, fine-tuning for behavior. Most production systems that need to answer questions about company data use RAG, not fine-tuning.
+**The rule:** RAG for knowledge, fine-tuning for behavior.
 
 ---
 
 ## What Makes a Good RAG System
 
-Three things determine quality:
-
-1. **Retrieval quality**: does the right chunk get returned for each question? If the wrong context is retrieved, the answer will be wrong or hallucinated.
-
-2. **Chunk quality**: are the chunks a good size and split at sensible boundaries? Too short = not enough context. Too long = diluted embeddings.
-
-3. **Prompt quality**: does the prompt correctly instruct the LLM to answer from the context and cite its sources? Bad prompts lead to answers that ignore the context.
+1. **Retrieval quality**: does the right chunk get returned? Wrong context → wrong answer.
+2. **Chunk quality**: right size, split at sensible boundaries. Too short = not enough context. Too long = diluted embeddings.
+3. **Prompt quality**: does the prompt correctly instruct the LLM to answer from context and cite sources?
 
 ---
 
@@ -103,6 +93,14 @@ Three things determine quality:
 🔨 **Build this now:** Find a Wikipedia article. Copy one paragraph into a text file. Write a question whose answer is in that paragraph. Use the paragraph as "retrieved context" in a prompt to Claude. See how it answers accurately from the text.
 
 ➡️ **Next step:** Document Ingestion → `09_RAG_Systems/02_Document_Ingestion/Theory.md`
+
+---
+
+## 🛠️ Practice Projects
+
+Apply what you just learned:
+- → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)** — build the full RAG pipeline over your own documents
+- → **[A1: Advanced RAG with Reranking](../../20_Projects/02_Advanced_Projects/01_Advanced_RAG_with_Reranking/Project_Guide.md)** — extend with HyDE, hybrid search, cross-encoder reranking
 
 ---
 

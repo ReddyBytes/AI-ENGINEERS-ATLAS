@@ -1,8 +1,6 @@
 # RAG Evaluation — Theory
 
-You shipped a RAG system. Your manager asks: "Is it working?" You say "It seems pretty good." That's not an answer. Without measuring, you don't know if the system is 60% accurate or 90% accurate. You don't know if changing the chunk size helped or hurt. You can't make it better because you can't tell if your changes are improvements.
-
-The same problem exists in every engineering discipline. You don't improve what you don't measure.
+You shipped a RAG system. Your manager asks: "Is it working?" You say "It seems pretty good." Without measuring, you don't know if the system is 60% accurate or 90% accurate. You can't tell if your changes are improvements.
 
 👉 This is why we need **RAG Evaluation** — to turn "it seems pretty good" into concrete scores you can track, compare, and improve.
 
@@ -10,7 +8,7 @@ The same problem exists in every engineering discipline. You don't improve what 
 
 ## What Can Go Wrong in a RAG Pipeline
 
-RAG has two separate stages, and each can fail independently:
+RAG has two separate stages, each of which can fail independently:
 
 ```mermaid
 flowchart LR
@@ -32,33 +30,21 @@ flowchart LR
 - The LLM ignored relevant information in the chunks
 - The answer didn't address the actual question
 
-You need metrics for both stages separately. A system with perfect retrieval but bad generation will fail. A system with great generation but missing key chunks will also fail.
+A system with perfect retrieval but bad generation will fail. A system with great generation but missing key chunks will also fail.
 
 ---
 
 ## The Four Core RAGAS Metrics
 
-RAGAS is the standard evaluation framework for RAG systems. It measures four things:
+RAGAS is the standard evaluation framework for RAG systems:
 
-**1. Faithfulness** — Does the answer stick to the retrieved context?
-- Question: Did the LLM invent facts?
-- Checks: each claim in the answer → can it be traced to the context?
-- Score: 0–1 (1 = every claim is grounded in context)
+**1. Faithfulness** — Does the answer stick to the retrieved context? Checks: each claim in the answer → can it be traced to the context? Score: 0–1 (1 = every claim is grounded).
 
-**2. Answer Relevancy** — Does the answer address the question?
-- Question: Did the LLM go off-topic?
-- Checks: does the answer actually answer what was asked?
-- Score: 0–1 (1 = directly answers the question)
+**2. Answer Relevancy** — Does the answer address the question? Checks: does the answer actually answer what was asked? Score: 0–1 (1 = directly answers).
 
-**3. Context Precision** — Were the right chunks retrieved?
-- Question: Is the retrieved context actually useful?
-- Checks: how many of the retrieved chunks contain relevant information?
-- Score: 0–1 (1 = every retrieved chunk was relevant)
+**3. Context Precision** — Were the right chunks retrieved? Checks: how many of the retrieved chunks contain relevant information? Score: 0–1 (1 = every retrieved chunk was relevant).
 
-**4. Context Recall** — Did retrieval find everything it needed?
-- Question: Were any necessary chunks missed?
-- Checks: does the retrieved context contain all information needed for the correct answer?
-- Score: 0–1 (1 = all necessary information was retrieved)
+**4. Context Recall** — Did retrieval find everything it needed? Checks: does the retrieved context contain all information needed for the correct answer? Score: 0–1 (1 = all necessary information was retrieved).
 
 ---
 
@@ -73,15 +59,11 @@ flowchart TD
     D --> F[Faithfulness\nAnswer Relevancy]
 ```
 
-You need a test set: a collection of (question, expected_answer) pairs. The expected answer is the "ground truth" — what the correct answer should be.
-
-For each question in the test set, you run the full RAG pipeline and score the result on all four metrics. Then you average across all questions.
+For each question in the test set, run the full RAG pipeline and score on all four metrics, then average across all questions.
 
 ---
 
 ## How to Create a Test Set
-
-Three approaches:
 
 **1. Manual** — domain experts write questions and answers. Highest quality, expensive, slow.
 
@@ -101,8 +83,6 @@ Start with 20–50 high-quality manually written examples. Use LLM-generated pai
 
 ## Retrieval-Only Metrics
 
-For the retrieval stage specifically:
-
 - **Hit rate @ K**: what fraction of questions had the correct chunk in the top-K results?
 - **MRR (Mean Reciprocal Rank)**: average of `1/rank` for the correct chunk across all questions
 
@@ -112,17 +92,16 @@ def mrr(retrieved_ids: list[str], expected_id: str) -> float:
         return 1 / (retrieved_ids.index(expected_id) + 1)
     return 0.0
 
-# Average across your test set
 mrr_score = sum(mrr(r, e) for r, e in test_cases) / len(test_cases)
 ```
 
-Target: MRR > 0.8 means the correct chunk is typically in the top 1–2 results. Below 0.5 means retrieval is broken and must be fixed before improving generation.
+MRR > 0.8 means the correct chunk is typically in the top 1–2 results. Below 0.5 means retrieval is broken and must be fixed before improving generation.
 
 ---
 
 ## LLM-as-Judge Evaluation
 
-For faithfulness and answer relevancy, you use an LLM to judge the quality of another LLM's answers. This is the standard approach in RAGAS.
+For faithfulness and answer relevancy, use an LLM to judge quality — the standard approach in RAGAS:
 
 ```python
 faithfulness_judge_prompt = """You are evaluating an AI assistant's answer.
@@ -152,7 +131,7 @@ This scales to large test sets without needing human reviewers for every example
 | Context Recall | < 0.7 | 0.7–0.85 | > 0.85 |
 | Hit Rate @ 3 | < 0.7 | 0.7–0.85 | > 0.85 |
 
-These are rough guidelines. Set your own targets based on your use case — a medical information system needs higher faithfulness thresholds than a general FAQ bot.
+Set your own targets based on use case — a medical information system needs higher faithfulness thresholds than a general FAQ bot.
 
 ---
 
@@ -161,6 +140,14 @@ These are rough guidelines. Set your own targets based on your use case — a me
 🔨 **Build this now:** Create a test set of 20 questions with expected answers for your RAG system. Compute hit rate @ 3 (does the correct chunk appear in the top-3 results?). If it's below 0.75, your retrieval needs work before improving generation.
 
 ➡️ **Next step:** Build a RAG App → `09_RAG_Systems/09_Build_a_RAG_App/Project_Guide.md`
+
+---
+
+## 🛠️ Practice Projects
+
+Apply what you just learned:
+- → **[I5: Production RAG System](../../20_Projects/01_Intermediate_Projects/05_Production_RAG_System/Project_Guide.md)** — RAGAS evaluation on your RAG pipeline
+- → **[A1: Advanced RAG with Reranking](../../20_Projects/02_Advanced_Projects/01_Advanced_RAG_with_Reranking/Project_Guide.md)** — full RAGAS suite: faithfulness, answer relevance, context recall
 
 ---
 

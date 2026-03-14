@@ -1,36 +1,25 @@
 # K-Means Clustering
 
-You come home one day to find your desk completely buried. Books, pens, phone cables, sticky notes, receipts — all mixed together. You do not have a filing system. You just start moving similar things together. Pens and markers go in one pile. Papers and receipts form another. Cables and electronics form a third. You did not decide the categories in advance. The groups just emerged naturally from what was similar.
+You come home to a buried desk: books, pens, cables, receipts all mixed together. Without a filing system, you start moving similar things together. Pens in one pile, papers in another, cables in a third. You didn't decide the categories in advance — groups emerged from what was similar.
 
-👉 This is why we need **K-Means Clustering** — to find natural groupings in data when you have no labels to guide you.
+👉 This is why we need **K-Means Clustering** — to find natural groupings in data when you have no labels.
 
 ---
 
 ## What Is Clustering?
 
-Everything we have covered so far — linear regression, decision trees, SVM — was **supervised learning**. You had labelled data. The algorithm learned from examples with known answers.
-
-Clustering is **unsupervised learning**. There are no labels. No right answers. The algorithm just tries to find structure in the data on its own.
-
-K-Means asks: "given these data points, can you group them into K natural clusters?"
+Everything covered so far was **supervised learning** — labeled data, known answers. Clustering is **unsupervised**. No labels, no right answers. K-Means asks: "given these data points, can you group them into K natural clusters?"
 
 ---
 
 ## How the K-Means Algorithm Works
 
-It is surprisingly simple. Just four steps that repeat:
+Four steps that repeat:
 
-**Step 1 — Pick K random starting points (centroids)**
-Randomly place K points in your data space. These are your initial cluster centres.
-
-**Step 2 — Assign every data point to its nearest centroid**
-Measure the distance from each data point to each centroid. Assign the point to whichever centroid is closest.
-
-**Step 3 — Update each centroid**
-Move each centroid to the average position of all the points assigned to it.
-
-**Step 4 — Repeat steps 2 and 3 until nothing changes**
-Keep reassigning and updating until the cluster assignments stop changing. That is convergence.
+1. **Place K random centroids** in data space
+2. **Assign every point** to its nearest centroid
+3. **Update each centroid** to the average position of all points assigned to it
+4. **Repeat** until assignments stop changing (convergence)
 
 ```mermaid
 flowchart TD
@@ -46,38 +35,24 @@ flowchart TD
 
 ## A Concrete Example
 
-Say you have 9 customers described by two features: age and spending score. You want K=3 clusters.
-
-- Iteration 1: Random centroids placed. Customers assigned to nearest one. Some assignments are wrong because centroids started in bad positions.
-- Iteration 2: Centroids move to the mean of their assigned customers. Assignments update.
-- Iteration 5: Centroids have settled. Assignments are stable. You have 3 meaningful customer segments.
+9 customers described by age and spending score, K=3. After a few iterations centroids settle into 3 meaningful customer segments.
 
 ---
 
 ## How to Choose K — The Elbow Method
 
-The biggest question with K-Means: **how many clusters should you pick?**
-
-You cannot just try K=100. That would make every point its own cluster — perfectly grouped but useless.
-
-The **elbow method** works like this:
-1. Run K-Means for K = 1, 2, 3, 4, 5, ..., 10
-2. For each K, calculate the **inertia** — the total distance from every point to its assigned centroid (also called WCSS: Within-Cluster Sum of Squares)
+1. Run K-Means for K = 1, 2, ..., 10
+2. For each K, calculate **inertia** (total distance from every point to its centroid — WCSS)
 3. Plot K vs inertia
-4. Look for the "elbow" — where the inertia stops dropping sharply and flattens out
+4. Look for the "elbow" — where inertia stops dropping sharply
 
-The elbow point is the right K. Adding more clusters beyond that point does not meaningfully improve the groupings.
+The elbow point is the right K. Beyond it, adding clusters doesn't meaningfully improve groupings.
 
 ---
 
 ## What K-Means Assumes
 
-K-Means has some built-in assumptions. It works best when:
-- Clusters are roughly **spherical** (round) in shape
-- Clusters are roughly **equal in size**
-- Clusters are roughly **equal in density** (similar number of points)
-
-When these assumptions do not hold, K-Means can produce weird results.
+Works best when clusters are roughly **spherical**, **equal in size**, and **equal in density**. When these assumptions don't hold, K-Means can produce odd results.
 
 ---
 

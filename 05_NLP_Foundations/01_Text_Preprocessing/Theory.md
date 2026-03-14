@@ -1,6 +1,6 @@
 # Text Preprocessing
 
-Imagine you're baking a cake. Before you mix anything, you wash the vegetables, peel off the skin, and chop them into the right size. You can't throw a muddy carrot straight into the batter — it would ruin everything. Raw text is exactly like that muddy carrot. It's messy, inconsistent, and full of stuff a model doesn't need.
+You're baking a cake. Before mixing anything, you wash the vegetables, peel off the skin, and chop them to the right size. You can't throw a muddy carrot straight into the batter. Raw text is exactly like that muddy carrot — messy, inconsistent, and full of stuff a model doesn't need.
 
 👉 This is why we need **Text Preprocessing** — to clean raw text into a form models can actually learn from.
 
@@ -8,7 +8,7 @@ Imagine you're baking a cake. Before you mix anything, you wash the vegetables, 
 
 ## The problem with raw text
 
-Imagine you collect tweets for a sentiment analysis model. Here's what you get:
+Three tweets, same meaning, completely different to a model:
 
 ```
 "OMG I LOVE this product!!! 😍😍 sooo good #bestever"
@@ -16,7 +16,7 @@ Imagine you collect tweets for a sentiment analysis model. Here's what you get:
 "I LOVE THIS PRODUCT."
 ```
 
-To a human, all three say the same thing. To a model working on raw text, they look completely different. Preprocessing makes them consistent.
+Preprocessing makes them consistent.
 
 ---
 
@@ -37,64 +37,50 @@ flowchart TD
 ## Step by step
 
 ### 1. Lowercasing
-
-Turn everything to lowercase. "Apple", "APPLE", and "apple" are the same word.
-
 ```
 "I Love NLP" → "i love nlp"
 ```
 
 ### 2. Remove punctuation
-
-Punctuation adds noise for most tasks. Strip it out.
-
 ```
 "Hello, world!" → "Hello world"
 ```
 
 ### 3. Remove stopwords
 
-Stopwords are very common words that carry little meaning: "the", "is", "a", "and", "of". Removing them reduces noise and shrinks your vocabulary.
-
+Very common words carrying little meaning ("the", "is", "a", "and") are removed to reduce noise and shrink vocabulary.
 ```
 "the cat sat on the mat" → "cat sat mat"
 ```
 
 ### 4. Tokenization
 
-Split the text into individual tokens (usually words). This is covered in depth in Topic 02.
-
+Split text into individual tokens. Covered in depth in Topic 02.
 ```
 "clean text here" → ["clean", "text", "here"]
 ```
 
 ### 5. Stemming vs Lemmatization
 
-Both reduce words to their root form. But they work differently.
+Both reduce words to root form but work differently.
 
-**Stemming** chops off the end of a word. It's fast but crude.
-
+**Stemming** — chops off word endings. Fast but crude:
 ```
 "running" → "run"
-"runs"    → "run"
-"studies" → "studi"   ← not a real word!
+"studies" → "studi"   ← not a real word
 ```
 
-**Lemmatization** uses a dictionary to find the actual base form. It's slower but smarter.
-
+**Lemmatization** — uses a dictionary to find the actual base form. Slower but accurate:
 ```
-"running" → "run"
-"studies" → "study"   ← real word
+"studies" → "study"
 "better"  → "good"    ← knows it's an adjective
 ```
 
-**Which to use?** Lemmatization for anything that needs accuracy. Stemming for quick prototypes or when speed matters.
+**Which to use?** Lemmatization for accuracy. Stemming for quick prototypes or speed.
 
 ---
 
 ## Do you always need all steps?
-
-No. The pipeline depends on your task:
 
 | Task | Skip what? |
 |---|---|

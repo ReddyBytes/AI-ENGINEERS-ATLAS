@@ -1,8 +1,6 @@
 # Embedding and Indexing — Theory
 
-Think about a library cataloging system. Every book that arrives needs a "call number" — a code that tells you exactly where to find it and what it's about. The librarian reads the book, figures out its content, and assigns it a precise address in the library.
-
-Embedding = assigning that content-based "call number" (a vector) to each chunk. Indexing = filing all those call numbers so you can find the closest match in milliseconds instead of checking every single book.
+A library cataloging system assigns every book a "call number" — a code encoding its content and location. Embedding = assigning that content-based call number (a vector) to each chunk. Indexing = filing all those call numbers so you can find the closest match in milliseconds.
 
 👉 This is why we need **Embedding and Indexing** — it transforms text chunks into searchable mathematical representations that can be compared at scale.
 
@@ -12,7 +10,7 @@ Embedding = assigning that content-based "call number" (a vector) to each chunk.
 
 ### Step 1: Embedding
 
-You pass each text chunk through an embedding model. Out comes a vector — a list of ~1536 numbers that encodes the meaning of the text.
+Pass each text chunk through an embedding model. Out comes a vector — a list of ~1536 numbers encoding the meaning of the text.
 
 ```python
 chunk = "The refund policy allows returns within 30 days of purchase."
@@ -24,7 +22,7 @@ Similar chunks produce similar vectors. "30-day return window" and "refunds with
 
 ### Step 2: Indexing
 
-Store each vector alongside its original text and metadata in a vector database. The DB builds an HNSW (Hierarchical Navigable Small World) index on top — this enables finding the nearest neighbors in milliseconds without exhaustive search.
+Store each vector alongside its original text and metadata in a vector database. The DB builds an HNSW (Hierarchical Navigable Small World) index — enabling nearest-neighbor search in milliseconds without exhaustive comparison.
 
 ```mermaid
 flowchart LR
@@ -41,8 +39,6 @@ flowchart LR
 
 ## Batch Embedding for Efficiency
 
-Don't embed one chunk at a time. Send them in batches.
-
 ```python
 # Slow — one API call per chunk
 for chunk in chunks:
@@ -58,11 +54,6 @@ OpenAI's API accepts up to 2048 inputs per call. sentence-transformers handles b
 
 ## What Gets Stored
 
-In the vector database, each entry stores:
-- The vector (the embedding)
-- The original chunk text
-- The metadata (source, page, date, etc.)
-
 ```python
 collection.add(
     ids=["chunk_001", "chunk_002"],
@@ -75,6 +66,8 @@ collection.add(
 )
 ```
 
+Each entry: the vector, the original chunk text, and metadata (source, page, date, etc.).
+
 ---
 
 ## Index Types
@@ -85,22 +78,20 @@ collection.add(
 | **IVF** | Clusters vectors, searches nearest clusters | Fast | ~95% ANN | Very large indexes (100M+) |
 | **Flat (brute force)** | Compare all vectors | Slow | 100% exact | Small collections (< 10K) |
 
-ChromaDB, Pinecone, and Weaviate all default to HNSW. It's the right choice for most cases.
+ChromaDB, Pinecone, and Weaviate all default to HNSW.
 
 ---
 
 ## Updating and Deleting
 
-Vector databases support upsert (insert or update) and delete:
-
 ```python
-# Update an existing document (re-embeds the new text)
+# Update (re-embeds the new text)
 collection.update(ids=["chunk_001"], documents=["Updated policy: refunds within 45 days..."])
 
-# Delete a document (e.g., policy was rescinded)
+# Delete (policy was rescinded)
 collection.delete(ids=["chunk_001"])
 
-# Add new document (new policy added)
+# Add new document
 collection.add(ids=["chunk_003"], documents=["New 90-day extended return window..."])
 ```
 
@@ -113,6 +104,13 @@ Keeping your index fresh is critical. Outdated chunks produce outdated answers.
 🔨 **Build this now:** Take 20 document chunks (can be sentences from any article). Embed them all with sentence-transformers. Store in ChromaDB. Print how many documents are in the collection after indexing.
 
 ➡️ **Next step:** Retrieval Pipeline → `09_RAG_Systems/05_Retrieval_Pipeline/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)**
+> This project uses: embedding every chunk via API, storing vectors + metadata in ChromaDB, building the searchable index
 
 ---
 

@@ -243,6 +243,83 @@ STRUCTURE = {
                                      "Data_Flow_Diagram.md", "Tech_Stack.md",
                                      "Build_Guide.md", "Interview_QA.md"],
     },
+
+    # ── 14 ──────────────────────────────────────────────────────────────────
+    "14_Hugging_Face_Ecosystem": {
+        "_root_files": ["Readme.md"],
+        "01_Hub_and_Model_Cards":       std("Code_Example.md"),
+        "02_Transformers_Library":      std("Code_Example.md", "Pipeline_Guide.md"),
+        "03_Datasets_Library":          std("Code_Example.md"),
+        "04_PEFT_and_LoRA":             std("Code_Example.md", "When_to_Use.md"),
+        "05_Trainer_API":               std("Code_Example.md"),
+        "06_Inference_Optimization":    std("Code_Example.md", "Comparison.md"),
+        "07_Spaces_and_Gradio":         std("Code_Example.md"),
+    },
+
+    # ── 15 ──────────────────────────────────────────────────────────────────
+    "15_LangGraph": {
+        "_root_files": ["Readme.md", "LangGraph_vs_LangChain.md"],
+        "01_LangGraph_Fundamentals":    std("Mental_Model.md"),
+        "02_Nodes_and_Edges":           std("Code_Example.md"),
+        "03_State_Management":          std("Code_Example.md"),
+        "04_Cycles_and_Loops":          std("Code_Example.md"),
+        "05_Human_in_the_Loop":         std("Code_Example.md"),
+        "06_Multi_Agent_with_LangGraph":std("Architecture_Deep_Dive.md", "Code_Example.md"),
+        "07_Streaming_and_Checkpointing":std("Code_Example.md"),
+        "08_Build_with_LangGraph":      ["Project_Guide.md", "Architecture_Blueprint.md",
+                                         "Step_by_Step.md", "Troubleshooting.md"],
+    },
+
+    # ── 16 ──────────────────────────────────────────────────────────────────
+    "16_Diffusion_Models": {
+        "_root_files": ["Readme.md"],
+        "01_Diffusion_Fundamentals":    std("Intuition_First.md"),
+        "02_How_Diffusion_Works":       std("Math_Intuition.md", "Architecture_Deep_Dive.md"),
+        "03_Stable_Diffusion":          std("Architecture_Deep_Dive.md", "Code_Example.md"),
+        "04_Guidance_and_Conditioning": std("Code_Example.md"),
+        "05_Modern_Diffusion_Models":   std("Comparison.md"),
+        "06_ControlNet_and_Adapters":   std("Code_Example.md"),
+        "07_Diffusion_vs_GANs":         ["Comparison.md", "Theory.md", "Cheatsheet.md"],
+    },
+
+    # ── 17 ──────────────────────────────────────────────────────────────────
+    "17_Multimodal_AI": {
+        "_root_files": ["Readme.md"],
+        "01_Multimodal_Fundamentals":   std(),
+        "02_Vision_Language_Models":    std("Architecture_Deep_Dive.md"),
+        "03_Image_Understanding":       std("Code_Example.md"),
+        "04_Using_Vision_APIs":         std("Code_Example.md", "Code_Cookbook.md"),
+        "05_Audio_and_Speech_AI":       std("Code_Example.md"),
+        "06_Multimodal_Embeddings":     std("Code_Example.md"),
+        "07_Multimodal_Agents":         std("Architecture_Deep_Dive.md", "Code_Example.md"),
+    },
+
+    # ── 18 ──────────────────────────────────────────────────────────────────
+    "18_AI_Evaluation": {
+        "_root_files": ["Readme.md", "Evaluation_Checklist.md"],
+        "01_Evaluation_Fundamentals":   std(),
+        "02_Benchmarks":                std("Benchmark_Comparison.md"),
+        "03_LLM_as_Judge":              std("Code_Example.md", "Prompt_Templates.md"),
+        "04_RAG_Evaluation":            std("Code_Example.md", "Metrics_Guide.md"),
+        "05_Agent_Evaluation":          std("Code_Example.md"),
+        "06_Red_Teaming":               std("Common_Attack_Patterns.md"),
+        "07_Eval_Frameworks":           std("Comparison.md", "Code_Example.md"),
+        "08_Build_an_Eval_Pipeline":    ["Project_Guide.md", "Step_by_Step.md",
+                                         "Code_Example.md", "Metrics_Guide.md"],
+    },
+
+    # ── 19 ──────────────────────────────────────────────────────────────────
+    "19_Reinforcement_Learning": {
+        "_root_files": ["Readme.md"],
+        "01_RL_Fundamentals":           std("Intuition_First.md"),
+        "02_Markov_Decision_Processes": std("Math_Intuition.md"),
+        "03_Q_Learning":                std("Math_Intuition.md", "Code_Example.md"),
+        "04_Deep_Q_Networks":           std("Architecture_Deep_Dive.md", "Code_Example.md"),
+        "05_Policy_Gradients":          std("Math_Intuition.md", "Code_Example.md"),
+        "06_PPO":                       std("Math_Intuition.md", "Code_Example.md"),
+        "07_RL_in_Practice":            std("Code_Example.md", "Frameworks_Guide.md"),
+        "08_RL_for_LLMs":               std("Connection_to_RLHF.md"),
+    },
 }
 
 

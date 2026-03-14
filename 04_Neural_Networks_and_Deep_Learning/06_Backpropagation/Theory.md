@@ -1,14 +1,12 @@
 # Backpropagation — Theory
 
-A relay race team finishes last. The coach is furious. But she does not yell at everyone equally. She reviews the video. Runner 3 dropped the baton — that cost 8 seconds. Runner 1 had a slow start — that cost 2 seconds. Runner 2 was fine. Each runner gets feedback proportional to how much they were responsible for the loss. The runner who dropped the baton gets most of the coaching attention.
+A relay race team finishes last. The coach reviews the video: runner 3 dropped the baton (−8 seconds), runner 1 had a slow start (−2 seconds), runner 2 was fine. Each runner gets feedback proportional to how much they caused the loss.
 
-👉 This is why we need **backpropagation** — it distributes blame proportionally backward through the network so each weight gets updated by exactly how much it contributed to the error.
+👉 This is why we need **backpropagation** — it distributes blame proportionally backward through the network so each weight is updated by exactly how much it contributed to the error.
 
 ---
 
 ## What is Backpropagation?
-
-Backpropagation (short for "backward propagation of errors") is the algorithm that trains neural networks.
 
 After a forward pass produces a prediction and a loss, backpropagation:
 1. Starts at the loss
@@ -16,22 +14,18 @@ After a forward pass produces a prediction and a loss, backpropagation:
 3. Calculates how much each weight contributed to the error
 4. Updates each weight to reduce that error
 
-It is the answer to: "which knobs do I turn, and by how much?"
-
 ---
 
-## The Chain Rule (no scary math, just intuition)
+## The Chain Rule (intuition only)
 
-Backprop relies on the **chain rule** from calculus. Here is the intuition.
+Backprop relies on the **chain rule** from calculus. To find "how does loss change if I tweak weight w1?" — w1 affects z1, which affects a1, which affects z2, which affects the output, which affects the loss.
 
-Say you want to know "how does the loss change if I tweak weight w1?" But w1 affects z1, which affects a1, which affects z2, which affects the output, which affects the loss.
-
-The chain rule lets you multiply these smaller questions together:
+The chain rule multiplies these smaller questions together:
 ```
 dL/dw1 = (dL/d_output) × (d_output/d_z2) × (d_z2/d_a1) × (d_a1/d_z1) × (d_z1/d_w1)
 ```
 
-Each factor is a small, easy-to-compute derivative. Multiply them all = you know exactly how the loss changes with w1.
+Each factor is a small, easy-to-compute derivative. Multiply them all = exact gradient for w1.
 
 ---
 
@@ -46,45 +40,65 @@ flowchart RL
     H1 --> WU1["Update W1, b1"]
 ```
 
-Error flows backward. Each layer computes its own gradient and passes the signal further back.
+Error flows backward; each layer computes its gradient and passes the signal further back.
 
 ---
 
 ## Weight Update Rule (Gradient Descent)
 
-Once we know the gradient for each weight, we update it:
-
 ```
 w_new = w_old - learning_rate × gradient
 ```
 
-If the gradient is positive: the weight was making the loss bigger. We decrease it.
-If the gradient is negative: the weight was making the loss smaller. We increase it.
-The learning rate controls how big each step is.
+- Positive gradient → weight was making loss bigger → decrease it
+- Negative gradient → weight was making loss smaller → increase it
+- Learning rate controls step size
 
 ---
 
-## Why This Makes Training Possible
+## Why This Made Training Possible
 
-Before backpropagation was popularized (1986, Rumelhart, Hinton, Williams), nobody knew how to efficiently train networks with hidden layers. You could not just randomly nudge weights hoping to get lucky — there are millions of weights.
+Before backpropagation (1986, Rumelhart, Hinton, Williams), training networks with hidden layers was infeasible — randomly nudging millions of weights hoping for improvement was not viable. Backpropagation computes the gradient of every weight in one backward pass at the same cost as a single forward pass.
 
-Backpropagation made it possible to compute the gradient of every weight in one backward pass. That is the same cost as a single forward pass. Suddenly training deep networks became computationally feasible.
+```mermaid
+sequenceDiagram
+    participant Data
+    participant Network
+    participant Loss
+    participant Optimizer
+
+    Data->>Network: Forward pass: input x
+    Network->>Loss: Prediction ŷ
+    Loss->>Loss: Compute L = loss(ŷ, y)
+    Loss->>Network: Backward pass: dL/dŷ
+    Network->>Network: Chain rule: gradients per layer
+    Network->>Optimizer: Gradients for all weights
+    Optimizer->>Network: w = w - lr × gradient
+    Note over Network,Optimizer: Repeat for each batch
+```
 
 ---
 
 ## What Can Go Wrong
 
-**Vanishing gradients:** If activation functions (like sigmoid) squash values heavily, their derivatives become tiny. Multiplying many tiny numbers = gradient that is essentially 0 at early layers. Early layers stop learning. Fix: use ReLU, batch normalization, residual connections.
+**Vanishing gradients:** Sigmoid/tanh derivatives become tiny at extremes. Multiplying many tiny numbers → gradient ≈ 0 at early layers. Fix: ReLU, batch normalization, residual connections.
 
-**Exploding gradients:** If weights are large, gradients can multiply to astronomically large numbers. Weights jump wildly, loss blows up. Fix: gradient clipping, careful weight initialization.
+**Exploding gradients:** Large weights cause gradients to multiply to huge numbers; weights jump wildly. Fix: gradient clipping, careful weight initialization.
 
 ---
 
 ✅ **What you just learned:** Backpropagation uses the chain rule to compute how much each weight contributed to the error, then updates every weight to reduce the loss — this is the mechanism by which neural networks learn.
 
-🔨 **Build this now:** Take the forward pass result from topic 05 (loss = 0.415, prediction = 0.660, true label = 1). The gradient of BCE loss with respect to the prediction is `ŷ - y = 0.660 - 1 = -0.340`. This negative value means: "increase the prediction." That is the first step of backprop.
+🔨 **Build this now:** From topic 05 forward pass: prediction = 0.660, true label = 1. BCE gradient w.r.t. prediction = ŷ − y = 0.660 − 1 = −0.340. This negative value means "increase the prediction." That's the first step of backprop.
 
 ➡️ **Next step:** Optimizers — `./07_Optimizers/Theory.md`
+
+---
+
+## 🛠️ Practice Project
+
+Apply what you just learned → **[B3: Neural Net from Scratch](../../20_Projects/00_Beginner_Projects/03_Neural_Net_from_Scratch/Project_Guide.md)**
+> This project uses: implementing backpropagation from scratch in numpy — computing gradients and updating weights manually
 
 ---
 

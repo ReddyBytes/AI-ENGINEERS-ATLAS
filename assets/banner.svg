@@ -1,0 +1,98 @@
+<svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1f"/>
+      <stop offset="50%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="atlasGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a78bfa"/>
+      <stop offset="40%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
+    </linearGradient>
+    <linearGradient id="barGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#a78bfa"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="barGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="260" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.07" stroke="#818cf8" stroke-width="0.5">
+    <line x1="0" y1="65" x2="900" y2="65"/>
+    <line x1="0" y1="130" x2="900" y2="130"/>
+    <line x1="0" y1="195" x2="900" y2="195"/>
+    <line x1="100" y1="0" x2="100" y2="260"/>
+    <line x1="200" y1="0" x2="200" y2="260"/>
+    <line x1="300" y1="0" x2="300" y2="260"/>
+    <line x1="400" y1="0" x2="400" y2="260"/>
+    <line x1="500" y1="0" x2="500" y2="260"/>
+    <line x1="600" y1="0" x2="600" y2="260"/>
+    <line x1="700" y1="0" x2="700" y2="260"/>
+    <line x1="800" y1="0" x2="800" y2="260"/>
+  </g>
+
+  <!-- Left neural cluster -->
+  <line x1="55" y1="90"  x2="95" y2="50"  stroke="#6366f1" stroke-width="1" opacity="0.25"/>
+  <line x1="55" y1="90"  x2="80" y2="145" stroke="#6366f1" stroke-width="1" opacity="0.25"/>
+  <line x1="95" y1="50"  x2="80" y2="145" stroke="#6366f1" stroke-width="1" opacity="0.15"/>
+  <line x1="55" y1="90"  x2="30" y2="135" stroke="#6366f1" stroke-width="1" opacity="0.2"/>
+  <line x1="30" y1="135" x2="80" y2="145" stroke="#6366f1" stroke-width="1" opacity="0.15"/>
+  <line x1="95" y1="50"  x2="140" y2="70" stroke="#6366f1" stroke-width="1" opacity="0.15"/>
+  <circle cx="55"  cy="90"  r="5"   fill="#6366f1" filter="url(#softglow)"><animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/></circle>
+  <circle cx="95"  cy="50"  r="3.5" fill="#818cf8"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.1s" repeatCount="indefinite"/></circle>
+  <circle cx="80"  cy="145" r="4"   fill="#6366f1"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.4s" repeatCount="indefinite"/></circle>
+  <circle cx="30"  cy="135" r="3"   fill="#a78bfa"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
+  <circle cx="140" cy="70"  r="3"   fill="#818cf8"><animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.1s" repeatCount="indefinite"/></circle>
+
+  <!-- Right neural cluster -->
+  <line x1="845" y1="90"  x2="810" y2="50"  stroke="#34d399" stroke-width="1" opacity="0.25"/>
+  <line x1="845" y1="90"  x2="820" y2="145" stroke="#34d399" stroke-width="1" opacity="0.25"/>
+  <line x1="810" y1="50"  x2="820" y2="145" stroke="#34d399" stroke-width="1" opacity="0.15"/>
+  <line x1="845" y1="90"  x2="870" y2="135" stroke="#34d399" stroke-width="1" opacity="0.2"/>
+  <line x1="870" y1="135" x2="820" y2="145" stroke="#34d399" stroke-width="1" opacity="0.15"/>
+  <line x1="810" y1="50"  x2="760" y2="65"  stroke="#34d399" stroke-width="1" opacity="0.15"/>
+  <circle cx="845" cy="90"  r="5"   fill="#34d399" filter="url(#softglow)"><animate attributeName="opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></circle>
+  <circle cx="810" cy="50"  r="3.5" fill="#6ee7b7"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.4s" repeatCount="indefinite"/></circle>
+  <circle cx="820" cy="145" r="4"   fill="#34d399"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.7s" repeatCount="indefinite"/></circle>
+  <circle cx="870" cy="135" r="3"   fill="#6ee7b7"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.9s" repeatCount="indefinite"/></circle>
+  <circle cx="760" cy="65"  r="3"   fill="#34d399"><animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.2s" repeatCount="indefinite"/></circle>
+
+  <!-- Animated top bar -->
+  <rect x="300" y="55" width="300" height="1.5" fill="url(#barGrad1)" rx="1">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Title line 1 -->
+  <text x="450" y="102" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="26" font-weight="bold" fill="#e2e8f0" letter-spacing="10">THE AI ENGINEER'S</text>
+
+  <!-- Title line 2 — gradient ATLAS -->
+  <text x="450" y="165" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="62" font-weight="bold" fill="url(#atlasGrad)" filter="url(#glow)" letter-spacing="14">ATLAS</text>
+
+  <!-- Animated bottom bar -->
+  <rect x="300" y="177" width="300" height="1.5" fill="url(#barGrad2)" rx="1">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Subtitle -->
+  <text x="450" y="213" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="13" fill="#94a3b8" letter-spacing="4">ONE REPO  ·  EVERY LAYER  ·  NO GAPS</text>
+
+  <!-- Stack labels -->
+  <text x="450" y="245" text-anchor="middle" font-family="monospace" font-size="11" fill="#4f46e5" letter-spacing="1.5">Math  ·  ML  ·  Deep Learning  ·  LLMs  ·  RAG  ·  Agents  ·  MCP  ·  Production</text>
+</svg>

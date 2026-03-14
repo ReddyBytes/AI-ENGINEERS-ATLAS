@@ -48,6 +48,18 @@ Move to the next topic (follow the ➡️ link)
 
 ---
 
+## Where to Start
+
+| I am... | Go to |
+|---|---|
+| New to AI/ML | [🟢 Beginner Path](./01_Beginner_Path.md) |
+| Comfortable with ML basics | [🟡 Intermediate Path](./02_Intermediate_Path.md) |
+| Building production AI | [🔴 Advanced Path](./03_Advanced_Path.md) |
+| Following the full path | [🗺️ Learning Path](./Learning_Path.md) |
+| Tracking what I've done | [✅ Progress Tracker](./Progress_Tracker.md) |
+
+---
+
 ## Navigation
 
 Every file has a `## 📂 Navigation` block at the bottom showing:

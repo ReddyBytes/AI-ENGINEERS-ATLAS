@@ -1,63 +1,78 @@
-# AI System Design: Case Studies
+# 🏗️ 13 — AI System Design
 
-This section is about designing real AI systems from scratch. Not theory — architecture. You will learn how to make the decisions that actually matter: which components to use, how they connect, where the failure points are, and how to explain it all in a system design interview.
+<div align="center">
 
----
+⬅️ [12 Production AI](../12_Production_AI/Readme.md) &nbsp;|&nbsp; [🏠 Home](../00_Learning_Guide/Readme.md) &nbsp;|&nbsp; [14 Hugging Face Ecosystem ➡️](../14_Hugging_Face_Ecosystem/Readme.md)
 
-## What "AI System Design" Actually Means
+</div>
 
-Designing an AI system is not the same as designing a traditional web service. You are dealing with non-deterministic outputs, probabilistic retrieval, context window limits, high inference latency, and model cost that scales with tokens rather than requests. A good AI system design accounts for all of these.
+> Five real AI systems, designed end-to-end — learn to draw the architecture, justify every decision, and ace the interview.
 
-The core challenges unique to AI systems:
-
-- **Context window management** — You cannot pass unlimited text to an LLM. You have to decide what goes in, what gets compressed, and what gets dropped.
-- **Latency budget** — LLM calls take 1–10 seconds. Users expect responses in under 2 seconds. This forces architectural decisions like streaming, caching, and async processing.
-- **Cost model** — GPT-4 at $30/1M output tokens is not free. At scale, token usage becomes a primary cost driver. You need caching, prompt optimization, and tiered model selection.
-- **Evaluation** — How do you know your AI system is working? Traditional unit tests don't apply. You need LLM-as-judge pipelines, golden datasets, and human eval workflows.
-- **Hallucination and trust** — The LLM can confidently produce wrong answers. Grounding via RAG, citation requirements, and confidence thresholds are architectural, not afterthoughts.
+**[▶ Start here → System Design Framework](./System_Design_Framework.md)**
 
 ---
 
-## How to Use These Case Studies
+## At a Glance
 
-Each case study is a complete design walkthrough of one real AI system. Each has 6 files:
-
-| File | What's in it |
+| | |
 |---|---|
-| **Architecture_Blueprint.md** | Full system Mermaid diagram + component table with responsibilities |
-| **Build_Guide.md** | Phased step-by-step guide to actually build it |
-| **Component_Breakdown.md** | Deep dive into each component — what it does and why it's designed that way |
-| **Data_Flow_Diagram.md** | How data actually moves through the system (sequence + flow diagrams) |
-| **Interview_QA.md** | 9 system design interview questions with full model answers |
-| **Tech_Stack.md** | Technology choices with justifications and alternatives |
-
-Read the Architecture Blueprint first to get the full picture. Then read Component Breakdown to understand each piece. Use Interview Q&A to test yourself.
+| 📚 Topics | 5 case studies |
+| ⏱️ Est. Time | 8–10 hours |
+| 📋 Prerequisites | [12 Production AI](../12_Production_AI/Readme.md) |
+| 🔓 Unlocks | [14 Hugging Face Ecosystem](../14_Hugging_Face_Ecosystem/Readme.md) |
 
 ---
 
-## The 5 Case Studies
+## What's in This Section
 
-| # | System | Core Challenge | Key Technologies |
+```mermaid
+flowchart LR
+    A["1️⃣ Clarify\nRequirements\n(scope, users,\nconstraints)"]
+    B["2️⃣ Estimate\nScale\n(req/day, tokens,\ncost model)"]
+    C["3️⃣ Design\nData Model\n(schema, vector store,\ncache layer)"]
+    D["4️⃣ Identify\nComponents\n(ingestion, retrieval,\nLLM, guardrails)"]
+    E["5️⃣ Define\nDeployment\n(serving, scaling,\nobservability)"]
+
+    A --> B --> C --> D --> E
+    E -.->|"iterate on trade-offs"| A
+```
+
+Apply this 5-step framework to any AI system design question — then study the five case studies below to see it applied in full.
+
+---
+
+## Topics
+
+| # | Case Study | Core Challenge | Files |
 |---|---|---|---|
-| 01 | [Customer Support Agent](./01_Customer_Support_Agent/Architecture_Blueprint.md) | Multi-turn memory + tool calling + escalation logic | Claude/GPT-4, RAG, PostgreSQL, Redis, Pinecone |
-| 02 | [RAG Document Search System](./02_RAG_Document_Search_System/Architecture_Blueprint.md) | Chunking, hybrid search, reranking, access control | Pinecone/Weaviate, Cohere Rerank, BM25, S3 |
-| 03 | [AI Coding Assistant](./03_AI_Coding_Assistant/Architecture_Blueprint.md) | Codebase indexing, AST chunking, sub-200ms latency | Tree-sitter, SQLite, LSP, streaming |
-| 04 | [AI Research Assistant](./04_AI_Research_Assistant/Architecture_Blueprint.md) | Multi-agent orchestration, source credibility, conflict detection | LangGraph, CrewAI, arXiv API, Semantic Scholar |
-| 05 | [Multi-Agent Workflow](./05_Multi_Agent_Workflow/Architecture_Blueprint.md) | Agent coordination, shared state, human-in-the-loop | LangGraph, GitHub API, artifact passing |
+| 01 | [Customer Support Agent](./01_Customer_Support_Agent/) | Multi-turn memory + tool calling + graceful escalation to human | [🗺️ Blueprint](./01_Customer_Support_Agent/Architecture_Blueprint.md) · [🔨 Build Guide](./01_Customer_Support_Agent/Build_Guide.md) · [🔍 Components](./01_Customer_Support_Agent/Component_Breakdown.md) · [🌊 Data Flow](./01_Customer_Support_Agent/Data_Flow_Diagram.md) · [🛠️ Tech Stack](./01_Customer_Support_Agent/Tech_Stack.md) · [🎯 Interview Q&A](./01_Customer_Support_Agent/Interview_QA.md) |
+| 02 | [RAG Document Search System](./02_RAG_Document_Search_System/) | Chunking strategy, hybrid BM25 + vector search, reranking, access control | [🗺️ Blueprint](./02_RAG_Document_Search_System/Architecture_Blueprint.md) · [🔨 Build Guide](./02_RAG_Document_Search_System/Build_Guide.md) · [🔍 Components](./02_RAG_Document_Search_System/Component_Breakdown.md) · [🌊 Data Flow](./02_RAG_Document_Search_System/Data_Flow_Diagram.md) · [🛠️ Tech Stack](./02_RAG_Document_Search_System/Tech_Stack.md) · [🎯 Interview Q&A](./02_RAG_Document_Search_System/Interview_QA.md) |
+| 03 | [AI Coding Assistant](./03_AI_Coding_Assistant/) | AST-aware codebase indexing, sub-200ms latency, LSP integration | [🗺️ Blueprint](./03_AI_Coding_Assistant/Architecture_Blueprint.md) · [🔨 Build Guide](./03_AI_Coding_Assistant/Build_Guide.md) · [🔍 Components](./03_AI_Coding_Assistant/Component_Breakdown.md) · [🌊 Data Flow](./03_AI_Coding_Assistant/Data_Flow_Diagram.md) · [🛠️ Tech Stack](./03_AI_Coding_Assistant/Tech_Stack.md) · [🎯 Interview Q&A](./03_AI_Coding_Assistant/Interview_QA.md) |
+| 04 | [AI Research Assistant](./04_AI_Research_Assistant/) | Multi-agent orchestration, source credibility scoring, conflict detection across papers | [🗺️ Blueprint](./04_AI_Research_Assistant/Architecture_Blueprint.md) · [🔨 Build Guide](./04_AI_Research_Assistant/Build_Guide.md) · [🔍 Components](./04_AI_Research_Assistant/Component_Breakdown.md) · [🌊 Data Flow](./04_AI_Research_Assistant/Data_Flow_Diagram.md) · [🛠️ Tech Stack](./04_AI_Research_Assistant/Tech_Stack.md) · [🎯 Interview Q&A](./04_AI_Research_Assistant/Interview_QA.md) |
+| 05 | [Multi-Agent Workflow](./05_Multi_Agent_Workflow/) | Agent coordination, shared artifact state, human-in-the-loop checkpoints | [🗺️ Blueprint](./05_Multi_Agent_Workflow/Architecture_Blueprint.md) · [🔨 Build Guide](./05_Multi_Agent_Workflow/Build_Guide.md) · [🔍 Components](./05_Multi_Agent_Workflow/Component_Breakdown.md) · [🌊 Data Flow](./05_Multi_Agent_Workflow/Data_Flow_Diagram.md) · [🛠️ Tech Stack](./05_Multi_Agent_Workflow/Tech_Stack.md) · [🎯 Interview Q&A](./05_Multi_Agent_Workflow/Interview_QA.md) |
+
+**How to use each case study:** Start with the Architecture Blueprint for the full picture. Read Component Breakdown to understand every box. Use Data Flow Diagram to trace a real request end-to-end. Then test yourself with Interview Q&A.
 
 ---
 
-## What You Will Be Able to Do After This Section
+## Key Concepts at a Glance
 
-- Draw an architecture diagram for any AI system on a whiteboard and explain every component
-- Identify the failure modes and bottlenecks in an AI system
-- Make and justify technology choices (why Pinecone vs Weaviate, why Redis vs Postgres for sessions)
-- Answer senior-level system design interview questions for AI engineer roles
-- Understand how production AI systems differ from toy implementations
+| Concept | Why It Matters |
+|---|---|
+| **AI systems have unique failure modes** | Context window overflow, hallucinated citations, token cost blowout, and latency SLA breaches — none of which appear in traditional system design |
+| **Every case study has the same skeleton** | Ingest → store → retrieve → augment → generate → guard → respond — what differs is how each layer is tuned for the domain |
+| **Latency budget is an architectural constraint** | LLM calls take 1–10 seconds; a 200ms SLA forces caching, streaming, and async design before you write a line of code |
+| **Evaluation is structural, not optional** | Each system needs a golden dataset and an LLM-as-judge pipeline baked in from day one — not bolted on after launch |
+| **The Tech Stack file is as important as the Blueprint** | Knowing why Pinecone over Weaviate, why Redis over Postgres for sessions, is what separates senior answers from junior ones |
 
 ---
 
-## Companion File
+## Also in This Section
 
-Before diving into individual case studies, read the [System Design Framework](./System_Design_Framework.md) for a structured 5-step approach to tackling any AI system design question.
+[📐 System Design Framework](./System_Design_Framework.md) — the 5-step structured approach for tackling any AI system design question in an interview or on the whiteboard. Read this first.
 
+---
+
+## 📂 Navigation
+
+⬅️ **Prev:** [12 Production AI](../12_Production_AI/Readme.md) &nbsp;&nbsp; ➡️ **Next:** [14 Hugging Face Ecosystem](../14_Hugging_Face_Ecosystem/Readme.md)

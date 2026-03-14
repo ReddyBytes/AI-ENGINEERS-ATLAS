@@ -1,81 +1,61 @@
 # PCA — Principal Component Analysis
 
-Imagine you sculpted something in 3D — a detailed face. You want to show it to someone far away, but you cannot ship the whole sculpture. So you take two photographs from the best angles. One from the front — captures the shape of the nose, eyes, cheeks. One from the side — captures the depth of the forehead and chin. Two flat photos. You have gone from 3D to 2D, but you have kept the most important structure. Someone looking at both photos understands the face without ever seeing the sculpture.
+You sculpted a detailed face in 3D. To show someone far away, you take two photographs: one from the front (captures nose, eyes, cheeks), one from the side (captures forehead depth, chin). Two flat photos — 3D reduced to 2D, but the most important structure is kept.
 
-👉 This is why we need **PCA** — to compress high-dimensional data into fewer dimensions while keeping as much of the important structure (variance) as possible.
+👉 This is why we need **PCA** — to compress high-dimensional data into fewer dimensions while keeping as much structure (variance) as possible.
 
 ---
 
 ## What Is Dimensionality?
 
-Every feature in your dataset is a dimension. A dataset with 4 features lives in 4-dimensional space. A dataset with 500 features lives in 500-dimensional space.
-
-Why does high dimensionality cause problems?
-
----
+Every feature is a dimension. A dataset with 500 features lives in 500-dimensional space.
 
 ## The Curse of Dimensionality
 
-As dimensions increase, data becomes increasingly sparse. Here is the intuition:
+As dimensions increase, data becomes increasingly sparse. 100 points in 1D are fairly close together. Spread them across 2D, then 3D, then 100D — they become incredibly far apart. This causes:
 
-Imagine you have 100 data points in a 1D line of length 1. Points are fairly close together. Now stretch that into a 2D square — same 100 points, but now spread across an area. Stretch to 3D — even more sparse. By the time you reach 100 dimensions, your 100 data points are incredibly spread out. Every point is far from every other point.
-
-This creates real problems:
-- Distance-based algorithms (K-Means, KNN) stop working well
-- Models overfit because they need exponentially more data as dimensions grow
-- Training is slow
-- Visualisation becomes impossible
+- Distance-based algorithms (K-Means, KNN) to stop working well
+- Models to overfit (need exponentially more data as dimensions grow)
+- Slow training and impossible visualization
 
 ---
 
 ## PCA: Finding the Best Angles
 
-PCA solves the dimensionality problem by finding the "best camera angles" — directions that capture the most variation in your data.
+PCA finds the "best camera angles" — directions that capture the most variation. These directions are **principal components**.
 
-These best directions are called **principal components**.
-
-```mermaid
-flowchart LR
-    A[High-Dimensional Data] --> B[Compute Variance in Each Direction]
-    B --> C[Find Principal Components\nDirections of Max Variance]
-    C --> D[Select Top N Components]
-    D --> E[Project Data onto Those Directions]
-    E --> F[Lower-Dimensional Representation]
-```
-
-Principal Component 1 (PC1) is the direction where the data varies the most — the most information.
-
-Principal Component 2 (PC2) is the direction of second-most variation, and it must be perpendicular to PC1.
-
-PC3 is perpendicular to both PC1 and PC2, and so on.
+- **PC1**: direction of maximum variance (most information)
+- **PC2**: second-most variance, perpendicular to PC1
+- **PC3**: perpendicular to PC1 and PC2, and so on
 
 ---
 
 ## Variance Explained
 
-Not all principal components are equally useful. The first few usually capture most of the information. PCA tells you exactly how much of the total variance each component explains.
+Not all components are equally useful. The first few usually capture most information. PCA tells you exactly how much variance each component explains.
 
-For example, on the famous Iris dataset (4 features: sepal length, sepal width, petal length, petal width):
-- PC1 might explain 72% of the variance
-- PC2 might explain 23% of the variance
-- Together: 95% of all information in just 2 dimensions
+On the Iris dataset (4 features): PC1 explains 72%, PC2 explains 23% — together 95% of all information in just 2 dimensions. Measured by the **explained variance ratio**.
 
-You can visualise the Iris dataset in 2D and still understand most of its structure.
-
-This is measured by the **explained variance ratio** — a number between 0 and 1 for each component.
+```mermaid
+flowchart TD
+    D["Original Data\n4 dimensions"] --> PC1["PC1\n72% of variance"]
+    D --> PC2["PC2\n23% of variance"]
+    D --> PC3["PC3\n4% of variance"]
+    D --> PC4["PC4\n1% of variance"]
+    PC1 --> KEEP["Keep PC1 + PC2\n= 95% information retained"]
+    PC2 --> KEEP
+    PC3 --> DROP["Drop PC3 + PC4\n5% information lost"]
+    PC4 --> DROP
+    KEEP --> OUT["Compressed 2D dataset\nready for modeling"]
+```
 
 ---
 
 ## What Does PCA Actually Do to the Data?
 
-PCA does not select existing features. It creates **new features** (the principal components) that are combinations of the original features.
+PCA does not select existing features. It creates **new features** (principal components) as combinations of originals. Instead of measuring height and arm-length separately, PCA might find "general body size" captures most variation.
 
-Think of it like this: instead of measuring height and arm-length separately, PCA might find that "general body size" (a combination of both) captures most of the variation. The new feature "body size" is not a column in your original dataset — PCA computed it.
-
-This means after PCA:
-- The new features have no direct interpretable names
-- But they capture the most important structure
-- And there are fewer of them
+After PCA: new features have no direct interpretable names, but there are fewer of them capturing the most important structure.
 
 ---
 
@@ -92,7 +72,7 @@ This means after PCA:
 
 ## Important: PCA Is Unsupervised
 
-PCA does not know about your labels. It only looks at the structure of X (the features), not y (the target). This means it may compress features that are important for prediction along with features that are not. It is a general-purpose compression tool, not a feature selection tool.
+PCA only looks at X (features), not y (target). It may compress features important for prediction along with irrelevant ones. Use it as a compression tool, not a feature selection tool.
 
 ---
 
