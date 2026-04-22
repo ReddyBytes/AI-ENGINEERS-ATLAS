@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![](https://img.shields.io/badge/160%2B%20Topics-6366f1?style=for-the-badge&logoColor=white)](#full-curriculum)&nbsp;
+[![](https://img.shields.io/badge/175%2B%20Topics-6366f1?style=for-the-badge&logoColor=white)](#full-curriculum)&nbsp;
 [![](https://img.shields.io/badge/760%2B%20Files-0ea5e9?style=for-the-badge)](#full-curriculum)&nbsp;
 [![](https://img.shields.io/badge/20%20Sections-10b981?style=for-the-badge)](#full-curriculum)&nbsp;
 [![](https://img.shields.io/badge/100%25%20Complete-22c55e?style=for-the-badge)](#full-curriculum)
@@ -65,7 +65,7 @@
 <td align="center"><a href="./17_Multimodal_AI/"><b>👁️</b><br/><code>17</code><br/><sub>Multimodal AI</sub></a></td>
 <td align="center"><a href="./18_AI_Evaluation/"><b>📊</b><br/><code>18</code><br/><sub>AI Evaluation</sub></a></td>
 <td align="center"><a href="./19_Reinforcement_Learning/"><b>🎮</b><br/><code>19</code><br/><sub>Reinforcement Learning</sub></a></td>
-<td align="center"></td>
+<td align="center"><a href="./21_Claude_Mastery/"><b>🧠</b><br/><code>21</code><br/><sub>Claude Mastery</sub></a></td>
 </tr>
 </table>
 
@@ -141,7 +141,7 @@
 </details>
 
 <details>
-<summary><kbd>&nbsp;03&nbsp;</kbd>&nbsp; 🌲 &nbsp;<b>Classical ML Algorithms</b>&nbsp; <code>8 algorithms</code>&nbsp; — &nbsp;<i>The workhorses of machine learning</i></summary>
+<summary><kbd>&nbsp;03&nbsp;</kbd>&nbsp; 🌲 &nbsp;<b>Classical ML Algorithms</b>&nbsp; <code>12 algorithms</code>&nbsp; — &nbsp;<i>The workhorses of machine learning</i></summary>
 
 <br/>
 
@@ -155,6 +155,10 @@
 | [K-Means Clustering](./03_Classical_ML_Algorithms/06_K_Means_Clustering/) | Centroids, elbow method, inertia, limitations | Code example |
 | [PCA](./03_Classical_ML_Algorithms/07_PCA_Dimensionality_Reduction/) | Eigenvectors, variance explained, dimensionality reduction | Math intuition |
 | [Naive Bayes](./03_Classical_ML_Algorithms/08_Naive_Bayes/) | Bayes theorem applied, independence assumption, spam filter | Code example |
+| [XGBoost & Boosting](./03_Classical_ML_Algorithms/09_XGBoost_and_Boosting/) | Gradient boosting, XGBoost/LightGBM, hyperparameter tuning | — |
+| [Time Series Analysis](./03_Classical_ML_Algorithms/10_Time_Series_Analysis/) | ARIMA, Prophet, trend/seasonality decomposition, LSTM for TS | — |
+| [Recommendation Systems](./03_Classical_ML_Algorithms/11_Recommendation_Systems/) | Collaborative filtering, content-based, matrix factorization, cold start | — |
+| [Anomaly Detection](./03_Classical_ML_Algorithms/12_Anomaly_Detection/) | Isolation Forest, LOF, SMOTE, class imbalance, PR-AUC vs ROC-AUC | — |
 
 > ⭐ [Algorithm Comparison Guide](./03_Classical_ML_Algorithms/Algorithm_Comparison.md) — decision flowchart for choosing the right one
 
@@ -224,7 +228,7 @@
 </details>
 
 <details>
-<summary><kbd>&nbsp;07&nbsp;</kbd>&nbsp; 💬 &nbsp;<b>Large Language Models</b>&nbsp; <code>9 topics</code>&nbsp; — &nbsp;<i>How modern AI thinks, learns, and speaks</i></summary>
+<summary><kbd>&nbsp;07&nbsp;</kbd>&nbsp; 💬 &nbsp;<b>Large Language Models</b>&nbsp; <code>11 topics</code>&nbsp; — &nbsp;<i>How modern AI thinks, learns, and speaks</i></summary>
 
 <br/>
 
@@ -239,6 +243,8 @@
 | [Context Windows & Tokens](./07_Large_Language_Models/07_Context_Windows_and_Tokens/) | Context limits, long-context models, token counting | Cost guide |
 | [Hallucination & Alignment](./07_Large_Language_Models/08_Hallucination_and_Alignment/) | Why models confabulate, detection, mitigation | Mitigation guide |
 | [Using LLM APIs](./07_Large_Language_Models/09_Using_LLM_APIs/) | Anthropic & OpenAI APIs, streaming, error handling | Code cookbook |
+| [Ollama & Local LLMs](./07_Large_Language_Models/10_Ollama_Local_LLMs/) | Run LLMs locally, GGUF quantization, REST API, local RAG | — |
+| [Reasoning Models](./07_Large_Language_Models/11_Reasoning_Models/) | Chain-of-thought, o1/o3/Claude extended thinking, when to use | — |
 
 <br/>
 </details>
@@ -263,7 +269,7 @@
 </details>
 
 <details>
-<summary><kbd>&nbsp;09&nbsp;</kbd>&nbsp; 🔍 &nbsp;<b>RAG Systems</b>&nbsp; <code>9 topics + build project</code>&nbsp; — &nbsp;<i>Ground AI in real knowledge</i></summary>
+<summary><kbd>&nbsp;09&nbsp;</kbd>&nbsp; 🔍 &nbsp;<b>RAG Systems</b>&nbsp; <code>11 topics + build project</code>&nbsp; — &nbsp;<i>Ground AI in real knowledge</i></summary>
 
 <br/>
 
@@ -278,6 +284,8 @@
 | [Advanced RAG](./09_RAG_Systems/07_Advanced_RAG_Techniques/) | HyDE, query rewriting, RAPTOR, multi-hop retrieval |
 | [RAG Evaluation](./09_RAG_Systems/08_RAG_Evaluation/) | RAGAS metrics, faithfulness, answer relevance, context recall |
 | [🔨 Build a RAG App](./09_RAG_Systems/09_Build_a_RAG_App/) | **End-to-end project** — architecture → code → deploy → troubleshoot |
+| [GraphRAG](./09_RAG_Systems/10_GraphRAG/) | Knowledge graphs, community detection, local vs global search |
+| [CAG — Cache-Augmented Generation](./09_RAG_Systems/11_CAG_Cache_Augmented_Generation/) | KV cache reuse, prompt caching APIs, CAG vs RAG comparison |
 
 > ⭐ [Full Pipeline Overview](./09_RAG_Systems/Full_Pipeline_Overview.md) — single-page reference for the entire RAG stack
 
@@ -481,6 +489,50 @@
 <br/>
 </details>
 
+<details>
+<summary><kbd>&nbsp;21&nbsp;</kbd>&nbsp; 🧠 &nbsp;<b>Claude Mastery</b>&nbsp; <code>4 tracks · 44 topics</code>&nbsp; — &nbsp;<i>Master the model, the CLI, the API, and the Agent SDK</i></summary>
+
+<br/>
+
+**Track 1 — Claude as an AI Model** · 10 topics
+
+| Topic | What You'll Learn |
+|---|---|
+| [What is Claude](./21_Claude_Mastery/01_Claude_as_an_AI_Model/01_What_is_Claude/) | Model family, capabilities, Haiku/Sonnet/Opus, vs other LLMs |
+| [How Claude Generates Text](./21_Claude_Mastery/01_Claude_as_an_AI_Model/02_How_Claude_Generates_Text/) | Autoregressive generation, logits, temperature, top-p, sampling |
+| [Tokens & Context Window](./21_Claude_Mastery/01_Claude_as_an_AI_Model/03_Tokens_and_Context_Window/) | Token ≠ word, counting, context limits per model |
+| [Transformer Architecture](./21_Claude_Mastery/01_Claude_as_an_AI_Model/04_Transformer_Architecture/) | Attention, self-attention, positional encoding |
+| [Pretraining](./21_Claude_Mastery/01_Claude_as_an_AI_Model/05_Pretraining/) | Next-token prediction, data scale, emergent capabilities |
+| [RLHF](./21_Claude_Mastery/01_Claude_as_an_AI_Model/06_RLHF/) | Reward models, PPO, human preference data |
+| [Constitutional AI](./21_Claude_Mastery/01_Claude_as_an_AI_Model/07_Constitutional_AI/) | Self-critique, principle sets, CAI vs RLHF |
+| [Extended Thinking](./21_Claude_Mastery/01_Claude_as_an_AI_Model/08_Extended_Thinking/) | Chain-of-thought, reasoning tokens, when to use |
+| [Claude Model Families](./21_Claude_Mastery/01_Claude_as_an_AI_Model/09_Claude_Model_Families/) | Haiku 4.5 / Sonnet 4.6 / Opus 4.6 — speed vs cost vs intelligence |
+| [Safety Layers](./21_Claude_Mastery/01_Claude_as_an_AI_Model/10_Safety_Layers/) | HHH (Harmless, Helpful, Honest), refusal patterns |
+
+**Track 2 — Claude Code CLI** · 12 topics
+
+| Topic | What You'll Learn |
+|---|---|
+| [What is Claude Code](./21_Claude_Mastery/02_Claude_Code_CLI/01_What_is_Claude_Code/) | CLI for Claude, agentic coding, vs chat |
+| [Installation & Setup](./21_Claude_Mastery/02_Claude_Code_CLI/02_Installation_and_Setup/) | npm install, auth, first run, config |
+| [Basic Usage & Commands](./21_Claude_Mastery/02_Claude_Code_CLI/03_Basic_Usage_and_Commands/) | Asking questions, editing files, running commands |
+| [Slash Commands](./21_Claude_Mastery/02_Claude_Code_CLI/04_Slash_Commands/) | Built-in vs custom, usage patterns |
+| [Memory System](./21_Claude_Mastery/02_Claude_Code_CLI/05_Memory_System/) | MEMORY.md, auto-memory, cross-session persistence |
+| [CLAUDE.md & Settings](./21_Claude_Mastery/02_Claude_Code_CLI/06_CLAUDE_md_and_Settings/) | CLAUDE.md purpose, settings.json, global vs project |
+| [Custom Skills](./21_Claude_Mastery/02_Claude_Code_CLI/07_Custom_Skills/) | skills/ folder, SKILL.md format, invocation |
+| [Hooks](./21_Claude_Mastery/02_Claude_Code_CLI/08_Hooks/) | PreToolUse/PostToolUse/Stop events, shell scripts |
+| [MCP Servers](./21_Claude_Mastery/02_Claude_Code_CLI/09_MCP_Servers/) | MCP protocol, adding servers, tools vs resources |
+| [Agents & Subagents](./21_Claude_Mastery/02_Claude_Code_CLI/10_Agents_and_Subagents/) | Agent tool, background agents, worktrees, parallelism |
+| [IDE Integration](./21_Claude_Mastery/02_Claude_Code_CLI/11_IDE_Integration/) | VS Code extension, status bar, keyboard shortcuts |
+| [Permissions & Security](./21_Claude_Mastery/02_Claude_Code_CLI/12_Permissions_and_Security/) | Permission modes, allowedTools, bash sandboxing |
+
+**Track 3 — Claude API & SDK** · 13 topics | **Track 4 — Claude Agent SDK** · 11 topics
+
+> See full topic lists at [21_Claude_Mastery/](./21_Claude_Mastery/)
+
+<br/>
+</details>
+
 <img src="./assets/divider.svg" width="100%"/>
 
 <div align="center">
@@ -594,6 +646,7 @@
 | `17` | [Multimodal AI](./17_Multimodal_AI/) | Vision-language models, image understanding, audio AI, multimodal agents |
 | `18` | [AI Evaluation](./18_AI_Evaluation/) | Benchmarks, LLM-as-judge, RAG eval, red teaming, eval pipelines |
 | `19` | [Reinforcement Learning](./19_Reinforcement_Learning/) | MDPs, Q-learning, DQN, PPO, RLHF connection |
+| `21` | [Claude Mastery](./21_Claude_Mastery/) | Claude model, Claude Code CLI, Anthropic API/SDK, Claude Agent SDK |
 
 <br/>
 </details>

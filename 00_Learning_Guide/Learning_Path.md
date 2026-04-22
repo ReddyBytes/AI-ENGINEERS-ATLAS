@@ -26,7 +26,8 @@ flowchart TD
     P[16 Diffusion Models\nDDPM · Stable Diffusion · ControlNet] --> Q
     Q[17 Multimodal AI\nCLIP · Vision APIs · Audio · Speech] --> R
     R[18 AI Evaluation\nBenchmarks · LLM-as-Judge · Red Teaming] --> S
-    S[19 Reinforcement Learning\nMDPs · Q-Learning · PPO · RLHF]
+    S[19 Reinforcement Learning\nMDPs · Q-Learning · PPO · RLHF] --> T
+    T[21 Claude Mastery\nModel Internals · CLI · API/SDK · Agent SDK]
 ```
 
 ---
@@ -54,6 +55,7 @@ flowchart TD
 | 17 | [Multimodal AI](../17_Multimodal_AI/Readme.md) | CLIP, vision-language models, vision APIs, speech | [📖 Readme](../17_Multimodal_AI/Readme.md) |
 | 18 | [AI Evaluation](../18_AI_Evaluation/Readme.md) | Benchmarks, LLM-as-judge, RAGAS, red teaming | [📖 Readme](../18_AI_Evaluation/Readme.md) |
 | 19 | [Reinforcement Learning](../19_Reinforcement_Learning/Readme.md) | MDPs, Q-learning, DQN, PPO, connecting to RLHF | [📖 Readme](../19_Reinforcement_Learning/Readme.md) |
+| 21 | [Claude Mastery](../21_Claude_Mastery/Readme.md) | Claude model internals, Claude Code CLI, API/SDK, Agent SDK | [📖 Readme](../21_Claude_Mastery/Readme.md) |
 
 ---
 
