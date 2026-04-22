@@ -95,6 +95,8 @@
 | 🗺️ | [How to Use This Repo](./00_Learning_Guide/How_to_Use_This_Repo.md) | Navigation guide + file type explanations |
 | ➡️ | [Learning Path](./00_Learning_Guide/Learning_Path.md) | Linear progression with visual flowchart |
 | ✅ | [Progress Tracker](./00_Learning_Guide/Progress_Tracker.md) | Personal checklist to track what you've covered |
+| 📋 | [Master Learning Path](./MASTER_LEARNING_PATH.md) | 12-phase roadmap across all repos — 20–30 LPA target |
+| 🚀 | [AI Engineer Roadmap](./AI_ENGINEER_ROADMAP.md) | Full career roadmap from fundamentals to production |
 
 <br/>
 </details>
