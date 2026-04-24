@@ -4,6 +4,9 @@
 
 **Q1. What is GPT and how does it generate text?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 GPT (Generative Pretrained Transformer) is a decoder-only transformer trained to predict the next token in a text sequence. It generates text autoregressively — one token at a time.
 
 To generate a sentence from a prompt:
@@ -15,9 +18,14 @@ To generate a sentence from a prompt:
 
 Because each generation step uses the model's own previous output as context, mistakes can compound — but fluency is generally maintained because the model was trained on coherent human text.
 
+</details>
+
 ---
 
 **Q2. Why is GPT described as "autoregressive"?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Autoregressive means each output element is conditioned on all previous outputs. GPT generates token t+1 from tokens 1 through t. Then generates t+2 from tokens 1 through t+1.
 
@@ -25,9 +33,14 @@ This is the same structure as classical autoregressive language models (n-grams,
 
 The "auto" in autoregressive means "self" — the model feeds its own outputs back as inputs. This is different from models that generate outputs in one shot (like BERT's masked token prediction or an encoder that processes everything at once).
 
+</details>
+
 ---
 
 **Q3. What is the difference between zero-shot and few-shot learning in GPT?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Both are forms of in-context learning — no gradient updates, no fine-tuning. Just a carefully constructed prompt.
 
@@ -45,11 +58,16 @@ English: Goodbye → French: "
 
 Few-shot typically performs better because the examples help the model understand the exact format and nature of the task. Zero-shot is more convenient. Both work better as model size increases.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4. What is temperature in GPT generation and how does it affect output?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 When GPT predicts the next token, it produces logit scores for every token in the vocabulary. Softmax converts these to probabilities. Temperature T modifies this:
 
@@ -64,9 +82,14 @@ probability_i = exp(logit_i / T) / sum(exp(logit_j / T))
 
 Use low temperature for factual, precise tasks. Use higher temperature for creative writing or when diversity is desired.
 
+</details>
+
 ---
 
 **Q5. How did GPT-3 achieve few-shot learning without any fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 GPT-3 (175B parameters, trained on ~300B tokens) demonstrates an emergent property: in-context learning. Given a few examples in the prompt, it generalizes the pattern to new inputs without any weight updates.
 
@@ -74,9 +97,14 @@ Why it works: during pretraining, GPT-3 saw countless examples of text where pat
 
 When you give GPT-3 a few-shot prompt, it "pattern-matches" to the format it learned during pretraining and continues appropriately. Smaller models can't do this reliably because they haven't seen enough training data to internalize the necessary meta-learning capability.
 
+</details>
+
 ---
 
 **Q6. What is RLHF and why was it needed for GPT-3 to become InstructGPT?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 GPT-3 can generate text, but it wasn't reliably instruction-following. Asking "Explain black holes simply" might produce a Wikipedia-style essay, a rambling answer, or a continuation that ignores the instruction entirely.
 
@@ -88,11 +116,16 @@ RLHF (Reinforcement Learning from Human Feedback) fine-tunes GPT-3 to follow ins
 
 The result (InstructGPT) behaves like an assistant, not just a text completer. This is also the basis for ChatGPT, Claude, and all modern AI assistants.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. What is the KV cache and why is it critical for GPT inference efficiency?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 During autoregressive generation, GPT runs the full model for every new token. At each step, it computes K (key) and V (value) matrices for all past tokens in the sequence. This is wasteful — the K/V for previous tokens don't change.
 
@@ -104,9 +137,14 @@ Impact:
 
 KV cache memory scales as: batch_size × num_layers × 2 × sequence_length × d_model. For GPT-3 generating 1000 tokens per request at batch size 1: ~600MB. High-throughput serving of large models requires careful memory management around KV caches.
 
+</details>
+
 ---
 
 **Q8. What is the difference between GPT-style pretraining and instruction fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **Pretraining (causal LM):** Train on raw text to predict the next token. The model learns language, facts, and reasoning from patterns in trillions of tokens. The objective is purely predictive — "what word comes next in this text?"
 
@@ -118,9 +156,14 @@ The distinction matters:
 
 Instruction fine-tuning doesn't erase pretraining knowledge — it changes the model's behavior pattern while keeping the factual and reasoning capabilities from pretraining intact.
 
+</details>
+
 ---
 
 **Q9. How do you prevent GPT from repeating itself, and what causes repetition?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Repetition in GPT generation is caused by the model assigning high probability to already-generated tokens in certain contexts. Common causes:
 - Temperature too low → model always picks highest-probability tokens, which tend to be the same
@@ -138,6 +181,8 @@ Solutions:
 4. **Better prompts:** More specific, detailed prompts give more context for the model to follow, reducing the tendency to fall into repetitive patterns.
 
 5. **Frequency penalty (OpenAI API):** Penalizes tokens proportional to how many times they've appeared in the generation so far.
+
+</details>
 
 ---
 

@@ -4,24 +4,37 @@
 
 **Q1: What is an AI agent and how is it different from a regular chatbot?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A chatbot takes one input and gives one output. It's a single LLM call.
 
 An AI agent is different because it has a **loop**. It takes a goal, decides what action to take, takes that action (often using a tool), sees the result, and keeps going until the goal is complete. It can make multiple decisions, use multiple tools, and adapt based on what it learns along the way.
 
 The key difference: a chatbot answers, an agent acts.
 
+</details>
+
 ---
 
 **Q2: What are the four main components of an AI agent?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 1. **LLM (the brain)** — reasons about the situation and decides what to do next
 2. **Tools (the hands)** — functions the agent can call to interact with the world (search, APIs, code execution)
 3. **Memory (the notebook)** — tracks what has happened so the agent doesn't start from scratch each loop
 4. **The loop (the work cycle)** — the architecture that runs perceive → think → act → observe → repeat until the task is done
 
+</details>
+
 ---
 
 **Q3: What is the agent loop? Walk me through each step.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The agent loop is the core cycle every agent runs:
 
@@ -33,11 +46,16 @@ The agent loop is the core cycle every agent runs:
 
 The loop stops when the agent decides the task is done or when a maximum iteration limit is hit.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How does the agent decide which tool to use?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The agent reads the **tool schemas** — descriptions of each available tool including its name, what it does, and what parameters it takes.
 
@@ -47,9 +65,14 @@ For example: if the agent needs current information, it reads that `search_web` 
 
 This is why writing good tool descriptions is critical. Vague or confusing descriptions lead to wrong tool choices.
 
+</details>
+
 ---
 
 **Q5: What is an "observation" in the context of an agent?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 An observation is the **output returned after a tool call**.
 
@@ -59,9 +82,14 @@ Observations are how the agent learns from its actions. Without observations, th
 
 The full loop is: **action (tool call) → observation (tool result) → next thought (what this means for the task)**.
 
+</details>
+
 ---
 
 **Q6: What's the difference between in-context memory and external (vector) memory in agents?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **In-context memory** is everything in the current prompt — the conversation history, tool outputs, user messages. It's fast and immediate, but limited by the context window. Once that window is full, older information is dropped.
 
@@ -69,11 +97,16 @@ The full loop is: **action (tool call) → observation (tool result) → next th
 
 In-context is like working memory — what you're actively thinking about. External is like long-term memory — things you've learned that you can look up.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How do you prevent an agent from looping forever?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Several mechanisms:
 
@@ -85,9 +118,14 @@ Several mechanisms:
 
 In production, always set a max iteration limit. An agent without one is a potential infinite-loop bug waiting to happen.
 
+</details>
+
 ---
 
 **Q8: What are the main failure modes of AI agents?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 1. **Hallucinated tool calls** — agent invents a tool that doesn't exist or calls a real tool with wrong parameters
 2. **Infinite loops** — agent gets confused about whether the task is done and keeps trying
@@ -98,9 +136,14 @@ In production, always set a max iteration limit. An agent without one is a poten
 
 Mitigation: good tool descriptions, max iteration limits, trajectory logging, human-in-the-loop for irreversible actions.
 
+</details>
+
 ---
 
 **Q9: How would you design an agent for a high-stakes task like processing financial transactions?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Key design principles for high-stakes agents:
 
@@ -113,6 +156,8 @@ Key design principles for high-stakes agents:
 7. **Monitoring and alerts** — track agent behavior in production, alert on anomalies (unusual tool call patterns, repeated failures)
 
 The more consequential the action, the less autonomy you give the agent by default.
+
+</details>
 
 ---
 

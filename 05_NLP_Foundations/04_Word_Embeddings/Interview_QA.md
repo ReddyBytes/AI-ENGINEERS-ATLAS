@@ -4,15 +4,23 @@
 
 **Q1. What is a word embedding and why is it better than one-hot encoding?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A word embedding is a dense vector of numbers that represents a word — typically 100 to 300 numbers. It's learned from text patterns, so words with similar meanings end up with similar vectors.
 
 One-hot encoding gives each word a vector of zeros with a single 1 in its unique position. For a vocabulary of 50,000 words, "cat" is a 50,000-dimensional vector with a single 1. These vectors are sparse (mostly zeros), huge, and have no relationship to each other — "cat" and "dog" look equally distant as "cat" and "mountain".
 
 Word embeddings are dense (all values meaningful), compact (100–300 dimensions), and semantic — "cat" and "dog" are close because they appear in similar contexts.
 
+</details>
+
 ---
 
 **Q2. What is the distributional hypothesis and why does it matter for embeddings?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The distributional hypothesis states: words that appear in similar contexts have similar meanings.
 
@@ -20,9 +28,14 @@ If you read a million sentences, you'll notice that "cat" and "dog" both appear 
 
 This is why you don't need hand-labeled semantic relationships. The meaning emerges automatically from patterns in raw text.
 
+</details>
+
 ---
 
 **Q3. What is cosine similarity and why is it used for comparing word embeddings?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Cosine similarity measures the angle between two vectors. It ranges from -1 to 1:
 
@@ -32,11 +45,16 @@ Cosine similarity measures the angle between two vectors. It ranges from -1 to 1
 
 We use cosine similarity (not Euclidean distance) because embeddings can have very different magnitudes — a word that appeared 1000 times in training has a larger-magnitude vector than one that appeared 50 times. Cosine similarity ignores magnitude and focuses on direction, which captures semantic relationship better.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4. How does Word2Vec's Skip-gram training work?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Skip-gram takes a center word and trains the model to predict the surrounding words within a window.
 
@@ -47,9 +65,14 @@ The model is a simple neural network. The input is the one-hot encoding of the c
 
 Training adjusts the weights so that context words get high probability given the center word. After millions of examples, the hidden layer weights (the embeddings) encode rich semantic relationships.
 
+</details>
+
 ---
 
 **Q5. What is the difference between Word2Vec, GloVe, and FastText?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 All three produce static word embeddings (one fixed vector per word), but they learn differently:
 
@@ -59,9 +82,14 @@ All three produce static word embeddings (one fixed vector per word), but they l
 
 **FastText** — represents each word as a sum of its character n-gram embeddings. "playing" = embeddings of "pla", "lay", "ayi", "yin", "ing", "play", "laying" etc. This means it can generate reasonable embeddings for words never seen in training (OOV). Best for morphologically rich languages or noisy text.
 
+</details>
+
 ---
 
 **Q6. What are contextual embeddings and how do they differ from static embeddings?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Static embeddings (Word2Vec, GloVe) give every word exactly one fixed vector. "Bank" always gets the same vector whether you mean a financial institution or a river bank.
 
@@ -69,11 +97,16 @@ Contextual embeddings (ELMo, BERT) generate a different vector for each occurren
 
 Contextual embeddings are dramatically more powerful for tasks like named entity recognition, question answering, and sentiment analysis where word meaning depends on context.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. How would you evaluate the quality of word embeddings?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Two types of evaluation:
 
@@ -88,9 +121,14 @@ Two types of evaluation:
 
 Intrinsic evaluation is fast but doesn't always predict downstream task performance. Extrinsic evaluation is more reliable but slower.
 
+</details>
+
 ---
 
 **Q8. How do you handle words not in a pretrained embedding vocabulary (OOV) when using Word2Vec?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Several strategies:
 
@@ -102,9 +140,14 @@ Several strategies:
 
 In practice, FastText is the most practical solution for production systems that encounter new words regularly.
 
+</details>
+
 ---
 
 **Q9. What are the limitations of word embeddings and how did transformers address them?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Key limitations:
 
@@ -121,6 +164,8 @@ How transformers address these:
 4. **Subword tokenization** — handles rare and OOV words natively
 
 Word embeddings are still useful as lightweight features in resource-constrained settings, but transformers have largely superseded them for accuracy-critical tasks.
+
+</details>
 
 ---
 

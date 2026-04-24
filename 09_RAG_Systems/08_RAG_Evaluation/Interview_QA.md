@@ -4,6 +4,9 @@
 
 **Q1: Why do you need to evaluate a RAG system separately from the LLM itself?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Because a RAG system has two failure modes, and fixing the wrong one wastes time.
 
 Failure mode 1: bad retrieval. The right document chunk isn't returned, so the LLM doesn't have the information it needs. No matter how good the LLM is, it can't answer correctly from missing information.
@@ -14,9 +17,14 @@ If you only measure the final answer quality (end-to-end score), you can't tell 
 
 Evaluate both stages with separate metrics. Fix retrieval issues (hit rate, context recall) independently from generation issues (faithfulness, answer relevancy). The diagnostic clarity saves enormous time.
 
+</details>
+
 ---
 
 **Q2: What is faithfulness in RAG evaluation and why is it the most important metric?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Faithfulness measures whether every claim in the generated answer can be traced back to the retrieved context. A faithfulness score of 1.0 means the LLM only used information from the provided chunks — nothing was made up. A score of 0.7 means roughly 30% of the claims in answers are not supported by the context.
 
@@ -24,9 +32,14 @@ It's the most critical metric because low faithfulness is the definition of hall
 
 High faithfulness doesn't guarantee the answer is correct (the context itself might be wrong), but it guarantees the system is reliable — it only asserts what the documents actually say.
 
+</details>
+
 ---
 
 **Q3: What is the difference between context precision and context recall?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Both measure retrieval quality but from opposite directions:
 
@@ -40,11 +53,16 @@ The trade-off:
 
 You want both to be high. When you can't have both, which matters more depends on your use case: information-completeness tasks need high recall; precision-critical tasks (where noise causes hallucination) need high precision.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How do you build a test set for RAG evaluation and what makes a good test set?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A test set is a collection of (question, expected_answer, optional: expected_chunk_id) triples. For each question, you run the full RAG pipeline and score the result.
 
@@ -76,9 +94,14 @@ test_set = [
 
 For out-of-scope questions: the expected answer is "I don't have information on that" — the system should recognize no relevant chunk exists.
 
+</details>
+
 ---
 
 **Q5: What is LLM-as-judge evaluation and what are its limitations?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 LLM-as-judge means using an LLM (e.g., Claude, GPT-4) to evaluate the quality of another LLM's output. For RAG evaluation, you write a prompt that asks the judge LLM to score faithfulness, answer relevancy, or other metrics.
 
@@ -113,9 +136,14 @@ Limitations:
 
 Mitigations: use temperature=0 for the judge, use a different model than the one being evaluated, validate judge scores against a sample of human annotations.
 
+</details>
+
 ---
 
 **Q6: How would you set up a continuous evaluation pipeline for a production RAG system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Production evaluation has two components: offline evaluation and online monitoring.
 
@@ -147,11 +175,16 @@ def maybe_evaluate(question, context, answer, sample_rate=0.05):
 
 The key insight: offline test sets only cover questions you anticipated. Online sampling catches failure modes you didn't think to test for. Both are necessary for a production system.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does the RAGAS framework compute answer relevancy, and why does it work without a ground truth answer?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Answer relevancy doesn't compare the generated answer to a ground truth. Instead, it asks: "If someone had received this answer, what question would they have asked?"
 
@@ -183,9 +216,14 @@ Return one question per line."""
 
 This is elegant because it doesn't require ground truth answers, making it scalable to large production datasets.
 
+</details>
+
 ---
 
 **Q8: How do you evaluate a RAG system's ability to correctly handle out-of-scope questions?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Out-of-scope handling is a distinct evaluation category: the correct behavior is to decline to answer, not to answer incorrectly.
 
@@ -218,9 +256,14 @@ Score: 1 = correctly declined, 0 = incorrectly provided made-up information"""
 
 Key design: your retrieval pipeline should return no context when similarity is low, and your prompt should instruct the LLM to decline when context is empty. Evaluation of out-of-scope cases validates that this mechanism works.
 
+</details>
+
 ---
 
 **Q9: What is G-Eval and how does it improve on standard LLM-as-judge evaluation?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Standard LLM-as-judge asks for a single score. G-Eval (from the paper "G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment") improves this by:
 
@@ -246,6 +289,8 @@ Answer: {answer}
 The chain-of-thought steps make the judge's reasoning explicit and consistent, which has been shown to better correlate with human judgments than single-prompt scoring. The trade-off: each evaluation takes longer and uses more tokens.
 
 For production use: G-Eval is worth implementing when your judge LLM's scores correlate poorly with human judgments on your domain. Validate on 50–100 human-labeled examples before relying on it.
+
+</details>
 
 ---
 

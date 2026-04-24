@@ -232,6 +232,14 @@ Model pinning: use exact model IDs in production code (e.g., `claude-sonnet-4-6`
 
 ➡️ **Next step:** Safety Layers — [10_Safety_Layers/Theory.md](../10_Safety_Layers/Theory.md)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q95 · claude-model-families](../../../ai_practice_questions_100.md#q95--normal--claude-model-families)
+
+
 ---
 
 ## 📂 Navigation

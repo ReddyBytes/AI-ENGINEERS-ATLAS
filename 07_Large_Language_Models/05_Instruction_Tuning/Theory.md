@@ -136,6 +136,14 @@ flowchart TD
 
 ➡️ **Next step:** RLHF — [06_RLHF/Theory.md](../06_RLHF/Theory.md)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q42 · instruction-tuning](../../ai_practice_questions_100.md#q42--normal--instruction-tuning)
+
+
 ---
 
 ## 📂 Navigation

@@ -4,15 +4,23 @@
 
 **Q1: What does ReAct stand for and what problem does it solve?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 ReAct stands for **Reasoning + Acting**. It was introduced in a 2022 paper from Google Brain.
 
 The problem it solves: agents that just generate actions without explicit reasoning often pick the wrong tool, hallucinate facts, or lose track of the goal on multi-step tasks.
 
 ReAct fixes this by requiring the agent to write out a **Thought** — explicit reasoning — before every action. This forces the LLM to be deliberate about what it knows and what it needs, rather than guessing.
 
+</details>
+
 ---
 
 **Q2: What is the Thought → Action → Observation loop?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 It's the core cycle of the ReAct pattern:
 
@@ -22,9 +30,14 @@ It's the core cycle of the ReAct pattern:
 
 Then the agent writes another **Thought** using what it just learned, takes another **Action**, gets another **Observation**, and repeats until it can write a **Final Answer**.
 
+</details>
+
 ---
 
 **Q3: Why is writing the Thought step important? Can't the agent just act directly?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Technically yes — an agent can call tools without writing reasoning first. But it's much less reliable.
 
@@ -35,11 +48,16 @@ Writing the Thought does two things:
 
 It's like the difference between a student who just writes "42" as their answer vs. one who shows their work. The one who shows work is more likely to be right, and when they're wrong, it's easy to see where the mistake was.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How does ReAct differ from Chain-of-Thought (CoT) prompting?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Both involve getting the LLM to write out reasoning. But they're used differently:
 
@@ -52,9 +70,14 @@ ReAct: Think → Act → Observe → Think → Act → Observe → Answer (with 
 
 ReAct is like CoT but connected to the real world.
 
+</details>
+
 ---
 
 **Q5: What happens when a tool call in ReAct returns an error or unexpected result?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 This is where the Thought step becomes especially valuable.
 
@@ -65,9 +88,14 @@ If a tool returns an error, the agent should:
 
 A well-implemented ReAct agent is self-correcting. The loop naturally allows for retrying with different approaches. This is why the Observation step is so important — it gives the agent feedback to adjust.
 
+</details>
+
 ---
 
 **Q6: How is ReAct implemented in frameworks like LangChain?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 In LangChain, when you create an agent with `initialize_agent` using the `ZERO_SHOT_REACT_DESCRIPTION` agent type, it automatically uses a ReAct-style prompt template under the hood.
 
@@ -80,11 +108,16 @@ LangChain handles the orchestration loop: after each Action, it calls the actual
 
 You don't have to manually implement the loop — the framework does it. But understanding ReAct means you can debug it when things go wrong.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: What are the limitations of the ReAct pattern for long tasks?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Several challenges emerge as tasks get longer:
 
@@ -98,9 +131,14 @@ Several challenges emerge as tasks get longer:
 
 Mitigations: truncating the trajectory, summarizing old steps, and breaking very long tasks into sub-tasks.
 
+</details>
+
 ---
 
 **Q8: How would you evaluate the quality of a ReAct agent's trajectory?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Evaluation should happen at multiple levels:
 
@@ -113,9 +151,14 @@ Evaluation should happen at multiple levels:
 
 A good evaluation framework logs the full trajectory and checks each of these dimensions, not just the final answer.
 
+</details>
+
 ---
 
 **Q9: Compare ReAct with Plan-and-Execute agents. When would you choose one over the other?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **ReAct** is reactive and interleaved. It decides each step based on what it learned from the previous step. Good for exploratory tasks where you don't know upfront what you'll find.
 
@@ -130,6 +173,8 @@ A good evaluation framework logs the full trajectory and checks each of these di
 | Failure mode | Can go off in the wrong direction | Plan may be wrong from the start |
 
 In practice, many production agents combine both: use a planner to create a task list, then use ReAct within each task for tool-grounded execution.
+
+</details>
 
 ---
 

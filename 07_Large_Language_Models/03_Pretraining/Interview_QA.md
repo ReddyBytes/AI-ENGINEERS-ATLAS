@@ -4,15 +4,23 @@
 
 **Q1: What is pretraining and why is it needed?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Pretraining is the initial large-scale training phase where a language model learns from massive amounts of raw text. The training task is self-supervised: given all previous tokens, predict the next one. No human labels are needed because the "correct answer" at each position is just the next word already in the text.
 
 Pretraining is needed because it gives the model a broad foundation. Before any task-specific training, the model learns grammar, world facts, reasoning patterns, code syntax, and writing style by absorbing the patterns in trillions of tokens of human text. Without pretraining, you'd have to teach all of this from scratch for every new task — impossibly expensive.
 
 The result is a "base model" that knows a lot but doesn't yet know how to be helpful or follow instructions. That comes next.
 
+</details>
+
 ---
 
 **Q2: What is self-supervised learning? How is it different from supervised learning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 In supervised learning, humans provide labeled examples: (input, correct output) pairs. A model learns the mapping. This requires expensive human annotation.
 
@@ -26,9 +34,14 @@ This is powerful because:
 
 Other examples of self-supervised learning: masked language modeling (BERT masks tokens and predicts them), image-text contrastive learning (CLIP), and self-supervised visual pretraining.
 
+</details>
+
 ---
 
 **Q3: What is in an LLM's training data? Where does it come from?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 LLM training data comes from many sources, mixed together:
 
@@ -46,11 +59,16 @@ LLM training data comes from many sources, mixed together:
 
 The mix is carefully balanced. Most frontier models treat Wikipedia and books as higher-quality sources and oversample them relative to raw web crawl.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What are the Chinchilla scaling laws and why did they change how models are trained?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The Chinchilla paper (Hoffman et al., DeepMind, 2022) showed that the LLM field had been systematically undertraining its models.
 
@@ -65,9 +83,14 @@ They trained Chinchilla (70B parameters, 1.4T tokens) and it outperformed Gopher
 
 **Impact**: The entire industry shifted toward training smaller models on more tokens. Llama 3's 8B model trained on 15T tokens (187 tokens per parameter — well over the Chinchilla optimum) dramatically outperforms models 10x its size trained on less data. Better inference efficiency and comparable quality — a strong trade-off.
 
+</details>
+
 ---
 
 **Q5: How is training distributed across hundreds of GPUs? What are the main parallelism strategies?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Training a 70B+ parameter model on a single GPU is impossible — the model doesn't fit in memory. Several parallelism strategies are used:
 
@@ -81,9 +104,14 @@ Training a 70B+ parameter model on a single GPU is impossible — the model does
 
 In practice, all strategies are combined. Training Llama 3 405B used tensor + pipeline + data parallelism simultaneously across ~16,000 H100 GPUs.
 
+</details>
+
 ---
 
 **Q6: What is the pretraining loss curve? How do you know if training is going well?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The pretraining loss is cross-entropy loss on next-token prediction. A well-behaved training run looks like:
 
@@ -104,11 +132,16 @@ Signs of problems:
 
 Training GPT-4 scale models involves constant monitoring with automated alerts and teams watching dashboards 24/7.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: What role does the tokenizer play in pretraining? What happens if you train with a bad tokenizer?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The tokenizer converts raw text into integer token IDs before training. Every character in the training data must pass through it. The tokenizer's vocabulary directly shapes what the model learns.
 
@@ -125,9 +158,14 @@ The tokenizer converts raw text into integer token IDs before training. Every ch
 
 **Impact on pretraining**: A better tokenizer means the model sees more semantic content per context window, leading to better quality at the same sequence length.
 
+</details>
+
 ---
 
 **Q8: What is "catastrophic forgetting" in the context of continual pretraining? How do you handle it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Catastrophic forgetting is the phenomenon where a neural network "forgets" previously learned information when trained on new data. The new gradient updates overwrite the weight configurations that encoded old knowledge.
 
@@ -150,9 +188,14 @@ If you fine-tune on only new data:
 
 5. **Full retraining**: If the new data is large enough and the capability gap is severe, just retrain from scratch with the new data mixed in. What Meta did with Llama 3 — incorporated much more recent data into a fresh training run rather than patching Llama 2.
 
+</details>
+
 ---
 
 **Q9: What is the difference between GPT-style (decoder-only) and BERT-style (encoder-only) pretraining? When would you choose each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The two dominant pretraining architectures use different attention patterns and different objectives:
 
@@ -185,6 +228,8 @@ The two dominant pretraining architectures use different attention patterns and 
 - Need both? → Encoder-decoder (T5, BART style) — or just use a frontier LLM
 
 In 2024, decoder-only models have largely taken over even classification tasks because large enough GPT-style models with RLHF can do everything. But for production classification systems where speed and cost matter, BERT-style models are still faster and cheaper per query.
+
+</details>
 
 ---
 

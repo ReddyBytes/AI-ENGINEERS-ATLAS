@@ -97,6 +97,14 @@ Confident wrong predictions get a large loss. Gradient descent minimizes this to
 Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
 > This project uses: Logistic Regression as one of 4 classifiers you train, compare, and evaluate on the Iris dataset
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q12 · logistic-regression](../../ai_practice_questions_100.md#q12--normal--logistic-regression)
+
+
 ---
 
 ## 📂 Navigation

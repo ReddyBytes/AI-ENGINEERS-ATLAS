@@ -112,6 +112,14 @@ Keeping your index fresh is critical. Outdated chunks produce outdated answers.
 Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)**
 > This project uses: embedding every chunk via API, storing vectors + metadata in ChromaDB, building the searchable index
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q57 · embedding-indexing](../../ai_practice_questions_100.md#q57--design--embedding-indexing)
+
+
 ---
 
 ## 📂 Navigation

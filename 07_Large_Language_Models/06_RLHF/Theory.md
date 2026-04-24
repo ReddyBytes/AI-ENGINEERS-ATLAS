@@ -119,6 +119,14 @@ flowchart TD
 
 ➡️ **Next step:** Context Windows and Tokens — [07_Context_Windows_and_Tokens/Theory.md](../07_Context_Windows_and_Tokens/Theory.md)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q43 · rlhf](../../ai_practice_questions_100.md#q43--interview--rlhf)
+
+
 ---
 
 ## 📂 Navigation

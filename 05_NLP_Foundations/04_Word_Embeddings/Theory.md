@@ -119,6 +119,14 @@ def cosine_sim(v1, v2):
 
 ➡️ **Next step:** Semantic Similarity → `05_NLP_Foundations/05_Semantic_Similarity/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q27 · word-embeddings](../../ai_practice_questions_100.md#q27--thinking--word-embeddings)
+
+
 ---
 
 ## 📂 Navigation

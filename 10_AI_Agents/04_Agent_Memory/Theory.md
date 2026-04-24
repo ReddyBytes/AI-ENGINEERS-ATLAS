@@ -106,6 +106,14 @@ Used together, the agent feels remarkably like talking to a human who actually k
 Apply what you just learned → **[I3: Multi-Tool Research Agent](../../20_Projects/01_Intermediate_Projects/03_Multi_Tool_Research_Agent/Project_Guide.md)**
 > This project uses: persisting conversation history across tool calls, summarizing past context when history gets too long
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q64 · agent-memory](../../ai_practice_questions_100.md#q64--design--agent-memory)
+
+
 ---
 
 ## 📂 Navigation

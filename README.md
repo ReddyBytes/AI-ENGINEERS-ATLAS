@@ -666,6 +666,8 @@
 | `2` | [✅ Progress Tracker](./00_Learning_Guide/Progress_Tracker.md) | Track what you've covered |
 | `3` | [📖 Probability — Theory.md](./01_Math_for_AI/01_Probability/Theory.md) | Begin the journey |
 
+**Want to test yourself?** → [100 AI Engineering Practice Questions](./ai_practice_questions_100.md)
+
 <img src="./assets/divider.svg" width="100%"/>
 
 <div align="center">

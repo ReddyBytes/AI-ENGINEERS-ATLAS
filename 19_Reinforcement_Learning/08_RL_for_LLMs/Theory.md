@@ -224,6 +224,14 @@ Read the InstructGPT paper (Ouyang et al. 2022, "Training language models to fol
 
 ➡️ **Next step:** `Connection_to_RLHF.md` — deep dive on exactly how PPO maps onto language model fine-tuning.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q94 · rl-for-llms](../../ai_practice_questions_100.md#q94--design--rl-for-llms)
+
+
 ---
 
 ## 📂 Navigation

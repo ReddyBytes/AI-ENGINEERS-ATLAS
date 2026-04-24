@@ -173,6 +173,14 @@ Install `transformers` and load a CLIP model from HuggingFace (`openai/clip-vit-
 ➡️ **Next step**
 Move to [`03_Image_Understanding/Theory.md`](../03_Image_Understanding/Theory.md) to learn what you can actually build with a VLM — VQA, captioning, OCR, and visual grounding.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q86 · vision-language-models](../../ai_practice_questions_100.md#q86--normal--vision-language-models)
+
+
 ---
 
 ## 📂 Navigation

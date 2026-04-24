@@ -4,6 +4,9 @@
 
 **Q1: What are the three MCP primitives and what is the main difference between them?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > The three MCP primitives are:
 > - **Tools** — callable functions that the AI uses to take action and change state (write a file, query a database, send an email). They have side effects.
 > - **Resources** — read-only data the AI can access by URI (file contents, database records, documentation). No side effects.
@@ -11,19 +14,34 @@
 >
 > The main difference: Tools DO, Resources READ, Prompts GUIDE.
 
+</details>
+
 **Q2: How does the AI model know what arguments to pass when calling a Tool?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > Each tool has an `inputSchema` field that is a JSON Schema object. JSON Schema defines the argument names, types, required fields, and descriptions. The AI model reads this schema along with the tool's `description` field to understand what the tool needs. For example, if a tool's schema says it needs a `path` (string, required) and `encoding` (string, optional), the AI model will construct a valid argument object before calling the tool.
 
+</details>
+
 **Q3: Give an example of when you would use a Resource instead of a Tool.**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > If you have a project README file that the AI should be able to read, you should expose it as a Resource at a URI like `file:///project/README.md`. The AI reads it using `resources/read`. You would use a Tool instead if the data requires parameters to retrieve (like `get_user_record(user_id=123)`) or if the operation has side effects. The rule of thumb: if the data lives at a stable address and reading it does not change anything, use a Resource.
+
+</details>
 
 ---
 
 ## Intermediate
 
 **Q4: A developer wants to expose a database to an AI model. What tools and resources would you design?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > I would design:
 >
@@ -39,7 +57,12 @@
 >
 > Separating read queries into tools (not resources) makes sense because they take parameters. The schema is a resource because it is stable and has a natural URI.
 
+</details>
+
 **Q5: What is the difference between a Prompt and a System Prompt you would write directly in your application?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > A system prompt in your app is hardcoded — it is written once in your code and applies to every conversation. An MCP **Prompt** is a named, parameterized template stored on a server. Users or the host can request it by name with arguments, and the server fills it in and returns the messages. This makes prompts:
 > - **Reusable** — multiple apps can use the same server's prompts
@@ -47,7 +70,12 @@
 > - **Managed** — the prompt lives in one place on the server; update it once and all clients get the update
 > - **Discoverable** — clients can list what prompts are available without reading source code
 
+</details>
+
 **Q6: Can a Tool return more than just text? What content types are supported?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > Yes. Tool results (and resource contents) can be:
 > - **Text** — plain text or code, returned as `{"type": "text", "text": "..."}`
@@ -56,11 +84,16 @@
 >
 > A single tool call can return multiple content items — for example, both a text explanation and an image chart.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How would you design tools for a potentially dangerous operation like deleting files?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > For dangerous operations I would:
 > 1. **Name it clearly** — call it `delete_file` not `remove_item` so there is no ambiguity
@@ -71,7 +104,12 @@
 >
 > The tool itself executes the deletion, but the host is responsible for showing the user what is about to happen before the tool is called.
 
+</details>
+
 **Q8: How does JSON Schema in tool definitions help the AI model make better calls?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > JSON Schema gives the AI model precise, machine-readable information about what each tool argument must be. Instead of vague instructions, the schema provides:
 > - **Types**: `"type": "string"` tells the AI not to pass a number
@@ -82,7 +120,12 @@
 >
 > AI models are trained to follow JSON Schema when calling tools, so well-defined schemas result in fewer invalid tool calls and less error handling.
 
+</details>
+
 **Q9: Describe a scenario where you would use all three MCP primitives (Tools, Resources, and Prompts) together in one server.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > Consider a **documentation assistant** MCP server for a software project:
 >
@@ -100,6 +143,8 @@
 > - `review_docs` — a prompt that guides the AI to check documentation for accuracy and completeness
 >
 > The AI can read existing docs (Resources), update them (Tools), and follow standard documentation workflows (Prompts) — all through one focused server.
+
+</details>
 
 ---
 

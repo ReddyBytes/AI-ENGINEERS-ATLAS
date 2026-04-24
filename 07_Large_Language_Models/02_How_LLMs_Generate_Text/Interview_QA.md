@@ -4,6 +4,9 @@
 
 **Q1: How does an LLM actually generate a response? Walk me through the steps.**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 When you send a prompt to an LLM, the following happens:
 
 1. **Tokenization**: Your text is split into tokens (sub-word units). "Hello world" becomes ["Hello", " world"].
@@ -16,9 +19,14 @@ When you send a prompt to an LLM, the following happens:
 
 The key insight is that this is entirely sequential and autoregressive — each token depends on all previous tokens.
 
+</details>
+
 ---
 
 **Q2: What is temperature in an LLM? How would you explain it to someone non-technical?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Temperature is a dial that controls how "adventurous" the model is when picking the next word.
 
@@ -28,9 +36,14 @@ Non-technical version: think of it like a chef following a recipe. Temperature=0
 
 In practice: use low temperature for factual answers and code, high temperature for creative writing.
 
+</details>
+
 ---
 
 **Q3: What is the difference between top-p and top-k sampling?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Both are ways to limit which tokens the model can choose from during generation.
 
@@ -45,11 +58,16 @@ When the model is uncertain: maybe 500 tokens are needed to reach 90% → wider 
 
 Top-p adapts to the model's confidence. This is why it's generally preferred over top-k.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: Why is text generation autoregressive? Are there alternatives?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Text generation is autoregressive because each token depends on all previous tokens. You can't generate token 10 without having generated tokens 1–9, because the transformer's attention mechanism needs the full previous context to determine what comes next.
 
@@ -63,9 +81,14 @@ This makes generation inherently sequential — you cannot parallelize across to
 
 For now, autoregressive sampling remains dominant for high-quality text generation.
 
+</details>
+
 ---
 
 **Q5: What problems can arise from greedy decoding? Why don't models always use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Greedy decoding always picks the highest-probability token at each step. This sounds optimal, but it can lead to suboptimal overall sequences because:
 
@@ -76,9 +99,14 @@ Greedy decoding always picks the highest-probability token at each step. This so
 
 **Beam search** is a middle ground — maintain k "beams" (candidate sequences) and explore multiple paths simultaneously, keeping the k highest-probability paths at each step. It's better than greedy but still deterministic and doesn't produce diverse outputs. It's used in older systems but mostly replaced by sampling-based methods in modern LLMs.
 
+</details>
+
 ---
 
 **Q6: How does the generation process scale in terms of compute? What is the KV cache?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Without optimization, generating text with a transformer is quadratic in context length. To generate token n, you need to compute attention over all n-1 previous tokens. As the context grows, each new token is slower to generate.
 
@@ -90,11 +118,16 @@ The KV cache stores all previously computed Keys and Values. When generating the
 
 Trade-off: KV cache uses memory proportional to context length × number of layers × model dimension. For very long contexts (100k+ tokens), KV cache memory can become the bottleneck, not compute.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: What is the "exposure bias" problem in autoregressive generation, and how does it affect model behavior?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Exposure bias is a training/inference mismatch problem.
 
@@ -113,9 +146,14 @@ This manifests as:
 - **Self-consistency**: Sample multiple outputs and take a majority vote — errors don't all go in the same direction.
 - **RLHF**: Trains on complete sequences evaluated holistically, reducing reliance on step-by-step teacher forcing.
 
+</details>
+
 ---
 
 **Q8: Explain speculative decoding. Why does it improve throughput without sacrificing quality?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Standard LLM decoding is bottlenecked by memory bandwidth: for each new token, you load all model weights from GPU memory (often terabytes/second). The actual computation per token is small, but weight loading dominates.
 
@@ -133,9 +171,14 @@ Throughput improves by ~2–3x in practice because modern hardware can run k+1 p
 
 Quality is maintained because rejected tokens are always replaced by samples from the correct target distribution — the output is statistically identical to standard sampling from the target model.
 
+</details>
+
 ---
 
 **Q9: How does the model handle long contexts? What breaks down at very long context lengths?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Modern LLMs handle long contexts through several mechanisms, but challenges remain:
 
@@ -158,6 +201,8 @@ Modern LLMs handle long contexts through several mechanisms, but challenges rema
 - Chunk long documents and use RAG to retrieve relevant sections
 - Use models specifically trained and tested at long context (Gemini 1.5, Claude 3 with 200k context)
 - Summarize intermediate sections to compress context
+
+</details>
 
 ---
 

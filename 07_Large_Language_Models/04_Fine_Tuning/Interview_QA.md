@@ -4,6 +4,9 @@
 
 **Q1: What is fine-tuning and why do we do it?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Fine-tuning is the process of taking a pretrained model and continuing to train it on a smaller, task-specific dataset. The pretrained model already has broad knowledge of language, facts, and reasoning from seeing trillions of tokens. Fine-tuning steers that broad knowledge toward a specific use case.
 
 We do it for several reasons:
@@ -15,9 +18,14 @@ We do it for several reasons:
 
 The metaphor: pretraining is med school (broad). Fine-tuning is residency (specialized).
 
+</details>
+
 ---
 
 **Q2: What is LoRA? Why is it preferred over full fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 LoRA (Low-Rank Adaptation) is a parameter-efficient fine-tuning technique. Instead of updating all the weights in a model (which could be 70 billion parameters), LoRA adds small trainable matrices alongside the frozen original weights.
 
@@ -31,9 +39,14 @@ Why it's preferred:
 
 The key insight: most of the important adaptation is low-rank — you don't need to change all of W, just a small subspace of it.
 
+</details>
+
 ---
 
 **Q3: What kind of data do you need for fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 You need (input, output) pairs that demonstrate the behavior you want. The format depends on the task:
 
@@ -55,11 +68,16 @@ Raw domain text (medical papers, legal documents) — same format as pretraining
 
 How much data you need depends on the task. Format changes: 100–500 examples. Domain Q&A: 1,000–10,000. Full chat fine-tune: 50,000+. Data quality matters enormously — 1,000 excellent examples from domain experts regularly beats 50,000 low-quality examples.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is catastrophic forgetting? How do you prevent it during fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Catastrophic forgetting is when fine-tuning on new data degrades the model's performance on its original capabilities. The gradient updates from your new data overwrite weight configurations that encoded previously learned behavior.
 
@@ -79,9 +97,14 @@ How to prevent it:
 
 For most practical cases: use LoRA (solves it structurally) and mix 20% general data with your domain data.
 
+</details>
+
 ---
 
 **Q5: How do you evaluate if fine-tuning worked? What metrics do you use?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Evaluation for fine-tuning depends on the task. There's no single universal metric — you need task-specific evaluation.
 
@@ -105,9 +128,14 @@ Evaluation for fine-tuning depends on the task. There's no single universal metr
 5. Do human review on a sample of outputs
 6. Compare cost/latency vs the base model + prompt approach
 
+</details>
+
 ---
 
 **Q6: What is QLoRA? How does it differ from LoRA?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 QLoRA (Quantized LoRA) combines two techniques: LoRA adapters + 4-bit quantization of the base model.
 
@@ -131,11 +159,16 @@ The trade-off: quantization introduces some accuracy loss in the base model repr
 
 QLoRA is the standard approach for open-source community fine-tuning. Almost all the Alpaca, Vicuna, WizardLM family models were trained using QLoRA.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does LoRA's low-rank assumption work mathematically? When does it fail?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The key insight behind LoRA is that the weight updates during fine-tuning tend to have low intrinsic rank. This was shown empirically by Aghajanyan et al. (2020) who measured the "intrinsic dimensionality" of fine-tuning across tasks and found it's surprisingly small — often 100–1000 dimensions even for models with millions of parameters.
 
@@ -163,9 +196,14 @@ During training, gradient updates to A and B implicitly define a rank-r update t
 
 **Choosing rank r in practice**: Start with r=16. If quality is insufficient, try r=32 or r=64. Higher r = more expressive but more parameters and slightly more compute. Most practitioners find r=8 to r=32 covers the vast majority of tasks.
 
+</details>
+
 ---
 
 **Q8: What are the differences between SFT, instruction tuning, and domain adaptation? When do you use each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 These three terms overlap but refer to different emphases:
 
@@ -199,9 +237,14 @@ The general technique: train on (input, output) pairs with supervised cross-entr
 - Need to improve domain knowledge? → Domain adaptation
 - Need a domain expert assistant? → Both, in sequence
 
+</details>
+
 ---
 
 **Q9: How does the HuggingFace PEFT + Trainer ecosystem work? What are the key components?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 HuggingFace provides a full stack for fine-tuning open-weight models:
 
@@ -251,6 +294,8 @@ model.save_pretrained("./my-fine-tuned-model")
 - `merge_and_unload()` combines adapters into base weights for faster inference (no extra forward pass overhead)
 - For distributed training, `accelerate` library handles multi-GPU coordination
 - Weights & Biases or TensorBoard integration built into Trainer for experiment tracking
+
+</details>
 
 ---
 

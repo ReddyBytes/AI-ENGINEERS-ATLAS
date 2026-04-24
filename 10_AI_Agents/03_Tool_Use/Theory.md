@@ -146,6 +146,14 @@ More tools is not always better. An agent with 20 tools will be confused. Start 
 Apply what you just learned → **[I3: Multi-Tool Research Agent](../../20_Projects/01_Intermediate_Projects/03_Multi_Tool_Research_Agent/Project_Guide.md)**
 > This project uses: defining 3 tools (web_search, calculator, wikipedia), handling tool_use responses, executing tools and returning results
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q63 · agent-tool-use](../../ai_practice_questions_100.md#q63--critical--agent-tool-use)
+
+
 ---
 
 ## 📂 Navigation

@@ -4,6 +4,9 @@
 
 **Q1: What is the minimum code needed to create a working MCP server with one tool?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > You need five things:
 > 1. Import the `mcp` SDK (`pip install mcp`)
 > 2. Create a `Server` object: `app = Server("my-server")`
@@ -13,13 +16,25 @@
 >
 > The SDK handles all the JSON-RPC protocol details. You focus on the tool logic.
 
+</details>
+
 **Q2: How do you pass secrets (like API keys) to an MCP server?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > Use **environment variables** — never hardcode secrets in server files. In your server code, read them with `os.environ.get("MY_API_KEY")`. When configuring the server in Claude Desktop (or any host), set the env variables in the server's config section under `"env"`. This way the key is in the config file (which you can keep private), not in the server source code that might be shared or version-controlled.
 
+</details>
+
 **Q3: How do you test an MCP server during development?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > The best way is to use the **MCP Inspector** — an official development tool provided by Anthropic. Install it with `npx @modelcontextprotocol/inspector python your_server.py` and it opens a web UI where you can browse the server's tools, call them with custom arguments, read resources, and request prompts. This lets you test the full MCP interface without needing Claude Desktop. You can also write unit tests for individual tool handler functions directly, treating them as regular Python async functions.
+
+</details>
 
 ---
 
@@ -27,17 +42,30 @@
 
 **Q4: Explain the relationship between `@app.list_tools()` and `@app.call_tool()`. Why are they separate?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > `@app.list_tools()` answers "what can you do?" — it returns the schema (name, description, inputSchema) for every tool the server offers. It is called once at session start (or when the client asks for the tool list).
 >
 > `@app.call_tool()` answers "do this specific thing" — it receives a tool name and arguments, executes the corresponding logic, and returns the result.
 >
 > They are separate because discovery and execution are different operations. A client needs to know what tools exist before it can call any of them. Separating declaration from implementation also keeps the code organized: the schema definitions are in one place and the business logic is in another.
 
+</details>
+
 **Q5: What should you return when a tool encounters an error?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > You should return a `TextContent` object with an error message — do not raise an unhandled exception. For example: `return [types.TextContent(type="text", text="Error: File not found: /path/to/file")]`. Returning the error as text content allows the AI model to read the error message and make a decision (retry with a different path, tell the user, try an alternative). An unhandled exception propagates as a generic JSON-RPC error that the AI cannot read or understand.
 
+</details>
+
 **Q6: How do you structure a server that needs to call an external REST API in its tool handlers?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > Best practices:
 > 1. **Use async HTTP** — use `httpx` or `aiohttp` with `async/await` since your handlers are already async
@@ -55,11 +83,16 @@
 >     return [types.TextContent(type="text", text=response.text)]
 > ```
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How would you design an MCP server for a use case that requires maintaining state across multiple tool calls in the same session?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > MCP sessions are stateful, so you can maintain per-session state in the server. The recommended pattern:
 > 1. Create a session state dictionary or object at the module level or using a context variable
@@ -82,7 +115,12 @@
 >         # process checkout...
 > ```
 
+</details>
+
 **Q8: What is the difference between returning an error as `TextContent` versus using JSON-RPC error responses?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > **TextContent errors** (returning `[types.TextContent(type="text", text="Error: ...")]`) are tool-level errors. The tool call succeeded at the protocol level, but the tool's work failed for a domain reason (file not found, invalid argument value, API rate limited). The AI model receives this error message as the tool's result and can reason about it, retry with different arguments, or tell the user what went wrong.
 >
@@ -90,7 +128,12 @@
 >
 > Rule of thumb: if the tool executed and produced an outcome (even a bad one), return TextContent. If something went wrong before the tool even started executing, let the SDK handle it as a protocol error.
 
+</details>
+
 **Q9: How would you implement a tool that returns streaming results — for example, a tool that runs a long query and streams rows as they arrive?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > MCP itself does not have a built-in streaming result type for tool calls — a `tools/call` response is expected to return a complete result. For streaming-style workflows, you have a few options:
 >
@@ -101,6 +144,8 @@
 > 3. **Background execution + polling**: Return a `job_id` immediately, then have a separate `get_job_result(job_id)` tool the AI can poll. This works well for very long-running operations.
 >
 > Genuine streaming (line by line) is better suited for a direct streaming API rather than MCP tools.
+
+</details>
 
 ---
 

@@ -4,6 +4,9 @@
 
 **Q1: What is fine-tuning and how is it different from prompting?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** Both fine-tuning and prompting are ways to get an LLM to behave in a specific way, but they work at different levels.
 
 **Prompting** instructs the model at inference time using text in the context window: "You are a product classifier. Return JSON with category, subcategory, and color fields. Here are 3 examples: [...]". The model reads these instructions every time it processes a request. The model's weights are unchanged — it's using general instruction-following capability.
@@ -19,9 +22,14 @@ Key differences:
 
 Rule of thumb: Try prompting first. Only fine-tune when prompting has been exhausted and you have enough quality data.
 
+</details>
+
 ---
 
 **Q2: What is LoRA and why is it the preferred fine-tuning method for most production use cases?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** LoRA (Low-Rank Adaptation) is a parameter-efficient fine-tuning technique that adds small trainable "adapter" matrices to the existing frozen model weights, rather than updating all the model's parameters.
 
@@ -35,9 +43,14 @@ Why LoRA is the practical default:
 
 For most production fine-tuning: LoRA with rank 8-64 is sufficient. QLoRA (LoRA on a 4-bit quantized base model) when VRAM is the constraint.
 
+</details>
+
 ---
 
 **Q3: How much training data do you need for fine-tuning to be effective?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The amount varies by task complexity and quality of the data:
 
@@ -55,11 +68,16 @@ For most production fine-tuning: LoRA with rank 8-64 is sufficient. QLoRA (LoRA 
 
 **Practical guideline**: Start with what you have. If you have 100 examples, fine-tune and evaluate. If you see clear improvement, you likely have enough for the task. If not, collect more — specifically examples where the current model fails.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is catastrophic forgetting and how do you prevent it in fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Catastrophic forgetting happens when a model, trained extensively on a new specific task, "forgets" capabilities it learned during pre-training. For example, a model fine-tuned heavily on medical texts might lose its ability to reason about general topics, write code, or follow general instructions.
 
@@ -79,9 +97,14 @@ Why it happens: gradient updates that push the model toward the new task also mo
 
 6. **Elastic Weight Consolidation (EWC)**: A more sophisticated regularization technique that identifies which parameters are most important for previous tasks and penalizes changing them. Used in research, less common in production.
 
+</details>
+
 ---
 
 **Q5: Walk me through the process of preparing training data for fine-tuning, including common data quality issues.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Data preparation is often the most time-consuming and most critical part of fine-tuning. Good data produces good models; bad data produces bad models.
 
@@ -115,9 +138,14 @@ Why it happens: gradient updates that push the model toward the new task also mo
 - Deduplication: remove near-duplicate examples (they add weight but not information)
 - Train/eval split: 80/20 split, stratified by category if classification
 
+</details>
+
 ---
 
 **Q6: How do you decide between RAG and fine-tuning for a knowledge-intensive task?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** This is one of the most important architectural decisions in AI product development. The key dimensions to consider:
 
@@ -150,11 +178,16 @@ Example: A medical coding assistant
 - Uses fine-tuning: to learn the exact output format and the specialist's decision logic
 - Together: retrieves relevant codes, applies domain expertise to select the right one
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: Design a continuous fine-tuning pipeline for a production model. How do you avoid data quality issues and regressions?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Continuous fine-tuning is re-training the model periodically as new labeled data accumulates. This is how production AI systems stay current and improve over time.
 
@@ -203,9 +236,14 @@ Example: A medical coding assistant
 - **Feedback loop bias**: If good outputs are collected for training, bad outputs (which users never see after guardrails block them) are underrepresented. Mitigate: include adversarial examples and correction examples.
 - **Label quality drift**: Human reviewers' standards change over time. Mitigate: anchor reviews with calibration examples, periodic inter-rater agreement checks.
 
+</details>
+
 ---
 
 **Q8: What is RLHF and how is it related to production fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** RLHF (Reinforcement Learning from Human Feedback) is the training technique used to align large language models with human preferences. It's how models like ChatGPT, Claude, and Gemini are made helpful, harmless, and honest — and it's relevant to fine-tuning because the same principles apply when you want to fine-tune toward quality preferences rather than just format.
 
@@ -238,6 +276,8 @@ When you'd use DPO in production:
 ```
 
 Libraries: `trl` (Transformer Reinforcement Learning) from HuggingFace implements DPO, PPO, and SFT with minimal boilerplate.
+
+</details>
 
 ---
 

@@ -4,6 +4,9 @@
 
 **Q1: What are the three Claude model tiers and when should you use each?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 The three tiers are Haiku, Sonnet, and Opus — ordered from fastest/cheapest to most capable/expensive.
 
 **Haiku**: Best for high-volume applications where tasks are well-defined and speed matters. Classification, routing, simple Q&A, entity extraction. Roughly 12x cheaper than Sonnet per token.
@@ -14,9 +17,14 @@ The three tiers are Haiku, Sonnet, and Opus — ordered from fastest/cheapest to
 
 The mental model: Haiku for scale, Sonnet for quality, Opus for when Sonnet isn't enough.
 
+</details>
+
 ---
 
 **Q2: Why shouldn't you just always use Opus since it's the most capable?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Three reasons:
 
@@ -28,9 +36,14 @@ Three reasons:
 
 The engineering discipline is matching the model to the task — the same way you wouldn't use a supercomputer to run a to-do list app.
 
+</details>
+
 ---
 
 **Q3: What does it mean to "pin" a model ID in production?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Pinning means using the exact versioned model ID (`claude-sonnet-4-6`) rather than an alias that might update (`claude-sonnet-latest`).
 
@@ -43,11 +56,16 @@ By pinning to a specific model ID:
 
 Best practice: pin model IDs, test new versions in a branch/staging environment, update production only after validation.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How do you build a model routing system in production?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A model routing system automatically selects the right Claude model based on task characteristics:
 
@@ -83,9 +101,14 @@ More sophisticated approaches:
 - Budget-aware: route to Haiku when daily token budget is 80% consumed
 - A/B test: route 5% of requests to Opus, compare quality, calibrate
 
+</details>
+
 ---
 
 **Q5: What is the performance difference between Claude model generations (e.g., Sonnet vs Sonnet 4.5 vs Sonnet 4.6)?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Within the same tier (Sonnet), newer generation models are generally:
 - More capable (better benchmark scores, better instruction following)
@@ -103,9 +126,14 @@ Upgrade strategy:
 
 Never upgrade production model IDs without testing — even "improvements" can change behavior in ways that affect your specific use case.
 
+</details>
+
 ---
 
 **Q6: How do you measure whether a cheaper model is "good enough" for your use case?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 This requires building an evaluation framework:
 
@@ -124,11 +152,16 @@ This requires building an evaluation framework:
 
 6. **Monitor in production**: Quality metrics can drift as prompts change. Continuously monitor and re-evaluate.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does Anthropic decide when to add a new model or update an existing tier?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Based on Anthropic's public communications, new model releases are driven by several factors:
 
@@ -144,9 +177,14 @@ Based on Anthropic's public communications, new model releases are driven by sev
 
 For engineers: track the Anthropic model release blog and check model IDs quarterly to avoid running on deprecated models.
 
+</details>
+
 ---
 
 **Q8: How do context window size and model tier interact for cost and quality?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 All current Claude models support 200k tokens, but using a large context has cost and quality implications:
 
@@ -161,9 +199,14 @@ For high-context use cases (analyzing 200-page documents), Opus becomes prohibit
 
 **Prompt caching**: Anthropic's prompt caching feature reduces costs for repeated long context by ~90%. For use cases with large fixed system prompts (documentation, rules), caching is essential regardless of model tier.
 
+</details>
+
 ---
 
 **Q9: What is the tradeoff between using Haiku with a more complex prompt vs Sonnet with a simpler prompt?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 This is a real cost optimization question. A more complex prompt (more tokens) on Haiku costs more in input tokens but less on the output side. Sonnet with a minimal prompt is cheaper per token but is billed at a higher rate.
 
@@ -185,6 +228,8 @@ But quality matters too: Haiku + complex prompt may still produce worse output t
 3. If Haiku can't be made to work with prompting: use Sonnet
 
 The key insight: adding few-shot examples, explicit instructions, or step-by-step guidance to a Haiku prompt can dramatically improve quality — sometimes enough to match Sonnet on specific, well-defined tasks.
+
+</details>
 
 ---
 

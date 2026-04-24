@@ -130,6 +130,15 @@ None of these are certainties — they're probabilities.
 Apply what you just learned → **[B1: Data & Probability Explorer](../../20_Projects/00_Beginner_Projects/01_Data_and_Probability_Explorer/Project_Guide.md)**
 > This project uses: sample space, P(A|B), AND/OR rules, conditional probability on a real dataset
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q1 · probability-basics](../../ai_practice_questions_100.md#q1--normal--probability-basics)
+- 📝 [Q2 · bayes-theorem](../../ai_practice_questions_100.md#q2--normal--bayes-theorem)
+
+
 ---
 
 ## 📂 Navigation

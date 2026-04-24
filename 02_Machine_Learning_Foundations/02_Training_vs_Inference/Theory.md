@@ -90,6 +90,14 @@ When you use ChatGPT, you're hitting **inference**. OpenAI trained that model mo
 
 ➡️ **Next step:** What does the model actually learn from? → `03_Supervised_Learning/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q5 · training-vs-inference](../../ai_practice_questions_100.md#q5--normal--training-vs-inference)
+
+
 ---
 
 ## 📂 Navigation

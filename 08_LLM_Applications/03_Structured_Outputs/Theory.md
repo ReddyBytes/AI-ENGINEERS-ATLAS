@@ -159,6 +159,14 @@ For production: set `temperature=0`, add retry logic, and use Pydantic for autom
 Apply what you just learned → **[B5: Intelligent Document Analyzer](../../20_Projects/00_Beginner_Projects/05_Intelligent_Document_Analyzer/Project_Guide.md)**
 > This project uses: extracting entities as structured JSON using Pydantic models, validating LLM output schema
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q49 · structured-outputs](../../ai_practice_questions_100.md#q49--critical--structured-outputs)
+
+
 ---
 
 ## 📂 Navigation

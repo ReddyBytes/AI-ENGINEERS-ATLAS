@@ -205,6 +205,14 @@ Apply what you just learned:
 - → **[A2: LangGraph Support Bot](../../20_Projects/02_Advanced_Projects/02_LangGraph_Support_Bot/Project_Guide.md)** — TypedDict state with messages, intent, and response fields
 - → **[A4: Multi-Agent Research System](../../20_Projects/02_Advanced_Projects/04_Multi_Agent_Research_System/Project_Guide.md)** — shared state across supervisor and multiple worker agents
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q80 · langgraph-state](../../ai_practice_questions_100.md#q80--thinking--langgraph-state)
+
+
 ---
 
 ## 📂 Navigation

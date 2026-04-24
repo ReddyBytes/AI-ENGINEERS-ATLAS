@@ -142,6 +142,14 @@ Read the Comparison.md in this folder for the full side-by-side table covering t
 ➡️ **Next step:**
 You've completed Section 16. Consider exploring `09_RAG_Systems/` for a different paradigm of AI application, or `10_AI_Agents/` to see how generative models fit into autonomous AI pipelines.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q85 · diffusion-vs-gans](../../ai_practice_questions_100.md#q85--interview--diffusion-vs-gans)
+
+
 ---
 
 ## 📂 Navigation

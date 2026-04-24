@@ -102,6 +102,14 @@ Apply what you just learned:
 - → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)** — build the full RAG pipeline over your own documents
 - → **[A1: Advanced RAG with Reranking](../../20_Projects/02_Advanced_Projects/01_Advanced_RAG_with_Reranking/Project_Guide.md)** — extend with HyDE, hybrid search, cross-encoder reranking
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q55 · rag-fundamentals](../../ai_practice_questions_100.md#q55--normal--rag-fundamentals)
+
+
 ---
 
 ## 📂 Navigation

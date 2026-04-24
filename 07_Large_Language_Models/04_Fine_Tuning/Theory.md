@@ -144,6 +144,14 @@ If you need consistent behavior at scale, low latency, or your context window ca
 Apply what you just learned → **[I4: Custom LoRA Fine-Tuning](../../20_Projects/01_Intermediate_Projects/04_Custom_LoRA_Fine_Tuning/Project_Guide.md)**
 > This project uses: fine-tuning a small LLM with LoRA on a custom dataset — seeing exactly when/why to fine-tune vs prompt
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q41 · fine-tuning](../../ai_practice_questions_100.md#q41--design--fine-tuning)
+
+
 ---
 
 ## 📂 Navigation

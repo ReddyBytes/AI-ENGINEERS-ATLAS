@@ -118,6 +118,14 @@ MemGPT is an architecture where the LLM manages its own memory with tools to wri
 
 ➡️ **Next step:** Streaming Responses → `08_LLM_Applications/08_Streaming_Responses/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q53 · memory-systems](../../ai_practice_questions_100.md#q53--design--memory-systems)
+
+
 ---
 
 ## 📂 Navigation

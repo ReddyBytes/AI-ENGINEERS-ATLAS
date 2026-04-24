@@ -4,11 +4,19 @@
 
 **Q1. What is text preprocessing and why is it needed?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Text preprocessing is the set of steps you apply to raw text to clean and standardize it before feeding it to a model. Raw text is messy — it has inconsistent capitalization, punctuation, irrelevant words, and varied forms of the same word. Models learn better from clean, consistent input. Without preprocessing, the same word appearing as "Run", "run", and "running" looks like three different things.
+
+</details>
 
 ---
 
 **Q2. What is the difference between stemming and lemmatization?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Both reduce words to a base form, but they work differently.
 
@@ -18,13 +26,20 @@ Lemmatization uses a dictionary and understands grammar. It returns real base fo
 
 Use stemming when speed matters and accuracy is secondary. Use lemmatization for anything where precision counts.
 
+</details>
+
 ---
 
 **Q3. What are stopwords? Should you always remove them?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Stopwords are very common words that appear in almost every sentence and carry little meaning on their own: "the", "a", "is", "of", "and". Removing them reduces noise and shrinks vocabulary size.
 
 But you should not always remove them. For machine translation or summarization, word order and grammar matter — stopwords are part of that structure. For sentiment analysis, "not" is technically a stopword but is critical for meaning ("not good" vs "good"). Always think about whether a word matters for your specific task.
+
+</details>
 
 ---
 
@@ -32,13 +47,21 @@ But you should not always remove them. For machine translation or summarization,
 
 **Q4. How does preprocessing affect model performance in classification tasks?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Preprocessing directly affects what vocabulary the model sees and how consistently it appears. Good preprocessing can improve accuracy by reducing noise and making training patterns clearer. Poor preprocessing can hurt performance — for example, removing stopwords in a task where word order matters, or applying stemming that destroys meaningful distinctions between words.
 
 A common pitfall is data leakage: applying preprocessing differently to training vs test data. The same pipeline must be applied consistently to both.
 
+</details>
+
 ---
 
 **Q5. How would you build a preprocessing pipeline for a production NLP system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A production pipeline should be modular, consistent, and reproducible. Key design choices:
 
@@ -50,13 +73,20 @@ A production pipeline should be modular, consistent, and reproducible. Key desig
 
 Using sklearn's `Pipeline` class or spaCy's processing pipeline makes this clean and testable.
 
+</details>
+
 ---
 
 **Q6. What preprocessing steps would you skip for a neural network vs a traditional ML model?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Traditional ML models (like Naive Bayes or SVM with TF-IDF) benefit from aggressive preprocessing: remove stopwords, stem/lemmatize, lowercase. They work on hand-crafted features.
 
 Neural networks — especially pretrained transformers like BERT — often do their own internal tokenization and have learned to handle casing and punctuation. For BERT, you typically just use the model's built-in tokenizer with minimal manual preprocessing. Stripping too much can actually hurt performance because the model was pretrained on relatively raw text.
+
+</details>
 
 ---
 
@@ -64,13 +94,21 @@ Neural networks — especially pretrained transformers like BERT — often do th
 
 **Q7. How does preprocessing interact with out-of-vocabulary (OOV) issues?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 OOV words are words in test data that the model never saw during training. Aggressive preprocessing like stemming can reduce OOV by collapsing word variants to a common root — "running", "ran", "runs" all become "run", which is likely in the vocabulary. However, stemming can also create non-words that aren't in any vocabulary. Lemmatization is better for OOV reduction because it maps to real dictionary words.
 
 In subword tokenization (used by BERT, GPT), OOV is largely solved by splitting unknown words into known subword pieces. Preprocessing is less critical there.
 
+</details>
+
 ---
 
 **Q8. What are the trade-offs of removing punctuation from text?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Removing punctuation reduces vocabulary size and noise for bag-of-words models. But it can destroy information in certain tasks:
 
@@ -81,9 +119,14 @@ Removing punctuation reduces vocabulary size and noise for bag-of-words models. 
 
 For most classification tasks on general text, removing punctuation helps. For fine-grained sentiment or dialogue understanding, preserve it or encode it separately.
 
+</details>
+
 ---
 
 **Q9. How would you handle preprocessing for a multilingual NLP system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Multilingual preprocessing is harder because rules differ across languages. Key challenges:
 
@@ -93,6 +136,8 @@ Multilingual preprocessing is harder because rules differ across languages. Key 
 - Encoding: always use UTF-8 consistently
 
 Solutions include using language-detection libraries first, then routing to language-specific preprocessing pipelines. For neural models, multilingual tokenizers like the one in mBERT or XLM-R handle much of this automatically using subword tokenization across 100+ languages.
+
+</details>
 
 ---
 

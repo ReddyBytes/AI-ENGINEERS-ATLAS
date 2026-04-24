@@ -4,19 +4,32 @@
 
 **Q1: What is Gymnasium (formerly OpenAI Gym) and why is it important?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Gymnasium is a Python library that provides a standardized interface for RL environments. Every environment exposes the same API: `reset()` returns an initial observation, `step(action)` takes one action and returns (observation, reward, terminated, truncated, info). This means any RL algorithm written for Gymnasium works with any Gymnasium environment — CartPole, LunarLander, Atari games, MuJoCo robots. It's the "MNIST for RL" — the common ground that makes research reproducible and code reusable.
+
+</details>
 
 ---
 
 **Q2: What is reward shaping and why is it needed?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Reward shaping is the practice of supplementing the original environment reward with additional reward signals to help the agent learn faster. It's needed because many real tasks have **sparse rewards** — the agent only gets feedback at the end of a long sequence of actions (like receiving +1 only when winning a chess game after 40 moves). With sparse rewards, the agent wanders randomly for thousands of episodes without any learning signal.
 
 Shaping adds informative intermediate signals (like "you're getting closer to the goal") that guide learning without changing what the optimal behavior ultimately is.
 
+</details>
+
 ---
 
 **Q3: What is stable-baselines3 and when should you use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: stable-baselines3 (SB3) is a Python library with clean, reliable implementations of major RL algorithms: PPO, DQN, SAC, A2C, TD3. Use it when:
 - You want to apply RL to a problem without implementing algorithms from scratch.
@@ -25,11 +38,16 @@ A: stable-baselines3 (SB3) is a Python library with clean, reliable implementati
 
 Don't use SB3 when you need to modify the algorithm internals deeply (e.g., for research), or when you need extreme performance at scale (use Ray RLlib instead).
 
+</details>
+
 ---
 
 ## Intermediate Level
 
 **Q4: What is reward hacking and how do you prevent it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Reward hacking (also called specification gaming) occurs when the agent finds an unintended strategy that maximizes the reward function without achieving the intended goal. Classic examples:
 - A boat racing agent scores points by spinning in circles collecting bonuses instead of finishing the race.
@@ -43,17 +61,27 @@ Prevention strategies:
 4. **Human oversight** — spot-check agent behavior regularly.
 5. **Goodhart's Law awareness** — "When a measure becomes a target, it ceases to be a good measure."
 
+</details>
+
 ---
 
 **Q5: Why is running multiple random seeds important in RL experiments?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: RL training is extremely sensitive to random initialization. The same algorithm with the same hyperparameters but a different random seed can produce dramatically different results — sometimes converging to the optimal policy, sometimes getting stuck in a suboptimal one. This variance is inherent to the exploration/exploitation trade-off and the non-convex nature of policy optimization.
 
 Running a single seed and reporting those results is not scientifically valid. Best practice: run 3–10 seeds, report mean ± std (or mean ± std error), and plot the full distribution. Many RL papers in the early 2010s were later found to report cherry-picked seeds, which inflated apparent performance.
 
+</details>
+
 ---
 
 **Q6: What is the exploration-exploitation trade-off in practice, and what techniques address it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: In practice, the trade-off manifests as: explore enough to find good strategies, but exploit what you've learned to actually improve performance. Too much exploration → slow learning (you keep trying bad actions). Too little → premature convergence (you lock in a mediocre policy before finding better ones).
 
@@ -64,11 +92,16 @@ Practical techniques:
 - **Noisy networks**: add learned noise to network weights rather than epsilon-greedy.
 - **Optimistic initialization**: initialize Q-values high to encourage trying everything.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: When is RL NOT the right approach?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: RL is often the wrong tool. Better alternatives:
 
@@ -79,9 +112,14 @@ A: RL is often the wrong tool. Better alternatives:
 
 RL is justified when: (1) the environment is too complex to specify rules, (2) no labeled data exists, (3) you have a simulator, and (4) sequential decisions with delayed rewards are core to the problem.
 
+</details>
+
 ---
 
 **Q8: What is curriculum learning in RL and when is it used?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Curriculum learning starts the agent on simple versions of a task and gradually increases difficulty as the agent improves. This is analogous to how humans learn — you learn addition before multiplication.
 
@@ -94,9 +132,14 @@ Examples:
 
 Implementation: adjust environment difficulty based on the agent's performance metric. If the agent is doing well, increase difficulty; if struggling, decrease it.
 
+</details>
+
 ---
 
 **Q9: What is the sim-to-real gap and how is it addressed?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: The sim-to-real gap is the performance degradation when a policy trained in simulation is deployed on real hardware. Simulation is imperfect — friction, motor dynamics, sensor noise, and visual appearance all differ from reality.
 
@@ -107,6 +150,8 @@ Techniques to bridge the gap:
 4. **Sim-to-real transfer benchmarks**: track how well policies transfer across multiple environments.
 
 AlphaGo has no sim-to-real gap (it's all digital). Robot locomotion is the hardest sim-to-real challenge.
+
+</details>
 
 ---
 

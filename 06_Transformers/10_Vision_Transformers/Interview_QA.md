@@ -4,6 +4,9 @@
 
 **Q1. What is a Vision Transformer (ViT) and how does it process images?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 ViT (Dosovitskiy et al., 2020) applies the standard transformer encoder architecture to images by treating image patches as tokens.
 
 Process:
@@ -16,9 +19,14 @@ Process:
 
 Every patch can attend to every other patch through self-attention, enabling global context modeling from the very first layer.
 
+</details>
+
 ---
 
 **Q2. How is processing image patches different from processing words?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Words are discrete symbols from a finite vocabulary. You look them up in an embedding table.
 
@@ -26,9 +34,14 @@ Image patches are continuous data — 16×16×3 = 768 pixel values. There's no l
 
 The key similarity: both result in a sequence of vectors that the transformer processes. The transformer doesn't need to know whether the tokens came from text or images — it just does attention between vectors.
 
+</details>
+
 ---
 
 **Q3. Why does ViT need positional encoding for images?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Self-attention is permutation-invariant — it doesn't care about the order of the input tokens. Without positional information, patch 1 (top-left corner) would look the same as patch 196 (bottom-right corner) to the model.
 
@@ -36,11 +49,16 @@ For images, position is crucial for understanding structure — the relationship
 
 ViT adds learned 1D positional embeddings to each patch position. Research shows the model learns that nearby patches have similar positions (spatially adjacent positions cluster in the embedding space).
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4. What are the main differences between ViT and CNNs in terms of inductive biases?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 CNNs have strong inductive biases baked into their architecture:
 - **Locality:** Each filter looks at a small local region. This assumes nearby pixels are more related than distant ones.
@@ -52,9 +70,14 @@ ViT has essentially no inductive biases. Every patch attends to every other patc
 
 Consequence: ViT needs much more data or pretraining to match CNN performance on small datasets. But at large scale (pretraining on millions of images), ViT matches or exceeds CNNs because global attention is more flexible.
 
+</details>
+
 ---
 
 **Q5. What is CLIP and how does it relate to ViT?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 CLIP (Contrastive Language-Image Pretraining, OpenAI 2021) trains two encoders jointly:
 - An image encoder (often ViT)
@@ -71,9 +94,14 @@ Applications:
 
 CLIP essentially gave ViT its "language" — the ability to connect visual concepts to linguistic descriptions.
 
+</details>
+
 ---
 
 **Q6. How is patch size related to model performance and computational cost?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Patch size controls the sequence length:
 
@@ -93,11 +121,16 @@ Trade-offs:
 
 For tasks requiring fine-grained detail (medical imaging, text recognition in images), smaller patches help. For scene classification, larger patches often suffice.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. How do multimodal models like GPT-4V combine ViT and language models?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 At a high level: encode the image with a ViT, encode the text with the LLM's tokenizer, merge both into a single sequence, and process through the LLM.
 
@@ -111,9 +144,14 @@ Common approaches:
 
 The key challenge: aligning the feature spaces. A ViT trained on image classification has a different representation space than an LLM trained on text. The projection layer (or fine-tuning) bridges this gap.
 
+</details>
+
 ---
 
 **Q8. What are the key weaknesses of ViT compared to CNNs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 1. **Data hunger:** ViT without pretraining underperforms CNNs on datasets with fewer than ~1M images. CNNs' inductive biases give them a head start on small datasets.
 
@@ -123,9 +161,14 @@ The key challenge: aligning the feature spaces. A ViT trained on image classific
 
 4. **Positional embedding limitations:** ViT's 1D positional embeddings don't naturally encode 2D spatial structure. Images are 2D grids, not 1D sequences. Models like Swin Transformer use relative 2D attention biases to handle this better.
 
+</details>
+
 ---
 
 **Q9. What is the Swin Transformer and how does it address ViT's limitations?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Swin (Shifted Window Transformer, Liu et al., 2021) is a hierarchical vision transformer that addresses ViT's quadratic scaling and patch boundary issues.
 
@@ -148,3 +191,5 @@ Impact: Swin became the dominant backbone for vision tasks requiring dense predi
 | 📄 **Interview_QA.md** | ← you are here |
 
 ⬅️ **Prev:** [09 GPT](../09_GPT/Theory.md) &nbsp;&nbsp;&nbsp; ➡️ **Next:** [01 LLM Fundamentals](../../07_Large_Language_Models/01_LLM_Fundamentals/Theory.md)
+
+</details>

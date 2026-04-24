@@ -4,6 +4,9 @@
 
 **Q1. What is Bag of Words and what are its main limitations?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Bag of Words represents a document as a vector of word counts. Each word in the vocabulary gets a column, and each document gets a row showing how many times each word appears.
 
 Main limitations:
@@ -13,9 +16,14 @@ Main limitations:
 - Common words dominate: "the" and "is" get huge counts even though they're meaningless
 - High dimensionality: with a large vocabulary, each vector has thousands of mostly-zero values
 
+</details>
+
 ---
 
 **Q2. What is TF-IDF and how does it improve on BoW?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 TF-IDF (Term Frequency — Inverse Document Frequency) is a smarter weighting scheme. Instead of just counting words, it weights each word by how distinctive it is for a specific document.
 
@@ -25,17 +33,27 @@ TF-IDF (Term Frequency — Inverse Document Frequency) is a smarter weighting sc
 
 A word that appears often in one document but rarely in others gets a high score — it's a distinctive signal. A word like "the" that appears everywhere gets an IDF near zero, so its TF-IDF score stays low even if it appears many times.
 
+</details>
+
 ---
 
 **Q3. If "the" appears 50 times in a 100-word document, will it have a high TF-IDF score?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 No. TF would be 0.5 (high), but IDF would be very close to zero because "the" appears in virtually every document. TF × IDF ≈ 0.5 × 0 ≈ 0. The IDF component wipes out the high TF. That's exactly what TF-IDF is designed to do — suppress common, uninformative words without you needing to manually list them as stopwords.
+
+</details>
 
 ---
 
 ## Intermediate
 
 **Q4. How would you use TF-IDF for a text classification task like spam detection?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 1. Collect labeled data: spam and non-spam emails
 2. Preprocess: lowercase, remove punctuation, optionally remove stopwords
@@ -47,9 +65,14 @@ No. TF would be 0.5 (high), but IDF would be very close to zero because "the" ap
 
 The TF-IDF features capture words like "free", "win", "prize", "click" as high-scoring signals in spam, making them easy for the classifier to learn.
 
+</details>
+
 ---
 
 **Q5. What are n-grams and why are they useful with BoW/TF-IDF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 N-grams are sequences of n consecutive words treated as one token.
 
@@ -59,9 +82,14 @@ N-grams are sequences of n consecutive words treated as one token.
 
 BoW and TF-IDF lose word order. Adding bigrams partially restores it. "Not good" as a bigram is very different from "not" and "good" as separate unigrams. In sklearn: `TfidfVectorizer(ngram_range=(1, 2))` includes both unigrams and bigrams.
 
+</details>
+
 ---
 
 **Q6. How does TF-IDF perform compared to word embeddings for NLP tasks?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 For traditional ML tasks on clean, mid-sized text datasets, TF-IDF + Logistic Regression is surprisingly competitive. It's fast, interpretable, and requires no GPU.
 
@@ -72,11 +100,16 @@ However, TF-IDF falls short when:
 
 Word embeddings and transformers dominate all of these cases. TF-IDF is still useful as a baseline and in resource-constrained environments.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. How would you handle a high-dimensional sparse TF-IDF matrix efficiently in production?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A corpus of 100k documents with a 50k-word vocabulary creates a 100k × 50k matrix — 5 billion cells. Storing this as a dense matrix is impossible.
 
@@ -87,9 +120,14 @@ Key approaches:
 - Dimensionality reduction: apply Truncated SVD (LSA) to reduce to 100-300 dense dimensions
 - For very large corpora, use hashing trick (`HashingVectorizer`) — no vocabulary stored in memory
 
+</details>
+
 ---
 
 **Q8. Explain Latent Semantic Analysis (LSA) and how it relates to TF-IDF.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 LSA takes a TF-IDF matrix and applies Truncated SVD (a matrix decomposition) to reduce it to a lower-dimensional dense representation.
 
@@ -97,9 +135,14 @@ Why? TF-IDF vectors are sparse and don't capture synonymy. "Car" and "automobile
 
 LSA is essentially a precursor to word embeddings. It's less powerful (linear transformation only) but can work well on smaller datasets and is fully interpretable.
 
+</details>
+
 ---
 
 **Q9. When should you choose TF-IDF over a transformer like BERT for a production system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Choose TF-IDF when:
 - Latency is critical and you need sub-millisecond inference
@@ -114,6 +157,8 @@ Choose BERT/transformers when:
 - Context and meaning matter (disambiguation, NER, QA)
 - You have enough labeled data to fine-tune
 - The task involves complex language understanding
+
+</details>
 
 ---
 

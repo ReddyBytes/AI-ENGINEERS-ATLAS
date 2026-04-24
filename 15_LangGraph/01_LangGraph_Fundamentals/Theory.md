@@ -201,6 +201,14 @@ The mental model: a **state machine** where each state contains all workflow dat
 Apply what you just learned → **[A2: LangGraph Support Bot](../../20_Projects/02_Advanced_Projects/02_LangGraph_Support_Bot/Project_Guide.md)**
 > This project uses: StateGraph, TypedDict state, nodes as Python functions, compile() and invoke()
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q79 · langgraph-fundamentals](../../ai_practice_questions_100.md#q79--normal--langgraph-fundamentals)
+
+
 ---
 
 ## 📂 Navigation

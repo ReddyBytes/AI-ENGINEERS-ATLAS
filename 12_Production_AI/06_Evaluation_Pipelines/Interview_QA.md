@@ -4,15 +4,23 @@
 
 **Q1: What is the difference between offline and online evaluation for AI systems?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** **Offline evaluation** happens before deployment. You run the model on a fixed curated test set of (input, expected_output) pairs and measure quality metrics. It's like running unit tests in software development — you do it before shipping. Offline eval catches regressions and validates that a new model/prompt version is at least as good as the current one. Fast, controlled, repeatable.
 
 **Online evaluation** happens in production on live traffic. You can't control the inputs (real users send anything), you often don't have ground truth expected outputs, and you can't block a request to wait for an eval. Instead, you sample a fraction of live requests, evaluate them asynchronously (using LLM judge or human review), and track quality metrics over time. Online eval detects distribution drift (when users start asking different questions), catches edge cases your test set missed, and gives you ground truth about real-world quality.
 
 Both are necessary. Offline eval is your safety gate before deployment. Online eval is your smoke detector in production.
 
+</details>
+
 ---
 
 **Q2: What is LLM-as-judge and what are its limitations?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** LLM-as-judge means using a powerful language model (e.g., GPT-4 or Claude Opus) to automatically evaluate the quality of responses from another model. You give the judge a rubric (accuracy, helpfulness, clarity, safety), the original question, and the response to evaluate. The judge returns a score and reasoning.
 
@@ -25,9 +33,14 @@ Limitations:
 4. **Not reliable for safety**: An LLM judge can miss subtle harmful content. For safety evaluation, use specialized safety classifiers.
 5. **Cost**: Running GPT-4 on every response for evaluation adds significant cost. Sample strategically (1-5% of production traffic, full eval set pre-deployment).
 
+</details>
+
 ---
 
 **Q3: What metrics would you use to evaluate a RAG (Retrieval Augmented Generation) system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** RAG systems have two stages — retrieval and generation — each requiring different metrics.
 
@@ -44,11 +57,16 @@ Limitations:
 
 The **RAGAS** library (ragas.io) implements all of these metrics and uses LLM calls to compute them automatically. It's the standard evaluation framework for RAG systems.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How would you build a CI/CD-integrated evaluation pipeline that blocks bad model updates?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The goal is to make evaluation as automatic as running unit tests.
 
@@ -70,9 +88,14 @@ The **RAGAS** library (ragas.io) implements all of these metrics and uses LLM ca
 
 6. **Fast eval subset**: Full eval might take 5 minutes. Keep a "fast eval" subset (20-30 most important test cases) that runs in 30 seconds for quick developer feedback. Run full eval nightly or on merge to main.
 
+</details>
+
 ---
 
 **Q5: How do you evaluate open-ended creative or conversational AI responses where there's no single correct answer?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** When there's no ground truth, you need evaluation criteria that don't require a reference answer. Several approaches:
 
@@ -96,9 +119,14 @@ Instead of absolute scoring, compare two model outputs side by side. "Which resp
 **User signals as proxy:**
 Ultimately the ground truth for "is this creative response good?" is whether users like it. Track regeneration rate (did they hit "try again"?), session length, and explicit ratings.
 
+</details>
+
 ---
 
 **Q6: What is regression testing for AI models, and how is it different from regression testing in traditional software?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** In traditional software, regression testing checks that new code doesn't break existing functionality. A regression is when a previously passing test now fails — a clear binary outcome.
 
@@ -121,11 +149,16 @@ In AI, regression testing is similar in intent but harder because model outputs 
 - Keep failing examples from past regressions permanently in your test set
 - Run regression tests on every meaningful change: prompts, model version, chunking, retrieval strategy
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: Design a comprehensive evaluation framework for a multi-step AI agent that uses tools (web search, code execution, database queries).**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Evaluating agents is significantly harder than evaluating single-turn models because the quality of the final answer depends on a chain of decisions.
 
@@ -173,9 +206,14 @@ def evaluate_agent_run(trace: AgentTrace, ground_truth: str) -> AgentEvalResult:
 
 **Key challenge**: Agent evaluation requires tracing every decision step, not just the final answer. Use LLM-specific tracing (Langfuse, Phoenix) that can capture multi-step traces.
 
+</details>
+
 ---
 
 **Q8: How do you detect and handle distribution shift in production AI systems, and how does this relate to evaluation?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Distribution shift means the inputs your model receives in production differ from what it was trained or tuned on. This causes quality degradation that your offline eval doesn't detect (because it uses a fixed test set).
 
@@ -197,6 +235,8 @@ def evaluate_agent_run(trace: AgentTrace, ground_truth: str) -> AgentEvalResult:
 3. **Long-term**: Fine-tune or adjust the prompt on the new query distribution
 
 The evaluation pipeline and distribution monitoring are tightly linked — your test set must evolve to represent the current production distribution, not just the original launch distribution.
+
+</details>
 
 ---
 

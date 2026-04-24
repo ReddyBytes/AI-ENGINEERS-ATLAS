@@ -106,6 +106,14 @@ flowchart TD
 Apply what you just learned → **[A5: Fine-Tune → Evaluate → Deploy](../../20_Projects/02_Advanced_Projects/05_Fine_Tune_Evaluate_Deploy/Project_Guide.md)**
 > This project uses: quantizing a fine-tuned model to 4-bit (INT4), measuring latency before/after, serving with optimized batch size
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q73 · latency-optimization](../../ai_practice_questions_100.md#q73--design--latency-optimization)
+
+
 ---
 
 ## 📂 Navigation

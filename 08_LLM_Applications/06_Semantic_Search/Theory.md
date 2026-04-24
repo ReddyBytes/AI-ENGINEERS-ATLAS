@@ -111,6 +111,14 @@ This two-stage pipeline gives speed (vector search) AND accuracy (re-ranking) �
 Apply what you just learned → **[I1: Semantic Search Engine](../../20_Projects/01_Intermediate_Projects/01_Semantic_Search_Engine/Project_Guide.md)**
 > This project uses: embedding queries and documents, cosine similarity ranking, returning top-K results
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q52 · semantic-search](../../ai_practice_questions_100.md#q52--critical--semantic-search)
+
+
 ---
 
 ## 📂 Navigation

@@ -104,6 +104,14 @@ Gated Recurrent Units (GRU) use two gates (reset and update) instead of three. F
 
 ➡️ **Next step:** GANs — `./11_GANs/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q24 · rnns-lstm](../../ai_practice_questions_100.md#q24--normal--rnns-lstm)
+
+
 ---
 
 ## 📂 Navigation

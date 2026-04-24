@@ -4,15 +4,23 @@
 
 **Q1: What does the retrieval pipeline do in a RAG system?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 The retrieval pipeline takes the user's question, converts it into a vector using the same embedding model that was used to index the documents, then searches the vector database for the chunks most semantically similar to that question.
 
 The output is a ranked list of the top-K chunks with their text, metadata, and similarity scores. These chunks are then passed to the LLM as context to generate the answer.
 
 The critical detail: you must use the same embedding model for both indexing and retrieval. The model defines the vector space. If you index with model A and query with model B, you're comparing vectors from two incompatible spaces and retrieval will completely break.
 
+</details>
+
 ---
 
 **Q2: What is cosine similarity and why do we use it for retrieval?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Cosine similarity measures how similar two vectors are based on the angle between them, not their length. It returns a value between -1 and 1, where 1 means identical direction (same meaning) and 0 means unrelated.
 
@@ -20,9 +28,14 @@ We use it for text retrieval because embedding models are trained to place seman
 
 ChromaDB actually returns cosine distance (0 = identical, 2 = opposite), which you convert to similarity with `1 - distance`.
 
+</details>
+
 ---
 
 **Q3: What does top-K mean in retrieval, and how do you choose K?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Top-K means the K most similar chunks to the query are returned. K is a hyperparameter — you pick the value.
 
@@ -32,11 +45,16 @@ Typical starting point: K=3. The reasoning:
 
 How to tune K: run your test questions with K=3, K=5, and K=7. Measure answer quality. If answers are consistently missing information, increase K. If answers are vague or mixing up details from unrelated chunks, decrease K.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is metadata filtering and how does it interact with vector search?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Metadata filtering adds exact-match constraints to the vector search. Instead of searching all stored vectors, you first filter to only the documents matching your criteria, then do the similarity search within that subset.
 
@@ -49,9 +67,14 @@ This is essential for:
 
 ChromaDB supports: `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`, `$in`, `$nin`, `$and`, `$or` in the `where` clause.
 
+</details>
+
 ---
 
 **Q5: How do similarity scores help detect out-of-scope queries?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Every retrieved chunk comes with a similarity score (0–1). If the user asks about something not in your knowledge base, the best matching chunks will have low scores — say 0.3–0.4 — because even the "closest" document isn't really related.
 
@@ -66,9 +89,14 @@ This is much better than passing low-quality chunks to the LLM and letting it ha
 
 Rule of thumb: >0.7 = strong match, 0.5–0.7 = okay, <0.5 = likely out of scope. These thresholds depend on your embedding model and data; calibrate on your own examples.
 
+</details>
+
 ---
 
 **Q6: What are the main causes of retrieval failure, and how do you fix each one?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Three common failure modes:
 
@@ -80,11 +108,16 @@ Three common failure modes:
 
 The best diagnostic tool: log the retrieved chunks and their scores for every query that gives a wrong answer. The failure mode is immediately visible.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: Explain how ANN (Approximate Nearest Neighbor) search works in a vector database.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Exact nearest neighbor search requires comparing the query vector to every stored vector — O(n) comparisons. For a database with 10 million vectors of 384 dimensions, that's 3.84 billion floating-point operations per query. Too slow.
 
@@ -97,9 +130,14 @@ ANN trades a small amount of accuracy for a massive speed improvement. Most vect
 
 The "approximate" means occasionally the true nearest neighbor is missed, but the error rate is typically <1% with default settings.
 
+</details>
+
 ---
 
 **Q8: How would you build a retrieval pipeline that gracefully handles queries in multiple languages?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The core problem: if your index was built with an English embedding model, non-English queries will produce vectors in a different region of the space — retrieval will fail even if a translated version of the answer exists.
 
@@ -113,9 +151,14 @@ Solution options:
 
 For most production cases: multilingual model is the right answer unless you have specific accuracy requirements that justify the complexity of routing.
 
+</details>
+
 ---
 
 **Q9: How do you evaluate retrieval quality separately from generation quality in a RAG system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Retrieval quality and generation quality are separate and must be measured separately. A system can have great retrieval but poor generation (the right chunks were found but the LLM summarized them badly), or good generation but poor retrieval (the LLM sounds confident but answered from the wrong chunks).
 
@@ -137,6 +180,8 @@ def mrr(retrieved_ids, expected_id):
 ```
 
 Target benchmarks: hit rate @3 > 0.85 is good for most RAG applications. If you're below 0.7, fix retrieval before touching generation — generation quality is bounded by retrieval quality.
+
+</details>
 
 ---
 

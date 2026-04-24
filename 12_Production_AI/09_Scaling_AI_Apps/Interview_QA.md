@@ -4,6 +4,9 @@
 
 **Q1: What is the difference between horizontal and vertical scaling for AI inference?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** **Vertical scaling** means upgrading the individual machine: swap a T4 GPU for an A100, or add more RAM. It's simple — no architecture changes required — but it has a ceiling (there's no bigger machine than the biggest available GPU) and creates a single point of failure.
 
 **Horizontal scaling** means adding more machines: instead of one inference server, you run three behind a load balancer. Traffic is distributed across all three. Benefits: near-linear throughput increase (3 servers ≈ 3x capacity), fault tolerance (if one server fails, the other two continue), and no single hardware ceiling. Downside: requires a load balancer and more complex infrastructure.
@@ -12,9 +15,14 @@ For AI specifically, vertical scaling matters because some models need a minimum
 
 The practical approach: vertical scale to fit your model, then horizontal scale for traffic. Never try to handle 100x traffic with just a bigger GPU.
 
+</details>
+
 ---
 
 **Q2: Why is request queuing important for AI systems, and how does it protect against traffic spikes?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Without a queue, traffic spikes hit your inference servers directly. Inference servers have a fixed capacity — if you suddenly receive 10x normal traffic, each request waits in the server's internal queue, processing time increases, timeouts start happening, and the server may crash.
 
@@ -28,9 +36,14 @@ This provides **backpressure**: when the queue is full, you can return a "too bu
 
 For AI specifically, this matters because inference is slow (100ms-5s per request). Synchronous serving under heavy load immediately cascades into timeouts. Any LLM application expecting variable or growing traffic should use queue-based processing for requests that take more than ~500ms.
 
+</details>
+
 ---
 
 **Q3: What is a cold start in the context of AI serving and how do you mitigate it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** A **cold start** happens when a new inference server instance spins up and needs to load the model into GPU memory before it can serve requests. This takes 30-90 seconds for large models (loading billions of parameters from disk to VRAM).
 
@@ -48,11 +61,16 @@ This creates a problem with auto-scaling: if traffic suddenly spikes and you aut
 
 5. **Serverless warm pools** (AWS Lambda Provisioned Concurrency, etc.): Keep N instances perpetually warm.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How would you design a multi-model routing architecture that balances cost and quality?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Multi-model routing (also called "cascade" or "tiered" serving) routes each request to the appropriate model tier based on estimated complexity.
 
@@ -80,9 +98,14 @@ With routing:    70% → GPT-4o-mini at $0.00046/request
 
 **Monitoring requirements:** Track quality metrics per tier. If Tier 1 quality drops, adjust routing threshold upward (send more to Tier 2). Quality and cost metrics must be tracked together.
 
+</details>
+
 ---
 
 **Q5: What is the circuit breaker pattern and how does it apply to AI systems?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The circuit breaker pattern prevents cascading failures when a dependency becomes slow or unavailable. It's named after an electrical circuit breaker that cuts power when there's a fault, preventing damage.
 
@@ -114,9 +137,14 @@ def call_llm_api(prompt):
 
 3. **Cascading failure prevention**: In a multi-step AI pipeline (retrieve → rerank → generate), if the reranker becomes slow, the circuit breaker ensures the generation step doesn't pile up waiting — it either skips reranking or uses a faster fallback.
 
+</details>
+
 ---
 
 **Q6: How would you implement geographic distribution for an AI application serving users globally, given that model weights are large?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Geographic distribution for AI is harder than for stateless web apps because model weights are large (7-140 GB) and must be loaded on every server in every region.
 
@@ -146,11 +174,16 @@ Only deploy large models in a few regions (hubs). For most users, route to neare
 
 **Practical guidance for most teams**: Start with a single region. Add a second region when either (a) latency from Region A is causing user friction in Region B, or (b) you have compliance requirements. Don't prematurely distribute — it adds enormous complexity.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How would you design a queue-based AI processing system that handles 10 million requests per day with variable latency requirements?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** At 10M requests/day ≈ 116 requests/second average (with peaks potentially 5-10x that), a queue-based architecture is mandatory.
 
@@ -195,9 +228,14 @@ result = await wait_for_webhook(job_id, callback_url)
 - Worker utilization
 - Expired/dead-letter jobs (jobs that failed or expired)
 
+</details>
+
 ---
 
 **Q8: How would you design a rollout strategy for a new model version in a high-traffic production AI system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Rolling out a new model version to a production system with millions of users requires careful staging. The goal: catch regressions before they affect all users, with the ability to roll back within minutes.
 
@@ -231,6 +269,8 @@ Each step: wait 24 hours, review metrics, proceed only if stable.
 - Technical: latency P50/P99, error rate, cost per request
 - Quality: LLM judge score on sampled requests, user regeneration rate
 - Business: task completion rate, session length, explicit feedback
+
+</details>
 
 ---
 

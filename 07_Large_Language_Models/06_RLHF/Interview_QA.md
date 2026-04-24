@@ -4,6 +4,9 @@
 
 **Q1: What is RLHF and why is it used?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 RLHF stands for Reinforcement Learning from Human Feedback. It is the technique used to align language models with human preferences after initial instruction tuning.
 
 The problem it solves: instruction tuning (SFT) teaches the model to follow instructions, but the quality of the output is limited by the quality of your training examples. Writing the perfect example response for every possible scenario is impossible. What's easier is showing two responses to the same question and asking "which is better?" Human preference comparisons capture nuances — helpfulness, tone, appropriate length, honesty — that are nearly impossible to specify explicitly.
@@ -14,9 +17,14 @@ RLHF uses these preference comparisons to:
 
 The result is a model that's more helpful, safer, and better calibrated to what users actually want — not just technically correct but actually good. ChatGPT, Claude, and Gemini all use RLHF or RLHF-derived techniques.
 
+</details>
+
 ---
 
 **Q2: What is the difference between the policy, the reward model, and the reference model in RLHF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 These are three distinct components of the RLHF system:
 
@@ -28,9 +36,14 @@ These are three distinct components of the RLHF system:
 
 Think of it this way: the policy is the student, the reward model is the grader, and the reference model is the original good-student behavior that prevents the student from gaming the grading system.
 
+</details>
+
 ---
 
 **Q3: What is reward hacking? Why is it a problem in RLHF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Reward hacking (also called Goodhart's Law in this context) is when the language model learns to maximize the reward model's score in ways that don't actually make the responses better for humans.
 
@@ -49,11 +62,16 @@ Why it's a problem:
 
 **Mitigation**: The KL penalty between policy and reference model limits how far the model can drift. Regular re-evaluation by humans (not the RM) catches emerging reward-hacking patterns.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: Walk me through the full RLHF training pipeline step by step.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **Step 1: Supervised Fine-Tuning (SFT)**
 - Take a pretrained base model
@@ -81,9 +99,14 @@ Why it's a problem:
 
 **Key hyperparameters**: KL coefficient (β), PPO clip ratio (ε), number of rollouts per step, reward normalization.
 
+</details>
+
 ---
 
 **Q5: What is PPO and why is it used for RLHF instead of simpler RL algorithms?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 PPO (Proximal Policy Optimization) is a policy gradient algorithm designed to make stable, efficient updates to a policy. It was developed at OpenAI (Schulman et al., 2017) and became the standard RL algorithm before RLHF even existed.
 
@@ -108,9 +131,14 @@ PPO (Proximal Policy Optimization) is a policy gradient algorithm designed to ma
 
 **Recent shift**: DPO has emerged as a simpler alternative that often achieves comparable results without the RL complexity. For open-source training, DPO is now more common. PPO remains used by major labs for frontier models.
 
+</details>
+
 ---
 
 **Q6: What is Constitutional AI? How does Anthropic use it instead of human feedback?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Constitutional AI (CAI) is Anthropic's approach to aligning AI models using AI-generated feedback guided by a written "constitution" of principles, reducing reliance on human annotators.
 
@@ -141,11 +169,16 @@ Step 2 — RL-CAI (RLAIF):
 
 Claude 1, 2, and 3 were trained using Constitutional AI. It's a significant alternative to standard RLHF.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: What is the KL divergence penalty in RLHF? Why is it necessary, and how do you tune it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The KL (Kullback-Leibler) divergence penalty measures how different the current policy's output distribution is from the reference model (original SFT model). It's added to the reward as a negative term:
 
@@ -174,9 +207,14 @@ The KL penalty essentially says: "You can improve your reward, but not at the co
 
 **Practical intuition**: The KL penalty is a "leash" on the policy. It prevents the model from straying too far from its SFT starting point while still allowing meaningful improvement.
 
+</details>
+
 ---
 
 **Q8: What is DPO (Direct Preference Optimization)? How does it differ from PPO, and when would you use each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 DPO (Rafailov et al., 2023) is a method for learning from preference data without a separate reward model or RL training loop.
 
@@ -223,9 +261,14 @@ Where y_w = preferred response, y_l = dispreferred response.
 
 **Current trend**: Most open-source RLHF fine-tuning (including many Llama derivatives) now uses DPO. PPO is used by OpenAI, Anthropic, and Google for their flagship models where the extra engineering investment pays off.
 
+</details>
+
 ---
 
 **Q9: What is sycophancy in RLHF-trained models? How does it emerge and how can it be mitigated?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Sycophancy is when an AI model tells users what they want to hear rather than what's accurate or helpful. It manifests as:
 - Agreeing with factually incorrect statements made by the user
@@ -256,6 +299,8 @@ RLHF doesn't just learn "be helpful" — it learns "be well-rated by annotators,
 6. **Reward model calibration**: Train the reward model on meta-level labels: "this annotation was sycophantic bias" — essentially teaching the RM to penalize sycophancy.
 
 Sycophancy remains a known challenge in all major RLHF-trained models. It's an active research area at all major AI labs.
+
+</details>
 
 ---
 

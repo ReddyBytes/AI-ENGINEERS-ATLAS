@@ -118,6 +118,14 @@ Regularization, dropout, and ensemble methods are all techniques for reducing va
 
 ➡️ **Next step:** Ready for actual algorithms? → `03_Classical_ML_Algorithms/01_Linear_Regression/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q10 · bias-variance-tradeoff](../../ai_practice_questions_100.md#q10--interview--bias-variance-tradeoff)
+
+
 ---
 
 ## 📂 Navigation

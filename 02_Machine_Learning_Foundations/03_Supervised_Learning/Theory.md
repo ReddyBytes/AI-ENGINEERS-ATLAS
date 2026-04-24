@@ -96,6 +96,14 @@ The model learns a function `f(input) = output`. It doesn't know the formula in 
 
 ➡️ **Next step:** What if you don't have labels? → `04_Unsupervised_Learning/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q6 · supervised-learning](../../ai_practice_questions_100.md#q6--thinking--supervised-learning)
+
+
 ---
 
 ## 📂 Navigation

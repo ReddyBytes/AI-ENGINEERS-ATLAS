@@ -4,6 +4,9 @@
 
 **Q1: What is the Hugging Face `datasets` library and what problems does it solve?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** The `datasets` library is a Python package that provides a unified API for loading, exploring, and transforming machine learning datasets. It solves three main problems:
 
 1. **Format fragmentation** — datasets come as CSV, JSON, Parquet, plain text, and custom formats. `load_dataset()` handles all of them with the same interface.
@@ -12,9 +15,14 @@
 
 The library also provides instant access to 50,000+ Hub datasets with a single `load_dataset("dataset-name")` call.
 
+</details>
+
 ---
 
 **Q2: What does `load_dataset("imdb")` return? Walk through the data structure.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** `load_dataset("imdb")` returns a `DatasetDict` — a dictionary-like object where keys are split names and values are `Dataset` objects:
 
@@ -32,9 +40,14 @@ You access splits with `ds["train"]` and individual examples with `ds["train"][0
 
 The `features` attribute tells you the schema — column names and types. `ClassLabel` features include the string names of each class (e.g., `['neg', 'pos']`), which is useful for converting integer labels back to strings.
 
+</details>
+
 ---
 
 **Q3: What is the difference between `.map()`, `.filter()`, and `.select()`?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:**
 - **`.map(fn)`:** Applies a function to every example and returns a new dataset. The function can add new columns, modify existing columns, or both. This is the primary transformation tool — used for tokenization, normalization, feature engineering, etc.
@@ -45,11 +58,16 @@ The `features` attribute tells you the schema — column names and types. `Class
 
 All three return a new `Dataset` object (the original is not modified) and produce a cached Arrow file so repeated calls with the same parameters are instant.
 
+</details>
+
 ---
 
 ## Intermediate Level
 
 **Q4: Explain why `batched=True` in `.map()` is significantly faster than the default per-example processing.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** When `batched=False` (the default), the map function is called once per example with a single dictionary as input. Python function call overhead, type conversion, and tokenizer initialization happen 25,000 times for a 25,000-example dataset.
 
@@ -61,9 +79,14 @@ When `batched=True`, the function is called with a dictionary of lists (N exampl
 
 Rule of thumb: always use `batched=True` for tokenization. The only time you might not is if your function inherently processes one example at a time and isn't compatible with batching.
 
+</details>
+
 ---
 
 **Q5: How does streaming mode work and what are its limitations?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Streaming mode (enabled with `streaming=True`) returns an `IterableDataset` instead of a `Dataset`. The key difference:
 
@@ -81,9 +104,14 @@ Under the hood, streaming fetches dataset files in chunks using HTTP range reque
 
 Use streaming for very large datasets where you cannot afford the storage for a full download, or for one-off passes.
 
+</details>
+
 ---
 
 **Q6: A colleague says the first call to `.map()` was slow but subsequent calls were instant. Why?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The `datasets` library automatically caches the output of `.map()` as an Apache Arrow file on disk. The cache key is determined by:
 - The dataset being mapped
@@ -99,11 +127,16 @@ This behavior is mostly beneficial (speed), but can cause confusion when:
 - You want to force re-run: pass `load_from_cache_file=False` to `.map()`
 - Disk space fills up: the cache can be cleared manually or via `datasets.utils.file_utils.HfFolder.delete_token()`
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: How would you build a custom dataset class for a task that doesn't have a standard Hub dataset — for example, a private corporate email classification dataset?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** There are two main approaches depending on your data format:
 
@@ -134,9 +167,14 @@ Create a Python file `email_dataset.py` that subclasses `datasets.GeneratorBased
 
 For a corporate use case, Approach 2 is usually fastest to implement, and the resulting `DatasetDict` works identically to any Hub dataset with `.map()`, `.filter()`, and `Trainer` integration.
 
+</details>
+
 ---
 
 **Q8: You're training a model on a 2TB web crawl dataset. Your server has 500GB of disk space and 64GB of RAM. How do you handle this with the datasets library?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** This is exactly the use case for streaming mode combined with iterable dataset patterns:
 
@@ -176,9 +214,14 @@ Key considerations:
 - Checkpointing is critical — if training fails, you lose your position in the stream and must restart
 - For better shuffling and resumability, consider downloading to cheap object storage (S3/GCS) and loading from there in chunks
 
+</details>
+
 ---
 
 **Q9: What is the Apache Arrow format and why does the datasets library use it instead of something like pickle or HDF5?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Apache Arrow is an in-memory columnar data format designed for analytical workloads. The datasets library uses it because of several specific advantages over alternatives:
 
@@ -199,6 +242,8 @@ Key considerations:
 - Arrow supports columnar access — fetching one column from a million-row dataset reads only that column's bytes
 
 The key practical benefit: **memory mapping**. Arrow files on disk can be opened as if they're in RAM. The OS only loads the specific pages you access. This is how you can work with a 500GB dataset on a 16GB machine — you never load all 500GB at once, only the rows currently in your batch.
+
+</details>
 
 ---
 

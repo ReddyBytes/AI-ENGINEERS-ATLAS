@@ -100,6 +100,14 @@ High temperature → diverse, creative text. Low temperature → focused, predic
 
 ➡️ **Next step:** Vision Transformers → `06_Transformers/10_Vision_Transformers/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q37 · gpt-model](../../ai_practice_questions_100.md#q37--thinking--gpt-model)
+
+
 ---
 
 ## 📂 Navigation

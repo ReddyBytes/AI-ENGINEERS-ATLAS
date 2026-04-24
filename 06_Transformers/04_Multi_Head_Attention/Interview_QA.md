@@ -4,21 +4,34 @@
 
 **Q1. What is multi-head attention and why do we need more than one head?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Multi-head attention runs h separate attention operations on the same input in parallel. Each head has its own learned weight matrices W_Q, W_K, W_V. After each head computes its own attention output, all outputs are concatenated and projected through W_O.
 
 We need multiple heads because a single attention distribution has to simultaneously represent many different relationships in language. One attention head might focus on subject-verb agreement, another on pronoun resolution, another on word proximity. One head can't do all of this at once without compromising. Multiple heads let each one specialize in a different aspect.
+
+</details>
 
 ---
 
 **Q2. How does multi-head attention relate to single-head attention?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Multi-head attention is multiple single-head attention operations running in parallel on the same input. The difference is that each head uses different learned weight matrices, so each head can learn to focus on different patterns.
 
 The final step concatenates all h head outputs (each of dimension d_k) into one vector of dimension d_model (since h × d_k = d_model), then applies a linear projection W_O. This projection learns to optimally combine the insights from all heads.
 
+</details>
+
 ---
 
 **Q3. What happens to the dimension per head as you add more heads?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The per-head dimension is d_model / h. As you add more heads, each head gets a smaller slice of the total dimension to work with.
 
@@ -26,11 +39,16 @@ Example: d_model = 512, h = 8 → each head works with 64-dimensional Q/K/V vect
 
 This design keeps the total computational cost roughly constant regardless of head count. You're not adding parameters by adding heads — you're subdividing the same total capacity into more specialized sub-tasks.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4. What do different attention heads learn in practice?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Research analyzing trained BERT models shows that different heads specialize in different linguistic relationships:
 
@@ -42,9 +60,14 @@ Research analyzing trained BERT models shows that different heads specialize in 
 
 These specializations emerge from training, not from any explicit labeling. The model discovers that dividing the workload this way is the optimal strategy for the training objective.
 
+</details>
+
 ---
 
 **Q5. What is the W_O projection matrix and why is it important?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 W_O is the output projection applied after concatenating all head outputs.
 
@@ -52,9 +75,14 @@ After concatenation, you have a vector where different segments contain differen
 
 Its role is to learn how to mix the different heads' contributions. Some downstream tasks may benefit from syntactic information more than semantic, or vice versa. W_O adapts this mixing. Without W_O, the different heads' outputs would just be stacked with equal weight — no learned combination.
 
+</details>
+
 ---
 
 **Q6. How does the number of attention heads affect model performance?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 More heads generally improves performance up to a point, then plateaus or even degrades. Research has shown:
 
@@ -64,11 +92,16 @@ More heads generally improves performance up to a point, then plateaus or even d
 
 Studies on head pruning showed that many heads can be removed from trained models with minimal accuracy loss — suggesting significant redundancy. Some heads are genuinely useful; others learn redundant or weak patterns.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. What is grouped query attention (GQA) and why is it used in modern LLMs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 In standard multi-head attention, each of the h heads has its own K and V matrices. This means storing h separate K/V caches during inference — expensive for large models.
 
@@ -81,9 +114,14 @@ Benefits:
 
 GQA is used in Llama 2/3, Mistral, Falcon, and most modern efficient LLMs. The extreme case (1 K/V pair for all heads) is called multi-query attention (MQA), which is even faster but sacrifices more quality.
 
+</details>
+
 ---
 
 **Q8. Can you prune attention heads from a trained transformer without retraining?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Yes, to a surprising degree. Research (Michel et al., 2019 "Are Sixteen Heads Really Better than One?") showed that:
 
@@ -98,9 +136,14 @@ Methods:
 
 Pruning heads reduces inference cost proportionally — if you remove half the heads, attention computation is roughly halved.
 
+</details>
+
 ---
 
 **Q9. How does flash attention make multi-head attention faster without changing the math?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Flash attention (Dao et al., 2022) is an algorithm optimization that computes the exact same multi-head attention output as the standard algorithm, but reorders operations to minimize slow memory reads/writes.
 
@@ -117,6 +160,8 @@ Results:
 - Exact same mathematical output — no approximation
 
 Flash attention is now the default implementation in PyTorch and HuggingFace transformers.
+
+</details>
 
 ---
 

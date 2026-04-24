@@ -4,15 +4,23 @@
 
 **Q1: What is RAG and why was it invented?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 RAG stands for Retrieval-Augmented Generation. It was invented to solve a fundamental limitation of LLMs: they only know what was in their training data, which has a knowledge cutoff date and contains no private information.
 
 RAG works in two phases. First, it retrieves relevant documents from a knowledge base based on the user's question. Second, it passes those documents as context to the LLM, which generates an answer grounded in the retrieved information.
 
 It was invented because fine-tuning models on new knowledge was expensive, slow, and didn't enable source citation. RAG is faster (hours not weeks), cheaper (no training), updatable (just add docs), and auditable (every answer links back to a source).
 
+</details>
+
 ---
 
 **Q2: Walk me through the basic RAG pipeline step by step.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The pipeline has two phases:
 
@@ -30,9 +38,14 @@ The pipeline has two phases:
 5. Send the prompt to the LLM
 6. Return the answer (and optionally, the source chunks)
 
+</details>
+
 ---
 
 **Q3: What is the difference between RAG and prompt stuffing?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Prompt stuffing means putting all your documents directly into the prompt context. RAG means retrieving only the relevant parts.
 
@@ -42,11 +55,16 @@ Prompt stuffing fails when: your knowledge base is larger than the context windo
 
 RAG selectively retrieves only the relevant 3–10 chunks for each query. This scales to millions of documents, is cost-efficient, and often produces more focused answers (less irrelevant context noise).
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: When should you use RAG vs fine-tuning? What are the key decision factors?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 RAG and fine-tuning solve different problems.
 
@@ -56,9 +74,14 @@ Use fine-tuning when: you need the model to behave differently (e.g., always res
 
 The key insight: RAG for knowledge, fine-tuning for behavior. They're not mutually exclusive — production systems often fine-tune a model AND add RAG on top. But if you're choosing one, RAG is almost always the right starting point for knowledge-intensive tasks.
 
+</details>
+
 ---
 
 **Q5: What are the main failure modes of a RAG system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Three major failure categories:
 
@@ -68,9 +91,14 @@ Three major failure categories:
 
 **Generation failure:** the right chunks are retrieved, but the LLM generates an answer that contradicts or ignores them. Causes: weak prompt (doesn't clearly instruct to use the context), model "overconfident" in its own knowledge. Fix: strong prompting ("Answer ONLY based on the provided context"), evaluate faithfulness.
 
+</details>
+
 ---
 
 **Q6: What is "naive RAG" vs "advanced RAG"?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Naive RAG: the basic pipeline. Chunk documents → embed → store → embed query → retrieve top-K → stuff into prompt → generate. Simple, often surprisingly effective.
 
@@ -82,11 +110,16 @@ Advanced RAG adds optimization layers to fix specific failure modes:
 
 Start with naive RAG. Measure quality. Only add advanced techniques where you observe specific failures. Over-engineering RAG without measuring is a common mistake.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How would you design a RAG system for a large enterprise with 10 million documents?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Scale requirements drive architecture choices. Key decisions:
 
@@ -102,9 +135,14 @@ Scale requirements drive architecture choices. Key decisions:
 
 **Data freshness**: incremental updates — when a document changes, re-embed only the changed chunks. Soft deletes with TTL for outdated content.
 
+</details>
+
 ---
 
 **Q8: Explain the concept of faithfulness in RAG and why it's the most important metric.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Faithfulness measures whether the generated answer is factually consistent with the retrieved context. A faithful answer only makes claims that are supported by the retrieved chunks.
 
@@ -114,9 +152,14 @@ A RAG system with low faithfulness is just a regular LLM with extra steps. Faith
 
 Enforcement: add to your prompt "Answer ONLY based on the provided context. If the context doesn't contain the answer, say so." Never say "use the context" — say "ONLY use the context."
 
+</details>
+
 ---
 
 **Q9: What is self-RAG and corrective RAG? When would you use them?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Standard RAG always retrieves, regardless of whether retrieval helps. It retrieves whatever scores highest, regardless of quality.
 
@@ -127,6 +170,8 @@ Standard RAG always retrieves, regardless of whether retrieval helps. It retriev
 Use these when: you have diverse query types (some need retrieval, some don't), your retrieval quality is inconsistent across query types, or you need the system to gracefully handle queries your knowledge base can't answer.
 
 Both add latency and complexity. Only add them after measuring that standard RAG has specific, consistent failure modes in these areas.
+
+</details>
 
 ---
 

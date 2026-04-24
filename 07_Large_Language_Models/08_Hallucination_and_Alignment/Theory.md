@@ -133,6 +133,14 @@ The alignment problem is not fully solved. Every major model has known failure m
 Apply what you just learned → **[B5: Intelligent Document Analyzer](../../20_Projects/00_Beginner_Projects/05_Intelligent_Document_Analyzer/Project_Guide.md)**
 > This project uses: prompts that reduce hallucination (cite sources, say "I don't know"), grounding the model in document context
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q45 · hallucination-alignment](../../ai_practice_questions_100.md#q45--critical--hallucination-alignment)
+
+
 ---
 
 ## 📂 Navigation

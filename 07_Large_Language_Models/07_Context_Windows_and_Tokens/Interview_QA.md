@@ -4,6 +4,9 @@
 
 **Q1: What is a token? Why isn't it the same as a word?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A token is the basic unit of text that a language model processes. It's not the same as a word because the tokenization algorithm (usually Byte Pair Encoding) splits text at subword boundaries, not word boundaries.
 
 How it works: BPE starts with individual characters and merges the most frequent pairs of tokens until it reaches a target vocabulary size (~32k–128k tokens). This means:
@@ -21,9 +24,14 @@ Why it matters practically:
 - Non-English text often uses more tokens per word (less common sub-word patterns)
 - Counting words ≠ counting tokens — always use a tokenizer for accurate counts
 
+</details>
+
 ---
 
 **Q2: What is a context window and what happens when you exceed it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The context window (also called context length) is the maximum number of tokens the model can process in a single forward pass. Everything in the window is "visible" to the model — it can attend to any part of it when generating each response token.
 
@@ -42,9 +50,14 @@ When you exceed the context window, something must be dropped. Different systems
 
 The practical consequence: very long chat sessions can "forget" things you said early in the conversation. For production systems, context window management is a real engineering problem.
 
+</details>
+
 ---
 
 **Q3: Why do output tokens cost more than input tokens in LLM APIs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 In most LLM APIs, output tokens cost 3–5x more per token than input tokens. The reason is compute:
 
@@ -62,11 +75,16 @@ The compute cost difference directly translates to price difference. This is why
 - You should limit max_tokens to avoid unnecessary long responses
 - Summarization use cases (long input, short output) are cheaper than generation tasks (short input, long output)
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is the KV cache? How does it work and why is it important?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 During the transformer's attention mechanism, each token computes Key (K) and Value (V) matrices that encode its representation for use in attention calculations. For a generated sequence of n tokens, generating token n+1 would naively require recomputing K and V for all n previous tokens — an O(n²) operation.
 
@@ -88,9 +106,14 @@ The KV cache grows linearly with context length. For each token in context:
 - "Paged KV cache" (used in vLLM) manages KV cache like virtual memory pages for efficient batching
 - The KV cache is why long-context inference is expensive even at companies with good hardware
 
+</details>
+
 ---
 
 **Q5: What is the "lost in the middle" problem? How does it affect how you should structure prompts?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The "Lost in the Middle" problem (Liu et al., 2023) is an empirical finding: language models recall information from the beginning and end of their context window much better than information buried in the middle.
 
@@ -109,9 +132,14 @@ The "Lost in the Middle" problem (Liu et al., 2023) is an empirical finding: lan
 5. If you need the model to remember something from a long context, repeat it near the end
 6. For very long documents, extract and prepend the key sections rather than including the full document
 
+</details>
+
 ---
 
 **Q6: How do different positional encoding schemes affect context length capabilities?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Transformers require positional information because attention has no inherent notion of order. Different positional encoding approaches have very different extrapolation properties.
 
@@ -145,11 +173,16 @@ Transformers require positional information because attention has no inherent no
 
 **Practical result**: Modern models use RoPE or ALiBi and are trained with explicit long-context fine-tuning to handle 128k–1M tokens. The encoding choice matters but training with the target context length is equally important.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does tokenization affect model performance on different languages and tasks?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Tokenization has a large, often underappreciated effect on model performance across languages and tasks.
 
@@ -177,9 +210,14 @@ Code has unusual patterns: indentation (spaces/tabs), special characters, exact 
 
 **Practical lesson**: When evaluating an LLM for your use case, check how the tokenizer handles your specific input domain. If you're building for a non-English language, look for models with multilingual tokenizers (Llama 3, Qwen, etc.) that have better non-English token efficiency.
 
+</details>
+
 ---
 
 **Q8: What is "needle in a haystack" evaluation for context windows? What does it reveal?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 "Needle in a haystack" (NIAH) is a standard evaluation methodology for long-context models. It directly tests whether a model can find and use information anywhere in a very long context.
 
@@ -210,9 +248,14 @@ Typical failure patterns:
 - Synthetic setup may not reflect real use patterns
 - A model that passes NIAH might still fail at multi-hop reasoning across a long document
 
+</details>
+
 ---
 
 **Q9: How does context window size affect RAG system design? When is a large context not enough?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Context window size and RAG (Retrieval-Augmented Generation) interact in important ways, and many practitioners think they're alternatives when they're actually complementary.
 
@@ -237,6 +280,8 @@ Context window size and RAG (Retrieval-Augmented Generation) interact in importa
 Use large context windows for local reasoning (analyze this 50-page document), combined with RAG for broad retrieval across large corpora. The two are complementary:
 - RAG retrieves the relevant chunks (breadth)
 - Large context holds those chunks + conversation history + task context (depth)
+
+</details>
 
 ---
 

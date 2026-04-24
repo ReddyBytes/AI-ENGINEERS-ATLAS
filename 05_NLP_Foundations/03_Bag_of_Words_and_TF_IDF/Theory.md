@@ -98,6 +98,14 @@ IDF = log(total documents / documents containing the word)
 
 ➡️ **Next step:** Word Embeddings → `05_NLP_Foundations/04_Word_Embeddings/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q28 · tf-idf](../../ai_practice_questions_100.md#q28--normal--tf-idf)
+
+
 ---
 
 ## 📂 Navigation

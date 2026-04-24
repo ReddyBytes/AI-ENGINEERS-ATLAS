@@ -4,13 +4,21 @@
 
 **Q1: What is document ingestion in a RAG pipeline and why is it the first step?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Document ingestion is the process of loading raw source files (PDFs, web pages, databases, Word documents) and converting them into a standard format that the rest of the RAG pipeline can process. The standard output is a list of Document objects, each with `page_content` (the extracted text) and `metadata` (source info like filename, page number, date).
 
 It's the first step because RAG can only retrieve what has been indexed, and indexing requires clean text. Without ingestion, you can't chunk, embed, or store anything. The quality of ingestion determines the quality of everything downstream — if text extraction is poor (garbled PDFs, missing tables), retrieval will be poor no matter how good your embedding model or vector database is.
 
+</details>
+
 ---
 
 **Q2: What are the most common document types in RAG systems and what challenges does each present?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 PDFs: most common. Regular PDFs extract cleanly with libraries like PyPDF or pdfplumber. Scanned PDFs (images of text) return empty strings without OCR preprocessing. Multi-column PDFs often have reading order issues. Tables lose structure.
 
@@ -22,9 +30,14 @@ CSV/Excel: each row becomes a document. Need to decide whether to keep headers i
 
 Plain text/Markdown: easiest. No extraction issues — just read the file.
 
+</details>
+
 ---
 
 **Q3: What is metadata and why is it important to store alongside document text?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Metadata is structured information about a document that isn't part of the main text: source file path, page number, section title, creation date, author, document type, department, etc.
 
@@ -32,11 +45,16 @@ It's important because: (1) Source citation — when the RAG system answers a qu
 
 Always store at minimum: source filename/URL, page number (for PDFs), and date. Add domain-specific fields based on your use case.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How do you handle scanned PDFs in a RAG pipeline?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Scanned PDFs are images of text — standard text extraction libraries return empty strings or garbled output. You need Optical Character Recognition (OCR).
 
@@ -44,9 +62,14 @@ Process: (1) Detect if a PDF is scanned — check if the extracted text is very 
 
 For production: cloud OCR services dramatically outperform local Tesseract, especially on complex layouts, handwriting, and non-English text. Budget accordingly for your document volume.
 
+</details>
+
 ---
 
 **Q5: What document metadata strategy would you use for a legal document RAG system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Legal documents have unique characteristics: numbered sections, cross-references ("see Section 4.2"), specific clause types, parties involved, dates.
 
@@ -68,9 +91,14 @@ Use `clause_type` for filtering ("find all indemnification clauses"). Use `parti
 
 Preserve section numbering in metadata and in the chunk text itself — users will reference specific sections, and citations need to point to them.
 
+</details>
+
 ---
 
 **Q6: How do you handle a knowledge base that updates frequently — new documents added daily?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Design for incremental updates, not full re-indexing:
 
@@ -84,11 +112,16 @@ Design for incremental updates, not full re-indexing:
 
 (5) Processing queue — don't load documents synchronously on upload. Use a job queue (Celery, AWS SQS) to process in the background. The user's document is available for search within minutes of upload.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How would you build a robust document ingestion pipeline that handles diverse file types at scale?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Architecture: input queue → file type detection → format-specific loader → text cleaner → metadata enricher → output queue → chunker.
 
@@ -104,9 +137,14 @@ Key design decisions:
 
 **Monitoring**: track metrics per document type: average extraction time, failure rate, OCR confidence score. High failure rates for a specific file type signal a loader that needs improvement.
 
+</details>
+
 ---
 
 **Q8: What are the challenges of extracting structured data (tables, forms) for RAG?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Standard text extraction destroys table structure. A 5-column, 20-row table becomes 100 lines of unsorted text. Queries about specific cells in the table will fail because the embedding won't represent the tabular relationship.
 
@@ -122,9 +160,14 @@ Approaches:
 
 For financial reports, contracts with schedules, or anything table-heavy: invest in proper table extraction. It's a common production failure mode.
 
+</details>
+
 ---
 
 **Q9: How does document ingestion change when dealing with real-time or streaming data sources (e.g., Slack, email)?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Batch ingestion loads files that already exist. Streaming ingestion handles data that arrives continuously.
 
@@ -141,6 +184,8 @@ Key differences:
 **Webhooks vs. polling**: webhooks push data to you when events happen (real-time). Polling checks for new data on a schedule (simpler, higher latency). For low-latency RAG on real-time data, use webhooks.
 
 Implementation: use an event-driven architecture (Kafka, AWS Kinesis, or a simple Redis queue). Messages arrive → transform to Document → add to embedding queue → embed in batches → upsert to vector DB.
+
+</details>
 
 ---
 

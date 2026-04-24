@@ -4,6 +4,9 @@
 
 **Q1. What is BERT and what makes it different from previous NLP models?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 BERT (Bidirectional Encoder Representations from Transformers) is a pretrained encoder-only transformer model released by Google in 2018.
 
 What made it different:
@@ -14,9 +17,14 @@ What made it different:
 
 3. **Transfer learning:** One pretrained model, fine-tuned for dozens of tasks with small additional training. BERT set new state-of-the-art records on 11 NLP benchmarks simultaneously on release.
 
+</details>
+
 ---
 
 **Q2. What is Masked Language Modeling (MLM)?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 MLM is BERT's main pretraining objective. Randomly select 15% of tokens and replace them with [MASK]. Train the model to predict the original tokens using the full bidirectional context.
 
@@ -24,9 +32,14 @@ For "The cat [MASK] on the mat", the model must predict "sat" from both "The cat
 
 This forces the model to build deep bidirectional understanding — it can't just rely on left context like GPT does. The difficulty of predicting masked tokens from both directions drives BERT to learn rich syntactic and semantic representations.
 
+</details>
+
 ---
 
 **Q3. What is the [CLS] token and how is it used for classification?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 BERT prepends a special [CLS] (classification) token to every input. After passing through all transformer layers, this token's final hidden state captures a summary representation of the whole sentence.
 
@@ -39,11 +52,16 @@ For classification:
 
 The [CLS] token "communicates" with all other tokens through attention across all layers, so it builds a sentence-level understanding.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4. How does BERT fine-tuning work? What is actually changed during fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 During fine-tuning:
 1. Load BERT's pretrained weights
@@ -58,9 +76,14 @@ Why update all layers? Because BERT's representations, while general, become mor
 
 Training is typically 3–5 epochs on a few thousand labeled examples. BERT reaches competitive performance even with as few as a few hundred examples on some tasks.
 
+</details>
+
 ---
 
 **Q5. What are the three types of embeddings BERT adds together for input?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 BERT's input embeddings are the sum of three components:
 
@@ -72,9 +95,14 @@ BERT's input embeddings are the sum of three components:
 
 All three are the same dimensionality (768) and are added element-wise before the first transformer layer.
 
+</details>
+
 ---
 
 **Q6. What is Next Sentence Prediction (NSP) and why was it later abandoned?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 NSP is BERT's secondary pretraining task. Given two sentences A and B, predict whether B is the actual next sentence from the corpus (50% of the time) or a random sentence (50% of the time).
 
@@ -82,11 +110,16 @@ The motivation: tasks like question answering and NLI require understanding rela
 
 Why it was abandoned in RoBERTa: Ablation studies showed NSP barely helped and sometimes hurt performance. The task was too easy — models could solve it by looking for topic consistency without understanding deep reasoning. RoBERTa removed NSP, trained longer, and with more data — and outperformed BERT on all benchmarks.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. How does BERT handle the [MASK] token at fine-tuning time if the model never sees [MASK] during inference?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 This is a real mismatch called the "pretrain-finetune discrepancy." During pretraining, [MASK] tokens appear frequently. During fine-tuning and inference, they don't appear at all.
 
@@ -94,9 +127,14 @@ BERT partially addresses this: of the 15% of tokens selected for masking, only 8
 
 In practice, this mismatch is accepted as a minor limitation. The pretrained representations are rich enough that fine-tuning adapts them without issue. Later models like XLNet proposed autoregressive alternatives that eliminate the mismatch, but BERT's practical performance remains competitive.
 
+</details>
+
 ---
 
 **Q8. What is the computational bottleneck when serving BERT in production at scale?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Transformer inference is O(n²) in the sequence length due to self-attention. For BERT-base with 512 token input: 512² = 262,144 attention calculations per layer × 12 layers. This adds up.
 
@@ -110,9 +148,14 @@ Practical bottlenecks and solutions:
 
 4. **GPU throughput:** For high-throughput serving, batching is critical. BERT on a GPU with batch size 32 can handle hundreds of requests/second.
 
+</details>
+
 ---
 
 **Q9. How does BERT compare to GPT-3 for NLP tasks, and when would you choose BERT?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 GPT-3 has 175B parameters vs BERT-large's 340M — roughly 500× bigger. For most tasks, GPT-3 has better raw capability.
 
@@ -124,6 +167,8 @@ But choose BERT when:
 4. **Embeddings are needed:** For search, clustering, deduplication — BERT embeddings are faster and cheaper to compute than GPT embeddings.
 5. **Private data:** Fine-tuning BERT on-premise keeps data private. GPT-3 requires sending data to the API.
 6. **Regulatory requirements:** On-premise BERT deployment is easier to certify for HIPAA, GDPR, etc.
+
+</details>
 
 ---
 

@@ -266,6 +266,14 @@ sequenceDiagram
 Apply what you just learned → **[A4: Multi-Agent Research System](../../20_Projects/02_Advanced_Projects/04_Multi_Agent_Research_System/Project_Guide.md)**
 > This project uses: supervisor subgraph + 4 parallel worker subgraphs, Send API for parallel dispatch, fault tolerance
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q82 · multi-agent-langgraph](../../ai_practice_questions_100.md#q82--design--multi-agent-langgraph)
+
+
 ---
 
 ## 📂 Navigation

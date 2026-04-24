@@ -139,6 +139,14 @@ Taylor expansion of the loss allows XGBoost to compute the optimal leaf weight a
 
 ➡️ **Next step:** [Time Series Analysis](../10_Time_Series_Analysis/Theory.md)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q17 · xgboost-boosting](../../ai_practice_questions_100.md#q17--interview--xgboost-boosting)
+
+
 ---
 
 ## 📂 Navigation

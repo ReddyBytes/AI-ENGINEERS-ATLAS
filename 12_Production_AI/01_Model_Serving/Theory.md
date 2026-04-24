@@ -90,6 +90,14 @@ flowchart TD
 
 ➡️ **Next step:** [02 Latency Optimization](../02_Latency_Optimization/Theory.md) — now that you can serve, make it fast.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q72 · model-serving](../../ai_practice_questions_100.md#q72--interview--model-serving)
+
+
 ---
 
 ## 📂 Navigation

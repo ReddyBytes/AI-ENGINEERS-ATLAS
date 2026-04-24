@@ -104,6 +104,14 @@ cosine_similarity = 0.94  ← very similar!
 
 ➡️ **Next step:** Hidden Markov Models → `05_NLP_Foundations/06_Hidden_Markov_Models/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q29 · semantic-similarity](../../ai_practice_questions_100.md#q29--interview--semantic-similarity)
+
+
 ---
 
 ## 📂 Navigation

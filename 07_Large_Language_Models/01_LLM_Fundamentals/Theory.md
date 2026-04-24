@@ -114,6 +114,14 @@ Bigger models don't just improve at the same things — they gain qualitatively 
 
 ➡️ **Next step:** How LLMs Generate Text — [02_How_LLMs_Generate_Text/Theory.md](../02_How_LLMs_Generate_Text/Theory.md)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q38 · llm-fundamentals](../../ai_practice_questions_100.md#q38--interview--llm-fundamentals)
+
+
 ---
 
 ## 📂 Navigation

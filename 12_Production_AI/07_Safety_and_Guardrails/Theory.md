@@ -96,6 +96,14 @@ flowchart TD
 Apply what you just learned → **[I5: Production RAG System](../../20_Projects/01_Intermediate_Projects/05_Production_RAG_System/Project_Guide.md)**
 > This project uses: input validation (block harmful queries), output filtering (detect PII/harmful content), safe fallback responses
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q75 · safety-guardrails](../../ai_practice_questions_100.md#q75--normal--safety-guardrails)
+
+
 ---
 
 ## 📂 Navigation

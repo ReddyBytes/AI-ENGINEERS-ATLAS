@@ -4,15 +4,23 @@
 
 **Q1. What is the difference between encoder-only and decoder-only transformer models?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Encoder-only models (like BERT) process the full input with bidirectional attention — every token can see every other token. They produce contextual representations of the input but don't generate new text. They're trained with masked language modeling — predict masked words from context.
 
 Decoder-only models (like GPT) use causal (masked) attention — each token can only see tokens that came before it. They generate text one token at a time. They're trained on next-token prediction — predict the next word given all previous words.
 
 Encoder-only = understand. Decoder-only = generate.
 
+</details>
+
 ---
 
 **Q2. What is the difference between BERT and GPT at a high level?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 BERT (encoder-only, bidirectional):
 - Reads the whole sequence in both directions simultaneously
@@ -28,9 +36,14 @@ GPT (decoder-only, left-to-right):
 
 The key difference is directionality. BERT's bidirectionality makes it better at understanding. GPT's autoregressive structure makes it natural for generation.
 
+</details>
+
 ---
 
 **Q3. What tasks are best suited for encoder-decoder models like T5?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Encoder-decoder models shine on tasks where you need to:
 1. Fully understand an input (encoder processes it bidirectionally)
@@ -44,11 +57,16 @@ Prime examples:
 
 T5 (Text-to-Text Transfer Transformer) frames all NLP tasks as text-to-text, making one model handle translation, summarization, QA, and classification through the same interface.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4. Why have decoder-only models (GPT family) come to dominate over encoder-decoder models?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Several reasons:
 
@@ -62,9 +80,14 @@ Several reasons:
 
 Encoder-decoder models are still competitive for tasks where training data is labeled (translation pairs, document-summary pairs), but their dominance has faded as decoder-only models at scale proved they could do everything.
 
+</details>
+
 ---
 
 **Q5. What is T5's "text-to-text" approach and why is it significant?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 T5 (Raffel et al., 2020) reframes every NLP task as: input text → output text.
 
@@ -77,9 +100,14 @@ Significance: one model, one training procedure, one fine-tuning interface for a
 
 This was influential in moving the field toward instruction fine-tuning — the idea that a model trained to follow task descriptions in natural language can generalize broadly.
 
+</details>
+
 ---
 
 **Q6. How does BART differ from BERT and T5?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 BART (Lewis et al., 2020) is an encoder-decoder model, but its pretraining is different:
 
@@ -93,11 +121,16 @@ BART's pretraining makes it especially strong at:
 
 BART-large is competitive with T5-large on summarization. The key difference from T5: BART uses a standard encoder-decoder transformer without the T5-specific design choices (relative position encoding, shared QK embeddings, etc.).
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. What is the "prefix LM" setup and how does it blend encoder and decoder capabilities?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A prefix LM is a decoder-only model where the input (prefix) is processed with bidirectional attention, and the generated output uses causal attention.
 
@@ -111,9 +144,14 @@ T5 can be run in this mode. It blurs the line between encoder-only and encoder-d
 
 PaLM and some other models use this approach for certain tasks. The advantage: more context available when generating, especially useful when the input and output are closely related.
 
+</details>
+
 ---
 
 **Q8. Why is bidirectional context important for encoding and harmful for generation?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 For encoding/understanding: you want the fullest possible context. To understand "bank" in "The river bank was flooded," you need to see "river" (which comes after "bank"). Bidirectionality gives each token access to its full linguistic context.
 
@@ -121,9 +159,14 @@ For generation: you're predicting the next token given previous tokens only. At 
 
 Summary: bidirectionality helps with understanding (offline tasks). Causality is required for generation (online tasks).
 
+</details>
+
 ---
 
 **Q9. How do you fine-tune a decoder-only model for a classification task?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Decoder-only models don't have a natural classification head. Two common approaches:
 
@@ -138,6 +181,8 @@ Decoder-only models don't have a natural classification head. Two common approac
 - Standard cross-entropy loss
 
 Both approaches work. Method 1 is more flexible (zero-shot compatible, extends to many classes easily). Method 2 is more efficient for high-volume binary/multi-class classification. Instruction-tuned models (GPT-4, Claude) almost always use method 1.
+
+</details>
 
 ---
 

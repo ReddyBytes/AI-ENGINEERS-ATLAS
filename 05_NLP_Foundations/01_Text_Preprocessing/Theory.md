@@ -109,6 +109,14 @@ Both reduce words to root form but work differently.
 
 ➡️ **Next step:** Tokenization → `05_NLP_Foundations/02_Tokenization/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q30 · text-preprocessing](../../ai_practice_questions_100.md#q30--normal--text-preprocessing)
+
+
 ---
 
 ## 📂 Navigation

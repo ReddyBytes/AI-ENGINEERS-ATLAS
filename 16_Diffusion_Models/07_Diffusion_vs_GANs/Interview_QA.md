@@ -4,25 +4,40 @@
 
 **Q1: What is the main training stability difference between GANs and diffusion models?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: GANs train two networks in an adversarial minimax game: the generator tries to fool the discriminator, and the discriminator tries to distinguish real from fake. This creates an unstable training dynamic — if the discriminator gets too good, the generator's gradients vanish and it stops learning. If the generator gets too clever, the discriminator's gradients vanish. The networks must stay perfectly balanced throughout training, which is difficult and sensitive to hyperparameters.
 
 Diffusion models train a single network (U-Net) with a straightforward MSE objective: given a noisy image at timestep t, predict the noise that was added. This is a well-conditioned regression problem at every batch — no adversarial dynamic, no competing networks, no vanishing gradients from a second network. The loss surface is smooth and stable. This is why diffusion models train reliably at scale while GANs often require careful hyperparameter tuning and may fail to converge.
+
+</details>
 
 ---
 
 **Q2: What is mode collapse in GANs and why don't diffusion models suffer from it?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Mode collapse is when the GAN generator produces only a narrow subset of the possible outputs — for example, always generating one type of face even though the training set has great diversity. It happens because the generator's optimization target is to fool the discriminator, not to cover the full training distribution. Once the generator finds outputs that reliably fool the discriminator, it has no incentive to produce variety.
 
 Diffusion models don't suffer from mode collapse because their training signal comes from every noise level in the training data independently. Each batch is a regression problem: "given this partially noised image, remove some noise." The training explicitly covers the full training distribution at every step. There's no competition and no incentive to collapse — the model must learn to reconstruct all types of images, not just find a subset that fools a critic.
+
+</details>
 
 ---
 
 **Q3: What is inference speed and why is it a disadvantage for diffusion models compared to GANs?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Inference speed is how long it takes to generate one image after training. A GAN's generator is a single neural network: run one forward pass, get one image — typically under 100ms on a GPU. This is fast enough for real-time applications.
 
 A diffusion model generates by reversing the noising process over many steps. The original DDPM approach takes 1000 denoising steps. Even with DDIM (Denoising Diffusion Implicit Models) reducing this to 20-50 steps, each step requires a U-Net forward pass — typically 2-30 seconds total for a high-quality image. Distilled models (SDXL-Turbo, LCM) can reduce this to 1-4 steps, but quality may decrease. For applications requiring real-time generation (video games, webcam filters), GANs' single-pass inference remains a genuine advantage over diffusion, even after distillation.
+
+</details>
 
 ---
 
@@ -30,15 +45,23 @@ A diffusion model generates by reversing the noising process over many steps. Th
 
 **Q4: What is FID score and what does it tell us about diffusion vs GAN quality?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: **FID (Fréchet Inception Distance)** measures the statistical similarity between the distribution of generated images and the distribution of real images, using features extracted by InceptionV3. A lower FID score is better — zero means the distributions are identical.
 
 FID captures two aspects: (1) quality — do generated images look realistic? and (2) diversity — does the generator cover the full range of the training distribution (not just a few modes)?
 
 GANs historically achieved low FID scores in specific domains (e.g., StyleGAN2 achieves ~2.84 FID on FFHQ faces), but their FID degrades when trained on diverse, general datasets due to mode collapse. Diffusion models achieve very low FID on general datasets while maintaining diversity, because they don't suffer from mode collapse. On ImageNet (a diverse 1000-class dataset), diffusion models significantly outperform GANs in FID. On narrow domains like human faces, StyleGAN remains competitive.
 
+</details>
+
 ---
 
 **Q5: When should an ML engineer choose a GAN over a diffusion model for a production system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Choose a GAN over diffusion when:
 
@@ -52,9 +75,14 @@ A: Choose a GAN over diffusion when:
 
 **Cost at scale**: generating 1 million images with a GAN at <100ms each takes ~28 hours at 1 GPU. The same job with diffusion at 5 seconds each takes 58 days. Cost at scale is a genuine constraint.
 
+</details>
+
 ---
 
 **Q6: Explain the architectural differences between a GAN discriminator and a diffusion U-Net. What different functions do they serve?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: These serve fundamentally different functions in their respective architectures.
 
@@ -64,11 +92,16 @@ A: These serve fundamentally different functions in their respective architectur
 
 The U-Net also supports text conditioning via cross-attention layers that take text embeddings as input — enabling text-to-image generation. The GAN discriminator has no equivalent conditioning mechanism (GANs are notoriously difficult to condition on free-form text).
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: Describe the quality-diversity tradeoff between GANs and diffusion models and how it impacts production use cases.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Quality and diversity are often in tension in generative models. High quality typically means the model has learned to produce precise, sharp, photorealistic outputs — but may only do so for a subset of possible outputs (low diversity). High diversity means the model covers the full training distribution but may sacrifice per-sample fidelity.
 
@@ -78,9 +111,14 @@ A: Quality and diversity are often in tension in generative models. High quality
 
 **Real production impact**: a customer generating personalized product photos for an e-commerce platform wants both quality and diversity. Diffusion wins — it can produce hundreds of varied high-quality product shots. A game studio generating face textures for a specific character wants consistent high quality with minimal variation. A GAN trained on that character's face distribution wins.
 
+</details>
+
 ---
 
 **Q8: What are the memory requirements for GANs vs diffusion models at inference, and how does this affect deployment architecture?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Memory comparison at inference:
 
@@ -106,9 +144,14 @@ A: Memory comparison at inference:
 
 Deployment implications: GANs can be served from much smaller and cheaper hardware. Diffusion models require GPU instances (not CPU-only). At scale: serving 1000 diffusion inference requests/hour requires significantly more GPU capacity than 1000 GAN requests/hour. Distillation and quantization (int8, int4) reduce diffusion inference cost but add model complexity. For cost-sensitive, high-volume production: GANs remain competitive if quality-diversity requirements allow it.
 
+</details>
+
 ---
 
 **Q9: Explain why text conditioning is fundamentally harder for GANs than for diffusion models, and how this led to diffusion models dominating text-to-image generation.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Text conditioning requires the model to understand arbitrary natural language prompts and generate images that semantically match them. This is a challenging conditioning problem.
 
@@ -119,6 +162,8 @@ The GAN discriminator must evaluate whether a generated image matches a text pro
 Diffusion models use cross-attention to condition the denoising process on text embeddings. This is architecturally natural: at each denoising step, the U-Net can attend to the text embedding to guide what it removes. The CLIP text encoder provides a rich semantic space that aligns well with image features. Classifier-free guidance (CFG) amplifies text adherence at inference — a simple technique with no adversarial training complications.
 
 **Classifier-free guidance specifically**: by training the diffusion model both with and without text conditioning (randomly dropping the text during training), CFG allows controlling text adherence at inference: `noise_pred = uncond + scale * (cond - uncond)`. Increasing scale pushes generation toward the text description. This fine-grained inference-time control has no GAN equivalent and was critical to the quality of DALL-E 2, Stable Diffusion, and all modern text-to-image models.
+
+</details>
 
 ---
 

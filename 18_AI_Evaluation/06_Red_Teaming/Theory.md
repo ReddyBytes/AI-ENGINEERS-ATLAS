@@ -182,6 +182,14 @@ Write 10 adversarial test cases for a chatbot you've built or plan to build. Inc
 ➡️ **Next step**
 Move to [`07_Eval_Frameworks/Theory.md`](../07_Eval_Frameworks/Theory.md) to learn about automated eval frameworks like Promptfoo and LangSmith that make running these tests systematic and repeatable.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q90 · red-teaming](../../ai_practice_questions_100.md#q90--design--red-teaming)
+
+
 ---
 
 ## 📂 Navigation

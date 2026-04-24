@@ -4,15 +4,23 @@
 
 **Q1: Why does an AI agent need memory?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Without memory, every response is completely disconnected from everything that came before.
 
 Ask an agent "I'm planning a trip to Japan" — then ask "What should I pack?" — without memory, it has no idea what you're packing for.
 
 Memory lets agents maintain context within a conversation and across conversations. It's what transforms a stateless question-answerer into something that feels like a persistent, helpful assistant.
 
+</details>
+
 ---
 
 **Q2: What is in-context memory and what are its limitations?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 In-context memory is the simplest approach: the full conversation history is included directly in the prompt on every API call.
 
@@ -30,9 +38,14 @@ Limitations:
 2. **Cost** — every message re-sends all previous messages. A 100-turn conversation means turn 100 sends 100 messages worth of tokens.
 3. **Relevance** — older, less relevant messages dilute the context. The agent might focus on something from 50 turns ago that no longer matters.
 
+</details>
+
 ---
 
 **Q3: What is the difference between ConversationBufferMemory and ConversationSummaryMemory?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **ConversationBufferMemory** keeps every message verbatim. Turn 1, turn 2, turn 3... all stored and included in every new prompt.
 
@@ -43,11 +56,16 @@ Summary: approximate but handles long conversations much better.
 
 Use buffer for short conversations. Use summary when conversations run long.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How does vector-based long-term memory work?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Vector memory stores information as **numerical embeddings** in a database outside the LLM.
 
@@ -61,9 +79,14 @@ Here's the process:
 
 This allows the agent to have memories that persist forever across any number of sessions. The key advantage over buffer memory: you don't need to fit all memories into the context window. You only retrieve the relevant ones.
 
+</details>
+
 ---
 
 **Q5: What is entity memory and when is it useful?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Entity memory tracks specific named things (people, places, organizations, objects) and facts about them.
 
@@ -83,9 +106,14 @@ This is especially useful for:
 
 When Sarah says "how's the deadline looking?", entity memory tells the agent she means March 15 for Project Phoenix.
 
+</details>
+
 ---
 
 **Q6: How do you handle memory when the conversation gets very long?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Several strategies:
 
@@ -105,11 +133,16 @@ Several strategies:
 
 In production, most systems use a combination: a short buffer for recent context, a summary for the session, and a vector store for long-term facts.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How would you design a memory system for a personal assistant that serves 100,000 users?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Key design requirements:
 
@@ -136,9 +169,14 @@ def get_user_memories(user_id: str, query: str) -> list:
     return results
 ```
 
+</details>
+
 ---
 
 **Q8: What are the tradeoffs between storing raw conversations vs. summarized memories in a vector store?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **Raw conversations:**
 - Pros: exact wording preserved, can search by specific phrases, no information loss
@@ -155,9 +193,14 @@ def get_user_memories(user_id: str, query: str) -> list:
 
 The summary becomes the retrieval unit; the raw text is the source of truth if you need exact details.
 
+</details>
+
 ---
 
 **Q9: What is the "lost in the middle" problem and how does memory design address it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Research has shown that LLMs have a recency and primacy bias — they pay more attention to information at the very beginning and very end of the context window, and less attention to information in the middle.
 
@@ -170,6 +213,8 @@ Memory design solutions:
 4. **Memory highlighting** — explicitly flag critical facts: "IMPORTANT: user's deadline is March 15"
 
 Good memory design isn't just about storing information — it's about placing it where the LLM will actually pay attention to it.
+
+</details>
 
 ---
 

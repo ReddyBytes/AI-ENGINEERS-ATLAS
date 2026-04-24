@@ -4,6 +4,9 @@
 
 **Q1: What problem does RLHF solve? Why isn't pretraining alone enough?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A pretrained language model is good at continuing text in the style it was trained on. If you ask it "How do I do X?", it might output a continuation that looks like a how-to document — but that's not the same as actually answering helpfully, honestly, and safely.
 
 Pretrained models:
@@ -13,9 +16,14 @@ Pretrained models:
 
 RLHF solves this by introducing a feedback loop: actual humans rate the model's responses, and the model is updated to produce responses that humans rate higher. This teaches the model what "good" means in practice — not just textbook plausibility.
 
+</details>
+
 ---
 
 **Q2: What is a reward model and how is it trained?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A reward model is a neural network that takes a (prompt, response) pair as input and outputs a score predicting how much a human would prefer that response.
 
@@ -27,9 +35,14 @@ Training process:
 
 The reward model is essential because running the RL loop requires scoring millions of model-generated responses. Human labelers can't evaluate millions of responses — the reward model acts as an automated proxy.
 
+</details>
+
 ---
 
 **Q3: What is PPO and why is it used in RLHF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 PPO (Proximal Policy Optimization) is a reinforcement learning algorithm that updates the policy (the LLM) to maximize the expected reward while preventing updates that are too large.
 
@@ -41,11 +54,16 @@ Why PPO specifically:
 - The clip and KL mechanisms prevent catastrophic forgetting or reward gaming
 - Proven to work at LLM scale (originally validated by OpenAI's work on InstructGPT)
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is Goodhart's Law and how does it apply to reward hacking in RLHF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Goodhart's Law states: "When a measure becomes a target, it ceases to be a good measure."
 
@@ -63,9 +81,14 @@ Mitigation strategies:
 - Ensemble of reward models (harder to simultaneously game multiple models)
 - Periodic human evaluation as a check on the proxy reward
 
+</details>
+
 ---
 
 **Q5: What is DPO and how does it differ from PPO-based RLHF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Direct Preference Optimization (DPO) is a simpler approach that achieves similar results to RLHF without a separate reward model or RL loop.
 
@@ -80,9 +103,14 @@ In practice:
 - Many research papers show DPO competitive with or better than PPO on standard benchmarks
 - Commercial labs (Anthropic, OpenAI) use more complex setups that may combine both approaches
 
+</details>
+
 ---
 
 **Q6: What is sycophancy in LLMs and how does RLHF cause it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Sycophancy is when a model tells people what they want to hear rather than what is accurate or useful. It manifests as:
 - Agreeing with the user's incorrect statement when they express it confidently
@@ -99,11 +127,16 @@ Mitigations:
 - Reward "sticks to its position when challenged without new evidence"
 - Include factual accuracy checking in the reward signal
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does the KL divergence term in PPO prevent reward model gaming, and what happens if it's too small or too large?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The PPO objective in RLHF is:
 
@@ -126,9 +159,14 @@ If β is too large (KL penalty too strong):
 
 Typical β values: 0.01–0.1. The right value is found empirically and depends on the quality of the reward model and the desired degree of alignment change. Anthropic and others treat this as a sensitive hyperparameter in production training runs.
 
+</details>
+
 ---
 
 **Q8: How does multi-stage RLHF training relate to Constitutional AI, and which limitations of RLHF does CAI address?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 RLHF has two key bottlenecks:
 
@@ -146,9 +184,14 @@ The resulting AI Feedback (AIFF) can replace much of the Human Feedback (HF) in 
 
 Anthropic uses a combination: RLHF for helpfulness and general quality, CAI for harmlessness specifically. The constitution covers principles like "don't help with bioweapons" that would be difficult to get consistent labeling on.
 
+</details>
+
 ---
 
 **Q9: How would you evaluate whether a RLHF-trained model has improved compared to the SFT baseline?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Evaluation of RLHF improvement requires multiple approaches because a single benchmark is gameable:
 
@@ -166,6 +209,8 @@ Evaluation of RLHF improvement requires multiple approaches because a single ben
 5. **Regression testing**: Does the RLHF model retain capability on standard benchmarks (MMLU, HumanEval, GSM8K)? RLHF sometimes hurts raw capability — this needs monitoring.
 
 6. **Sycophancy test**: Present the model with a factual question and then "I think the answer is [wrong answer]." Does the RLHF model agree more than the SFT model? (It often does — sycophancy regression is a common RLHF failure.)
+
+</details>
 
 ---
 

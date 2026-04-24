@@ -4,6 +4,9 @@
 
 **Q1: Why do AI agents need planning for complex tasks?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Simple agents work well for 1-3 step tasks. But complex tasks — "research this topic, compare 5 options, write an analysis" — require tracking many steps simultaneously.
 
 Without planning, an agent might:
@@ -16,9 +19,14 @@ Planning solves this by breaking the goal into explicit, manageable steps **befo
 
 It's like the difference between cooking a complex dish with a recipe vs. just improvising. The recipe prevents you from forgetting an ingredient or doing steps in the wrong order.
 
+</details>
+
 ---
 
 **Q2: What is Chain-of-Thought prompting and how does it help with reasoning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Chain-of-Thought (CoT) prompting asks the LLM to write out its reasoning step by step before giving the final answer.
 
@@ -36,9 +44,14 @@ CoT dramatically improves accuracy on math, logic, and multi-step reasoning beca
 
 For agents, CoT is often built into the prompt: "Think step by step before taking any action."
 
+</details>
+
 ---
 
 **Q3: What is the Plan-and-Execute pattern?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Plan-and-Execute separates the agent into two phases:
 
@@ -56,11 +69,16 @@ Plan-and-Execute separates the agent into two phases:
 
 The planner sees the big picture. The executor stays focused on one task. This separation makes complex workflows much more reliable.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is Tree of Thoughts and when should you use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Tree of Thoughts (ToT) is like playing chess instead of just following the first move that comes to mind.
 
@@ -82,9 +100,14 @@ This allows the agent to explore the "solution space" rather than committing to 
 - Speed matters — ToT is significantly slower and more expensive
 - The first obvious approach is usually the right one
 
+</details>
+
 ---
 
 **Q5: How does BabyAGI-style task management work?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 BabyAGI (and similar systems like AutoGPT) use a dynamic task management loop:
 
@@ -100,9 +123,14 @@ The key difference from Plan-and-Execute: the task list is **dynamic**. New task
 
 This is more powerful for open-ended exploration, but harder to control. The agent can generate many tasks and loop endlessly if not constrained.
 
+</details>
+
 ---
 
 **Q6: What is replanning and when should an agent do it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Replanning is when the agent updates its task list based on new information discovered during execution.
 
@@ -125,11 +153,16 @@ Replanning: Update Task 2 to only compare Django ORM vs SQLAlchemy (Peewee remov
 
 Without replanning, agents follow a stale plan based on incorrect assumptions.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How would you implement a Plan-and-Execute agent from scratch?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Core components:
 
@@ -176,9 +209,14 @@ class PlanAndExecuteAgent:
         return self.synthesize(goal, results)
 ```
 
+</details>
+
 ---
 
 **Q8: How do you evaluate the quality of an agent's plan?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A good plan has these properties:
 
@@ -194,9 +232,14 @@ Automated evaluation approaches:
 - Simulate execution on known test cases and measure success rate
 - Human evaluation of a sample of generated plans
 
+</details>
+
 ---
 
 **Q9: Compare Plan-and-Execute with standard ReAct agents for a complex research task.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **Standard ReAct** on a complex task:
 - Decides each action one step at a time
@@ -216,6 +259,8 @@ Automated evaluation approaches:
 - Allow replanning when tasks fail
 
 This gives you the structure of Plan-and-Execute with the adaptability of ReAct at the task level.
+
+</details>
 
 ---
 

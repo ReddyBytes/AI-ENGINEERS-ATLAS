@@ -120,6 +120,14 @@ sequenceDiagram
 Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
 > This project uses: detecting overfitting via train vs test score, regularization in logistic regression (C parameter)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q8 · overfitting-regularization](../../ai_practice_questions_100.md#q8--normal--overfitting-regularization)
+
+
 ---
 
 ## 📂 Navigation

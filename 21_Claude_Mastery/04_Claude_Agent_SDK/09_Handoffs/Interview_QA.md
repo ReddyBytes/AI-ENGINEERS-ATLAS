@@ -4,29 +4,47 @@
 
 **Q1: What is an agent handoff and how does it differ from spawning a subagent?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: A handoff is a sequential transfer of control from one agent to the next. Agent A completes its stage, packages the current state into a structured handoff message, and passes control to Agent B — which continues from where A left off. Agent A is effectively done; B is the active agent going forward.
 
 A subagent spawn is a delegation pattern: the parent agent (orchestrator) sends work to a worker, waits for the result, and continues orchestrating. The parent stays in control throughout.
 
 The practical difference: use handoffs for linear pipelines where each stage hands off to the next (triage → specialist → action); use subagents for parallel work where an orchestrator needs multiple tasks done simultaneously and assembles all the results.
 
+</details>
+
 ---
 
 **Q2: Why is the handoff message structure important?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: The handoff message is the only information the next agent receives about everything that came before. If it's missing context, the receiving agent starts over or makes wrong assumptions. If it's too verbose, the receiving agent's context is flooded. A well-structured handoff message has: a human-readable summary (what happened), structured state (the data needed), a list of completed steps (so the receiving agent doesn't redo work), remaining steps (what still needs doing), and metadata for tracing. Think of it as a shift handover in a hospital — the incoming team should know everything they need to know without reading the full case notes from scratch.
+
+</details>
 
 ---
 
 **Q3: When would you use a human-in-the-loop handoff versus an automatic handoff to another agent?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Human-in-the-loop handoffs are appropriate when: the action is irreversible and high-impact (deleting records, sending bulk emails, making financial transactions); the agent's confidence is low (ambiguous data, conflicting signals); the task requires judgment that the model may not have (legal decisions, policy exceptions); or when regulations require human oversight (financial compliance, medical systems). Automatic handoffs (agent to agent) work when the outcome is predictable, reversible, or low-risk. A practical heuristic: if the next step could cause damage that takes more than 15 minutes to undo, require human approval.
+
+</details>
 
 ---
 
 ## Intermediate Level
 
 **Q4: How do you prevent state loss between handoffs in a multi-stage pipeline?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: State loss happens when the handoff message doesn't include everything the next agent needs. Prevention strategies:
 
@@ -36,9 +54,14 @@ A: State loss happens when the handoff message doesn't include everything the ne
 4. **Handoff validation**: before the handoff message is passed, run a validation step: "Does this message contain all the fields that the next agent requires?" This can be a simple schema check.
 5. **Idempotent stages**: design each stage so it can be safely rerun if it receives duplicate input. This makes partial failures recoverable.
 
+</details>
+
 ---
 
 **Q5: How would you implement conditional routing in a handoff system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Conditional routing means the next agent depends on the result of the current agent. Implementation:
 
@@ -78,9 +101,14 @@ def process_support_ticket(ticket: str) -> str:
 
 The handoff message (in this case, the classification result) determines which agent runs next. This is conditional routing without a central router — the orchestrating code handles the routing decision.
 
+</details>
+
 ---
 
 **Q6: What are the failure modes specific to handoff pipelines and how do you mitigate them?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Four failure modes specific to pipelines:
 
@@ -92,11 +120,16 @@ A: Four failure modes specific to pipelines:
 
 **Timeout cascades**: Stage 3 times out; stage 4 never starts; the user sees no output. Mitigation: each stage has an independent timeout; a failed stage returns a partial result with `status: failed` rather than blocking forever; implement circuit breakers that route to a fallback path.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: How would you design a handoff system for a long-running workflow that might span days and survive process restarts?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: For multi-day workflows, handoff state cannot live in memory — processes restart, agents time out, servers fail.
 
@@ -125,9 +158,14 @@ handoff_store: {
 
 **Workflow engine**: use a proper workflow orchestration system (Airflow, Temporal, Prefect) for workflows that span hours or days. These provide durability, retry logic, and visibility built-in.
 
+</details>
+
 ---
 
 **Q8: How does the handoff pattern relate to LangGraph's state machine model?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: LangGraph models multi-agent workflows as explicit state machines — nodes are agents or processing steps, edges are transitions (handoffs). The LangGraph `StateGraph` is a formalization of the handoff pattern:
 
@@ -140,9 +178,14 @@ The handoff pattern described in this topic is what you're implementing informal
 
 For simple 2-3 stage pipelines: the informal handoff pattern is simpler and sufficient. For complex workflows with branches, cycles, human interrupts, and durability requirements: LangGraph's state machine model provides the structure needed.
 
+</details>
+
 ---
 
 **Q9: What are the performance implications of a 10-stage handoff pipeline vs a single 10-step multi-step agent?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: The 10-stage pipeline makes 10 separate agent instantiation + API call sequences; the multi-step agent makes one instantiation with 10 API calls in its loop.
 
@@ -165,6 +208,8 @@ Multi-step agent advantages:
 - Simpler code
 
 Rule of thumb: if stages are genuinely independent or benefit from specialization, use a pipeline. If every step needs the full context of all previous steps and specialization adds no value, use a single multi-step agent.
+
+</details>
 
 ---
 

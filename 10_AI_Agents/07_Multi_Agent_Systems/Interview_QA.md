@@ -4,6 +4,9 @@
 
 **Q1: What is a multi-agent system and why is it better than a single agent for complex tasks?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A multi-agent system is multiple AI agents working together, each with a distinct role, coordinated to complete a larger goal.
 
 It's better than a single agent for complex tasks for three reasons:
@@ -16,9 +19,14 @@ It's better than a single agent for complex tasks for three reasons:
 
 Think of it like a company vs. a solo freelancer. Both can do the work — but the company (multi-agent) scales and specializes in ways the freelancer (single agent) can't.
 
+</details>
+
 ---
 
 **Q2: What is the orchestrator pattern in multi-agent systems?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The orchestrator pattern has one agent — the orchestrator — that acts as a coordinator or manager.
 
@@ -37,9 +45,14 @@ Example for "write a product comparison article":
 - Orchestrator → calls Writer Agent: "write the article based on this comparison"
 - Orchestrator → returns the final article
 
+</details>
+
 ---
 
 **Q3: What is the difference between sequential (pipeline) and parallel multi-agent patterns?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **Sequential / Pipeline:** Agents work in a chain. Agent 1 finishes → Agent 2 starts → Agent 3 starts.
 
@@ -61,11 +74,16 @@ Parallel is much faster when tasks are independent. 5 research tasks done in the
 
 Most real systems use both — some stages must be sequential (you can't write before you research), some can be parallel (you can research 5 companies simultaneously).
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How does inter-agent communication work in frameworks like CrewAI and AutoGen?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **CrewAI** uses task delegation with result passing:
 - You define agents (roles + tools) and tasks (description + which agent does it)
@@ -80,9 +98,14 @@ Most real systems use both — some stages must be sequential (you can't write b
 
 Both approaches end up at the same place — agent A's result flows to agent B's context — but the mechanism is different. CrewAI is more structured/declarative. AutoGen is more conversational.
 
+</details>
+
 ---
 
 **Q5: What are the main failure modes specific to multi-agent systems?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 1. **Cascading errors** — if Agent 1 produces bad output and Agent 2 builds on it without validation, the error compounds through the whole pipeline.
 
@@ -98,9 +121,14 @@ Both approaches end up at the same place — agent A's result flows to agent B's
 
 Mitigation: validate outputs at each handoff, structured output formats, explicit context injection from orchestrator to specialists.
 
+</details>
+
 ---
 
 **Q6: When would you NOT use a multi-agent system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Multi-agent systems are powerful but add complexity. Avoid them when:
 
@@ -112,11 +140,16 @@ Multi-agent systems are powerful but add complexity. Avoid them when:
 
 The rule: start simple, add multi-agent complexity only when a single agent demonstrably fails to handle the task.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How do you design the interfaces between agents to minimize integration failures?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Treat agent interfaces like API contracts:
 
@@ -139,9 +172,14 @@ class ResearchResult(BaseModel):
 
 This is essentially API design applied to agents.
 
+</details>
+
 ---
 
 **Q8: How would you implement error recovery in a multi-agent pipeline?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Error recovery strategies at different levels:
 
@@ -170,9 +208,14 @@ def run_with_retry(agent, task, max_retries=3):
 - Checkpoint state between agents — if the pipeline fails midway, don't start over from scratch
 - Store intermediate results so you can resume from the last successful checkpoint
 
+</details>
+
 ---
 
 **Q9: How does AutoGen's GroupChat differ from CrewAI's crew model, and when would you choose each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **AutoGen GroupChat:**
 - Agents participate in a group conversation
@@ -198,6 +241,8 @@ def run_with_retry(agent, task, max_retries=3):
 - Role-playing and specialist personas matter to output quality
 - You want a simpler, more readable configuration
 - You're building content or research workflows
+
+</details>
 
 ---
 

@@ -4,6 +4,9 @@
 
 **Q1: How does Claude actually produce a response? Walk me through it step by step.**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 When you send a message, Claude does the following:
 
 1. **Tokenize**: Your text is split into tokens (sub-word pieces). "Hello world" might become 2 tokens; "tokenization" might become 3.
@@ -16,9 +19,14 @@ When you send a message, Claude does the following:
 
 The key insight: there is no planning ahead or rewriting — Claude commits to each token and moves on.
 
+</details>
+
 ---
 
 **Q2: What is temperature in an LLM? How does it affect output?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Temperature controls how "peaked" or "flat" the probability distribution is before sampling.
 
@@ -31,9 +39,14 @@ Real-world intuition: think of a recipe recommendation system. At temperature=0 
 
 For production: factual tasks use low temperature (0.1–0.3), creative tasks use higher (0.7–1.0).
 
+</details>
+
 ---
 
 **Q3: What is the difference between top-p and top-k sampling?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Both limit which tokens are candidates for the next selection.
 
@@ -43,11 +56,16 @@ Both limit which tokens are candidates for the next selection.
 
 Top-p is adaptive; top-k is fixed. This is why top-p is preferred — it lets the model's own confidence determine how many options are considered.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is greedy decoding and why isn't it used for most production applications?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Greedy decoding always picks the highest-probability token at every step. It is deterministic and fast.
 
@@ -62,9 +80,14 @@ Additionally, greedy decoding causes:
 
 For most applications, sampling with moderate temperature and top-p gives better results. Greedy (temperature=0) is appropriate for structured outputs where you need exact reproducibility.
 
+</details>
+
 ---
 
 **Q5: How does the KV cache work and why is it important?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 During the transformer forward pass, each attention layer computes three things for each token: a Query (Q), a Key (K), and a Value (V). Computing attention requires comparing the current token's Q against all previous tokens' K vectors, then weighing their V vectors.
 
@@ -78,9 +101,14 @@ Why it matters:
 - The cache is stored in GPU VRAM — at 200k tokens with a large model, this can be tens of GB
 - When context is full, older cache entries must be evicted (sliding window attention)
 
+</details>
+
 ---
 
 **Q6: What are stop sequences and how should you use them in production?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Stop sequences are strings that, when produced by the model, immediately terminate generation. You specify them in the API call.
 
@@ -96,11 +124,16 @@ Common uses:
 
 Important caveat: if `max_tokens` is hit before the stop sequence appears, the sequence won't trigger. Always set max_tokens large enough that stop sequences reliably fire.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: Why is text generation autoregressive rather than parallel? What are the trade-offs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Autoregressive generation (left-to-right, one token at a time) is standard because each token semantically depends on what came before. A transformer trained to condition token t on tokens 1..t-1 learns patterns that require that conditioning at inference time.
 
@@ -114,9 +147,14 @@ Trade-offs vs alternatives:
 
 For Claude-scale models, autoregressive with speculative decoding is currently the practical optimum.
 
+</details>
+
 ---
 
 **Q8: How does temperature interact with top-p? Which is applied first?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The order of operations matters:
 
@@ -130,9 +168,14 @@ Why the order matters:
 
 In practice, many frameworks apply them together: `logits / temperature → softmax → top-p filter → sample`. Setting temperature very low makes the nucleus very small (maybe 1 token) regardless of top-p, effectively making top-p irrelevant at temperature=0.
 
+</details>
+
 ---
 
 **Q9: What is the "exposure bias" problem and how does it affect Claude's generation quality?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Exposure bias is a train/inference mismatch.
 
@@ -151,6 +194,8 @@ Mitigations used:
 - **Scheduled sampling** (older technique): Occasionally substitute ground-truth tokens with model predictions during training
 
 Extended thinking in Claude partially addresses this by making the reasoning explicit and checkable before the final answer.
+
+</details>
 
 ---
 

@@ -4,6 +4,9 @@
 
 **Q1: What is a transformer? Why did it replace RNNs for language modeling?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A transformer is a neural network architecture that uses self-attention to process sequences. The key innovation is that every token can directly attend to every other token in the sequence, regardless of distance.
 
 RNNs process text sequentially — they pass a "hidden state" forward through the sequence, one word at a time. The problem: information from early in a sequence gets compressed into a fixed-size vector and degrades by the time the model processes the end. Long-range dependencies (like a pronoun referring to a noun 100 words earlier) are hard to capture.
@@ -13,9 +16,14 @@ Transformers replace sequential processing with parallel self-attention: every t
 - Perfect long-range attention — position 1 and position 10,000 can directly attend to each other
 - Richer contextual representations at every layer
 
+</details>
+
 ---
 
 **Q2: What are Query, Key, and Value in self-attention?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Q, K, V are three different projections of the same input, each with a different role:
 
@@ -27,9 +35,14 @@ The mechanism: compute dot products between the current token's Query and every 
 
 Analogy: imagine a document search engine. Your search query is Q. The document titles are K (they describe what each document contains). The document content is V (what you actually retrieve). The attention mechanism finds which documents (Keys) best match your query, then returns a blend of those documents' content (Values).
 
+</details>
+
 ---
 
 **Q3: What is multi-head attention and why use multiple heads?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Multi-head attention runs the self-attention mechanism h times in parallel, each with different learned projection matrices. Each "head" sees the same tokens but projects them into a different subspace.
 
@@ -37,11 +50,16 @@ Why multiple heads: a single attention head computes one type of relationship be
 
 In practice, heads do sometimes specialize: research has found heads that focus on syntactic dependencies, heads that track coreference, heads that attend to local context, etc. The outputs of all heads are concatenated and projected to form the final attention output.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is the causal mask in a decoder-only transformer and why is it necessary?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A decoder-only model (like Claude) generates text autoregressively — it predicts each token one at a time, left to right. During training, you have the complete correct sequence and can compute all positions in parallel. But each position should only see its own and earlier tokens, not future tokens — that would be cheating.
 
@@ -57,9 +75,14 @@ Position: 0  1  2  3
 
 This is what makes the same transformer usable for both training (parallel) and inference (sequential) — the causal mask enforces the sequential constraint during parallel training.
 
+</details>
+
 ---
 
 **Q5: What are residual connections and layer normalization, and why are they both necessary?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **Residual connections** add the input directly to the output of a sub-layer: `output = x + SubLayer(x)`. Without them, gradients in a deep network (60-96 layers) must flow through every layer to reach the early layers. If any layer shrinks the gradient, it compounds across layers and vanishes. Residuals create "highways" for gradient flow — the gradient can bypass any layer through the skip path.
 
@@ -67,9 +90,14 @@ This is what makes the same transformer usable for both training (parallel) and 
 
 Both are necessary: residuals solve gradient flow, LayerNorm solves activation stability. Modern transformers use Pre-LayerNorm (normalize before the sub-layer, not after) which trains even more stably for very deep models.
 
+</details>
+
 ---
 
 **Q6: What is the feed-forward network in a transformer block and what does it do?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Each transformer block contains a feed-forward network (FFN) applied independently to each token position after attention. It's a two-layer MLP:
 
@@ -84,11 +112,16 @@ Key properties:
 
 This is why LoRA fine-tuning targets FFN weight matrices — you can update the knowledge stored there without touching the attention mechanism.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: What is Grouped Query Attention (GQA) and why does it matter for long-context inference?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Standard multi-head attention has h query heads, h key heads, and h value heads. This means the KV cache stores h separate key and value matrices per layer, per token.
 
@@ -103,9 +136,14 @@ Benefits:
 
 This is why modern models like Llama 2/3 and presumably Claude use GQA — it's essential for making 200k context windows practically deployable.
 
+</details>
+
 ---
 
 **Q8: Explain the scaling behavior of attention and how Flash Attention addresses it.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Self-attention is O(n²) in sequence length n. For n=200k:
 - 200,000² = 40 billion attention score values per layer
@@ -126,9 +164,14 @@ The full n×n matrix is never materialized — partial statistics are accumulate
 
 Result: Flash Attention 2 is ~2-4x faster than naive attention in practice and enables 100k+ token contexts that would otherwise be impossible.
 
+</details>
+
 ---
 
 **Q9: How does RoPE (Rotary Position Embedding) differ from sinusoidal encoding, and why is it preferred for long contexts?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Sinusoidal encoding adds a fixed position vector to each token embedding. This means positional information is added once at the input and must be preserved through all transformer layers. At long contexts or positions not seen during training, the model can fail to generalize.
 
@@ -151,6 +194,8 @@ This means the dot product naturally depends only on the relative position (i-j)
 3. Is applied at every attention layer — richer positional information than adding it once at input
 
 This is why models with RoPE can often be extended to longer contexts than their training distribution, and why all modern frontier models (Llama, Gemini, Claude) use RoPE or a variant.
+
+</details>
 
 ---
 

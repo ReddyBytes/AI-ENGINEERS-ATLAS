@@ -94,6 +94,14 @@ No single compressed vector needed. The decoder always has full access to the so
 
 ➡️ **Next step:** Self-Attention → `06_Transformers/03_Self_Attention/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q31 · attention-mechanism](../../ai_practice_questions_100.md#q31--thinking--attention-mechanism)
+
+
 ---
 
 ## 📂 Navigation

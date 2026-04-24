@@ -113,6 +113,14 @@ When an LLM has a "4096 token context window" that's not 4096 words — roughly 
 
 ➡️ **Next step:** Bag of Words & TF-IDF → `05_NLP_Foundations/03_Bag_of_Words_and_TF_IDF/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q26 · tokenization](../../ai_practice_questions_100.md#q26--normal--tokenization)
+
+
 ---
 
 ## 📂 Navigation

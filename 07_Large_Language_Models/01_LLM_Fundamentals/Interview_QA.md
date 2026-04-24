@@ -4,11 +4,19 @@
 
 **Q1: What is a Large Language Model?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A Large Language Model is a neural network with billions of parameters trained on massive amounts of text data. The training objective is simple: predict the next token given all previous tokens. By doing this at enormous scale — hundreds of billions of parameters, trillions of training tokens — the model learns grammar, facts, reasoning patterns, coding style, and much more. The result is a model that can answer questions, write code, summarize documents, and hold conversations, all from that single training objective.
+
+</details>
 
 ---
 
 **Q2: What is a token, and why does it matter?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A token is the basic unit of text that an LLM processes. It is not the same as a word. Most tokenizers split text into sub-word units: common words are single tokens ("the", "is"), rare words split into multiple tokens ("tokenization" might be "token" + "ization"), and numbers and punctuation have their own tokens.
 
@@ -19,19 +27,29 @@ Tokens matter because:
 - API costs are billed per token
 - Model speed depends on how many tokens are processed
 
+</details>
+
 ---
 
 **Q3: What is the difference between a base model and a chat model?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A base model is trained only on next-token prediction across raw internet text. It doesn't know how to answer questions or follow instructions — it just continues whatever text you give it. If you type "The capital of France is", it completes the sentence. But it might not answer "What is the capital of France?" helpfully.
 
 A chat model is a base model that has been further trained through instruction tuning and RLHF (Reinforcement Learning from Human Feedback). This teaches it to follow instructions, answer questions directly, decline harmful requests, and have a conversational style. ChatGPT, Claude, and Gemini are all chat models.
+
+</details>
 
 ---
 
 ## Intermediate
 
 **Q4: What are emergent capabilities in LLMs? Give an example.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Emergent capabilities are abilities that appear in large models but are absent or weak in smaller models — even though nobody specifically programmed them. They "emerge" from scale.
 
@@ -44,9 +62,14 @@ Other examples:
 
 Emergence is one reason why scaling LLMs has been so surprising — you can't always predict what new abilities will appear.
 
+</details>
+
 ---
 
 **Q5: Why do LLMs need so much data and compute? What would happen with less?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 LLMs learn by pattern-matching over text. The more patterns they see, the better their internal representations of language, facts, and reasoning. With less data:
 - The model overfits — it memorizes training examples rather than learning generalizable patterns
@@ -57,9 +80,14 @@ Compute is needed because training adjusts billions of parameters using backprop
 
 Less compute = fewer steps through the data = less learned. Scaling compute is one of the most reliable ways to improve model quality, which is why the industry has invested billions in GPU clusters.
 
+</details>
+
 ---
 
 **Q6: How do open-weight models like Llama differ from closed API models like GPT-4?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 | Dimension | Open-weight (Llama) | Closed API (GPT-4) |
 |-----------|--------------------|--------------------|
@@ -72,11 +100,16 @@ Less compute = fewer steps through the data = less learned. Scaling compute is o
 
 Open-weight models are ideal when: privacy matters, costs at scale are high, or you need fine-tuning control. Closed APIs are ideal when: you want frontier quality without infrastructure, or you're prototyping quickly.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: Explain the scaling laws for LLMs. What do they predict?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Scaling laws (Kaplan et al. 2020, Hoffman et al. 2022 "Chinchilla") describe mathematical relationships between model performance, model size, dataset size, and compute budget.
 
@@ -89,9 +122,14 @@ Practical implication: Llama 2's 70B model trained on 2T tokens significantly ou
 
 The frontier has since shifted further — Llama 3's 8B model trained on 15T tokens outperforms models many times its size trained on less data.
 
+</details>
+
 ---
 
 **Q8: What is the "bitter lesson" and how does it apply to LLMs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The "bitter lesson" (Rich Sutton, 2019) is the observation that in AI, methods that leverage computation and scale consistently beat methods that encode human knowledge. Every time researchers built clever, domain-specific AI, it eventually got beaten by a simpler method run at larger scale.
 
@@ -101,9 +139,14 @@ The lesson for practitioners: when in doubt, scale. Cleverness in architecture m
 
 That said, the bitter lesson has limits: alignment, safety, and factuality don't automatically improve with scale. Those require targeted techniques beyond just scaling.
 
+</details>
+
 ---
 
 **Q9: What are the key differences between GPT-4, Claude 3, and Gemini architecturally and in terms of design philosophy?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 All three are transformer-based LLMs with instruction tuning and RLHF/RLAIF. The differences are in design philosophy, safety approach, and capabilities:
 
@@ -126,6 +169,8 @@ All three are transformer-based LLMs with instruction tuning and RLHF/RLAIF. The
 - Strong on multilingual tasks given Google's global data assets
 
 The fundamental architecture (transformer + attention) is the same. The differences are in training data curation, safety methodology, context length engineering, and multimodal integration strategy.
+
+</details>
 
 ---
 

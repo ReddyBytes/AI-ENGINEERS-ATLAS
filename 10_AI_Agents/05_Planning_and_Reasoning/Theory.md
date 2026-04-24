@@ -134,6 +134,14 @@ The agent doesn't execute a fixed plan — it generates the plan dynamically bas
 Apply what you just learned → **[A4: Multi-Agent Research System](../../20_Projects/02_Advanced_Projects/04_Multi_Agent_Research_System/Project_Guide.md)**
 > This project uses: supervisor decomposes research question into sub-tasks, plans which specialist to use for each
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q65 · planning-reasoning](../../ai_practice_questions_100.md#q65--interview--planning-reasoning)
+
+
 ---
 
 ## 📂 Navigation

@@ -132,6 +132,14 @@ Prompts guide how the AI thinks; Tools let the AI act. If you need the AI to tak
 
 ➡️ **Next step:** [Transport Layer](../05_Transport_Layer/Theory.md) — Learn how messages between clients and servers actually travel.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q70 · mcp-tools-resources](../../ai_practice_questions_100.md#q70--interview--mcp-tools-resources)
+
+
 ---
 
 ## 📂 Navigation

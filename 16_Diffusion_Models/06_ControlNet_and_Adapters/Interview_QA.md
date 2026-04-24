@@ -4,11 +4,19 @@
 
 **Q1: What problem does ControlNet solve?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Standard diffusion models with text prompts give you creative control but no structural control. You can describe "a woman dancing" but you can't specify exactly which pose, angle, or composition the model should use — every generation is different. ControlNet solves this by accepting a structural input alongside the text: a body pose skeleton, a depth map, an edge detection image, or other spatial signals. The model then generates content that respects both the text description AND the structural blueprint. This enables applications like: generating a person in a specific pose from a reference photo, maintaining the 3D depth structure of a reference scene, or generating a new image with the same composition as a rough sketch.
+
+</details>
 
 ---
 
 **Q2: What is LoRA and why is it used for diffusion model fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: LoRA (Low-Rank Adaptation) is a technique for fine-tuning large neural networks efficiently. Instead of updating all 860M (or 2.6B) weights of a U-Net, LoRA adds small rank-decomposition matrices alongside the frozen original weights: W_effective = W_frozen + B·A, where B and A are small matrices (e.g., 768×4 and 4×768 for rank-4). This means:
 - Training only ~3-10MB of parameters instead of 2-4GB
@@ -18,17 +26,27 @@ A: LoRA (Low-Rank Adaptation) is a technique for fine-tuning large neural networ
 
 For diffusion, LoRA enables: teaching a model a specific art style, a specific character's appearance, or a specific person's face — all without touching the base model weights.
 
+</details>
+
 ---
 
 **Q3: What are "zero convolutions" in ControlNet and why are they important?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Zero convolutions are 1×1 convolutional layers initialized with both weights and biases set to zero. At the start of ControlNet training, they output exactly zero — so ControlNet adds zero signal to the frozen U-Net, and the model behaves identically to the pretrained baseline. This is crucial for training stability: you start from a model that already generates good images (the pretrained U-Net), and gradually introduce the ControlNet's learned structure. Without zero convolutions, random initialization would immediately corrupt the pretrained U-Net's behavior in the early training steps, making convergence difficult.
+
+</details>
 
 ---
 
 ## Intermediate Level
 
 **Q4: Describe the ControlNet architecture in detail. How does the control signal reach the U-Net decoder?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: ControlNet works as follows:
 1. The original U-Net is frozen — its weights never change
@@ -40,9 +58,14 @@ A: ControlNet works as follows:
 
 The original U-Net decoder now has access to two sources of information: its own encoder features (via skip connections) and the ControlNet encoder features (via zero convolutions). The ControlNet features carry structural information from the conditioning input, steering the decoder toward respecting the structure while the text conditioning (via cross-attention) handles content and style.
 
+</details>
+
 ---
 
 **Q5: What is the difference between using a depth ControlNet and using Canny edge ControlNet?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: They encode different types of structural information:
 
@@ -52,9 +75,14 @@ A: They encode different types of structural information:
 
 In practice: use depth for 3D composition control, Canny for shape and outline control. They can be combined (at reduced weights) for both.
 
+</details>
+
 ---
 
 **Q6: Explain how IP-Adapter adds image conditioning without modifying the original model.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: IP-Adapter injects image conditioning via a parallel cross-attention mechanism:
 
@@ -66,11 +94,16 @@ A: IP-Adapter injects image conditioning via a parallel cross-attention mechanis
 
 The original U-Net weights are frozen. Only the small adapter layers (~22M parameters) are trained. At inference, the reference image's visual features flow through the adapter's cross-attention stream, conditioning spatial positions on the visual style and content of the reference. The text cross-attention stream remains active simultaneously — text describes the content/composition, image reference provides the visual style.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: Why does ControlNet train the encoder copy but not the decoder, and how do the zero convolutions enable this design?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: The choice to copy only the encoder is deliberate:
 
@@ -82,9 +115,14 @@ Why not copy the decoder too? Because the decoder already has access to the stru
 
 The zero convolutions make this safe: at initialization, they add zero signal. If ControlNet training fails or the gradient becomes unstable, the zero convolutions absorb the instability — the original U-Net remains unaffected. This is called "protected" initialization.
 
+</details>
+
 ---
 
 **Q8: How would you implement a custom ControlNet preprocessing pipeline for a non-standard conditioning input (e.g., thermal camera images)?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: The preprocessing pipeline has two components:
 
@@ -103,9 +141,14 @@ A: The preprocessing pipeline has two components:
 
 The key challenge is ensuring the thermal features encode enough spatial information for the ControlNet encoder to learn meaningful structure. Thermal cameras capture temperature gradients which may correspond to objects, surfaces, or ambient temperature — you need enough variation in your training set to cover the conditioning inputs you'll use at inference.
 
+</details>
+
 ---
 
 **Q9: What is the trade-off between using DreamBooth and LoRA for fine-tuning, and when would you choose each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: **DreamBooth:**
 - Fine-tunes the entire U-Net (or a large portion of it) on 5-30 images
@@ -130,6 +173,8 @@ A: **DreamBooth:**
 - Commercial product where file size matters → LoRA
 - Combining with other fine-tunes → LoRA (composable)
 - One-off high-quality personal training → DreamBooth
+
+</details>
 
 ---
 

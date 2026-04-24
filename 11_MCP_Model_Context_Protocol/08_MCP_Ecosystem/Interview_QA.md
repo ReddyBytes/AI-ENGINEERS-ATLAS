@@ -4,24 +4,42 @@
 
 **Q1: What is the MCP ecosystem, and why does it matter for AI development?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > The MCP ecosystem is the collection of official and community-built MCP servers, client hosts, SDKs, and development tools that have grown around the Model Context Protocol. It matters because it multiplies what any individual developer can build — instead of writing custom code to connect Claude to GitHub, PostgreSQL, Slack, and a web browser, you can use existing, well-maintained MCP servers for each of these. The ecosystem creates a "build once, run anywhere" effect: a server you build can work with Claude Desktop, VS Code, and any future MCP-compatible host. As more people contribute, the ecosystem becomes more valuable for everyone.
+
+</details>
 
 **Q2: Where do you find official MCP servers, and how do you install them?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > Official MCP servers are maintained by Anthropic at `github.com/modelcontextprotocol/servers`. They are also published as npm packages under the `@modelcontextprotocol` scope on npm. Most can be installed with `npm install -g @modelcontextprotocol/server-NAME` (for Node.js-based servers) or run directly without installation using `npx`. After installing, you add the server to your Claude Desktop config file (`claude_desktop_config.json`) with the command to run it and any required environment variables like API keys.
 
+</details>
+
 **Q3: Name three official MCP servers and explain what each one does.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > Three commonly used official servers:
 > - **filesystem**: Lets Claude read, write, search, and organize files on your local machine within a configured directory. The most commonly used server for personal productivity.
 > - **github**: Wraps the GitHub REST API so Claude can browse repositories, view and create pull requests, manage issues, review code, and post comments.
 > - **postgres**: Connects to a PostgreSQL database and lets Claude run SQL queries, explore table schemas, and answer questions about your data in natural language.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What criteria would you use to evaluate whether a community MCP server is safe to use?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > I would evaluate a community server on:
 > - **Source code review**: Read the actual code. What tools does it expose? What data does it read? Does it make any outbound network calls to unexpected endpoints?
@@ -33,7 +51,12 @@
 >
 > I would always test with the MCP Inspector first before connecting to Claude Desktop.
 
+</details>
+
 **Q5: What does the MCP Python SDK provide, and how does it relate to the overall ecosystem?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > The Python SDK (`pip install mcp`) provides:
 > - The `Server` class and decorators (`@app.list_tools()`, `@app.call_tool()`, etc.) for building servers
@@ -44,15 +67,25 @@
 >
 > It is the standard library for Python developers building MCP servers, equivalent to what Express.js is for Node.js web servers. The TypeScript SDK serves the same role for the Node.js ecosystem. Having official SDKs in multiple languages ensures the ecosystem can grow in every programming community, not just Python.
 
+</details>
+
 **Q6: How does the MCP ecosystem handle updates to the protocol itself? What happens if a server was built for an older version of MCP?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > MCP uses protocol versioning — during the `initialize` handshake, both client and server declare their supported protocol version. If there is a version mismatch, either side can decline to proceed or they negotiate a common supported version. Official servers track the latest protocol versions and are updated when MCP evolves. Community servers may lag behind — this is a real concern when evaluating community servers. If a community server has not been updated in over a year, check the MCP changelog to see if any breaking changes were made that could affect it. In practice, MCP aims to maintain backward compatibility, but feature gaps exist for older servers.
+
+</details>
 
 ---
 
 ## Advanced
 
 **Q7: If you were a software company releasing an MCP server for your product, what design decisions would you make to maximize adoption in the ecosystem?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > For maximum adoption:
 >
@@ -72,7 +105,12 @@
 >
 > 8. **Minimal required scopes**: For API-key-based servers, document exactly what API permissions are needed and nothing more.
 
+</details>
+
 **Q8: Describe how the MCP ecosystem could enable a "marketplace of AI capabilities" for enterprise deployments.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > In an enterprise context, the ecosystem pattern looks like this:
 >
@@ -85,7 +123,12 @@
 >
 > This creates a sustainable "capability marketplace" where AI capabilities are added incrementally, audited, and controlled — just like an enterprise app store for AI tools.
 
+</details>
+
 **Q9: How would you build a "server discovery" feature for a custom MCP host application?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > A discovery feature would need:
 >
@@ -100,6 +143,8 @@
 > 5. **Automatic updates**: Check the registry for server updates and notify users when newer versions are available
 >
 > This is exactly what package managers like npm and pip do for code libraries — the same patterns apply to MCP server distribution. Anthropic is working on an official MCP registry to enable exactly this kind of discovery.
+
+</details>
 
 ---
 

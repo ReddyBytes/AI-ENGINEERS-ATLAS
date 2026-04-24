@@ -4,6 +4,9 @@
 
 **Q1: What is the Hugging Face Trainer and what does it replace?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** The `Trainer` class is a high-level abstraction that encapsulates a complete PyTorch training loop. It replaces the boilerplate code that every ML engineer would otherwise write from scratch for every project.
 
 Without `Trainer`, a proper training loop requires manually writing:
@@ -20,9 +23,14 @@ Without `Trainer`, a proper training loop requires manually writing:
 
 With `Trainer`, you provide the model, training arguments, and datasets, then call `trainer.train()`. All of the above is handled for you, tested, and works consistently across hardware configurations.
 
+</details>
+
 ---
 
 **Q2: What is `TrainingArguments` and why is it important to keep it as a separate object?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** `TrainingArguments` is a dataclass (essentially a configuration object) that holds all hyperparameters and settings for a training run. It includes things like learning rate, batch size, number of epochs, evaluation strategy, precision settings, and logging configuration.
 
@@ -42,9 +50,14 @@ from transformers import TrainingArguments
 args = TrainingArguments.from_json_file("training_args.json")
 ```
 
+</details>
+
 ---
 
 **Q3: Explain gradient accumulation. Why would you use it and what setting controls it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Gradient accumulation is a technique for simulating a larger batch size than your GPU can hold in memory at once.
 
@@ -56,11 +69,16 @@ With `gradient_accumulation_steps=4`, the Trainer processes 16 examples and comp
 
 **Trade-off:** Gradient accumulation is slower per optimizer step (you process 4× as many examples before updating), but often converges in fewer steps overall for large effective batch sizes.
 
+</details>
+
 ---
 
 ## Intermediate Level
 
 **Q4: What is the `compute_metrics` function and how does the Trainer use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** `compute_metrics` is a user-provided function that the Trainer calls at evaluation time to compute custom metrics beyond the training loss.
 
@@ -90,9 +108,14 @@ The Trainer uses these metrics in two ways:
 1. **Logging** — all metrics are logged to TensorBoard/W&B automatically
 2. **Best model selection** — if `load_best_model_at_end=True` and `metric_for_best_model="f1"`, the Trainer compares `eval_f1` across checkpoints and loads the best one
 
+</details>
+
 ---
 
 **Q5: How does mixed precision training work in the Trainer and when should you use `fp16` vs `bf16`?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Mixed precision training uses 16-bit floating point numbers for most operations (reducing VRAM use and speeding up computation on modern GPUs) while keeping certain critical operations (like loss scaling and normalization) in 32-bit for numerical stability.
 
@@ -108,9 +131,14 @@ The Trainer uses these metrics in two ways:
 
 `bf16` has the same exponent range as FP32 (avoiding overflow issues) but lower mantissa precision. This makes it more numerically stable than FP16 for training, especially for large models with large activations. If your GPU supports it (Ampere architecture or newer), prefer `bf16=True` over `fp16=True`.
 
+</details>
+
 ---
 
 **Q6: What is a `DataCollator` and why is `DataCollatorWithPadding` recommended over always padding to max_length at tokenization time?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** A `DataCollator` is a function that takes a list of dataset examples (each a dict) and merges them into a single batch. It handles the padding that makes sequences uniform length within each batch.
 
@@ -133,11 +161,16 @@ Now a batch containing sentences of 10–50 words gets padded to 50 tokens (the 
 
 **Practical impact:** For BERT fine-tuning on short text (tweets, sentences), dynamic padding can reduce training time by 30-50%.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: How does the Trainer handle distributed training? What changes when you go from 1 GPU to 8 GPUs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The Trainer uses the `accelerate` library internally, which abstracts away distributed training setup. The beautiful answer: **almost nothing changes in your code**.
 
@@ -161,9 +194,14 @@ The Trainer automatically adjusts the effective batch size: with `per_device_tra
 
 **The only thing to watch:** Make sure your `evaluation_strategy` checkpoints are saved from the main process only (Trainer handles this automatically). Also, ensure your dataset is sharded correctly — Trainer's DataLoader handles this when using `DistributedSampler` automatically.
 
+</details>
+
 ---
 
 **Q8: How do you resume a training run from a checkpoint if training was interrupted?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The Trainer has built-in checkpoint resumption. When you pass `resume_from_checkpoint`, it restores the model weights, optimizer state, learning rate scheduler state, and the RNG states — so training continues exactly where it left off, not just from the model weights.
 
@@ -193,9 +231,14 @@ trainer.train(resume_from_checkpoint=True)
 
 **Important caveat:** If you changed your dataset or `per_device_train_batch_size`, the step count may not correspond correctly to the data position. In that case, the DataLoader will still resume correctly since Trainer saves and restores the dataloader seed and position separately.
 
+</details>
+
 ---
 
 **Q9: What is the difference between using `Trainer.train()` and writing your own training loop? When would you skip `Trainer` entirely?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** `Trainer` covers the vast majority of standard fine-tuning scenarios perfectly. But there are specific cases where writing your own loop with raw PyTorch (or using `accelerate` directly) is the better choice:
 
@@ -212,6 +255,8 @@ trainer.train(resume_from_checkpoint=True)
 5. **When you need total control for debugging** — sometimes a manual loop is easier to instrument and debug than Trainer's internals.
 
 **Good middle ground:** Use `Trainer` but subclass it and override `compute_loss()` for custom losses, or add callbacks for complex logging. This gives you most of Trainer's convenience while keeping the customization you need.
+
+</details>
 
 ---
 

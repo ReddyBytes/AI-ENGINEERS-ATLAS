@@ -175,6 +175,14 @@ Run the `Code_Example.md` in this folder to generate your first image with Huggi
 ➡️ **Next step:**
 Head to [04_Guidance_and_Conditioning / Theory.md](../04_Guidance_and_Conditioning/Theory.md) to understand how classifier-free guidance and negative prompts actually work, and why the CFG scale is the most important parameter for prompt adherence.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q84 · stable-diffusion](../../ai_practice_questions_100.md#q84--thinking--stable-diffusion)
+
+
 ---
 
 ## 📂 Navigation

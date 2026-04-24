@@ -4,6 +4,9 @@
 
 **Q1: What problem does hybrid search solve that pure semantic search cannot?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Pure semantic search finds chunks that are conceptually similar to the query but can miss exact keyword matches. If a user asks about "error code API-2847" and the document contains that exact string, the semantic embedding may not rank it first — because the embedding captures meaning, not exact character sequences.
 
 BM25 (keyword search) works the opposite way: it's excellent at exact term matching, but terrible at semantic understanding. A user asking "how do I get my money back?" will not match a document that says "refund policy" because the words are different.
@@ -14,9 +17,14 @@ Hybrid search combines both:
 
 The combination handles both natural language questions and specific term lookups — which is exactly what production knowledge bases require.
 
+</details>
+
 ---
 
 **Q2: What is the difference between a bi-encoder and a cross-encoder?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A **bi-encoder** (used in standard retrieval) encodes the query and each document independently into separate vectors. At search time, you compare the query vector to stored document vectors using cosine similarity. This is fast — the document vectors are pre-computed and stored.
 
@@ -28,9 +36,14 @@ The trade-off:
 
 That's why the pattern is: bi-encoder retrieves top-20 candidates fast, cross-encoder reranks those 20 accurately, you keep the top 3.
 
+</details>
+
 ---
 
 **Q3: What is HyDE and when would you use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 HyDE stands for Hypothetical Document Embeddings. Instead of embedding the user's question directly for retrieval, you ask an LLM to generate a hypothetical answer document first, then embed that document and use it for the search.
 
@@ -46,11 +59,16 @@ When NOT to use HyDE:
 - Simple factual queries where the question vocabulary matches document vocabulary
 - When the LLM might hallucinate irrelevant content in the hypothetical document
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: Explain Reciprocal Rank Fusion (RRF) and why it works better than score averaging.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 RRF is the standard way to combine ranked result lists from different search methods. For each result, you compute a score based on its rank position across all lists:
 
@@ -67,9 +85,14 @@ Why RRF works better than averaging raw scores:
 
 The result: a chunk that ranks #2 in semantic search and #3 in keyword search beats a chunk that ranks #1 in semantic search but #20 in keyword search. The consistent multi-method evidence wins.
 
+</details>
+
 ---
 
 **Q5: How do you implement multi-query retrieval and handle duplicate results?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Multi-query retrieval generates N variations of the original question, runs retrieval for each, and merges the results into a single deduplicated candidate set.
 
@@ -100,9 +123,14 @@ Key decisions:
 - **How many variants**: 3 is usually enough. More variants add latency without proportional quality gain.
 - **When to apply reranking**: after multi-query merge, the candidate set is large — this is an ideal place to apply a cross-encoder reranker to pick the true top-3.
 
+</details>
+
 ---
 
 **Q6: What is the "retrieve-then-rerank" pipeline and what are the tradeoffs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The retrieve-then-rerank pipeline has two stages:
 
@@ -123,11 +151,16 @@ The key insight: reranking is effective because it fixes the main weakness of bi
 
 When to add it: when your evaluation metrics show correct answers are in your top-10 retrieved chunks but not always in the top-3 that get passed to the LLM. Reranking moves the right chunk to the top.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How would you design a query transformation pipeline that decides which transformation strategy to apply based on the query type?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Different queries benefit from different transformations. A routing layer selects the appropriate strategy:
 
@@ -163,9 +196,14 @@ This avoids the cost of running all transformations on every query. Vague querie
 
 In practice: start with the "simple" path for everything, then add routing only after you've measured what types of queries are failing.
 
+</details>
+
 ---
 
 **Q8: How does contextual compression improve RAG quality after retrieval?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Retrieved chunks often contain a lot of text that's irrelevant to the specific question. A 400-token chunk about the returns policy might have 3 relevant sentences buried in general text. When 3 chunks like this are passed to the LLM, the 400-token answer might only contain 30 tokens of actual relevance per chunk.
 
@@ -190,9 +228,14 @@ Benefits:
 
 Cost: adds one LLM call per retrieved chunk. For 5 chunks, that's 5 extra calls. Use a fast, cheap model (not Claude Opus) for this step. The quality gain is typically significant enough to justify the cost in production systems.
 
+</details>
+
 ---
 
 **Q9: What is the "corrective RAG" pattern and how does it prevent hallucination from bad retrievals?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Corrective RAG (CRAG) adds a verification step after retrieval but before generation. A grader evaluates whether the retrieved documents actually contain the information needed to answer the question.
 
@@ -232,6 +275,8 @@ Document: {chunk['text'][:500]}"""
 The grader catches the case where high cosine-similarity chunks are topically related but don't actually answer the specific question. This prevents the LLM from generating a plausible-sounding but incorrect answer from weakly relevant context.
 
 Cost: 1 LLM call per retrieved chunk for grading. This is expensive at scale. In practice: use grading only when reliability is critical, or use a very small fast model for grading (e.g., a fine-tuned classification model rather than a full LLM).
+
+</details>
 
 ---
 

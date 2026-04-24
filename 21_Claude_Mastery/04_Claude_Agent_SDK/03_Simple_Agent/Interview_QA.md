@@ -4,6 +4,9 @@
 
 **Q1: What are the three minimum requirements to build a working agent with the Claude Agent SDK?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Three things are required:
 1. At least one `@tool`-decorated function — this gives the agent an action it can take
 2. An `Agent` object configured with the model, tools list, and system prompt
@@ -11,23 +14,38 @@ A: Three things are required:
 
 The `@tool` decorator generates the JSON schema, the `Agent` object wires everything together, and `agent.run()` starts the loop. Without a tool, the agent has no actions and is equivalent to a single API call. Without `agent.run()`, nothing executes.
 
+</details>
+
 ---
 
 **Q2: What role does the docstring play in a `@tool`-decorated function?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: The docstring becomes the tool's description — the text Claude reads to decide when to use this tool. Claude cannot see your Python code or variable names beyond the function signature; the docstring is its entire understanding of the tool's purpose, expected inputs, outputs, and constraints. A poor docstring ("does some stuff") means Claude may call the wrong tool, pass wrong parameters, or not call the tool at all. A good docstring ("searches the product catalog by keyword, returns list of dicts with name/price/stock, use when user asks about products") enables reliable tool selection. The docstring is as much a part of your agent's design as the tool logic itself.
+
+</details>
 
 ---
 
 **Q3: What's the difference between defining a `@tool` function and having the agent use it?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Defining `@tool` on a function creates the tool schema — it marks the function as available for agent use. But the function only gets called if: (1) it's included in `tools=[your_function]` when creating the Agent, AND (2) Claude decides to call it during the agent loop. If you define `@tool` but don't pass it to `tools=[]`, Claude never sees the tool and will never call it. If you pass it in `tools=[]` but Claude doesn't need it for the given goal, it still won't be called. Tools are capabilities, not commands.
+
+</details>
 
 ---
 
 ## Intermediate Level
 
 **Q4: Walk through what happens at the Python level when `agent.run("count the words in 'hello world'")` executes.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Here's the sequence:
 1. `agent.run()` constructs the initial message payload: `{model, system_prompt, tools=[schema], messages=[{role: user, content: "count the words..."}]}`
@@ -40,23 +58,38 @@ A: Here's the sequence:
 8. Claude responds with a final text answer: `"'hello world' contains 2 words."`
 9. `stop_reason == "end_turn"` → SDK returns this text from `agent.run()`
 
+</details>
+
 ---
 
 **Q5: How does the model "know" what tools are available to it at each loop iteration?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: The tool schemas are passed as the `tools` parameter in every API call the SDK makes. Each schema includes the tool name, description, and parameter structure. The model doesn't "remember" tools between calls — it sees the schemas fresh on every iteration because the SDK always includes them in the request. This means: changing the tools list between runs affects all subsequent agent calls immediately. It also means the tool schema consumes tokens on every call — large tool schemas with many tools have a real cost impact. Design compact but clear tool descriptions.
+
+</details>
 
 ---
 
 **Q6: What happens if you give the agent a goal that requires a tool it doesn't have?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Claude attempts to work with what it has. Depending on the model's judgment, it might: answer based on its training data (if the task is answerable without tools), explain that it doesn't have the necessary capability, attempt to approximate the task with available tools, or ask the user for the missing information. The model does not hallucinate tool calls for tools not in its schema — it can only call tools you've explicitly defined. If the goal is genuinely impossible without a specific tool, a well-prompted Claude will say so clearly rather than producing an incorrect answer.
+
+</details>
 
 ---
 
 ## Advanced Level
 
 **Q7: How would you design a minimal agent that handles multiple, heterogeneous tasks from different users reliably?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Key design decisions for multi-user, multi-task reliability:
 
@@ -90,9 +123,14 @@ with ThreadPoolExecutor(max_workers=10) as pool:
     results = [f.result(timeout=60) for f in futures]
 ```
 
+</details>
+
 ---
 
 **Q8: How would you test an agent that uses external tools without hitting real APIs in CI?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Replace tools with mock versions that return controlled test data:
 
@@ -122,9 +160,14 @@ assert "diffusion" in result.lower()
 
 Test strategy: unit test tools in isolation (independent of the agent), integration test the agent with mocks, and end-to-end test with real tools only in staging. The `@tool` decorator means mock and real versions are interchangeable — same schema, different implementation.
 
+</details>
+
 ---
 
 **Q9: What are the token cost implications of running a 10-step agent vs a single API call?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Each loop iteration is a full API call. In a 10-step agent:
 - Step 1: prompt (500) + tool schema (200) + goal (50) = ~750 input tokens
@@ -134,6 +177,8 @@ A: Each loop iteration is a full API call. In a 10-step agent:
 - Step 10: all previous steps accumulated = potentially 8,000+ input tokens
 
 Input tokens grow with each step because the full history is passed. Output tokens per step are typically 100-500. For a 10-step agent with moderate tool outputs: approximately 30,000-50,000 total tokens — vs ~750 tokens for a single call. This is why: (1) agents should only be used when multi-step is genuinely necessary, (2) tool outputs should be truncated, (3) prompt caching helps (the system prompt and tool schemas repeat on every call), (4) cost monitoring is essential in production.
+
+</details>
 
 ---
 

@@ -4,6 +4,9 @@
 
 **Q1: How does an LLM API work? What happens when you make a call?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 An LLM API is a REST endpoint. You send an HTTP POST request with a JSON body containing your prompt and parameters. The server processes the request, runs the LLM inference, and returns a JSON response with the generated text.
 
 Here's the lifecycle of an API call:
@@ -17,9 +20,14 @@ Here's the lifecycle of an API call:
 
 The client never touches the model directly — it's all abstracted behind the HTTP interface. This is why LLM APIs can be called from any language (Python, JavaScript, curl, etc.) and why you pay per token rather than per model weight.
 
+</details>
+
 ---
 
 **Q2: What is the system prompt and why is it important?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The system prompt is a special message in the conversation that contains instructions for the model. It's separate from the user conversation (doesn't appear in the user/assistant exchange) and sets the model's behavior for the entire session.
 
@@ -38,9 +46,14 @@ Why it's important:
 
 In Anthropic's Claude API, the system prompt is a top-level parameter. In OpenAI's API, it's the first message with role="system".
 
+</details>
+
 ---
 
 **Q3: What does max_tokens do? What happens if you set it too low or too high?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 max_tokens sets the maximum number of tokens the model is allowed to generate in the response. It's an upper bound — the model will stop when it generates a natural ending OR when it hits this limit, whichever comes first.
 
@@ -70,11 +83,16 @@ Set max_tokens to a reasonable upper bound for your use case:
 
 Always check response.stop_reason. If it's frequently "max_tokens", increase your limit. If responses are much shorter than max_tokens, you're paying for potential that you never use.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How does streaming work in LLM APIs? When should you use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Without streaming, the API waits for the complete response to be generated, then returns everything at once. With streaming, tokens are sent to the client as soon as they're generated — the client receives the response incrementally.
 
@@ -120,9 +138,14 @@ with client.messages.stream(
 
 The user experience difference between streaming and non-streaming on a long response is dramatic — seconds vs immediate first words.
 
+</details>
+
 ---
 
 **Q5: How do you implement multi-turn conversation with an LLM API? What are the limitations?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 LLM APIs are stateless — each call is independent. To create a multi-turn conversation, you include the entire conversation history in the messages array of each request.
 
@@ -178,9 +201,14 @@ print(chat("What's my name?"))  # Model can answer because history includes it
 - Summarization: periodically summarize old turns and replace with the summary
 - Token counting: measure history size and truncate when approaching the limit
 
+</details>
+
 ---
 
 **Q6: How does structured output (tool use) work? When should you use it instead of prompting for JSON?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Structured output via tool use is more reliable than prompting the model to output JSON.
 
@@ -254,11 +282,16 @@ if response.stop_reason == "tool_use":
 - Outputs that will be shown to humans (don't need perfect structure)
 - When you're using a simple schema and the model is reliable
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does prompt caching work and when does it provide significant cost savings?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Prompt caching allows you to mark a prefix of your prompt as cacheable. The API processes this prefix once, stores the resulting KV cache, and reuses it across subsequent requests that share the same prefix.
 
@@ -304,9 +337,14 @@ With caching (1,000 calls, same system prompt):
 
 Note: caching behavior and pricing differ between providers. Check current documentation.
 
+</details>
+
 ---
 
 **Q8: How do you manage conversation history efficiently to avoid context window overflow?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Managing conversation history is a real engineering problem for production chat applications. Here are the main strategies:
 
@@ -388,9 +426,14 @@ def manage_history(full_history, max_tokens=60000):
 - Customer service / support: token-aware truncation keeps more relevant context
 - Long-running projects or complex conversations: summarization preserves important context
 
+</details>
+
 ---
 
 **Q9: How do you design an LLM API integration for production reliability? What are the key engineering considerations?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Production LLM integrations have requirements beyond "it works in a demo." Key considerations:
 
@@ -475,6 +518,8 @@ If you're making many requests:
 - Consider whether the model's responses could expose other users' data (if using shared history)
 
 These considerations turn a working prototype into a reliable, observable, cost-controlled production service.
+
+</details>
 
 ---
 

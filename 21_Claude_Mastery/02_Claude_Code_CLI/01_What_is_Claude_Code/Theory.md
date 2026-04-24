@@ -252,6 +252,14 @@ Think of this as Claude's notebook — project-specific knowledge that survives 
 
 ➡️ **Next step:** [Installation and Setup](../02_Installation_and_Setup/Theory.md) — get Claude Code running with proper auth, config, and your first real task.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q96 · claude-code-cli](../../../ai_practice_questions_100.md#q96--interview--claude-code-cli)
+
+
 ---
 
 ## 📂 Navigation

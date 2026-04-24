@@ -109,6 +109,14 @@ Almost all modern training uses **mini-batch** gradient descent.
 Apply what you just learned → **[B3: Neural Net from Scratch](../../20_Projects/00_Beginner_Projects/03_Neural_Net_from_Scratch/Project_Guide.md)**
 > This project uses: gradient descent weight update loop, learning rate tuning, watching loss decrease epoch by epoch
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q9 · gradient-descent](../../ai_practice_questions_100.md#q9--normal--gradient-descent)
+
+
 ---
 
 ## 📂 Navigation

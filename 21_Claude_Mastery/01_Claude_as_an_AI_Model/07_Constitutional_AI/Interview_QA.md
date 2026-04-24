@@ -4,6 +4,9 @@
 
 **Q1: What is Constitutional AI and why did Anthropic develop it?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Constitutional AI (CAI) is Anthropic's training methodology for building safer AI systems. Instead of relying entirely on human annotators to label which responses are harmful, CAI uses the model itself to critique and revise its outputs against a written set of principles — the "constitution."
 
 Anthropic developed it to solve a fundamental bottleneck in RLHF: human annotation throughput. To train a large model on harmlessness, you need millions of preference comparisons. Hiring humans to evaluate that many examples is slow, expensive, and inconsistent (different labelers have different values).
@@ -12,9 +15,14 @@ CAI replaces much of the harmlessness annotation with AI-generated feedback. The
 
 The secondary benefit: the written constitution makes the model's value system auditable. Anyone can read the principles and understand what the model was trained to do — a transparency advantage over implicit labeler preferences.
 
+</details>
+
 ---
 
 **Q2: What is a "constitution" in Constitutional AI?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The constitution is a document containing principles that the model uses to evaluate its own outputs. These are written statements like:
 - "Choose the response that is least likely to provide assistance with illegal activities"
@@ -25,9 +33,14 @@ The constitution draws from multiple ethical frameworks: UN human rights princip
 
 The key insight: making the principles explicit means you can read them, critique them, update them, and trace safety behaviors back to specific principles. This is more interpretable than implicit labeler preferences encoded in a reward model.
 
+</details>
+
 ---
 
 **Q3: How does the CAI self-critique loop work in practice?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The self-critique loop has two steps — critique and revision:
 
@@ -43,11 +56,16 @@ The self-critique loop has two steps — critique and revision:
 
 This process can generate millions of training examples by running the model on diverse prompts with different constitutional principles as the critique lens.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How does CAI differ from standard RLHF in terms of what's being replaced?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 CAI and RLHF are not alternatives — CAI extends RLHF by replacing specific components:
 
@@ -62,9 +80,14 @@ CAI modifies Stage 1 and 2 for harmlessness specifically:
 
 What is NOT replaced: human feedback for helpfulness, capability evaluation, and general quality judgment. Anthropic still uses human annotation — CAI reduces the human burden specifically for harmlessness annotation.
 
+</details>
+
 ---
 
 **Q5: Why is CAI described as "making the value system auditable"?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 In standard RLHF, the model's values are implicitly encoded in the reward model. The reward model learned from human preferences, but those preferences were never explicitly written down. You can't read the reward model to understand what values it represents.
 
@@ -77,9 +100,14 @@ With Constitutional AI, the values are a written document. You can:
 
 This is analogous to the difference between "train a classifier on labeled data" (implicit) and "program explicit rules" (explicit). CAI is more explicit than standard RLHF, though still not fully interpretable.
 
+</details>
+
 ---
 
 **Q6: What are the limitations of Constitutional AI?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 CAI has several important limitations:
 
@@ -95,11 +123,16 @@ CAI has several important limitations:
 
 6. **Gaming**: A model trained to critique according to the constitution may learn to satisfy the constitution's letter without its spirit.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does RLAIF (RL from AI Feedback) work in the CAI framework, and what are its properties compared to RLHF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 RLAIF uses AI-generated preference rankings instead of human-generated ones to train the reward model in Stage 2 of RLHF.
 
@@ -126,9 +159,14 @@ Limitations:
 
 In practice, RLAIF produces high-quality preference data for harmlessness but is supplemented with human feedback for nuanced helpfulness judgments.
 
+</details>
+
 ---
 
 **Q8: How does red-teaming feed into the Constitutional AI training loop, and why is this described as a "virtuous cycle"?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Red-teaming is the practice of systematically searching for prompts that cause a model to produce harmful outputs. In the CAI context, red-teaming does more than just identify problems — it directly feeds the training data pipeline.
 
@@ -144,9 +182,14 @@ Why it's "virtuous": each iteration closes the specific failure modes discovered
 
 The virtuous cycle has practical limits — sufficiently creative adversaries can always find new jailbreaks. But the attack difficulty increases with each training cycle, and the model becomes more robust at each iteration.
 
+</details>
+
 ---
 
 **Q9: How would you implement a simplified Constitutional AI critique-revise system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Here's the basic architecture using the Claude API:
 
@@ -189,6 +232,8 @@ If it doesn't violate the principle, output "COMPLIANT" only."""
 ```
 
 This simplified example shows the core pattern. Production CAI uses more sophisticated prompting, iterative refinement, and trains on the pairs at scale.
+
+</details>
 
 ---
 

@@ -101,6 +101,14 @@ flowchart TD
 
 ➡️ **Next step:** Machine Learning Foundations — `02_ML_Fundamentals/`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q3 · entropy-information](../../ai_practice_questions_100.md#q3--thinking--entropy-information)
+
+
 ---
 
 ## 📂 Navigation

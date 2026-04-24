@@ -181,6 +181,14 @@ Implement Q-Learning on a 4×4 gridworld (see `Code_Example.md`). The agent star
 
 ➡️ **Next step:** `../04_Deep_Q_Networks/Theory.md` — learn how to scale Q-Learning to massive state spaces using neural networks.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q92 · q-learning](../../ai_practice_questions_100.md#q92--thinking--q-learning)
+
+
 ---
 
 ## 📂 Navigation

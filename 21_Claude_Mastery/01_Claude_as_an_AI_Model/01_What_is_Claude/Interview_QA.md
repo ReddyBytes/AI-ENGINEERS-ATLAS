@@ -4,11 +4,19 @@
 
 **Q1: What is Claude and who makes it?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Claude is a family of large language models (LLMs) created by Anthropic, an AI safety company founded in 2021 by researchers who previously worked at OpenAI, including Dario and Daniela Amodei. Claude is a conversational AI that can write, reason, analyze, code, and understand images. Anthropic's distinguishing mission is building AI that is safe, interpretable, and beneficial — safety is a core design goal, not an afterthought.
+
+</details>
 
 ---
 
 **Q2: What are the three Claude tiers and when would you use each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The three tiers are:
 
@@ -18,9 +26,14 @@ The three tiers are:
 
 A good mental model: Haiku for scale, Sonnet for quality at scale, Opus for when you need the absolute best answer.
 
+</details>
+
 ---
 
 **Q3: How is Claude different from ChatGPT?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Both are LLMs built on transformer architecture and refined with RLHF. The key differences:
 
@@ -32,11 +45,16 @@ Both are LLMs built on transformer architecture and refined with RLHF. The key d
 
 In practice for engineers: both are excellent. Claude is often preferred for instruction following, long-document analysis, and safety-sensitive applications.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What does Anthropic mean by "helpful, harmless, and honest" (HHH)?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 HHH is the guiding alignment objective for Claude:
 
@@ -46,9 +64,14 @@ HHH is the guiding alignment objective for Claude:
 
 The key insight is that these three are in tension. Being maximally helpful could mean helping with harmful tasks. Being overly cautious (refusing too much) violates helpfulness. Claude's training tries to find the right balance — the Constitutional AI process explicitly tries to make the model helpful while avoiding harm.
 
+</details>
+
 ---
 
 **Q5: What is Claude's context window and why does it matter?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The context window is the maximum number of tokens (roughly word-pieces) Claude can process in a single API call — both the input you send and the output it generates. Current Claude models support up to 200,000 tokens, which is roughly 150,000 words or about 500 pages of text.
 
@@ -61,9 +84,14 @@ Why it matters:
 
 For most applications, 200k is sufficient. But engineers still need chunking strategies for very large codebases or document collections.
 
+</details>
+
 ---
 
 **Q6: What is Claude's knowledge cutoff and how should engineers handle it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Claude's training data has a cutoff date — it has no information about events after that date. The exact cutoff varies by model version but is typically 6–12 months before the model's release.
 
@@ -76,11 +104,16 @@ How to handle it:
 
 Engineers building production systems should never rely on Claude's parametric knowledge for time-sensitive facts.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does Anthropic's Constitutional AI approach differ from standard RLHF in terms of scalability and alignment?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Standard RLHF requires human labelers to evaluate model outputs and train a reward model. This has two scaling problems:
 
@@ -95,9 +128,14 @@ Constitutional AI (CAI) replaces much of the human feedback with AI self-critiqu
 
 However, CAI doesn't replace humans entirely — the constitution itself must be written and refined by humans, and some human feedback is still used in the final RLHF stage. The advantage is that it massively scales the annotation throughput while making the value system inspectable.
 
+</details>
+
 ---
 
 **Q8: What are the practical implications of Claude having no persistent memory across sessions?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 By default, each Claude API call is stateless — Claude has no memory of previous calls. This has several engineering implications:
 
@@ -111,9 +149,14 @@ By default, each Claude API call is stateless — Claude has no memory of previo
 
 This is an intentional design choice, not a limitation — statelessness makes the model simpler, more predictable, and easier to reason about. Engineers build the persistence layer on top.
 
+</details>
+
 ---
 
 **Q9: How should an engineer make the model tier routing decision programmatically?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Model routing is the practice of using the cheapest model sufficient for each task. A production system might route like this:
 
@@ -135,6 +178,8 @@ More sophisticated routing uses:
 5. **A/B testing**: route a percentage to both models and compare quality metrics
 
 The routing logic itself can be a small classifier or rule-based system. The payoff at scale is significant — if 80% of requests can use Haiku instead of Sonnet, that's roughly a 4-5x cost reduction on that portion.
+
+</details>
 
 ---
 

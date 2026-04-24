@@ -214,6 +214,14 @@ Use Anthropic's Computer Use API to build a simple screen-reading agent: take a 
 ➡️ **Next step**
 Move to [Section 18 — AI Evaluation](../../18_AI_Evaluation/01_Evaluation_Fundamentals/Theory.md) to learn how to measure whether your AI systems are actually working.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q87 · multimodal-agents](../../ai_practice_questions_100.md#q87--design--multimodal-agents)
+
+
 ---
 
 ## 📂 Navigation

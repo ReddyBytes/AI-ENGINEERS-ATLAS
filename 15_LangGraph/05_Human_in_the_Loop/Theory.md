@@ -244,6 +244,14 @@ app.invoke(None, config=config)
 Apply what you just learned → **[A2: LangGraph Support Bot](../../20_Projects/02_Advanced_Projects/02_LangGraph_Support_Bot/Project_Guide.md)**
 > This project uses: interrupt_before escalation node so a human approves before the message is sent, MemorySaver checkpointer
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q81 · human-in-the-loop](../../ai_practice_questions_100.md#q81--design--human-in-the-loop)
+
+
 ---
 
 ## 📂 Navigation

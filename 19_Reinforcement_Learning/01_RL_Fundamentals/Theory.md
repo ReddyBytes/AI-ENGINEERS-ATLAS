@@ -173,6 +173,14 @@ Implement a one-armed bandit in 20 lines of Python. Create 3 slot machines with 
 
 ➡️ **Next step:** `../02_Markov_Decision_Processes/Theory.md` — learn the formal math that makes RL rigorous.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q91 · rl-fundamentals](../../ai_practice_questions_100.md#q91--critical--rl-fundamentals)
+
+
 ---
 
 ## 📂 Navigation

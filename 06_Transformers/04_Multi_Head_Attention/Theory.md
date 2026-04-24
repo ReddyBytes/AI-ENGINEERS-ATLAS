@@ -82,6 +82,14 @@ Concatenating heads gives a vector mixing 8 perspectives. W_O learns the best li
 
 ➡️ **Next step:** Positional Encoding → `06_Transformers/05_Positional_Encoding/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q33 · multi-head-attention](../../ai_practice_questions_100.md#q33--interview--multi-head-attention)
+
+
 ---
 
 ## 📂 Navigation

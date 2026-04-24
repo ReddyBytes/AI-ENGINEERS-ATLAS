@@ -4,6 +4,9 @@
 
 **Q1: What is the Hugging Face `transformers` library? Why do developers use it instead of writing model code from scratch?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** The `transformers` library is an open-source Python package that provides implementations of hundreds of transformer-based model architectures (BERT, GPT, T5, LLaMA, Whisper, ViT, and many more) with a unified API. Developers use it instead of writing from scratch for several reasons:
 
 1. **Speed** — going from zero to a working BERT-powered sentiment classifier takes about 5 lines of code instead of hundreds
@@ -11,9 +14,14 @@
 3. **Maintenance** — the library handles GPU placement, batching, and format conversions that would otherwise require boilerplate in every project
 4. **Access to SOTA** — new models (LLaMA, Gemma, Mistral) are added quickly, so you can use the latest architectures without reimplementing them
 
+</details>
+
 ---
 
 **Q2: What is the `pipeline()` API and what does it abstract away?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** `pipeline()` is the highest-level interface in `transformers`. A single call like `pipeline("sentiment-analysis")` creates an object that handles the entire inference workflow:
 
@@ -27,9 +35,14 @@
 
 Without `pipeline()`, you would write all seven steps yourself.
 
+</details>
+
 ---
 
 **Q3: What is the difference between `AutoModel` and `AutoModelForSequenceClassification`?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Both load a model from the Hub, but they attach different **output heads** (the final layers that produce task-specific outputs):
 
@@ -39,11 +52,16 @@ Without `pipeline()`, you would write all seven steps yourself.
 
 Rule of thumb: if your task is in the class name (SequenceClassification, TokenClassification, QuestionAnswering), use the task-specific class.
 
+</details>
+
 ---
 
 ## Intermediate Level
 
 **Q4: Explain what a tokenizer does and why the tokenizer must match the model checkpoint.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** A tokenizer converts raw text into the integer sequences a model expects. It does this through several steps:
 1. **Normalization** — lowercasing, Unicode normalization, etc.
@@ -55,9 +73,14 @@ The tokenizer **must** match the model because the model's embedding matrix was 
 
 `AutoTokenizer.from_pretrained("same-checkpoint-as-model")` guarantees the match.
 
+</details>
+
 ---
 
 **Q5: What does `attention_mask` do and when does it matter?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The `attention_mask` is a binary tensor (1s and 0s) with the same shape as the input token IDs. It tells the transformer which positions are real tokens (1) and which are padding (0).
 
@@ -75,9 +98,14 @@ inputs = tokenizer(texts, return_tensors="pt", padding=True)
 
 The tokenizer creates the attention mask automatically when you pass `padding=True`.
 
+</details>
+
 ---
 
 **Q6: What is `device_map="auto"` and when would you use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** `device_map="auto"` is a parameter for `from_pretrained()` that automatically distributes a model's layers across all available hardware — multiple GPUs if present, or GPU + CPU if the model is too large for GPU memory alone.
 
@@ -99,11 +127,16 @@ model = AutoModelForCausalLM.from_pretrained(
 
 It uses the `accelerate` library under the hood to create a device map that fits the model in available memory. This is essential for running large models (7B+ parameters) on consumer hardware.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: You have a text classification model that was fine-tuned on customer support tickets. You now need to run inference on 100,000 new tickets. What are the key performance considerations when using `transformers` for this scale?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Key considerations at 100K inference scale:
 
@@ -121,9 +154,14 @@ It uses the `accelerate` library under the hood to create a device map that fits
 
 7. **GPU utilization:** Use `nvidia-smi` to monitor GPU utilization — if it's below 80%, your batch size is too small or data loading is the bottleneck.
 
+</details>
+
 ---
 
 **Q8: Explain how `trust_remote_code=True` works and when it's a security risk.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Some models on the Hub define custom Python code (in `modeling_*.py` files in their repository) that isn't part of the standard `transformers` library — for example, novel attention mechanisms or custom tokenizers. When you call `from_pretrained(..., trust_remote_code=True)`, the library downloads and executes this custom code on your machine.
 
@@ -140,9 +178,14 @@ The security risk is significant: `trust_remote_code=True` is essentially saying
 
 For well-known models from major providers (Mistral, Meta, Google), `trust_remote_code=True` is generally safe. For unknown repos, treat it with the same caution as running an arbitrary shell script.
 
+</details>
+
 ---
 
 **Q9: What is the difference between `pipeline("text-generation")` and `pipeline("text2text-generation")`? When would you use each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** They correspond to two fundamentally different model architectures:
 
@@ -171,6 +214,8 @@ result = t2t("Translate English to French: The cat sat on the mat")
 ```
 
 The choice is determined by the task: if you're completing/continuing text, use causal generation. If you're transforming one piece of text into a different piece of text, use seq2seq.
+
+</details>
 
 ---
 

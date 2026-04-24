@@ -126,6 +126,14 @@ After pretraining, the model knows facts and language patterns, can complete tex
 
 ➡️ **Next step:** Fine-Tuning — [04_Fine_Tuning/Theory.md](../04_Fine_Tuning/Theory.md)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q40 · pretraining](../../ai_practice_questions_100.md#q40--thinking--pretraining)
+
+
 ---
 
 ## 📂 Navigation

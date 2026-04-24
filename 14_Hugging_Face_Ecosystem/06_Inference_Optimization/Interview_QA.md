@@ -4,6 +4,9 @@
 
 **Q1: What is model quantization and why does it help with inference?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** Quantization is the process of representing model weights with lower-precision numbers. Neural network weights are typically stored as 32-bit floating point numbers (FP32). Quantization maps them to 16-bit floats (FP16), 8-bit integers (INT8), or 4-bit integers (INT4).
 
 Why it helps:
@@ -15,9 +18,14 @@ Why it helps:
 
 The trade-off is a small quality loss: some information is lost when mapping continuous FP32 values to a small set of discrete integers. In practice, INT8 quantization is nearly lossless for most tasks; INT4 introduces a small but measurable quality decrease.
 
+</details>
+
 ---
 
 **Q2: What does `device_map="auto"` do when you pass it to `from_pretrained`?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** `device_map="auto"` tells the `accelerate` library to automatically distribute the model layers across all available hardware — multiple GPUs if present, plus CPU as an overflow.
 
@@ -37,9 +45,14 @@ print(model.hf_device_map)
 
 This makes it possible to run very large models on hardware that would otherwise be insufficient.
 
+</details>
+
 ---
 
 **Q3: What is the difference between FP16 and BF16? Which should you prefer?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Both FP16 and BF16 use 16 bits per number, but they allocate those bits differently:
 
@@ -55,11 +68,16 @@ The key practical difference: FP16 has a narrower range of representable values.
 
 In `TrainingArguments`, use `bf16=True` for Ampere GPUs and `fp16=True` for V100/T4.
 
+</details>
+
 ---
 
 ## Intermediate Level
 
 **Q4: Explain how bitsandbytes INT8 quantization (LLM.int8()) works. Why does it maintain quality better than naive INT8 quantization?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Naive INT8 quantization maps the full range of a weight matrix to 256 integer values using a single scale factor. The problem: transformer weight matrices contain **outlier features** — a small number of dimensions with values 10-100× larger than the typical values. A single scale factor optimized for the outliers wastes resolution on the normal values, and vice versa.
 
@@ -75,9 +93,14 @@ The result: weights are stored in INT8 (half the memory of FP16), computation is
 
 This is why `load_in_8bit=True` maintains quality so well compared to simpler INT8 quantization approaches.
 
+</details>
+
 ---
 
 **Q5: What is Flash Attention and when should you use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Standard transformer self-attention has memory complexity O(n²) in sequence length n. For a sequence of 2048 tokens, the attention matrix is 2048 × 2048 per head — manageable. For 8192 tokens, it's 8192 × 8192 — 16× larger. At some point (typically around 2K-4K tokens on consumer GPUs), you run out of VRAM just for the attention computation.
 
@@ -104,9 +127,14 @@ model = AutoModelForCausalLM.from_pretrained(
 - Short sequences (< 512 tokens) — the tiling overhead means little benefit
 - When building on non-NVIDIA hardware (Flash Attention requires CUDA)
 
+</details>
+
 ---
 
 **Q6: You're running a text classification service that receives 10,000 requests per day. The current setup processes one request at a time on a T4 GPU. How would you optimize the inference pipeline?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** This scenario is a classic case where batching and precision optimization will give massive improvements. Here's a step-by-step plan:
 
@@ -139,11 +167,16 @@ async def process_batch():
 
 With these changes, throughput could increase 10-20× from the baseline.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: What is speculative decoding and how does it speed up LLM generation?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** LLM generation is **sequential** — each token depends on all previous tokens. You cannot parallelize across tokens. This makes generation fundamentally different from classification (where the entire sequence is processed in one forward pass).
 
@@ -173,9 +206,14 @@ outputs = target_model.generate(
 )
 ```
 
+</details>
+
 ---
 
 **Q8: Compare quantization approaches: bitsandbytes (PyTorch), GGUF (llama.cpp), and GPTQ. What are the trade-offs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:**
 
@@ -206,9 +244,14 @@ outputs = target_model.generate(
 - Production GPU inference with best quality → GPTQ
 - Quick GPU inference without pre-quantization → bitsandbytes INT4
 
+</details>
+
 ---
 
 **Q9: You need to serve a 70B parameter LLM with < 200ms latency for an API. Walk through your optimization strategy.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** A 70B model is roughly 140 GB in FP16 — requiring at minimum 2× A100 80GB GPUs. Achieving 200ms latency for generation (say, up to 200 output tokens) requires:
 
@@ -239,6 +282,8 @@ model = AutoModelForCausalLM.from_pretrained(
 - Time to first token (TTFT): the first forward pass, typically 50-100ms with optimized setup
 - Inter-token latency: subsequent tokens, ~10-30ms each on A100
 - Total for 50 tokens: TTFT + 49 × inter_token ≈ 150-200ms — achievable
+
+</details>
 
 ---
 

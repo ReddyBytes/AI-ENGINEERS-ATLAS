@@ -4,11 +4,19 @@
 
 **Q1: What is an AI agent and how does MCP help it work?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > An AI agent is an AI model that can take sequences of actions to complete longer-horizon goals — not just answer questions, but actually do things. Instead of just saying "you should query the database," an agent queries the database itself.
 >
 > MCP helps agents work by providing a standardized way to give agents access to real-world tools. Without MCP, connecting an agent to a database, a GitHub repo, and a web search tool would require three separate custom integrations. With MCP, each of those is a separate MCP server — the agent connects to all three via MCP clients and gets their tools in a unified format. MCP turns the agent from a thinker into a doer.
 
+</details>
+
 **Q2: What is the agent loop, and what role does MCP play in it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > The agent loop is the think-act-observe cycle that agents use to accomplish goals:
 > 1. The agent receives a goal
@@ -20,15 +28,25 @@
 >
 > MCP plays the role of the "act" step — it is the mechanism by which the agent's decision to "call a tool" becomes an actual action in the real world. The agent's thoughts happen in the AI model; the actual actions happen through MCP tool calls.
 
+</details>
+
 **Q3: What does it mean for an agent to have "multi-server" tool access?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 > A multi-server agent connects to multiple MCP servers simultaneously and gets access to all their tools at once. For example, an agent might connect to three servers: a filesystem server (read/write files), a GitHub server (manage repos), and a database server (run queries). The agent sees all the tools from all three servers and can use any of them in any order to accomplish its goal. This is more powerful than connecting to a single server because the agent can take actions across multiple systems in one autonomous workflow.
+
+</details>
 
 ---
 
 ## Intermediate
 
 **Q4: How do you convert MCP tool definitions to the format required by the Anthropic Claude API?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > The conversion is straightforward because both use JSON Schema for argument definitions:
 >
@@ -47,7 +65,12 @@
 >
 > The `inputSchema` from MCP is already a JSON Schema object — the same format Claude's API expects for function calling. So you just rename the field from `inputSchema` to `input_schema` and wrap it in the right dictionary structure.
 
+</details>
+
 **Q5: An agent calls a tool and gets an error. How should the agent loop handle this?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > The error should be returned as a tool result (not as an exception that crashes the loop). In the Anthropic API format:
 >
@@ -62,17 +85,27 @@
 >
 > When the model receives this error result, it can reason about it — it might retry with different arguments, try a different tool to accomplish the same goal, or tell the user that the operation failed and explain why. Returning the error as a readable result is always better than crashing the loop, because the AI can respond to error information intelligently.
 
+</details>
+
 **Q6: What is the purpose of a maximum step limit in an agent loop, and what is a reasonable default?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > A maximum step limit prevents the agent from getting stuck in an infinite loop — for example, repeatedly trying to fix a bug by calling the same tool with slightly different arguments without making progress. Without a limit, the agent could run indefinitely, consuming API tokens and potentially taking many unintended actions.
 >
 > A reasonable default is 10-20 tool calls for focused tasks. For complex multi-step workflows (like "refactor this entire codebase"), you might go up to 50. For very simple tasks (like "fetch this webpage and summarize it"), 5 is often enough. The limit should be tuned to the complexity of your specific task — start conservative and increase if legitimate tasks are being cut off.
+
+</details>
 
 ---
 
 ## Advanced
 
 **Q7: Design an agent architecture for an automated code review pipeline that connects to multiple MCP servers.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > Architecture:
 >
@@ -96,7 +129,12 @@
 > - Log all tool calls and their outcomes
 > - The agent should not have merge permissions — only review/comment/approve
 
+</details>
+
 **Q8: How do you handle tool call routing when an agent is connected to multiple MCP servers that might have tools with the same name?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > Tool name conflicts are a real concern in multi-server setups. Best practices:
 >
@@ -108,7 +146,12 @@
 >
 > 4. **Explicit selection in tool descriptions**: If two servers genuinely provide similar capabilities, make their descriptions clearly distinguish them: "Read a LOCAL file from the filesystem" vs "Read a file from GITHUB repository."
 
+</details>
+
 **Q9: How does connecting agents to MCP differ from using function calling directly in the Claude API? When would you choose one over the other?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 > **Function calling directly:**
 > - Tools are defined in your application code
@@ -134,6 +177,8 @@
 > - You are building tools that will be maintained and evolved over time
 > - Multiple teams or applications need the same tools
 > - You want portability — ability to switch AI models without rewriting tool code
+
+</details>
 
 ---
 

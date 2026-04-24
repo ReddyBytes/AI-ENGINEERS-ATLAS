@@ -4,6 +4,9 @@
 
 **Q1: What is pretraining and how does it give Claude its knowledge?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Pretraining is the first phase of training a large language model. The model is trained on an enormous corpus of text (trillions of tokens from web pages, books, code, academic papers, etc.) using a single objective: predict what token comes next in a sequence.
 
 This is self-supervised learning — no human labels are needed. The "label" for each training example is simply the next token in the text.
@@ -17,9 +20,14 @@ Through this process, the model compresses the statistical patterns of the entir
 
 When you ask Claude about medieval history or quantum mechanics, it's drawing on patterns encoded during pretraining — not looking anything up.
 
+</details>
+
 ---
 
 **Q2: What is the Chinchilla scaling law and why does it matter?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The Chinchilla scaling law (Hoffmann et al., 2022) describes the optimal ratio of training data to model parameters for a given compute budget.
 
@@ -36,9 +44,14 @@ Why it matters practically:
 - This insight drove the development of efficient models like Llama 2 (70B trained on 2T tokens)
 - It means throwing more GPUs at a fixed dataset isn't efficient — you need proportionally more data too
 
+</details>
+
 ---
 
 **Q3: What is a knowledge cutoff and how should engineers work around it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A knowledge cutoff is the date after which the model has no training data. Events, discoveries, or changes that happened after this date are unknown to the model.
 
@@ -53,11 +66,16 @@ Engineering workarounds:
 
 Never rely on Claude's parametric knowledge for time-sensitive data — prices, recent events, new software versions, recent research.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is teacher forcing and what problem does it create?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Teacher forcing is the training technique where, during pretraining, the model always sees the true previous tokens (from the training data) as context when predicting the next token — never its own previous predictions.
 
@@ -69,9 +87,14 @@ This partially explains why LLMs can fall into repetitive loops or nonsensical c
 
 Mitigations: RLHF (trains on full rollouts), chain-of-thought (makes intermediate steps explicit and checkable), self-consistency (multiple samples reduce error correlation).
 
+</details>
+
 ---
 
 **Q5: What is the role of data curation in pretraining quality?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Data curation is arguably as important as model architecture and scale. A clean, well-curated dataset of 1 trillion tokens typically outperforms a raw, noisy crawl of 10 trillion tokens.
 
@@ -84,9 +107,14 @@ Key curation steps:
 
 The exact curation pipeline is among the most closely guarded intellectual property at AI labs — the public model weights are the output; the data pipeline is the competitive moat.
 
+</details>
+
 ---
 
 **Q6: What are emergent capabilities and why are they surprising?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Emergent capabilities are abilities that appear suddenly in language models at certain scales, rather than improving gradually. On a graph of model performance vs. scale, emergent capabilities look like a step function rather than a smooth curve.
 
@@ -96,11 +124,16 @@ Why it's surprising: you'd expect performance to improve smoothly as you add par
 
 Why it matters to engineers: you can't always predict what a larger model will be able to do just by testing a smaller one. Capabilities can appear that weren't present at any smaller scale — making frontier model releases genuinely surprising even to their creators.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does compute-optimal training change the economics of model development?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Pre-Chinchilla, the assumption was: bigger model = better model. Labs competed on parameter count (GPT-3 at 175B was a landmark).
 
@@ -113,9 +146,14 @@ Post-Chinchilla: for any fixed compute budget C, the optimal allocation is to tr
 
 The insight for engineers: don't just compare model sizes — compare model size and training token count together. A 7B model trained on 2T tokens may outperform a 70B model trained on 100B tokens on many benchmarks.
 
+</details>
+
 ---
 
 **Q8: What is the relationship between pretraining data diversity and model capabilities?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The diversity of the pretraining corpus directly determines which domains the model excels in:
 
@@ -131,9 +169,14 @@ The diversity of the pretraining corpus directly determines which domains the mo
 
 Anthropic's data mixture for Claude is proprietary, but the general principle is that high-quality, diverse data across all the target capability domains is worth more than raw scale.
 
+</details>
+
 ---
 
 **Q9: How does pretraining relate to in-context learning (ICL)?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 In-context learning (ICL) is the ability to learn a new task from examples provided in the prompt, without any weight updates. This is an emergent capability that only appears robustly at certain scales.
 
@@ -146,6 +189,8 @@ Research hypothesis: during pretraining, the model sees many documents of the fo
 Why scale matters: at small scale, the model doesn't have enough capacity to represent diverse pattern types. At large scale, the model can represent many patterns simultaneously and generalize to patterns seen at most once during pretraining.
 
 Practical implication: few-shot prompting with carefully chosen examples is a powerful way to steer Claude's behavior without any fine-tuning. The model was trained on enough diverse demonstrations that it can learn a new format or domain from 3-5 examples.
+
+</details>
 
 ---
 

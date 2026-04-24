@@ -221,6 +221,14 @@ flowchart TD
 
 ➡️ **Next step:** [Batching](../10_Batching/Theory.md) — learn how to submit thousands of requests at once at 50% cost reduction using the Message Batches API.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q98 · prompt-caching](../../../ai_practice_questions_100.md#q98--critical--prompt-caching)
+
+
 ---
 
 ## 📂 Navigation

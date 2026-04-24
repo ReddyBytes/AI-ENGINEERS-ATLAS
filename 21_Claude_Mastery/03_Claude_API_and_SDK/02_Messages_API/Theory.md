@@ -326,6 +326,14 @@ def chat(user_message):
 
 ➡️ **Next step:** [First API Call](../03_First_API_Call/Theory.md) — set up the SDK and make your first working request.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q97 · claude-api-messages](../../../ai_practice_questions_100.md#q97--normal--claude-api-messages)
+
+
 ---
 
 ## 📂 Navigation

@@ -82,6 +82,14 @@ A tree with no depth limit grows until it has one example per leaf — 100% trai
 Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
 > This project uses: Decision Tree classifier, tree depth tuning, visualizing the confusion matrix
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q13 · decision-trees](../../ai_practice_questions_100.md#q13--normal--decision-trees)
+
+
 ---
 
 ## 📂 Navigation

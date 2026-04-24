@@ -234,6 +234,14 @@ The speedup is approximately `N × T / (T + overhead)`. For large N or slow task
 
 ➡️ **Next step:** [Subagents](../08_Subagents/Theory.md) — the worker perspective: when to spawn, how to isolate, how to return results.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q99 · agent-sdk-orchestration](../../../ai_practice_questions_100.md#q99--design--agent-sdk-orchestration)
+
+
 ---
 
 ## 📂 Navigation

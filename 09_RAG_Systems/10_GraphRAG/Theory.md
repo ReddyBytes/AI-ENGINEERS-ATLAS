@@ -278,6 +278,14 @@ Higher modularity = denser intra-community connections relative to a random grap
 
 ➡️ **Next step:** [CAG — Cache-Augmented Generation](../11_CAG_Cache_Augmented_Generation/Theory.md)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q60 · graphrag](../../ai_practice_questions_100.md#q60--design--graphrag)
+
+
 ---
 
 ## 📂 Navigation

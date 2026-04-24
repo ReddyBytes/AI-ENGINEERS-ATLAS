@@ -4,6 +4,9 @@
 
 **Q1: What is extended thinking in Claude and how does it improve responses?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Extended thinking is a Claude feature that gives the model a reasoning scratchpad — a dedicated space to think through a problem before generating the final response. Instead of immediately producing an answer, Claude works through the problem step by step in "thinking tokens," potentially backtracking, reconsidering, and refining its approach before committing to an answer.
 
 It improves responses on complex problems because:
@@ -14,9 +17,14 @@ It improves responses on complex problems because:
 
 Research shows meaningful accuracy improvements on hard benchmarks (MATH, AIME, coding competitions) when extended thinking is enabled — often 10–30+ percentage points on the hardest problems.
 
+</details>
+
 ---
 
 **Q2: How do you enable extended thinking in the Claude API?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Extended thinking is enabled via the `thinking` parameter in the `messages.create()` call:
 
@@ -41,9 +49,14 @@ for block in response.content:
 
 Key: `max_tokens` must be set to cover both thinking tokens and the response. If you set `budget_tokens=8000`, set `max_tokens` to at least 9000–10000.
 
+</details>
+
 ---
 
 **Q3: What is the thinking budget and how should you choose it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The `budget_tokens` parameter sets the maximum number of tokens Claude can use in its thinking phase. The model may use fewer tokens if it reaches a conclusion earlier.
 
@@ -60,11 +73,16 @@ Practical guidelines:
 
 Start with a moderate budget (5,000–10,000), measure actual token usage, and adjust. Most problems don't need the maximum.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How are thinking tokens different from regular output tokens in terms of how they're used and billed?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Mechanically, thinking tokens are generated using the same autoregressive transformer forward pass as regular output tokens — there's no separate "thinking mechanism." The difference is in how they're treated:
 
@@ -85,9 +103,14 @@ Mechanically, thinking tokens are generated using the same autoregressive transf
 
 This billing model means extended thinking can easily make a single API call 10–50x more expensive than a standard call. Reserve it for problems where quality justifies the cost.
 
+</details>
+
 ---
 
 **Q5: What kinds of tasks benefit most from extended thinking vs not at all?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **High benefit:**
 - Multi-step mathematical proofs and competition problems (AIME, Olympiad level)
@@ -106,9 +129,14 @@ This billing model means extended thinking can easily make a single API call 10�
 
 **Rule of thumb**: If a problem could be solved by a knowledgeable human who just needs to think carefully, extended thinking helps. If the problem requires information the model doesn't have, thinking won't help.
 
+</details>
+
 ---
 
 **Q6: How does streaming work with extended thinking?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 When using streaming with extended thinking, the response contains separate streams for thinking and text blocks:
 
@@ -141,11 +169,16 @@ with client.messages.stream(
 
 In production, you might display only the text stream to users while logging the thinking stream separately for debugging and quality analysis.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does extended thinking relate to chain-of-thought (CoT) prompting, and which is better?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Chain-of-thought (CoT) prompting is the manual technique of adding "Let's think step by step" to a prompt to encourage the model to reason before answering. Extended thinking is a native, trained implementation of the same concept.
 
@@ -169,9 +202,14 @@ Why extended thinking is better: the thinking space is trained differently — t
 
 For maximum quality on hard problems: extended thinking > manual CoT. For cost-sensitive applications where you want some reasoning improvement: CoT prompting is free (just part of the prompt token count).
 
+</details>
+
 ---
 
 **Q8: How do you decide when to show thinking tokens to end users vs hide them?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 This is an application design decision with real tradeoffs:
 
@@ -195,9 +233,14 @@ This is an application design decision with real tradeoffs:
 
 Implementation: filter the thinking block before sending to users, or use a secondary summarization call to condense the reasoning.
 
+</details>
+
 ---
 
 **Q9: How should you handle the case where extended thinking produces a wrong intermediate step?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Extended thinking is not guaranteed to be correct — it is a reasoning scratchpad, not a verified proof. The model can make errors in its thinking that lead to wrong final answers.
 
@@ -217,6 +260,8 @@ Handling wrong intermediate steps in the thinking:
 - For multi-agent systems, use a separate "critic" agent that reviews the thinking trace
 
 The fundamental limitation: extended thinking improves accuracy but doesn't eliminate errors. For truly high-stakes applications, external verification (code execution, formal verification, expert review) is still necessary.
+
+</details>
 
 ---
 

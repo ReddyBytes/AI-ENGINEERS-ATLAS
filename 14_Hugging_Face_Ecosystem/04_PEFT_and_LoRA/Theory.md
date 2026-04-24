@@ -179,6 +179,14 @@ Apply what you just learned:
 - → **[I4: Custom LoRA Fine-Tuning](../../20_Projects/01_Intermediate_Projects/04_Custom_LoRA_Fine_Tuning/Project_Guide.md)** — LoRA fine-tune a 7B model on custom Q&A data, push adapter to Hub
 - → **[A5: Fine-Tune → Evaluate → Deploy](../../20_Projects/02_Advanced_Projects/05_Fine_Tune_Evaluate_Deploy/Project_Guide.md)** — QLoRA with 4-bit quantization for maximum efficiency
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q77 · peft-lora](../../ai_practice_questions_100.md#q77--interview--peft-lora)
+
+
 ---
 
 ## 📂 Navigation

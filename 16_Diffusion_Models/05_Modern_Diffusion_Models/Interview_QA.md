@@ -4,15 +4,23 @@
 
 **Q1: What are the main improvements in SDXL over SD 1.5?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: SDXL (Stable Diffusion XL) improved on SD 1.5 in four key ways:
 1. **Higher native resolution**: 1024×1024 instead of 512×512 — less tiling artifacts, better detail at large sizes
 2. **Dual text encoders**: Uses both CLIP ViT-L/14 and OpenCLIP ViT-bigG/14 in parallel, giving richer text understanding and better vocabulary coverage
 3. **Larger U-Net**: 2.6B parameters (vs 860M), with transformer blocks throughout, enabling more complex scene understanding
 4. **Multi-aspect training**: Trained on diverse aspect ratios, making it better at portrait (9:16), landscape (16:9), and square formats
 
+</details>
+
 ---
 
 **Q2: What is FLUX and how is it different from Stable Diffusion?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: FLUX.1 (by Black Forest Labs, 2024) represents a different architectural paradigm:
 - **Architecture**: Uses a Diffusion Transformer (DiT) instead of a U-Net — image patches are processed as tokens in a transformer sequence
@@ -23,9 +31,14 @@ A: FLUX.1 (by Black Forest Labs, 2024) represents a different architectural para
 
 The practical cost: FLUX requires significantly more VRAM (24GB ideal, 12GB with quantization).
 
+</details>
+
 ---
 
 **Q3: What is flow matching and why is it better than DDPM?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: DDPM adds noise along a curved, non-linear path between clean images and Gaussian noise. Flow matching (specifically rectified flow as used in FLUX) instead uses a straight-line interpolation:
 ```
@@ -37,11 +50,16 @@ The advantages of straight paths:
 3. **Better scaling**: Straight trajectories are easier for the model to learn at scale
 4. **Consistent velocity**: The velocity field is more uniform, giving the model a cleaner learning target
 
+</details>
+
 ---
 
 ## Intermediate Level
 
 **Q4: Explain the SDXL two-stage pipeline (base + refiner). When should you use the refiner?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: The SDXL pipeline optionally uses two models in sequence:
 1. **Base model** (SDXL-base-1.0): Generates the initial latent at 1024×1024 for the full denoising trajectory (typically all 20-50 steps)
@@ -61,9 +79,14 @@ When to skip:
 
 The refiner works because it was trained specifically on the low-noise regime where global structure is set and only fine details need improvement.
 
+</details>
+
 ---
 
 **Q5: What is a Diffusion Transformer (DiT) and what advantages does it have over U-Net?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: A Diffusion Transformer (DiT) replaces the convolutional U-Net with a pure transformer architecture:
 
@@ -87,9 +110,14 @@ A: A Diffusion Transformer (DiT) replaces the convolutional U-Net with a pure tr
 
 The downside: attention over full-resolution patches is expensive. FLUX uses 64×64 tokens (4096 patches for 1024px images) — manageable but more expensive than U-Net's hierarchical approach.
 
+</details>
+
 ---
 
 **Q6: How does T5-XXL improve FLUX's text understanding compared to CLIP?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: CLIP was trained on image-text pairs to align visual and linguistic representations. This makes it excellent at understanding visual concepts but limited in linguistic understanding:
 - Maximum 77 tokens
@@ -106,11 +134,16 @@ T5-XXL is a language model encoder trained on massive text corpora with span-cor
 
 FLUX uses both: T5-XXL for semantic/linguistic richness and CLIP for image-aligned visual concepts. They provide complementary information.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: Explain the MM-DiT architecture used in Stable Diffusion 3.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Stable Diffusion 3 uses a Multimodal Diffusion Transformer (MM-DiT). Unlike FLUX's sequential approach, MM-DiT maintains separate streams for image and text tokens with a specific interaction pattern:
 
@@ -122,9 +155,14 @@ The separate parameter matrices allow each modality to develop its own internal 
 
 SD3 also uses three text encoders simultaneously: CLIP-L, OpenCLIP-bigG, and T5-XXL — the outputs are concatenated and used throughout the transformer. This gives it strong text conditioning and text-in-image generation capabilities.
 
+</details>
+
 ---
 
 **Q8: What is guidance distillation and how do FLUX.1-schnell and SDXL-Turbo use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Guidance distillation bakes the effect of CFG into model weights so inference requires only one forward pass per step (instead of two):
 
@@ -144,9 +182,14 @@ A: Guidance distillation bakes the effect of CFG into model weights so inference
 - ~10-20× faster inference
 - FLUX.1-schnell (Apache 2.0) is commercially usable without restrictions
 
+</details>
+
 ---
 
 **Q9: How do you decide between SDXL and FLUX for a production system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: This is a practical trade-off question:
 
@@ -170,6 +213,8 @@ A: This is a practical trade-off question:
 - FLUX's T5-XXL encoder alone is 9.4GB — this must be loaded separately
 - FLUX LoRA training requires more compute than SD/SDXL LoRA training
 - ComfyUI and HuggingFace diffusers both support FLUX natively
+
+</details>
 
 ---
 

@@ -4,15 +4,23 @@
 
 **Q1. What is self-attention and how does it differ from regular attention?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Self-attention is a form of attention where the sequence attends to itself. The Query, Key, and Value vectors all come from the same sequence.
 
 Regular attention (used in encoder-decoder models) has the Query come from the decoder and the Keys/Values come from the encoder — two different sequences communicating.
 
 In self-attention, every word in a sentence computes attention scores against every other word in the same sentence. This lets each word build a contextual representation that incorporates information from the entire sequence.
 
+</details>
+
 ---
 
 **Q2. How are Q, K, and V derived from the input in self-attention?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Each word's embedding is multiplied by three separate learned weight matrices to produce three different representations:
 
@@ -22,13 +30,20 @@ Each word's embedding is multiplied by three separate learned weight matrices to
 
 The same word embedding produces three different views. These weight matrices are trained through backpropagation to make the attention maximally useful for the task.
 
+</details>
+
 ---
 
 **Q3. What does the attention matrix in self-attention represent?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 The attention matrix is an N×N table (for a sequence of N words). Cell [i][j] contains the attention weight from word i to word j — how much word i is "looking at" word j when building its updated representation.
 
 Each row sums to 1 (softmax ensures this). High weights in a row indicate which words word i is gathering information from. This matrix can be visualized as a heatmap and often shows interpretable patterns like subject-verb dependencies or pronoun resolution.
+
+</details>
 
 ---
 
@@ -36,15 +51,23 @@ Each row sums to 1 (softmax ensures this). High weights in a row indicate which 
 
 **Q4. Why is self-attention better than an RNN for capturing long-range dependencies?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 In an RNN, information from word 1 must travel through N-1 sequential steps to influence word N. Each step applies a transformation that can degrade the signal. For long sequences, word 1's information is largely gone by the time you reach word 100.
 
 In self-attention, word 1 and word 100 interact directly with a single dot product. Distance is irrelevant. The attention score between word 1 and word 100 is computed in the same way as between word 50 and word 51.
 
 This is why transformers with self-attention can handle long documents much better than LSTMs.
 
+</details>
+
 ---
 
 **Q5. What is masked self-attention and why is it needed in GPT?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 GPT is a generative model — it predicts the next word given all previous words. During training, you show the model a sentence like "The cat sat on the mat" and train it to predict each word from the words before it.
 
@@ -52,9 +75,14 @@ Without masking, the model could "cheat" by attending to future positions when p
 
 Masked self-attention sets all attention weights where position j > position i to -infinity before softmax. After softmax, these become zero — the model literally cannot see future positions. This is called causal or autoregressive masking.
 
+</details>
+
 ---
 
 **Q6. What is the computational cost of self-attention and what are its implications?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Self-attention has O(n²) time and memory complexity, where n is the sequence length.
 
@@ -67,11 +95,16 @@ Practical implications:
 
 This is why there was an engineering race to extend transformer context windows after the original paper.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. How does the choice of d_k (key/query dimension) affect self-attention?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 d_k is the dimension of the Query and Key vectors. It affects two things:
 
@@ -81,9 +114,14 @@ d_k is the dimension of the Query and Key vectors. It affects two things:
 
 3. **Rank bottleneck:** the attention matrix is computed as Q K^T, which has rank at most min(n, d_k). If d_k is too small relative to n, the attention matrix may not be expressive enough to represent all necessary word relationships.
 
+</details>
+
 ---
 
 **Q8. Can self-attention learn positional relationships between words, and how?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 On its own, self-attention is permutation-invariant — it produces the same output regardless of word order. "Dog bites man" and "Man bites dog" would have identical self-attention outputs without positional information.
 
@@ -91,9 +129,14 @@ Positional encoding injects position information into the embeddings before self
 
 Additionally, relative positional encodings (used in Transformer-XL, T5) directly modify the attention score by adding a learned position bias: score(i, j) = Q_i · K_j + b(i-j), where b is a learned scalar for each relative distance. This is more flexible than absolute positional encoding.
 
+</details>
+
 ---
 
 **Q9. What patterns do self-attention heads typically learn in practice?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Research analyzing BERT's attention heads found several interpretable patterns:
 
@@ -104,6 +147,8 @@ Research analyzing BERT's attention heads found several interpretable patterns:
 - **Uniform heads:** some heads distribute attention nearly uniformly — acting as "gather all information" aggregators
 
 These patterns aren't explicitly programmed — they emerge from training. Different layers learn different levels of abstraction: lower layers tend to capture local/syntactic patterns, upper layers capture semantic relationships.
+
+</details>
 
 ---
 

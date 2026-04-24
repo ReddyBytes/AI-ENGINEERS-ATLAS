@@ -4,15 +4,23 @@
 
 **Q1. What is a Conditional Random Field (CRF) and what is it used for?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A CRF is a discriminative sequence labeling model. It takes a sequence of inputs (words in a sentence) and assigns a label to each one (like a part-of-speech tag or named entity label).
 
 What makes it "conditional" is that it directly models the probability of the label sequence given the input sequence: P(labels | words). It doesn't try to model how the words were generated — it just learns the best labeling.
 
 Common uses: Named Entity Recognition (labeling spans as Person, Organization, Location), Part-of-Speech tagging, text chunking, and slot filling in dialogue systems.
 
+</details>
+
 ---
 
 **Q2. How is a CRF different from an HMM?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The key difference is that HMMs are generative and CRFs are discriminative.
 
@@ -22,9 +30,14 @@ A CRF models P(tags | words) — the conditional probability of tags given the w
 
 This lets CRFs use much richer features. An HMM can only use the current word and the previous tag. A CRF can use anything: surrounding words, word shapes, capitalization, prefixes, suffixes — anything you can extract from the input.
 
+</details>
+
 ---
 
 **Q3. What is the BIO labeling scheme and why is it needed for NER?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 BIO stands for Beginning, Inside, Outside.
 
@@ -47,11 +60,16 @@ Cupertino → B-LOC
 
 The BIO scheme allows the model to represent multi-word entities precisely while still doing word-level classification.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4. What kind of features does a CRF typically use for NER?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 CRFs can use any function of the input. Common feature categories:
 
@@ -79,9 +97,14 @@ CRFs can use any function of the input. Common feature categories:
 
 The CRF learns weights for each feature function — features correlated with correct labels get high weights.
 
+</details>
+
 ---
 
 **Q5. How does decoding work in a CRF? How is it similar to HMM decoding?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 CRF decoding (finding the most probable label sequence) also uses the Viterbi algorithm — the same dynamic programming approach used in HMMs.
 
@@ -89,9 +112,14 @@ At each position in the sequence, Viterbi tracks the best partial label assignme
 
 The difference from HMM: instead of simple transition and emission probabilities, CRFs compute a score by summing weighted feature functions over all positions and label pairs. The Viterbi algorithm still finds the path with the highest total score in O(N² × T) time.
 
+</details>
+
 ---
 
 **Q6. What is a BiLSTM-CRF and why is it better than a standalone CRF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 BiLSTM-CRF combines two components:
 
@@ -109,11 +137,16 @@ Why better than BiLSTM alone:
 
 This architecture was state-of-the-art for NER before BERT arrived.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. How does training a CRF differ from training an HMM?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 HMM training: with labeled data, just count. Count how often tag A follows tag B (transitions), count how often word W appears with tag T (emissions). Normalize to get probabilities. Very simple maximum likelihood.
 
@@ -126,9 +159,14 @@ CRF training is more expensive but directly optimizes the discriminative objecti
 
 Regularization (L1 or L2 penalty on feature weights) is usually needed to prevent overfitting, especially with many sparse features.
 
+</details>
+
 ---
 
 **Q8. How does BERT+CRF work for NER and why is it better than BiLSTM-CRF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 BERT+CRF replaces the BiLSTM with BERT:
 
@@ -143,9 +181,14 @@ Advantages over BiLSTM-CRF:
 
 One challenge: BERT tokenizes into subwords. "Obama" might become ["O", "##bama"]. You need to align these subword tokens back to original word positions before applying the CRF.
 
+</details>
+
 ---
 
 **Q9. When would you choose a CRF over BERT for a production NER system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Choose a CRF (possibly with lightweight neural features) when:
 
@@ -156,6 +199,8 @@ Choose a CRF (possibly with lightweight neural features) when:
 - **Domain-specific rules:** if your domain has clear patterns (e.g., medical dosage: "500mg" is always a DRUG_DOSE), encoding these as features in a CRF can be more reliable than relying on BERT to learn them.
 
 In practice, BERT+CRF is the default for high-accuracy systems, and standalone CRF is the choice for resource-constrained or data-scarce settings.
+
+</details>
 
 ---
 

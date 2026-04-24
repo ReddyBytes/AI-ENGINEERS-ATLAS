@@ -4,6 +4,9 @@
 
 **Q1: Why can't you just use a pretrained base model directly as a chatbot?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A pretrained base model is trained on one thing: given all previous text, predict the next token. It doesn't know what a "question" is in the conversational sense. It doesn't know it's supposed to be a helpful assistant.
 
 If you ask a base model "What is DNA?", it might:
@@ -15,9 +18,14 @@ The model treats your input as text to continue — not as a request to fulfill.
 
 Instruction tuning teaches the model that: when a user gives an instruction or asks a question, the right response is a direct, helpful answer that addresses the request. This reorientation from "text completer" to "instruction follower" is what makes the model usable as an assistant.
 
+</details>
+
 ---
 
 **Q2: What is instruction tuning? How does it differ from standard fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Instruction tuning is a specific type of fine-tuning where the dataset consists of (instruction, response) pairs specifically designed to teach the model to follow user commands.
 
@@ -27,9 +35,14 @@ Instruction tuning: train on a diverse set of tasks all expressed as instruction
 
 Key difference: **generalization across tasks**. A model domain fine-tuned on medical Q&A is better at medical Q&A. A model instruction-tuned on 60 diverse tasks can generalize to task types it never saw in training. FLAN demonstrated this: train on 60 tasks, test on held-out tasks the model never saw — performance improved significantly. Standard fine-tuning on 60 examples of one task doesn't generalize this way.
 
+</details>
+
 ---
 
 **Q3: What is the FLAN paper and why was it important?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 FLAN (Fine-tuned Language Models Are Zero-Shot Learners, Google 2021) was one of the first systematic demonstrations of instruction tuning.
 
@@ -43,11 +56,16 @@ Why it matters:
 3. It directly led to InstructGPT, ChatGPT, and the modern instruction-tuning paradigm
 4. It showed you don't need task-specific model architectures — a general model with good instruction tuning handles all tasks
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is the self-instruct method? What are its advantages and limitations?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Self-instruct (Wang et al., 2022) is a method for automatically generating instruction tuning datasets using an existing language model, rather than using expensive human annotation.
 
@@ -73,9 +91,14 @@ Self-instruct (Wang et al., 2022) is a method for automatically generating instr
 
 Self-instruct is best for rapid prototyping and resource-constrained settings. Production-quality models (GPT-4, Claude) use human-curated instruction datasets for the most critical training examples.
 
+</details>
+
 ---
 
 **Q5: What is the difference between instruction tuning and RLHF? Why is both needed?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 They solve different problems:
 
@@ -96,9 +119,14 @@ InstructGPT showed that a model instruction-tuned with SFT was much better than 
 
 SFT teaches the model how to respond. RLHF teaches the model what humans actually prefer about responses. The two are complementary: SFT provides the behavioral foundation, RLHF refines toward human values.
 
+</details>
+
 ---
 
 **Q6: How do you create a high-quality instruction dataset? What makes the difference between good and bad training data?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Dataset quality is the single biggest lever in instruction tuning quality. Here's what matters:
 
@@ -128,11 +156,16 @@ Include examples of how to handle: questions the model shouldn't answer, unclear
 - Are there any factual errors in the response?
 - Would you be comfortable showing this to a user?
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: What is task contamination in instruction tuning? How do you detect it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Task contamination is when examples from benchmark test sets appear in the instruction tuning training data. This inflates benchmark scores — the model appears to generalize, but it has actually memorized the test examples.
 
@@ -151,9 +184,14 @@ Task contamination is when examples from benchmark test sets appear in the instr
 
 **Current state**: Many public instruction datasets have some contamination. Llama 2's evaluation paper explicitly discusses benchmark contamination checks. This is still an active research problem — there's no standardized decontamination process.
 
+</details>
+
 ---
 
 **Q8: How does training on chain-of-thought examples improve reasoning in instruction-tuned models?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Chain-of-thought (CoT) prompting asks the model to "think step by step" before giving a final answer. When CoT examples are included in the instruction tuning dataset, the model learns to generate reasoning traces, not just answers.
 
@@ -170,9 +208,14 @@ Including CoT examples in the instruction tuning dataset improved performance on
 
 **Practical guidance**: If your fine-tuning dataset needs to support reasoning tasks, include at least some chain-of-thought examples. Format: "Let me think step by step. First... Second... Therefore, the answer is..."
 
+</details>
+
 ---
 
 **Q9: What happened with InstructGPT? How did it demonstrate that a smaller instruction-tuned model can beat a larger base model?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 InstructGPT (Ouyang et al., OpenAI, 2022) was a landmark paper with a surprising finding: a 1.3B parameter instruction-tuned model was preferred by human evaluators over the raw 175B GPT-3 base model.
 
@@ -194,6 +237,8 @@ The final model: InstructGPT at 1.3B (with RLHF) was preferred by human evaluato
 **The key insight**: Parameters measure capability. Alignment measures whether that capability is applied usefully. A well-aligned smaller model can appear much better to users than a powerful but misaligned larger model.
 
 This finding shaped the entire industry's approach: don't just scale parameters — align with human preferences. ChatGPT, Claude, and all major chat products are built on this insight.
+
+</details>
 
 ---
 

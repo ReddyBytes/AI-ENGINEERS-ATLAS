@@ -108,6 +108,14 @@ Tools perform actions and can change state. Resources are read-only data. Mixing
 
 ➡️ **Next step:** [MCP Architecture](../02_MCP_Architecture/Theory.md) — Learn how the Host, Client, and Server components fit together.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q68 · mcp-fundamentals](../../ai_practice_questions_100.md#q68--normal--mcp-fundamentals)
+
+
 ---
 
 ## 📂 Navigation

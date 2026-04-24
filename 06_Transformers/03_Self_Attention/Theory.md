@@ -102,6 +102,14 @@ Where X is the input matrix (N words × d dimensions).
 
 ➡️ **Next step:** Multi-Head Attention → `06_Transformers/04_Multi_Head_Attention/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q32 · self-attention](../../ai_practice_questions_100.md#q32--thinking--self-attention)
+
+
 ---
 
 ## 📂 Navigation

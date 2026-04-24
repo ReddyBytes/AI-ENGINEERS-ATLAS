@@ -4,6 +4,9 @@
 
 **Q1: What is LLM hallucination? Why does it happen?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 LLM hallucination is when a language model generates text that is factually incorrect or made up, but presents it with the same fluency and confidence as correct information.
 
 Examples: citing papers that don't exist, stating wrong dates for historical events, inventing URLs or statistics.
@@ -12,9 +15,14 @@ Why it happens: LLMs are statistical pattern matchers. They learn to generate te
 
 There's no internal mechanism that says "I don't know this — refuse to answer." The model generates tokens either way. The probability distribution looks similar whether the model actually knows something or is filling in with a plausible pattern.
 
+</details>
+
 ---
 
 **Q2: What is alignment? What does "Helpful, Harmless, Honest" mean?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Alignment is the challenge of making AI systems behave in ways that match human values and intentions. An "aligned" model does what you actually want, not just what you technically asked for, and avoids causing harm.
 
@@ -28,9 +36,14 @@ Alignment is the challenge of making AI systems behave in ways that match human 
 
 The challenge: these three objectives sometimes conflict. Being maximally helpful might mean giving information that could be harmful. Being maximally harmless might mean refusing so many things the model becomes useless. Alignment is the art of balancing all three well.
 
+</details>
+
 ---
 
 **Q3: What is Constitutional AI and how is it different from RLHF?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Constitutional AI (CAI) is Anthropic's approach to alignment that uses a written set of principles (a "constitution") and AI feedback instead of relying entirely on human raters.
 
@@ -53,11 +66,16 @@ Key differences:
 
 Claude (all versions) was trained using Constitutional AI. It's a significant alternative to pure RLHF.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What is calibration in the context of hallucination? Why is it important?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Calibration refers to the relationship between a model's expressed confidence and its actual accuracy. A perfectly calibrated model that says "I'm 80% sure" would be right 80% of the time on such statements.
 
@@ -80,9 +98,14 @@ If a model says "the paper by Smith et al. (2019) found X" with full confidence,
 - Ask "how confident are you?" as a follow-up
 - Use techniques like "predict, then verify" prompting patterns
 
+</details>
+
 ---
 
 **Q5: How does RAG (Retrieval-Augmented Generation) mitigate hallucination?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 RAG reduces hallucination by grounding model outputs in specific retrieved documents rather than having the model rely solely on its parametric memory (what it learned during training).
 
@@ -108,9 +131,14 @@ RAG reduces hallucination by grounding model outputs in specific retrieved docum
 
 RAG is the most practical and widely deployed hallucination mitigation strategy in production systems.
 
+</details>
+
 ---
 
 **Q6: What is chain-of-thought prompting? How does it reduce hallucination?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Chain-of-thought (CoT) prompting asks the model to "think step by step" and show its reasoning before giving a final answer.
 
@@ -138,11 +166,16 @@ A: Let's call the ball's cost x. The bat costs x + $1. Together: x + (x + 1) = 1
 
 **Limitations**: CoT helps with reasoning and math but doesn't help with pure factual recall (if the model doesn't know a date, having it "think step by step" doesn't produce the correct date).
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: What is the difference between closed-book and open-book hallucination? How do production systems address each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The terms come from an analogy to exams:
 
@@ -177,9 +210,14 @@ These have different hallucination failure modes:
 
 The best production systems combine: closed-book knowledge for common facts, open-book retrieval for specific claims, and explicit system prompts that encourage "I don't know" responses when unsure.
 
+</details>
+
 ---
 
 **Q8: What causes the factuality vs fluency tradeoff in language models? Is it possible to achieve both?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The core tension: language models are trained to generate fluent, probable text. Fluent, probable text doesn't always align with factual text.
 
@@ -203,9 +241,14 @@ Partially:
 
 Current frontier models are significantly better calibrated than early versions, but perfect calibration remains elusive. The tradeoff is reduced but not eliminated.
 
+</details>
+
 ---
 
 **Q9: How do you evaluate and measure hallucination in production systems? What are the key metrics and testing approaches?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Measuring hallucination is harder than preventing it. You need systematic evaluation:
 
@@ -250,6 +293,8 @@ Deliberately try to make the model hallucinate:
 | Over-refusal rate | % of benign queries refused (false positive safety) |
 
 Running these systematically before and after model updates is the only reliable way to track hallucination in production.
+
+</details>
 
 ---
 

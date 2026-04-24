@@ -138,6 +138,14 @@ print(f"Tokens: {tokens}")
 Apply what you just learned → **[B4: LLM Chatbot with Memory](../../20_Projects/00_Beginner_Projects/04_LLM_Chatbot_with_Memory/Project_Guide.md)**
 > This project uses: managing conversation history to stay within the context window, tracking token usage per turn
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q44 · context-windows-tokens](../../ai_practice_questions_100.md#q44--thinking--context-windows-tokens)
+
+
 ---
 
 ## 📂 Navigation

@@ -111,6 +111,14 @@ flowchart TD
 
 ➡️ **Next step:** Build an Agent → `/Users/1065696/Github/AI/10_AI_Agents/09_Build_an_Agent/Project_Guide.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q67 · agent-frameworks](../../ai_practice_questions_100.md#q67--interview--agent-frameworks)
+
+
 ---
 
 ## 📂 Navigation

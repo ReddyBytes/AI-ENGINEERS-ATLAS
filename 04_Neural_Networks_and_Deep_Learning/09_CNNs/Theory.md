@@ -91,6 +91,14 @@ flowchart TD
 
 ➡️ **Next step:** RNNs — `./10_RNNs/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q23 · cnns](../../ai_practice_questions_100.md#q23--thinking--cnns)
+
+
 ---
 
 ## 📂 Navigation

@@ -4,6 +4,9 @@
 
 **Q1: What are the three pillars of observability, and how do they apply to AI systems?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** The three pillars are **logs**, **metrics**, and **traces**.
 
 **Logs** are timestamped records of discrete events. In an AI system: "At 10:30:15, Request #1234 arrived. Model: claude-3-5-sonnet. Input tokens: 1,450. Output tokens: 342. Latency: 890ms. Cost: $0.0094." Logs answer "what happened?"
@@ -14,9 +17,14 @@
 
 AI systems need additional layers beyond traditional software: token usage tracking (for cost management), prompt/response logging (for debugging), quality score monitoring (LLM-as-judge on samples), and model drift detection (when output patterns change over time).
 
+</details>
+
 ---
 
 **Q2: What is the difference between a log and a metric, and when would you use each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** A **log** is a record of a specific event at a specific time, with as much context as you need. Logs are unstructured (or semi-structured) text. Good for: debugging a specific request, understanding error details, auditing user activity. Logs are great for "why did request #1234 fail?" but expensive to query at scale.
 
@@ -24,9 +32,14 @@ A **metric** is a pre-aggregated numerical value tracked over time. Examples: `r
 
 Use logs when you need to investigate a specific incident or understand details. Use metrics when you need to monitor trends, set alerts, or build dashboards. Best practice: use both. Metrics tell you *that* something is wrong. Logs tell you *what* went wrong for specific cases. Traces tell you *where* in the system it went wrong.
 
+</details>
+
 ---
 
 **Q3: Why is tracking P99 latency more important than tracking average latency for an AI system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Averages are misleading because they hide extreme values. If 99 requests take 200ms and 1 request takes 20,000ms, the average is ~400ms — which looks fine. But 1% of your users are waiting 20 seconds. That 1% represents real people having a terrible experience, and at 100,000 requests/day that's 1,000 people per day.
 
@@ -36,11 +49,16 @@ For AI systems specifically, tail latency often comes from: model context window
 
 Set your SLOs (Service Level Objectives) on P95 and P99, never on the average.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How would you implement cost tracking for an LLM application, and what would you alert on?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Effective cost tracking requires instrumentation at every LLM call:
 
@@ -78,9 +96,14 @@ def tracked_call(messages, model):
 - Cost breakdown by model (see if expensive model is being over-used)
 - Cost breakdown by request type (see which features are most expensive)
 
+</details>
+
 ---
 
 **Q5: What is distributed tracing and how does it help debug AI system performance issues?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Distributed tracing tracks the complete journey of a single request through all services and components. Each step (called a "span") is instrumented with its start time and duration. All spans from a single request are linked by a shared trace ID.
 
@@ -107,9 +130,14 @@ Tracing is especially powerful for debugging:
 
 Tools: OpenTelemetry (standard instrumentation), Jaeger, Zipkin, Datadog APM, Langfuse (LLM-specific).
 
+</details>
+
 ---
 
 **Q6: How do you monitor quality in production for an LLM application, given that quality is subjective?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Production quality monitoring for LLMs requires multiple signals:
 
@@ -128,11 +156,16 @@ If your model starts refusing more requests than usual, it may be a sign of over
 **5. Output statistics:**
 Track: average response length, response length variance, specific keyword frequency (for domain-specific apps). Sudden changes in these statistics often indicate quality issues even before you can run LLM-as-judge on them.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: Design an observability system for a high-traffic LLM API (1 million requests/day). What would you instrument, store, and alert on?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** At 1M requests/day (~12 RPS average), full request logging is feasible but needs careful design:
 
@@ -174,9 +207,14 @@ P3 (daily digest):
 - Daily: cost by model + type, quality score trend, cache hit rate
 - Weekly: cost per user tier, model usage breakdown, top error types
 
+</details>
+
 ---
 
 **Q8: What is the difference between observability and monitoring, and why does it matter for AI systems?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** This is a nuanced but important distinction:
 
@@ -190,6 +228,8 @@ For AI systems, observability is more important than for traditional software be
 3. **New problems emerge with new prompts**: Users will input things you never anticipated, triggering behaviors you didn't predict. You need full observability (raw prompt + response logging) to find and understand these patterns.
 
 In practice: build monitoring (alerts) for the known failure modes AND observability (rich logging, traces) for investigating unknown problems. The monitoring catches known issues automatically; the observability lets you understand and fix novel issues.
+
+</details>
 
 ---
 

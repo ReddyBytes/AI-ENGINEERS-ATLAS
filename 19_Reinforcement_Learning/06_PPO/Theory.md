@@ -216,6 +216,14 @@ Run the stable-baselines3 PPO code in `Code_Example.md` on LunarLander. It shoul
 
 ➡️ **Next step:** `../07_RL_in_Practice/Theory.md` — learn the practical skills needed to actually make RL work: debugging, reward shaping, and choosing the right algorithm.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q93 · ppo](../../ai_practice_questions_100.md#q93--interview--ppo)
+
+
 ---
 
 ## 📂 Navigation

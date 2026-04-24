@@ -4,15 +4,23 @@
 
 **Q1: What is Gradio and what problem does it solve for ML practitioners?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** Gradio is a Python library that converts any Python function into an interactive web application. You define the function signature (inputs and outputs), Gradio generates the UI automatically, and you get a working web app with text boxes, sliders, image uploaders, and more — with zero HTML, CSS, or JavaScript.
 
 The problem it solves: sharing ML models with non-technical users, getting feedback from stakeholders, and demonstrating research without requiring anyone to install Python or run code locally. Before Gradio, showing a model demo to a product manager required either building a custom web app (weeks of work) or scheduling a screen share. With Gradio, you share a URL and they try it immediately in their browser.
 
 It integrates naturally with the Hugging Face ecosystem — a `pipeline()` output can be wrapped in `gr.Interface` in about 5 lines of code.
 
+</details>
+
 ---
 
 **Q2: What is the difference between `gr.Interface` and `gr.Blocks`?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Both create Gradio web apps, but they offer different levels of control:
 
@@ -35,9 +43,14 @@ with gr.Blocks() as demo:
 
 Rule of thumb: start with `gr.Interface` for demos, graduate to `gr.Blocks` when you need a multi-tab app or complex layout.
 
+</details>
+
 ---
 
 **Q3: What is a Hugging Face Space and how do you deploy a Gradio app to one?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** A Space is a Hugging Face-hosted repository that runs a web application — Gradio or Streamlit — and gives it a public URL at `huggingface.co/spaces/username/app-name`. It's free for CPU-based apps and provides paid GPU tiers for heavier models.
 
@@ -56,11 +69,16 @@ git push
 
 The Space automatically builds and starts your app. When the build completes, your app is live at the Space URL. Any subsequent `git push` rebuilds the Space.
 
+</details>
+
 ---
 
 ## Intermediate Level
 
 **Q4: Why should model loading happen outside the inference function in a Gradio app? What happens if you don't?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** If you load the model inside the inference function, it reloads on every user request. For a model like BERT (440MB), this means:
 - Downloading from Hub or disk: 1-5 seconds per request
@@ -95,9 +113,14 @@ def predict(text):
 
 Module-level code in `app.py` runs once when the Space starts. Everything inside the function runs on every request. Keep slow operations (model loading, data loading) at the module level.
 
+</details>
+
 ---
 
 **Q5: How does `gr.State` work and when do you need it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** `gr.State` is a Gradio component that stores data between function calls for a single user session. It's invisible in the UI but acts as a persistent variable that survives across button clicks.
 
@@ -137,9 +160,14 @@ with gr.Blocks() as demo:
 
 Without `gr.State`, you would need global variables (which break with concurrent users — all users would share the same history). `gr.State` gives each user session an isolated state.
 
+</details>
+
 ---
 
 **Q6: What are Gradio examples and why are they important for deployed Spaces?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Examples are pre-filled sample inputs that users can click to instantly populate the interface and see the model run. They're defined in `gr.Interface` with the `examples` parameter:
 
@@ -166,11 +194,16 @@ demo = gr.Interface(
 
 For image/audio demos, examples are especially important since users may not have a suitable test file ready to upload.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: How would you build a Gradio app that lets users choose between multiple models and compare their outputs side by side?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** This is a classic comparison demo pattern using `gr.Blocks` with multiple output columns:
 
@@ -230,9 +263,14 @@ with gr.Blocks(title="Model Comparison") as demo:
 demo.launch()
 ```
 
+</details>
+
 ---
 
 **Q8: What are the differences between using Gradio and Streamlit for ML demos? When would you choose each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:**
 
@@ -258,9 +296,14 @@ demo.launch()
 
 Both are fully supported on Hugging Face Spaces — create your Space with the appropriate SDK.
 
+</details>
+
 ---
 
 **Q9: How would you optimize a Gradio Space that's running too slowly on the free CPU tier?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The free CPU tier has no GPU and limited RAM (~16GB). Several optimization strategies:
 
@@ -308,6 +351,8 @@ For models that genuinely need GPU, a T4-Small Space tier (~$0.60/hour) provides
 
 **Strategy 6 — Quantize to GGUF for CPU generation:**
 For text generation demos, use a quantized GGUF model via llama-cpp-python — significantly faster than PyTorch for CPU-based autoregressive generation.
+
+</details>
 
 ---
 

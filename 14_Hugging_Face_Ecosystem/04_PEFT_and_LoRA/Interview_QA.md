@@ -4,6 +4,9 @@
 
 **Q1: What problem does PEFT solve? Why can't we just fine-tune the whole model?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** Fine-tuning an entire large language model requires storing and updating every single parameter. For a 7B parameter model in 16-bit precision:
 
 - Model weights: ~14 GB
@@ -15,9 +18,14 @@ Almost no one has a GPU (or even several GPUs) with 56 GB of VRAM sitting around
 
 PEFT (Parameter-Efficient Fine-Tuning) solves this by freezing the base model entirely and adding small trainable modules. For LoRA with `r=8`, only 0.1–0.5% of parameters are actually updated. You still need the model in memory, but you eliminate the massive gradient and optimizer state overhead for the frozen 99.9% of parameters.
 
+</details>
+
 ---
 
 **Q2: Explain LoRA to someone who has never heard of it.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Imagine you have a completed jigsaw puzzle representing a model's knowledge. Full fine-tuning means taking it apart completely and rebuilding it with new pieces — expensive and slow. LoRA instead sticks a small transparent overlay on top of the puzzle. The overlay has just enough detail to change what you see in specific areas, while the puzzle underneath stays completely intact.
 
@@ -25,9 +33,14 @@ Technically: LoRA identifies the weight matrices in the attention layers of a tr
 
 The output of a LoRA layer is: `original output + (B × A × input) × scaling`. At initialization, B is zero, so the model starts identical to the base model and gradually deviates only in the directions LoRA has learned.
 
+</details>
+
 ---
 
 **Q3: What is the rank `r` in LoRA and how do you choose it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The rank `r` controls the bottleneck dimension of the two LoRA matrices. If the original weight matrix is [4096 × 4096], LoRA adds matrices of shape [4096 × r] and [r × 4096].
 
@@ -37,11 +50,16 @@ The output of a LoRA layer is: `original output + (B × A × input) × scaling`.
 
 The rule of thumb: start with `r=8` and increase if the model isn't learning well enough. For most instruction-following and chat-format fine-tuning, `r=8` or `r=16` is sufficient.
 
+</details>
+
 ---
 
 ## Intermediate Level
 
 **Q4: What is QLoRA and how does it differ from regular LoRA?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** QLoRA (Quantized LoRA) extends LoRA by also quantizing the frozen base model to 4-bit precision. Regular LoRA keeps the base model in 16-bit (FP16 or BF16), which still requires ~14 GB for a 7B model. QLoRA compresses the base model to 4-bit using a format called NF4 (Normal Float 4), which was specifically designed for the normally distributed weight values in neural networks.
 
@@ -53,9 +71,14 @@ This means QLoRA can fine-tune a 7B LLM on a consumer GPU with just 8-10 GB of V
 
 The technical trick: during the forward pass, the quantized 4-bit weights are temporarily dequantized to BF16 for computation. The gradient flows only through the LoRA matrices (which are in BF16), not through the frozen quantized weights. This avoids the numerical instability of computing gradients through 4-bit values.
 
+</details>
+
 ---
 
 **Q5: What are `target_modules` in LoRA and how do you choose which layers to target?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** `target_modules` specifies which weight matrix names in the model receive LoRA adapters. The names vary by model family:
 
@@ -87,9 +110,14 @@ for name, module in model.named_modules():
         print(name)
 ```
 
+</details>
+
 ---
 
 **Q6: How do you save, share, and reload a LoRA adapter?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** LoRA adapters are stored separately from the base model. This is a major advantage — the adapter file is typically 10-100 MB, not 14 GB.
 
@@ -122,11 +150,16 @@ merged = model.merge_and_unload()
 
 The `adapter_config.json` file records which base model the adapter was trained on, so users know exactly what model to pair it with.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: Explain the mathematical insight behind why low-rank matrices are a good approximation for fine-tuning updates.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The key insight comes from research on weight matrices in over-parameterized neural networks: the updates (ΔW) that occur during fine-tuning tend to have low **intrinsic rank**. That is, even though the matrices are high-dimensional, the meaningful changes during adaptation can be captured by matrices with much lower rank.
 
@@ -136,9 +169,14 @@ This is consistent with broader findings in ML: the loss landscape for fine-tuni
 
 The practical implication: if the ΔW for your task requires higher rank than you've set, your LoRA adaptation will underfit — you'll see the training loss plateau before reaching competitive performance. The fix is to increase `r`.
 
+</details>
+
 ---
 
 **Q8: A team deployed a QLoRA fine-tuned model but found that performance was noticeably worse than their validation metrics suggested. What might have gone wrong?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Several QLoRA-specific issues can create a gap between validation metrics and deployed performance:
 
@@ -154,9 +192,14 @@ The practical implication: if the ΔW for your task requires higher rank than yo
 
 **Recommended debugging process:** Run inference on the same 50 examples using both the checkpoint used for validation and the deployed model. If outputs differ, the deployment path has a model mismatch. If outputs match, the issue is either data distribution shift or evaluation methodology.
 
+</details>
+
 ---
 
 **Q9: Compare LoRA, prefix tuning, and prompt tuning. When is each method preferable?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:**
 
@@ -179,6 +222,8 @@ The practical implication: if the ΔW for your task requires higher rank than yo
 - **Use when:** You need an extremely lightweight adapter; the model is very large and powerful; you want to switch between many tasks by swapping a small prompt
 
 **Summary:** For almost all practical applications in 2024-2025, **LoRA** (or **QLoRA** on limited hardware) is the default choice. Prefix tuning and prompt tuning have niche applications but LoRA offers better quality-to-cost tradeoff for the vast majority of tasks.
+
+</details>
 
 ---
 

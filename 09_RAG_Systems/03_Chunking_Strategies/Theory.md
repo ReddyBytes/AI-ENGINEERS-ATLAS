@@ -137,6 +137,14 @@ Typical overlap: **10–20% of chunk size**.
 Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)**
 > This project uses: choosing chunk size and overlap, splitting documents, seeing how chunking affects retrieval quality
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q56 · chunking-strategies](../../ai_practice_questions_100.md#q56--thinking--chunking-strategies)
+
+
 ---
 
 ## 📂 Navigation

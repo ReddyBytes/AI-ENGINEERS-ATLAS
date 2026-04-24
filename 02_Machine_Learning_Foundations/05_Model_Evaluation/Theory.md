@@ -145,6 +145,14 @@ flowchart LR
 Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
 > This project uses: accuracy, precision, recall, F1, confusion matrix, train/test split, cross-validation
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q7 · model-evaluation](../../ai_practice_questions_100.md#q7--critical--model-evaluation)
+
+
 ---
 
 ## 📂 Navigation

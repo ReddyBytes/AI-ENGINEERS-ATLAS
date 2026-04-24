@@ -198,6 +198,14 @@ This creates a feedback loop where identified vulnerabilities systematically clo
 
 ➡️ **Next step:** Extended Thinking — [08_Extended_Thinking/Theory.md](../08_Extended_Thinking/Theory.md)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q100 · constitutional-ai](../../../ai_practice_questions_100.md#q100--critical--constitutional-ai)
+
+
 ---
 
 ## 📂 Navigation

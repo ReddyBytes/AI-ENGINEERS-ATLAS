@@ -184,6 +184,14 @@ Take any AI feature you've built (or want to build) and write 20 test cases for 
 ➡️ **Next step**
 Move to [`02_Benchmarks/Theory.md`](../02_Benchmarks/Theory.md) to learn about standard benchmarks like MMLU, HumanEval, and GSM8K — the standardized tests that measure model capability across domains.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q88 · evaluation-fundamentals](../../ai_practice_questions_100.md#q88--interview--evaluation-fundamentals)
+
+
 ---
 
 ## 📂 Navigation

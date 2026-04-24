@@ -99,6 +99,14 @@ A server that reads files AND queries databases AND calls external APIs is hard 
 
 ➡️ **Next step:** [Security and Permissions](../07_Security_and_Permissions/Theory.md) — Learn how to build servers that are safe to deploy.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q71 · building-mcp-server](../../ai_practice_questions_100.md#q71--normal--building-mcp-server)
+
+
 ---
 
 ## 📂 Navigation

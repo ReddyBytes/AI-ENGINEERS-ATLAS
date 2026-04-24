@@ -100,6 +100,14 @@ Normalizes activations within each mini-batch to mean 0 and std 1. Primarily a t
 
 ➡️ **Next step:** CNNs — `./09_CNNs/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q25 · regularization-dropout](../../ai_practice_questions_100.md#q25--thinking--regularization-dropout)
+
+
 ---
 
 ## 📂 Navigation

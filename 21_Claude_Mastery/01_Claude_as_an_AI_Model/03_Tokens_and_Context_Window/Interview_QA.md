@@ -4,15 +4,23 @@
 
 **Q1: What is a token? How is it different from a word?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A token is the atomic unit that language models process. It is produced by a Byte Pair Encoding (BPE) tokenizer — an algorithm that learns sub-word pieces from a training corpus by repeatedly merging the most frequent adjacent character pairs.
 
 The result is that common words become a single token ("the", "is"), while rare or long words get split into multiple tokens ("extraordinarily" → 3 tokens). Numbers, punctuation, and code fragments also tokenize in non-obvious ways.
 
 The practical implication: you cannot assume 1 word = 1 token. The rule of thumb for English text is 1 token ≈ 0.75 words (or 1 word ≈ 1.3 tokens). Always use the model's token counting API for precise measurement rather than estimating from word count.
 
+</details>
+
 ---
 
 **Q2: What is the context window and why does it matter to engineers?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The context window is the maximum number of tokens Claude can process in a single API call — covering both the input you send (system prompt + message history + user message) and the output Claude generates.
 
@@ -26,9 +34,14 @@ Why it matters:
 
 The context window is arguably the most important operational constraint when building Claude applications.
 
+</details>
+
 ---
 
 **Q3: What does stop_reason: "max_tokens" mean and why is it dangerous?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 It means Claude ran out of room to generate — it hit the `max_tokens` limit you set before it reached a natural stopping point. The response is truncated.
 
@@ -48,11 +61,16 @@ if response.stop_reason == "max_tokens":
 
 Always set max_tokens generously (at least 2x the expected output length) and check stop_reason in your response handling code.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How does BPE tokenization work and what are the engineering implications?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 BPE (Byte Pair Encoding) starts with a character-level vocabulary and iteratively merges the most frequent adjacent token pair into a new token. After millions of merges on the training corpus, you get a vocabulary of ~100,000 subword pieces.
 
@@ -70,9 +88,14 @@ Engineering implications:
 4. **Precision tasks**: String matching tasks must account for the fact that "user" at word start vs middle may be different tokens
 5. **Prompt optimization**: Rewording to use common words reduces token count and cost
 
+</details>
+
 ---
 
 **Q5: A user sends a document that's 350,000 words. How do you handle it with Claude's 200k token limit?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 350,000 words ≈ 455,000 tokens — well over the 200k limit. Options:
 
@@ -87,9 +110,14 @@ The right choice depends on the task:
 - Need holistic synthesis of the whole document? → Chunking + summarization
 - Need to track evolving narrative? → Hierarchical
 
+</details>
+
 ---
 
 **Q6: How does prompt caching work and when should you use it?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Prompt caching allows Claude to store the computed representations (KV cache) for a prefix of your prompt and reuse them across multiple API calls. Instead of re-processing the same system prompt or documents on every call, the cached portion is retrieved from storage.
 
@@ -113,11 +141,16 @@ When to use it:
 
 Cost impact: Cached input tokens are billed at ~10% of normal input price. If your system prompt is 10,000 tokens and you make 1,000 calls per day, caching saves ~90% of the input cost for that portion.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: What is the "lost in the middle" problem and how does it affect production system design?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Research (Liu et al., 2023) demonstrated that LLMs retrieve information from the start and end of long contexts significantly better than from the middle. In retrieval tasks with 20 relevant documents, models performed best when the relevant document was first or last, and worst when it was in the middle.
 
@@ -132,9 +165,14 @@ Production design implications:
 
 This is especially important for legal document analysis, medical record review, and other high-stakes applications where missing middle content is unacceptable.
 
+</details>
+
 ---
 
 **Q8: How do you accurately budget tokens for a production agent that has long-running conversations?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Token budgeting for agents requires tracking three pools:
 
@@ -167,9 +205,14 @@ Compression strategies when budget is tight:
 
 The agent should proactively compress before hitting limits, not reactively after getting an error.
 
+</details>
+
 ---
 
 **Q9: How does the context window size affect transformer attention computation and memory?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The context window directly drives memory and compute costs in the transformer:
 
@@ -185,6 +228,8 @@ In practice, modern models use:
 - For a 70B model: roughly 80–100 GB for 200k tokens — comparable to or exceeding model weights
 
 This is why very long context inference is expensive and why cloud providers price 200k context calls higher than 8k context calls even at the same model tier.
+
+</details>
 
 ---
 

@@ -4,6 +4,9 @@
 
 **Q1: Why do agent frameworks exist? Can't you just call the OpenAI API directly?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Yes, you can call the API directly. But building a production agent requires:
 
 - A prompt template with the right format for tool calling
@@ -21,9 +24,14 @@ Frameworks provide this infrastructure. You focus on your agent's specific tools
 
 The tradeoff: convenience vs. control. Frameworks are faster to build with but constrain your options.
 
+</details>
+
 ---
 
 **Q2: What is LangChain and what are its main components?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 LangChain is the most widely used framework for building LLM applications, including agents.
 
@@ -41,9 +49,14 @@ LCEL (LangChain Expression Language) is the modern way to compose components usi
 chain = prompt | llm | output_parser
 ```
 
+</details>
+
 ---
 
 **Q3: What is CrewAI and how is it different from LangChain?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 CrewAI is a framework specifically for multi-agent systems built around the concept of a "crew" of specialized agents.
 
@@ -63,11 +76,16 @@ Key differences from LangChain:
 
 If your use case is "a team of specialized agents working on a content/research pipeline," CrewAI is often simpler. If you need flexibility, RAG integration, or complex custom logic, LangChain is better.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How does AutoGen's approach to agents differ from LangChain and CrewAI?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 AutoGen is built around **conversational agents** that communicate through messages.
 
@@ -82,9 +100,14 @@ This is different from LangChain/CrewAI where code execution is a "tool" you add
 
 AutoGen also supports `GroupChat` for multi-agent conversations where multiple agents talk to each other and a manager decides who speaks next.
 
+</details>
+
 ---
 
 **Q5: When would you choose to NOT use a framework and write custom agent code?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Reasons to write custom code instead of using a framework:
 
@@ -100,9 +123,14 @@ Reasons to write custom code instead of using a framework:
 
 The rule: start with a framework for prototyping. Only move to custom code if you hit concrete limitations in production.
 
+</details>
+
 ---
 
 **Q6: What is LCEL and why was it introduced in LangChain?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 LCEL (LangChain Expression Language) is LangChain's modern way to compose components using pipe syntax.
 
@@ -126,11 +154,16 @@ It was introduced to solve several problems with the older API:
 
 The key insight: prompt, LLM, parser, memory, retriever — all have the same interface (`invoke`, `stream`, `batch`). LCEL pipes them together in any combination.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How do you choose between LangChain, CrewAI, and AutoGen for a production use case?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Decision framework:
 
@@ -154,9 +187,14 @@ Decision framework:
 
 For most new projects: prototype with CrewAI or LangChain, decide based on what feels natural for your use case.
 
+</details>
+
 ---
 
 **Q8: What are the main challenges of using agent frameworks in production?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 1. **Framework churn** — all three frameworks change rapidly. A working agent can break after a dependency upgrade. Mitigation: pin exact versions, have integration tests.
 
@@ -170,9 +208,14 @@ For most new projects: prototype with CrewAI or LangChain, decide based on what 
 
 6. **Version compatibility** — LangChain especially has had breaking changes between versions. Mitigation: careful version pinning, separate virtual environments per project.
 
+</details>
+
 ---
 
 **Q9: How would you architect a production-ready agent system, choosing and combining frameworks appropriately?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 For a production research agent system:
 
@@ -197,6 +240,8 @@ For a production research agent system:
 - Load test: ensure the system handles concurrent agent runs
 
 The key insight: the agent framework is just the orchestration layer. The production reliability comes from the infrastructure around it.
+
+</details>
 
 ---
 

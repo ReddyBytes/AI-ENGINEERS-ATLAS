@@ -4,15 +4,23 @@
 
 **Q1. What is a Hidden Markov Model and what makes the states "hidden"?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A Hidden Markov Model is a probabilistic model for sequences. It assumes there's an underlying sequence of states that you can't observe directly — that's what makes them "hidden". What you can observe are outputs that the hidden states generate.
 
 Classic example: weather is the hidden state (you can't see weather directly from inside a room). What someone wears is the observable output. If they come in wearing a raincoat, you infer it's probably raining even though you didn't observe the weather directly.
 
 In NLP, the hidden states are things like part-of-speech tags. You can see the words (observations), but the grammar tags are what the model needs to infer.
 
+</details>
+
 ---
 
 **Q2. What are the three components of an HMM?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 An HMM has three core components:
 
@@ -24,9 +32,14 @@ An HMM has three core components:
 
 With these three components, you can calculate the probability of any observation sequence and find the most likely sequence of hidden states.
 
+</details>
+
 ---
 
 **Q3. What is the Markov assumption and why is it important?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The Markov assumption states that the next state depends only on the current state — not on any earlier states. Mathematically: P(state_t | state_t-1, state_t-2, ..., state_1) = P(state_t | state_t-1).
 
@@ -34,11 +47,16 @@ This is important because it makes computation tractable. Without it, you'd need
 
 The downside: real language often has long-range dependencies. "The keys on the table are..." — the verb "are" depends on "keys" many words back. HMMs can't capture this.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4. What are the three classic HMM problems and how are they solved?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 1. **Evaluation problem:** Given a model and a sequence of observations, what is the probability of this sequence? Solved by the **Forward algorithm** (dynamic programming).
 
@@ -48,9 +66,14 @@ The downside: real language often has long-range dependencies. "The keys on the 
 
 In NLP, POS tagging typically uses Viterbi for decoding after learning parameters from labeled data with maximum likelihood estimation.
 
+</details>
+
 ---
 
 **Q5. How does the Viterbi algorithm work?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Viterbi finds the most likely hidden state sequence given observations using dynamic programming.
 
@@ -60,9 +83,14 @@ A backpointer table records which state was the best predecessor at each step. A
 
 Efficiency: instead of calculating all T^N possible paths (exponential), Viterbi is O(N² × T) where N is number of states and T is sequence length.
 
+</details>
+
 ---
 
 **Q6. How is an HMM used for Part-of-Speech (POS) tagging?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 POS tagging assigns grammar tags to each word: "The/DET quick/ADJ fox/NOUN jumped/VERB."
 
@@ -76,11 +104,16 @@ Inference: given a new sentence, run Viterbi to find the most probable tag seque
 
 Example transition knowledge learned: DET is almost always followed by NOUN or ADJ. VERB is rarely followed by DET. These patterns help the model disambiguate words like "run" (NOUN or VERB?).
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7. What are the main limitations of HMMs for NLP tasks compared to modern approaches?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Several key limitations:
 
@@ -94,9 +127,14 @@ Several key limitations:
 
 CRFs address problems 3 and 4. Transformers address all of them.
 
+</details>
+
 ---
 
 **Q8. Explain the Forward-Backward algorithm and when it's used.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The Forward-Backward algorithm is used in the **Baum-Welch** learning algorithm to train HMM parameters from unlabeled data.
 
@@ -109,9 +147,14 @@ This is the E-step of the EM algorithm. The M-step updates transition and emissi
 
 Use when: you have sequence observations but no state labels (unsupervised HMM training).
 
+</details>
+
 ---
 
 **Q9. When would you still choose an HMM over a CRF or transformer for a sequence labeling task?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Situations where HMMs are preferable:
 
@@ -124,6 +167,8 @@ Situations where HMMs are preferable:
 4. **Interpretability:** HMM parameters (transition and emission matrices) are directly inspectable. You can look at the numbers and understand what the model learned.
 
 5. **Probabilistic outputs:** HMMs naturally provide well-calibrated probabilities over state sequences — useful in domains like medical diagnosis or speech recognition where uncertainty quantification matters.
+
+</details>
 
 ---
 

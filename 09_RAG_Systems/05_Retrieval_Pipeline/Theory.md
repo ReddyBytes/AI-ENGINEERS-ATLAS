@@ -108,6 +108,14 @@ Fixes: hybrid search (semantic + keyword), better chunking, re-ranking (see Adva
 Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)**
 > This project uses: querying the vector store, returning top-K chunks, filtering by metadata
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q58 · retrieval-pipeline](../../ai_practice_questions_100.md#q58--critical--retrieval-pipeline)
+
+
 ---
 
 ## 📂 Navigation

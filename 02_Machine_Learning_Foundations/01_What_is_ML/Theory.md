@@ -101,6 +101,14 @@ The model has internal dials called **weights**. Training = adjusting those dial
 
 ➡️ **Next step:** What happens after training? → `02_Training_vs_Inference/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q4 · what-is-ml](../../ai_practice_questions_100.md#q4--interview--what-is-ml)
+
+
 ---
 
 ## 📂 Navigation

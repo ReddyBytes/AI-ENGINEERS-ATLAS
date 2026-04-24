@@ -4,6 +4,9 @@
 
 **Q1: What are the two main cost models for running AI in production, and how do you choose between them?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** The two models are **pay-per-token (API)** and **pay-per-hour (self-hosting)**.
 
 With pay-per-token, you call a provider like OpenAI or Anthropic and pay for each input and output token. Cost = `(input_tokens × input_price) + (output_tokens × output_price)`. Zero infrastructure overhead, but cost scales linearly with volume and you have no control over the model.
@@ -12,9 +15,14 @@ With self-hosting, you pay for GPU instance hours (e.g., an A100 at $5/hour) and
 
 The choice comes down to volume and break-even analysis. At low volume (< a few thousand requests/day), API wins because you avoid fixed infrastructure costs. At high volume, self-hosting wins because the per-request cost is far lower. Run the numbers for your specific workload — the break-even is often around 10,000-100,000 requests/day depending on the model.
 
+</details>
+
 ---
 
 **Q2: What is prompt caching and how does it reduce costs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Prompt caching is a feature offered by Anthropic and OpenAI where the provider caches the internal KV (key-value) state computed from a repeated prompt prefix. When the next request arrives with the same prefix, the cached computation is reused instead of reprocessing those tokens.
 
@@ -22,9 +30,14 @@ Practical example: You have a 10,000-token system prompt that lists your company
 
 You enable it by explicitly marking the cacheable part of your prompt with a `cache_control` parameter. It is most valuable when: system prompts are long (> 1,000 tokens), the same context documents are injected repeatedly (RAG), or many users share the same system configuration.
 
+</details>
+
 ---
 
 **Q3: What are the most impactful quick wins for reducing LLM API costs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** In priority order:
 
@@ -38,11 +51,16 @@ You enable it by explicitly marking the cacheable part of your prompt with a `ca
 
 5. **Compress context / implement RAG**: If you are injecting entire documents as context, switch to RAG (only inject the relevant 3-5 chunks). This can reduce input tokens by 80-95%.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: Describe a model routing architecture that minimizes cost while maintaining quality.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Model routing (also called the "cascade" or "tiered" architecture) classifies incoming requests by complexity and routes them to the appropriate cost tier.
 
@@ -57,9 +75,14 @@ Architecture:
 
 Real savings: 60-85% cost reduction with less than 5% quality degradation (when thresholds are well-tuned). Key risk: the cheap tier silently delivers poor quality for edge cases — monitoring and periodic quality audits are essential.
 
+</details>
+
 ---
 
 **Q5: How would you calculate the break-even point between using an LLM API vs self-hosting?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** The break-even analysis requires estimating costs on both sides:
 
@@ -86,9 +109,14 @@ API (GPT-4o-mini): $0.000465/request. Break-even = $2,252 / ($0.000465 - $0.0007
 
 The analysis often reveals: self-hosting only makes economic sense when you can saturate your GPU instances (> 60% utilization) AND engineering overhead is amortized over very high volume.
 
+</details>
+
 ---
 
 **Q6: What is context compression and what techniques are available?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Context compression reduces the number of input tokens sent to the model, directly reducing cost. The goal: retain all information the model needs while removing everything else.
 
@@ -104,11 +132,16 @@ The analysis often reveals: self-hosting only makes economic sense when you can 
 
 5. **Structured output formats**: Ask for JSON instead of prose explanations. "Return JSON: {answer: string, confidence: float}" vs "Please explain your reasoning and then provide the answer..." — often 60-70% fewer output tokens.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How would you design a cost monitoring and alerting system for an LLM-based product?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** A production cost monitoring system needs real-time visibility and automated controls:
 
@@ -134,9 +167,14 @@ The analysis often reveals: self-hosting only makes economic sense when you can 
 - **Request cost ceiling**: Reject requests where estimated cost > threshold
 - **Circuit breaker**: If hourly spend > 2x expected, automatically fall back to cheaper model
 
+</details>
+
 ---
 
 **Q8: When does fine-tuning a smaller model become more cost-effective than using a larger frontier model via API?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Fine-tuning a smaller model on your specific task can match the quality of a 10-100x larger model — but it requires upfront investment. The cost calculation has three parts:
 
@@ -167,6 +205,8 @@ Fine-tuning makes sense when:
 - Latency is important (smaller models are faster)
 
 Fine-tuning does NOT make sense when: you need the latest knowledge (fine-tuning doesn't update knowledge cutoff), the task varies widely (the model won't generalize), or you have limited labeled data.
+
+</details>
 
 ---
 

@@ -92,6 +92,14 @@ flowchart TD
 
 ➡️ **Next step:** K-Means Clustering → `03_Classical_ML_Algorithms/06_K_Means_Clustering/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q15 · support-vector-machines](../../ai_practice_questions_100.md#q15--interview--support-vector-machines)
+
+
 ---
 
 ## 📂 Navigation

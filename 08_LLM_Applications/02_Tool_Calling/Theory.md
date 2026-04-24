@@ -131,6 +131,14 @@ sequenceDiagram
 
 ➡️ **Next step:** Structured Outputs → `08_LLM_Applications/03_Structured_Outputs/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q48 · tool-calling](../../ai_practice_questions_100.md#q48--thinking--tool-calling)
+
+
 ---
 
 ## 📂 Navigation

@@ -107,6 +107,14 @@ In CrewAI, this is handled automatically. In AutoGen, agents communicate through
 Apply what you just learned → **[A4: Multi-Agent Research System](../../20_Projects/02_Advanced_Projects/04_Multi_Agent_Research_System/Project_Guide.md)**
 > This project uses: supervisor + 4 specialist workers (WebResearcher, DataAnalyst, Writer, FactChecker) running in parallel via LangGraph
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q66 · multi-agent-systems](../../ai_practice_questions_100.md#q66--design--multi-agent-systems)
+
+
 ---
 
 ## 📂 Navigation

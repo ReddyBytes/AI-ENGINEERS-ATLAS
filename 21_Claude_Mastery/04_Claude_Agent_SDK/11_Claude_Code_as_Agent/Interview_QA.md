@@ -4,25 +4,43 @@
 
 **Q1: How is Claude Code itself an example of the agent pattern?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Claude Code implements all four components of an agent: (1) the LLM (Claude Sonnet/Opus) as the reasoning core that decides what to do at each step; (2) built-in tools (Read, Write, Edit, Bash, Glob, Grep, etc.) that allow it to take real actions on your filesystem and shell; (3) a context window that accumulates all file reads, bash outputs, and edit results as working memory; (4) an agent loop that keeps running until the task is complete or you interrupt it. When you ask Claude Code to "add error handling to all database functions," it runs the full loop: Glob to find files, Grep to find functions, Read to understand code, Edit to make changes, Bash to run tests, loop until passing.
+
+</details>
 
 ---
 
 **Q2: What is the purpose of CLAUDE.md files in Claude Code's architecture?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: CLAUDE.md files are the mechanism for persistent, context-specific system prompts. Claude Code loads `~/.claude/CLAUDE.md` (global, loaded in every session) and any `CLAUDE.md` found in the project directory (loaded for that project). Their contents are injected into the agent's system prompt at session start. This allows: project-specific context ("This is an Airflow v3 project on Python 3.11"), behavioral rules ("Never commit without asking"), and team conventions ("All SQL must use the query_builder module"). Without CLAUDE.md, every session starts from zero. With it, the agent has the right context for every task in that project.
+
+</details>
 
 ---
 
 **Q3: Why does the Edit tool require a unique string match rather than a line number?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: Line numbers change when you edit a file — after making one edit, all subsequent line numbers below that edit shift. If Claude Code is making 5 edits to a file in one session, line-number-based edits would fail after the first one because the file changed. Unique string matching (old_string → new_string) is stable: as long as the target code exists and is unique in the file, the edit succeeds regardless of how many other edits have been made. It also prevents a class of error: if the code you're trying to edit was already changed (by you or another process), the unique string match fails loudly rather than editing the wrong line silently. This "fail loud" design is intentional.
+
+</details>
 
 ---
 
 ## Intermediate Level
 
 **Q4: How does Claude Code use the agent loop for a multi-file refactoring task?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Consider "rename the `process_data()` function to `transform_data()` everywhere." Claude Code's loop:
 
@@ -36,15 +54,25 @@ Step 7: Return summary to user.
 
 Each step uses the previous result to decide what to do next. This is multi-step reasoning using the built-in tool set. The loop terminates when tests pass and the rename is confirmed complete.
 
+</details>
+
 ---
 
 **Q5: How does the MEMORY.md pattern implement the external agent memory concept from Topic 06?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A: MEMORY.md is a file-based implementation of external memory. At session start, Claude Code reads the relevant MEMORY.md file and injects it into the system prompt — loading the stored memories into the active context window. When you say "remember that I prefer metric units," Claude Code appends this to MEMORY.md. At the next session, that fact is loaded again. This implements exactly the external memory loop: save to external store → load at next session → use in context. The file format (plain Markdown) is deliberately simple: it's human-readable and human-editable, so you can review and correct stored memories without specialized tooling. The vector DB approach from Topic 06 scales better for thousands of memories, but for project-scoped or user-specific memory, a Markdown file is often sufficient.
+
+</details>
 
 ---
 
 **Q6: What design lessons from Claude Code's architecture are most transferable to building your own agents?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Five lessons:
 
@@ -58,11 +86,16 @@ A: Five lessons:
 
 5. **Transparent actions**: Claude Code shows every tool call in the terminal. Build observability into your agents from the start — users should be able to understand what the agent is doing, and you should be able to audit it later.
 
+</details>
+
 ---
 
 ## Advanced Level
 
 **Q7: Claude Code uses worktrees as a subagent isolation mechanism. Explain the parallel to the subagent pattern from Topic 08.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: A Git worktree is an isolated copy of the repository at a separate filesystem path. When Claude Code's Agent tool spawns a subagent to work on a task, it creates a new worktree for that agent. This implements subagent isolation at the filesystem level:
 
@@ -73,9 +106,14 @@ A: A Git worktree is an isolated copy of the repository at a separate filesystem
 
 The worktree is the physical implementation of the logical isolation that the subagent pattern provides. It's elegant: instead of needing a complex sandbox or VM, a Git worktree provides the isolation at the version-control level for free.
 
+</details>
+
 ---
 
 **Q8: How does Claude Code's permission system (allowedTools, deniedTools, permission modes) relate to the safety principles from Topic 10?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Claude Code's permission system is a direct implementation of the least-privilege principle for tools. The relationship:
 
@@ -85,9 +123,14 @@ A: Claude Code's permission system is a direct implementation of the least-privi
 
 For a code review agent that should only read: `allowedTools: ["Read", "Glob", "Grep"]`. For a code generation agent: add `Write` and `Edit`. For a build automation agent: add `Bash` (with confirmation). This is exactly the tool permission scoping discussed in Safety in Agents — Claude Code's configuration just makes it declarative.
 
+</details>
+
 ---
 
 **Q9: If you were building a production coding agent similar to Claude Code from scratch, what would be your minimal required tool set and what architectural decisions would you make based on Claude Code's design?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A: Minimal production coding agent tool set:
 
@@ -112,6 +155,8 @@ A: Minimal production coding agent tool set:
 5. **Permission system**: implement allow/deny lists before launch, not as an afterthought. Default to restrictive; let users expand permissions explicitly.
 
 6. **CLAUDE.md equivalent**: let users drop a `.agent-context.md` file in their project directory. Load it at session start. This dramatically improves quality for repeated use on the same project.
+
+</details>
 
 ---
 

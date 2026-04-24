@@ -98,6 +98,14 @@ The perceptron is guaranteed to converge if the data is linearly separable.
 Apply what you just learned → **[B3: Neural Net from Scratch](../../20_Projects/00_Beginner_Projects/03_Neural_Net_from_Scratch/Project_Guide.md)**
 > This project uses: building a perceptron layer in numpy, forward pass, weight initialization
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q18 · perceptron](../../ai_practice_questions_100.md#q18--thinking--perceptron)
+
+
 ---
 
 ## 📂 Navigation

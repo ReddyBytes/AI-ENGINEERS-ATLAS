@@ -117,6 +117,14 @@ print(f"\n\nFull response: {full_text}")
 Apply what you just learned → **[B4: LLM Chatbot with Memory](../../20_Projects/00_Beginner_Projects/04_LLM_Chatbot_with_Memory/Project_Guide.md)**
 > This project uses: streaming responses to the terminal in real-time so the chatbot feels instant
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q54 · streaming-responses](../../ai_practice_questions_100.md#q54--normal--streaming-responses)
+
+
 ---
 
 ## 📂 Navigation

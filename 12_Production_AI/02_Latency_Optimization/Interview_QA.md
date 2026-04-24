@@ -4,15 +4,23 @@
 
 **Q1: What is latency and why do we measure it in percentiles instead of averages?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 **A:** Latency is the elapsed time from when a client sends a request to when it receives a complete response. We measure it in milliseconds.
 
 Averages are misleading because they hide tail latency. Imagine 99 requests take 100ms and 1 request takes 10,000ms. The average is ~200ms, which looks acceptable — but 1% of your users are experiencing a 10-second hang. That 1% is real people having a terrible experience.
 
 Percentiles tell the truth: P99 of 10,000ms means "1 in 100 requests is terrible." We set SLOs (Service Level Objectives) on P95 and P99 because that is where real user pain lives. A rule of thumb: if P99 > 3x your P50, you have a tail latency problem worth investigating.
 
+</details>
+
 ---
 
 **Q2: What is quantization in the context of model inference, and what are its tradeoffs?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Quantization reduces the numerical precision of model weights. Standard models use float32 (32-bit floating point, 4 bytes per value). Quantizing to int8 (8-bit integer) cuts memory usage by 75% and speeds up computation because integer math is faster and allows 4 values to pack into one register.
 
@@ -23,9 +31,14 @@ Tradeoffs:
 
 The key is: quantize by default, then run your evaluation suite to check whether quality is acceptable for your use case.
 
+</details>
+
 ---
 
 **Q3: How does request batching reduce latency at the system level, even though it might add per-request wait time?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** This is a common point of confusion. Batching reduces *system-level latency* (time to process all requests) even though it increases *per-request latency* (time for one specific request).
 
@@ -35,11 +48,16 @@ For the individual user: if your batch wait timeout is 10ms and the speedup from
 
 The key is setting the right batch timeout. For interactive applications, 2-10ms is typical. For background processing, you might wait 100-500ms.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: Explain speculative decoding. How does it speed up LLM inference?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** Standard LLM inference is inherently sequential: you generate token 1, which is needed to generate token 2, which is needed for token 3. You can't parallelize this within a single sequence.
 
@@ -53,9 +71,14 @@ Typical speedup: 2-3x for long text generation. The key insight is that verifyin
 
 Requirements: the draft model must be from the same model family as the verify model (same tokenizer, same architecture family) for the acceptance rates to be high.
 
+</details>
+
 ---
 
 **Q5: What is the KV cache in LLMs, and how does prompt caching use it to reduce latency?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** In a transformer, the attention mechanism computes Key (K) and Value (V) matrices for every token. These matrices are expensive to compute. When generating text, K and V for all previous tokens must be recomputed at each step unless you cache them.
 
@@ -65,9 +88,14 @@ The **KV cache** stores the K and V matrices for all tokens processed so far. Ea
 
 Result: up to 90% cost reduction and significant latency reduction for the cached portion. This is especially valuable for RAG applications where the same context document is injected repeatedly.
 
+</details>
+
 ---
 
 **Q6: How would you go about diagnosing a latency regression after deploying a new model version?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** A structured debugging approach:
 
@@ -83,11 +111,16 @@ Result: up to 90% cost reduction and significant latency reduction for the cache
 
 6. **A/B the serving config**: Run old model and new model side by side on identical traffic and compare profiled traces. The difference points to the root cause.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: Explain continuous batching vs static batching for LLM serving. Why does continuous batching matter?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** In **static batching**, you define a fixed batch size (e.g., 8 requests) and wait until 8 requests arrive, process them all together, and return all results when the slowest one finishes. Problem: if one request needs to generate 100 tokens and another needs 500 tokens, the GPU is idle for the 8-request slot waiting for the longest one to finish. GPU utilization can drop to 20-30%.
 
@@ -97,9 +130,14 @@ Result: GPU utilization goes from 20-30% to 80-95%. For variable-length LLM work
 
 vLLM, TGI, and TensorRT-LLM all implement continuous batching. This is one of the most important advances in LLM serving infrastructure in recent years.
 
+</details>
+
 ---
 
 **Q8: Describe the memory hierarchy of a modern GPU inference stack and how it impacts latency.**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** GPU inference performance is often bounded by memory bandwidth, not compute. Understanding the hierarchy:
 
@@ -116,9 +154,14 @@ For a 70B float16 model: 140GB of weights. They must fit in VRAM. If they don't,
 
 **Flash Attention** is the key innovation that addresses the attention bottleneck: it recomputes attention in blocks that fit in L1/L2 cache rather than materializing the full N×N attention matrix in HBM, reducing memory bandwidth usage by 5-20x for the attention layers.
 
+</details>
+
 ---
 
 **Q9: How would you design a latency optimization strategy for an LLM application with P99 > 15 seconds that needs to reach P99 < 1 second?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **A:** A 15x improvement is achievable but requires attacking multiple layers simultaneously:
 
@@ -137,6 +180,8 @@ For a 70B float16 model: 140GB of weights. They must fit in VRAM. If they don't,
 **Step 7 — Smaller model** (2-4 weeks): If a 7B model can handle 80% of requests, route those to the 7B (fast) and only send the hard 20% to the 70B (slow). Reduces average latency by 5-8x.
 
 Combined, these steps routinely get teams from 15s P99 to sub-1s P99.
+
+</details>
 
 ---
 

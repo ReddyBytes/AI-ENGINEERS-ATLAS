@@ -99,6 +99,14 @@ flowchart LR
 
 ➡️ **Next step:** Regularization — `./08_Regularization/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q22 · optimizers](../../ai_practice_questions_100.md#q22--design--optimizers)
+
+
 ---
 
 ## 📂 Navigation

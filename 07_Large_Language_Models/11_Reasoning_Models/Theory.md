@@ -188,6 +188,14 @@ Planning with many constraints            Cost-sensitive high-volume tasks
 
 ➡️ **Next step:** [LLM Applications → Prompt Engineering](../../08_LLM_Applications/01_Prompt_Engineering/Theory.md)
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q46 · reasoning-models](../../ai_practice_questions_100.md#q46--interview--reasoning-models)
+
+
 ---
 
 ## 📂 Navigation

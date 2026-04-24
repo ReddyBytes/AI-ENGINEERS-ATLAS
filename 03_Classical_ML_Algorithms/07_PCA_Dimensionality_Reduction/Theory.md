@@ -82,6 +82,14 @@ PCA only looks at X (features), not y (target). It may compress features importa
 
 ➡️ **Next step:** Naive Bayes → `03_Classical_ML_Algorithms/08_Naive_Bayes/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q16 · pca-dimensionality](../../ai_practice_questions_100.md#q16--normal--pca-dimensionality)
+
+
 ---
 
 ## 📂 Navigation

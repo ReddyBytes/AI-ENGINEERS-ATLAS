@@ -110,6 +110,14 @@ Apply what you just learned:
 - → **[I1: Semantic Search Engine](../../20_Projects/01_Intermediate_Projects/01_Semantic_Search_Engine/Project_Guide.md)** — in-memory numpy vector store with cosine similarity
 - → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)** — ChromaDB as the vector store for your full RAG pipeline
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q51 · vector-databases](../../ai_practice_questions_100.md#q51--thinking--vector-databases)
+
+
 ---
 
 ## 📂 Navigation

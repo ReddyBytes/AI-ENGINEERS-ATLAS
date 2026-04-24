@@ -105,6 +105,14 @@ You cannot call tools before the initialize handshake completes. Skipping or rac
 
 ➡️ **Next step:** [Hosts, Clients, Servers](../03_Hosts_Clients_Servers/Theory.md) — Understand each component's responsibilities in detail.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q69 · mcp-architecture](../../ai_practice_questions_100.md#q69--thinking--mcp-architecture)
+
+
 ---
 
 ## 📂 Navigation

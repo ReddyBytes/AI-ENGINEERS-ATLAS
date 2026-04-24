@@ -4,6 +4,9 @@
 
 **Q1: What is reflection in the context of AI agents?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Reflection is when an agent reviews and critiques its own output, then improves it.
 
 Instead of generating one response and stopping, the agent:
@@ -15,9 +18,14 @@ Instead of generating one response and stopping, the agent:
 
 It mirrors how humans edit their own work. A first draft is rarely the best version. The edit pass is what elevates quality.
 
+</details>
+
 ---
 
 **Q2: What is the Reflexion framework?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Reflexion (2023 paper) formalizes agent self-correction into three roles:
 
@@ -29,9 +37,14 @@ The crucial insight: the self-reflection is stored in memory. The next attempt s
 
 This is much more powerful than just "try again" — the agent learns from each failure within the task, not across training runs.
 
+</details>
+
 ---
 
 **Q3: Why is code generation a great use case for self-correction?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Code generation benefits from self-correction more than almost any other task because the **evaluator is objective**.
 
@@ -50,11 +63,16 @@ Run tests again → Repeat until passing
 
 No human judgment needed. The tests do the evaluating automatically.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How do you implement a self-critique loop in practice?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The core pattern:
 
@@ -90,9 +108,14 @@ def reflection_loop(task, max_iterations=3):
 
 The loop is: generate → critique → revise → repeat.
 
+</details>
+
 ---
 
 **Q5: What are the different types of evaluators and when do you choose each?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 | Evaluator Type | When to use | Example |
 |---|---|---|
@@ -107,9 +130,14 @@ For code: use test runner (objective, fast, precise).
 For writing: use LLM critic (flexible, but may be too lenient on its own work).
 For structured data: use schema validation (instant, deterministic).
 
+</details>
+
 ---
 
 **Q6: What's the difference between reflection and fine-tuning?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **Reflection** happens at inference time — during a single task run. The agent critiques and improves its output right now, for this specific task. It doesn't update the model weights. The improvement only applies to this one run.
 
@@ -121,11 +149,16 @@ They're complementary:
 
 A practical workflow: use reflection to generate high-quality outputs → collect those examples → use them to fine-tune the model → the fine-tuned model needs less reflection on similar future tasks.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How does the Reflexion framework store and use reflections across attempts?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 In Reflexion, the self-reflection is stored as a text string and injected into the next attempt's context.
 
@@ -162,9 +195,14 @@ return output  # Best attempt
 
 The reflections accumulate. By attempt 3, the agent has a record of two failed attempts and their specific failure modes. This guides the third attempt away from those same mistakes.
 
+</details>
+
 ---
 
 **Q8: What are the failure modes of self-correction and how do you mitigate them?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 1. **Sycophantic critique** — the model is too lenient on its own work. "This is great! Maybe slightly improve X." Mitigation: use a separate critic model with a harsh persona, or use objective evaluators (tests).
 
@@ -176,9 +214,14 @@ The reflections accumulate. By attempt 3, the agent has a record of two failed a
 
 5. **Reflection without change** — agent identifies the issue but makes the same mistake in the revision. Mitigation: require the agent to explicitly state what it will change before generating the revision.
 
+</details>
+
 ---
 
 **Q9: How would you design a self-correcting code generation agent for production?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Architecture:
 
@@ -207,6 +250,8 @@ Key production considerations:
 4. **Log everything** — every attempt, every error, every reflection for debugging
 5. **Rate limiting** — max N corrections per user per hour to prevent abuse
 6. **Graceful degradation** — if all attempts fail, return the best partial solution with an explanation of what doesn't work yet
+
+</details>
 
 ---
 

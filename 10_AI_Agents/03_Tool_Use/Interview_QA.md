@@ -4,6 +4,9 @@
 
 **Q1: What is a tool in the context of AI agents?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 A tool is a **function the agent can call** to interact with the world outside the LLM.
 
 Without tools, an agent can only use information from its training data — it can't search the web, run code, query a database, or take actions.
@@ -17,9 +20,14 @@ Every tool has three parts:
 
 Examples: a web search tool, a calculator, a database lookup function, a file reader.
 
+</details>
+
 ---
 
 **Q2: How does the agent decide which tool to use?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The agent reads the **descriptions** of all available tools and matches its current need to the most appropriate one.
 
@@ -29,9 +37,14 @@ If the agent needs to calculate → it reads "calculator: evaluates math express
 
 This is why descriptions are so important. The LLM doesn't execute tools — it just reads descriptions and decides which one to request. The better and clearer the description, the better the tool selection.
 
+</details>
+
 ---
 
 **Q3: What is "function calling" and how does it relate to tools?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Function calling is a **native API feature** in modern LLMs (OpenAI, Anthropic's Claude, Google Gemini) that allows the model to output a structured request to call a function with specific parameters.
 
@@ -48,11 +61,16 @@ Your code reads this, calls the actual Python function, gets the result, and pas
 
 Function calling is more reliable than text parsing because the output is structured and predictable.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: What makes a good tool description vs a bad one?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A bad description is vague and doesn't guide the agent:
 ```
@@ -77,9 +95,14 @@ Key elements of a good description:
 4. What it does NOT do or any limitations
 5. Edge case behavior (errors, not found, etc.)
 
+</details>
+
 ---
 
 **Q5: How do you handle tool errors gracefully in an agent?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The tool function should **catch exceptions and return a clear error string** rather than raising an exception. This way, the error becomes an Observation the agent can reason about.
 
@@ -99,9 +122,14 @@ When the agent sees "Stock symbol 'AAPL123' not found", it can reason: "I may ha
 
 If you raise an exception instead, the agent might crash or get stuck.
 
+</details>
+
 ---
 
 **Q6: What is the difference between built-in tools and custom tools?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 **Built-in tools** come with frameworks or are ready-made integrations:
 - DuckDuckGo/Tavily search
@@ -119,11 +147,16 @@ You configure them and add them to your agent.
 
 The pattern is the same for both: define the function, write a clear description, wrap it as a tool, add to the agent. The difference is just whether someone already wrote the function for you.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: How do you secure tools that can take destructive actions (delete, send, pay)?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Several layers of protection:
 
@@ -141,9 +174,14 @@ Several layers of protection:
 
 7. **Dry run mode** — implement a `dry_run=True` option that shows what would happen without doing it
 
+</details>
+
 ---
 
 **Q8: How does tool use work differently across LLM providers (OpenAI vs Anthropic vs Google)?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 All three support structured tool use but with slightly different syntax:
 
@@ -157,9 +195,14 @@ The underlying concept is identical across all three. Frameworks like LangChain 
 
 In practice, if you're using a framework, you define tools once and the framework handles the provider-specific formatting.
 
+</details>
+
 ---
 
 **Q9: How would you design a tool registry for a production agent system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 A tool registry is a central system that manages tool definitions, permissions, and versioning:
 
@@ -188,6 +231,8 @@ Key features of a production tool registry:
 - **Monitoring** — track which tools are called, how often, and what fails
 - **Feature flags** — enable/disable tools without redeployment
 - **Testing harness** — run tool tests in isolation before deploying
+
+</details>
 
 ---
 

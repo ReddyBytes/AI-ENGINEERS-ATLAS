@@ -4,15 +4,23 @@
 
 **Q1: What is the difference between embedding and indexing in a RAG pipeline?**
 
+<details>
+<summary>💡 Show Answer</summary>
+
 Embedding is the process of converting a text chunk into a vector — a fixed-size list of floating-point numbers that encodes the meaning of the text. You pass text through an embedding model and get back a vector like `[0.23, -0.45, 0.11, ...]`.
 
 Indexing is what you do with those vectors after you create them. You store them in a vector database that builds a specialized search structure (usually HNSW) on top of the vectors. This structure allows you to find the vectors most similar to a query vector in milliseconds, without comparing against every stored vector one by one.
 
 Think of it this way: embedding is the process of assigning a location code to each book. Indexing is building the shelf system that lets you find books by their location code quickly.
 
+</details>
+
 ---
 
 **Q2: Why should you batch-embed your chunks instead of embedding them one at a time?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 API-based embedding models have a fixed overhead for each HTTP request — typically 100–500ms just for network latency. If you embed 10,000 chunks one at a time, you make 10,000 API calls at ~300ms each = 50 minutes.
 
@@ -22,9 +30,14 @@ For local models like sentence-transformers, batching enables GPU parallelism �
 
 Always batch. For OpenAI: up to 2,048 per call. For sentence-transformers: `model.encode(chunks, batch_size=64)`.
 
+</details>
+
 ---
 
 **Q3: What is "embedding drift" and how does it break your RAG system?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Embedding drift happens when the vectors in your database were created with one embedding model, but you later switch to a different model (or a different version of the same model).
 
@@ -34,11 +47,16 @@ If your database has vectors from model A and you embed a query with model B, yo
 
 Fix: when you change embedding models, you must re-embed ALL documents in the database with the new model. There's no partial fix. This is why changing embedding models is a big operational decision.
 
+</details>
+
 ---
 
 ## Intermediate
 
 **Q4: How do you make your indexing pipeline idempotent so it can be safely re-run?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 An idempotent pipeline produces the same result whether run once or many times. This is critical for production — you'll need to re-run if new documents arrive, if chunks change, or if something fails partway through.
 
@@ -56,9 +74,14 @@ def chunk_id(text: str, source: str) -> str:
 
 (3) **Change detection**: store a hash of each source document. Before re-indexing, check if the hash matches. If unchanged, skip. Only re-index modified documents.
 
+</details>
+
 ---
 
 **Q5: What should you store as metadata alongside each vector? Why does it matter?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Metadata travels with the vector through indexing, retrieval, and into the final answer. At minimum store: `source` (filename/URL), `page` (for PDFs), and any field you'll want to filter by.
 
@@ -74,9 +97,14 @@ Why it matters:
 
 The rule: store everything you might need downstream. Storage cost for metadata is negligible.
 
+</details>
+
 ---
 
 **Q6: How do you handle a large corpus of 500,000 documents efficiently during the indexing phase?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 The naive approach (embed one at a time, add one at a time) would take days. Efficient approach:
 
@@ -92,11 +120,16 @@ The naive approach (embed one at a time, add one at a time) would take days. Eff
 
 **Infrastructure**: for 500K documents, run on a machine with enough RAM to hold embeddings in memory before batch-inserting. Or stream-insert as you embed to avoid OOM.
 
+</details>
+
 ---
 
 ## Advanced
 
 **Q7: Explain the HNSW data structure. How does it achieve fast approximate nearest neighbor search?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 HNSW (Hierarchical Navigable Small World) is a graph-based ANN index. It organizes vectors into a multi-layer graph.
 
@@ -108,9 +141,14 @@ This is like a GPS navigation: first navigate at the highway level (top layer), 
 
 Construction is O(n log n) on average. Query time is roughly O(log n) — sublinear in the number of stored vectors. This is why searching 10 million vectors is nearly as fast as searching 1 million.
 
+</details>
+
 ---
 
 **Q8: What is the difference between using ChromaDB's built-in embedding function vs. pre-computing embeddings yourself?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Built-in embedding function: you pass `embedding_function=SentenceTransformerEmbeddingFunction(...)` when creating the collection. ChromaDB embeds both your documents and queries automatically. Simple, fewer lines of code, but you have less control.
 
@@ -122,9 +160,14 @@ When to use built-in: (1) Prototyping quickly. (2) Using a supported model (sent
 
 Production recommendation: pre-compute and cache. More control, better debuggability, and you can switch vector DBs without re-embedding.
 
+</details>
+
 ---
 
 **Q9: How would you design an indexing system that supports multiple embedding models simultaneously?**
+
+<details>
+<summary>💡 Show Answer</summary>
 
 Use case: you want to experiment with different models or support different languages with specialized models.
 
@@ -150,6 +193,8 @@ def route_query(query: str, doc_type: str) -> str:
 Operational considerations: double the storage and embedding cost. Synchronized updates — when a document changes, update all relevant collections. Version tracking — each collection's metadata records which model version was used. Migration strategy — when a model is deprecated, re-index its collection with the replacement.
 
 For most use cases, one well-chosen model is simpler and performs nearly as well. Only run multiple models when you have a measurable, specific reason.
+
+</details>
 
 ---
 

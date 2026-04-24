@@ -74,6 +74,14 @@ Fixed and learned encodings perform similarly in practice. Modern LLMs mostly us
 
 ➡️ **Next step:** Transformer Architecture → `06_Transformers/06_Transformer_Architecture/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q34 · positional-encoding](../../ai_practice_questions_100.md#q34--thinking--positional-encoding)
+
+
 ---
 
 ## 📂 Navigation

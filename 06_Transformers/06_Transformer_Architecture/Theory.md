@@ -121,6 +121,14 @@ flowchart TD
 
 ➡️ **Next step:** Encoder-Decoder Models → `06_Transformers/07_Encoder_Decoder_Models/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q35 · transformer-architecture](../../ai_practice_questions_100.md#q35--interview--transformer-architecture)
+
+
 ---
 
 ## 📂 Navigation

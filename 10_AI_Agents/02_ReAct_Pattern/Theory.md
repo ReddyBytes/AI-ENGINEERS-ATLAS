@@ -123,6 +123,14 @@ ReAct showed that just adding explicit reasoning to the prompt — literally jus
 Apply what you just learned → **[I3: Multi-Tool Research Agent](../../20_Projects/01_Intermediate_Projects/03_Multi_Tool_Research_Agent/Project_Guide.md)**
 > This project uses: ReAct loop — Thought → Action → Observation → Thought, stopping when the agent reaches a final answer
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q62 · react-pattern](../../ai_practice_questions_100.md#q62--thinking--react-pattern)
+
+
 ---
 
 ## 📂 Navigation

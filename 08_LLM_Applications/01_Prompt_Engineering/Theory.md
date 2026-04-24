@@ -182,6 +182,14 @@ Apply what you just learned:
 - → **[B4: LLM Chatbot with Memory](../../20_Projects/00_Beginner_Projects/04_LLM_Chatbot_with_Memory/Project_Guide.md)** — system prompts, few-shot examples, conversation design
 - → **[B5: Intelligent Document Analyzer](../../20_Projects/00_Beginner_Projects/05_Intelligent_Document_Analyzer/Project_Guide.md)** — prompt chaining, task decomposition, structured extraction prompts
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q47 · prompt-engineering](../../ai_practice_questions_100.md#q47--normal--prompt-engineering)
+
+
 ---
 
 ## 📂 Navigation

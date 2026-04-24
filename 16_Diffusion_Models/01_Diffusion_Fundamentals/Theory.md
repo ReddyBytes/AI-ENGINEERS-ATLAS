@@ -167,6 +167,14 @@ In Python, take any image and apply the closed-form noise formula at t=100, t=50
 ➡️ **Next step:**
 Head to [02_How_Diffusion_Works / Theory.md](../02_How_Diffusion_Works/Theory.md) to see the U-Net architecture in detail, understand the full DDPM training loop, and compare DDPM vs DDIM sampling speed.
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q83 · diffusion-fundamentals](../../ai_practice_questions_100.md#q83--normal--diffusion-fundamentals)
+
+
 ---
 
 ## 📂 Navigation

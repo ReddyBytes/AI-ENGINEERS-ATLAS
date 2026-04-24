@@ -115,6 +115,14 @@ flowchart TD
 Apply what you just learned → **[B3: Neural Net from Scratch](../../20_Projects/00_Beginner_Projects/03_Neural_Net_from_Scratch/Project_Guide.md)**
 > This project uses: implementing ReLU activation from scratch, seeing how it enables learning non-linear patterns
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q20 · activation-functions](../../ai_practice_questions_100.md#q20--interview--activation-functions)
+
+
 ---
 
 ## 📂 Navigation

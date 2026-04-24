@@ -279,6 +279,14 @@ results = pipe(texts)   # Runs in ceil(1000/64) = 16 batches
 Apply what you just learned → **[A5: Fine-Tune → Evaluate → Deploy](../../20_Projects/02_Advanced_Projects/05_Fine_Tune_Evaluate_Deploy/Project_Guide.md)**
 > This project uses: loading fine-tuned model with load_in_4bit=True, comparing VRAM usage and inference speed before/after quantization
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q78 · inference-optimization](../../ai_practice_questions_100.md#q78--interview--inference-optimization)
+
+
 ---
 
 ## 📂 Navigation

@@ -95,6 +95,14 @@ flowchart TD
 
 ➡️ **Next step:** GPT → `06_Transformers/09_GPT/Theory.md`
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q36 · bert-model](../../ai_practice_questions_100.md#q36--normal--bert-model)
+
+
 ---
 
 ## 📂 Navigation

@@ -164,6 +164,14 @@ ds = load_dataset("squad")
 Apply what you just learned → **[I4: Custom LoRA Fine-Tuning](../../20_Projects/01_Intermediate_Projects/04_Custom_LoRA_Fine_Tuning/Project_Guide.md)**
 > This project uses: downloading a base model with from_pretrained(), pushing your fine-tuned adapter to Hub, writing a model card
 
+
+---
+
+## 📝 Practice Questions
+
+- 📝 [Q76 · huggingface-hub](../../ai_practice_questions_100.md#q76--interview--huggingface-hub)
+
+
 ---
 
 ## 📂 Navigation
