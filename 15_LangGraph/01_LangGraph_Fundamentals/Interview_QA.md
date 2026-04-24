@@ -13,6 +13,8 @@
 
 ---
 
+<br>
+
 **Q2: What is the difference between a node and an edge in LangGraph?**
 
 <details>
@@ -24,6 +26,8 @@
 
 ---
 
+<br>
+
 **Q3: What is the State in LangGraph?**
 
 <details>
@@ -34,6 +38,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q4: What does `.compile()` do?**
 
@@ -59,6 +65,8 @@
 
 ---
 
+<br>
+
 **Q6: When should you use LangGraph instead of LangChain?**
 
 <details>
@@ -70,6 +78,8 @@
 
 ---
 
+<br>
+
 **Q7: How does state get updated between nodes?**
 
 <details>
@@ -80,6 +90,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q8: What are START and END in LangGraph?**
 

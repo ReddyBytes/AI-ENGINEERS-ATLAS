@@ -13,6 +13,8 @@ A: CFG is a technique that makes a diffusion model follow a text prompt more clo
 
 ---
 
+<br>
+
 **Q2: What does the guidance scale (CFG scale) actually control?**
 
 <details>
@@ -28,6 +30,8 @@ Think of it as: "how literally should the model take my description?" — 1 is l
 </details>
 
 ---
+
+<br>
 
 **Q3: How do negative prompts work?**
 
@@ -62,6 +66,8 @@ This is a form of extrapolation: you identify the direction the prompt is pullin
 
 ---
 
+<br>
+
 **Q5: Why does high CFG scale cause image quality degradation?**
 
 <details>
@@ -79,6 +85,8 @@ The model is essentially being told to follow the prompt beyond what it naturall
 
 ---
 
+<br>
+
 **Q6: How does cross-attention implement text conditioning in the U-Net?**
 
 <details>
@@ -95,6 +103,8 @@ The attention weight maps are what make cross-attention interpretable: if you vi
 </details>
 
 ---
+
+<br>
 
 **Q7: What is the difference between CFG and Classifier Guidance?**
 
@@ -138,6 +148,8 @@ The student model acts as if guidance is always active at the distillation scale
 
 ---
 
+<br>
+
 **Q9: How does InstructPix2Pix extend CFG to image editing?**
 
 <details>
@@ -161,6 +173,8 @@ This allows independent control over "how much does the output look like the inp
 </details>
 
 ---
+
+<br>
 
 **Q10: What is Prompt-to-Prompt and how does it relate to cross-attention?**
 

@@ -13,6 +13,8 @@ A: Streaming is a mode where the API sends Claude's response incrementally as it
 
 ---
 
+<br>
+
 **Q2: How do you enable streaming in the Python SDK?**
 
 <details>
@@ -29,6 +31,8 @@ with client.messages.stream(model=..., max_tokens=..., messages=[...]) as stream
 
 ---
 
+<br>
+
 **Q3: Why do you need `flush=True` and `end=""` when printing streamed text?**
 
 <details>
@@ -39,6 +43,8 @@ A: `end=""` prevents `print()` from adding a newline after each tiny token fragm
 </details>
 
 ---
+
+<br>
 
 **Q4: What is the SSE event type that carries the text tokens?**
 
@@ -71,6 +77,8 @@ print(final.stop_reason, final.usage)
 
 ---
 
+<br>
+
 **Q6: How does streaming work with FastAPI to push tokens to a browser?**
 
 <details>
@@ -82,6 +90,8 @@ A: Use `StreamingResponse` with a generator function that yields SSE-formatted s
 
 ---
 
+<br>
+
 **Q7: What happens when Claude calls a tool during a streaming response?**
 
 <details>
@@ -92,6 +102,8 @@ A: The stream emits a `content_block_start` event with `"type": "tool_use"`, fol
 </details>
 
 ---
+
+<br>
 
 **Q8: Is streaming more expensive than non-streaming?**
 
@@ -117,6 +129,8 @@ A: The architecture has two phases: (1) Start a streaming call for the initial u
 
 ---
 
+<br>
+
 **Q10: Describe the full sequence of SSE events for a simple text response.**
 
 <details>
@@ -127,6 +141,8 @@ A: In order: (1) `message_start` — contains the message ID, model, and initial
 </details>
 
 ---
+
+<br>
 
 **Q11: What backpressure and timeout considerations apply when streaming long responses?**
 

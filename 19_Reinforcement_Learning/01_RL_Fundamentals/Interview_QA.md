@@ -13,6 +13,8 @@ A: Reinforcement learning is a way for a computer program (called an agent) to l
 
 ---
 
+<br>
+
 **Q2: What are the main components of an RL system?**
 
 <details>
@@ -33,6 +35,8 @@ Two additional components round out the framework:
 
 ---
 
+<br>
+
 **Q3: What is the difference between reward and return?**
 
 <details>
@@ -43,6 +47,8 @@ A: **Reward** is what the agent gets right now — a single number for the most 
 </details>
 
 ---
+
+<br>
 
 **Q4: What is a policy?**
 
@@ -74,6 +80,8 @@ The deeper difference: in supervised learning the teacher knows the right answer
 
 ---
 
+<br>
+
 **Q6: What is the discount factor and why is it needed?**
 
 <details>
@@ -89,6 +97,8 @@ It serves two purposes:
 
 ---
 
+<br>
+
 **Q7: What is the exploration vs exploitation trade-off?**
 
 <details>
@@ -99,6 +109,8 @@ A: Exploration means trying actions you haven't tried (or haven't tried enough) 
 </details>
 
 ---
+
+<br>
 
 **Q8: What is the difference between model-based and model-free RL?**
 

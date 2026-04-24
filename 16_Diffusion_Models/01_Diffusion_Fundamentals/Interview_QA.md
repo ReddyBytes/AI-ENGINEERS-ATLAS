@@ -13,6 +13,8 @@ A: A diffusion model is a type of AI that generates images (or other data) by le
 
 ---
 
+<br>
+
 **Q2: Why is it called "diffusion"?**
 
 <details>
@@ -23,6 +25,8 @@ A: The name comes from the physics concept of diffusion — where a concentrated
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the training loss for a diffusion model?**
 
@@ -41,6 +45,8 @@ This is much simpler than GAN training (which requires a separate discriminator 
 
 ---
 
+<br>
+
 **Q4: What does T=1000 mean in DDPM?**
 
 <details>
@@ -51,6 +57,8 @@ A: T=1000 means the forward process runs for 1000 timesteps — 1000 small noise
 </details>
 
 ---
+
+<br>
 
 **Q5: What is a noise schedule?**
 
@@ -82,6 +90,8 @@ Where ᾱₜ is the cumulative product of (1-βᵢ) for i=1..t. This is possible
 
 ---
 
+<br>
+
 **Q7: What is the difference between the linear and cosine noise schedules?**
 
 <details>
@@ -92,6 +102,8 @@ A: With the linear schedule, β values increase linearly from 0.0001 to 0.02. Th
 </details>
 
 ---
+
+<br>
 
 **Q8: Why are diffusion models better than GANs for image quality?**
 
@@ -108,6 +120,8 @@ The main downside is inference speed — diffusion requires many steps (though D
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the relationship between diffusion models and score matching?**
 
@@ -133,6 +147,8 @@ A: DDPM is originally derived as a variational autoencoder where the encoder is 
 
 ---
 
+<br>
+
 **Q11: What is the difference between DDPM and DDIM sampling?**
 
 <details>
@@ -143,6 +159,8 @@ A: DDPM (Denoising Diffusion Probabilistic Models) is a stochastic sampler — i
 </details>
 
 ---
+
+<br>
 
 **Q12: How would you explain the diffusion process using the stochastic differential equation (SDE) framework?**
 

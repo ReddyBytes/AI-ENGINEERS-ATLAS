@@ -21,6 +21,8 @@ The result is a model that's more helpful, safer, and better calibrated to what 
 
 ---
 
+<br>
+
 **Q2: What is the difference between the policy, the reward model, and the reference model in RLHF?**
 
 <details>
@@ -39,6 +41,8 @@ Think of it this way: the policy is the student, the reward model is the grader,
 </details>
 
 ---
+
+<br>
 
 **Q3: What is reward hacking? Why is it a problem in RLHF?**
 
@@ -103,6 +107,8 @@ Why it's a problem:
 
 ---
 
+<br>
+
 **Q5: What is PPO and why is it used for RLHF instead of simpler RL algorithms?**
 
 <details>
@@ -134,6 +140,8 @@ PPO (Proximal Policy Optimization) is a policy gradient algorithm designed to ma
 </details>
 
 ---
+
+<br>
 
 **Q6: What is Constitutional AI? How does Anthropic use it instead of human feedback?**
 
@@ -211,6 +219,8 @@ The KL penalty essentially says: "You can improve your reward, but not at the co
 
 ---
 
+<br>
+
 **Q8: What is DPO (Direct Preference Optimization)? How does it differ from PPO, and when would you use each?**
 
 <details>
@@ -264,6 +274,8 @@ Where y_w = preferred response, y_l = dispreferred response.
 </details>
 
 ---
+
+<br>
 
 **Q9: What is sycophancy in RLHF-trained models? How does it emerge and how can it be mitigated?**
 

@@ -17,6 +17,8 @@ The decoder generates the output sequence one token at a time. It uses masked se
 
 ---
 
+<br>
+
 **Q2. What is a residual connection and why is it used?**
 
 <details>
@@ -35,6 +37,8 @@ The residual connection creates a direct path for gradients to flow backward, by
 </details>
 
 ---
+
+<br>
 
 **Q3. What is the feed-forward network (FFN) in a transformer layer and what does it do?**
 
@@ -70,6 +74,8 @@ Decoder self-attention is masked (causal/autoregressive) — each token can only
 
 ---
 
+<br>
+
 **Q5. What is cross-attention in the transformer decoder?**
 
 <details>
@@ -85,6 +91,8 @@ At each decoding step, the decoder uses cross-attention to ask: "Which part of t
 </details>
 
 ---
+
+<br>
 
 **Q6. How does the transformer handle inputs of different lengths in a batch?**
 
@@ -122,6 +130,8 @@ The expansion ratio trades off:
 
 ---
 
+<br>
+
 **Q8. What is pre-norm vs post-norm in transformer layers?**
 
 <details>
@@ -148,6 +158,8 @@ Post-norm (original) can achieve slightly better quality on some tasks but requi
 </details>
 
 ---
+
+<br>
 
 **Q9. How does the transformer's O(n²) attention complexity compare to alternatives, and what optimizations exist?**
 

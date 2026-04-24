@@ -11,6 +11,8 @@ A: The bias-variance tradeoff is the tension between two sources of model error.
 
 </details>
 
+<br>
+
 **Q2: How do you tell whether your model is suffering from high bias or high variance?**
 
 <details>
@@ -19,6 +21,8 @@ A: The bias-variance tradeoff is the tension between two sources of model error.
 A: Look at training performance versus test performance. If training accuracy is low and test accuracy is also low — the model fails everywhere — that is high bias. The model is too simple to learn the patterns at all. If training accuracy is high but test accuracy is significantly lower — the model nails training data but struggles on new data — that is high variance. The model has memorized the training set. The gap between training and test performance is the key diagnostic: a large gap signals overfitting (variance); both being poor signals underfitting (bias).
 
 </details>
+
+<br>
 
 **Q3: Why does adding more training data help with variance but not bias?**
 
@@ -42,6 +46,8 @@ A: Regularization reduces variance by constraining the model — penalizing larg
 
 </details>
 
+<br>
+
 **Q5: How do ensemble methods like random forests reduce variance?**
 
 <details>
@@ -50,6 +56,8 @@ A: Regularization reduces variance by constraining the model — penalizing larg
 A: Random forests train many different decision trees, each on a different random sample of the data and a random subset of features. Each individual tree has low bias but high variance — it overfits its particular training subset. When you average predictions across 100 diverse trees, the individual trees' errors cancel each other out. The ensemble prediction is much more stable than any individual tree's prediction. This is the bias-variance insight behind bagging: each model has high variance, but combining diverse models averages away that variance while keeping bias low. Boosting works differently — it reduces bias by sequentially correcting errors, at the cost of some variance.
 
 </details>
+
+<br>
 
 **Q6: What is the mathematical decomposition of prediction error?**
 
@@ -73,6 +81,8 @@ A: Classical ML has a clear bias-variance curve: add complexity, bias decreases 
 
 </details>
 
+<br>
+
 **Q8: How do you use learning curves to diagnose bias vs variance problems?**
 
 <details>
@@ -81,6 +91,8 @@ A: Classical ML has a clear bias-variance curve: add complexity, bias decreases 
 A: Learning curves plot training and validation error as a function of training set size. High bias pattern: both training error and validation error converge to a high value. Even with more data, both curves plateau high — the model cannot improve because its architecture is the bottleneck. High variance pattern: training error is low; validation error is high, but the gap decreases as you add more data. More data helps — both curves move toward convergence. If you see high bias, add model complexity or better features. If you see high variance with decreasing gap, collect more data. If you see high variance with a stable gap (no convergence), you need regularization or a simpler model — more data will not help enough.
 
 </details>
+
+<br>
 
 **Q9: How does the bias-variance tradeoff relate to the choice of k in k-fold cross-validation?**
 

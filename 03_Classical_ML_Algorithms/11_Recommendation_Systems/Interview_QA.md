@@ -15,6 +15,8 @@ Content-based filtering recommends items similar to items the user already liked
 
 ---
 
+<br>
+
 **Q2: What is the cold start problem?**
 
 <details>
@@ -25,6 +27,8 @@ The cold start problem occurs when the system has no interaction history to work
 </details>
 
 ---
+
+<br>
 
 **Q3: What is implicit feedback and why is it more common than explicit ratings?**
 
@@ -50,6 +54,8 @@ The user-item rating matrix is enormous (millions of users × millions of items)
 
 ---
 
+<br>
+
 **Q5: What is Precision@K and NDCG@K, and which should you use?**
 
 <details>
@@ -60,6 +66,8 @@ Precision@K measures the fraction of the top-K recommended items that are actual
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the difference between user-based and item-based collaborative filtering?**
 
@@ -85,6 +93,8 @@ A two-tower model has a user tower and an item tower — separate neural network
 
 ---
 
+<br>
+
 **Q8: How would you handle popularity bias in a recommendation system?**
 
 <details>
@@ -95,6 +105,8 @@ Popularity bias occurs when the recommender amplifies already-popular items beca
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you prevent temporal leakage when evaluating a recommendation model?**
 

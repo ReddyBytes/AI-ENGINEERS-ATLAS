@@ -17,6 +17,8 @@ In NLP, the hidden states are things like part-of-speech tags. You can see the w
 
 ---
 
+<br>
+
 **Q2. What are the three components of an HMM?**
 
 <details>
@@ -35,6 +37,8 @@ With these three components, you can calculate the probability of any observatio
 </details>
 
 ---
+
+<br>
 
 **Q3. What is the Markov assumption and why is it important?**
 
@@ -70,6 +74,8 @@ In NLP, POS tagging typically uses Viterbi for decoding after learning parameter
 
 ---
 
+<br>
+
 **Q5. How does the Viterbi algorithm work?**
 
 <details>
@@ -86,6 +92,8 @@ Efficiency: instead of calculating all T^N possible paths (exponential), Viterbi
 </details>
 
 ---
+
+<br>
 
 **Q6. How is an HMM used for Part-of-Speech (POS) tagging?**
 
@@ -131,6 +139,8 @@ CRFs address problems 3 and 4. Transformers address all of them.
 
 ---
 
+<br>
+
 **Q8. Explain the Forward-Backward algorithm and when it's used.**
 
 <details>
@@ -150,6 +160,8 @@ Use when: you have sequence observations but no state labels (unsupervised HMM t
 </details>
 
 ---
+
+<br>
 
 **Q9. When would you still choose an HMM over a CRF or transformer for a sequence labeling task?**
 

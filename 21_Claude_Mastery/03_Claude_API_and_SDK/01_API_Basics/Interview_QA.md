@@ -13,6 +13,8 @@ A: `x-api-key` (your authentication credential), `anthropic-version` (the API ve
 
 ---
 
+<br>
+
 **Q2: Where should you store your Anthropic API key, and where should you never put it?**
 
 <details>
@@ -24,6 +26,8 @@ A: Store it in an environment variable (`ANTHROPIC_API_KEY`) — either exported
 
 ---
 
+<br>
+
 **Q3: What does the `anthropic-version` header do?**
 
 <details>
@@ -34,6 +38,8 @@ A: It pins the API contract your code expects. Anthropic uses date-based version
 </details>
 
 ---
+
+<br>
 
 **Q4: What is the base URL for the Anthropic API?**
 
@@ -59,6 +65,8 @@ A: HTTP 429 (Too Many Requests). The response includes `retry-after` and `x-rate
 
 ---
 
+<br>
+
 **Q6: What is the difference between RPM, TPM, and TPD rate limits?**
 
 <details>
@@ -70,6 +78,8 @@ A: RPM (Requests Per Minute) limits the number of API calls in a 60-second windo
 
 ---
 
+<br>
+
 **Q7: Why does the Anthropic API use the header-based versioning approach instead of URL versioning (like `/v1/`, `/v2/`)?**
 
 <details>
@@ -80,6 +90,8 @@ A: Header-based versioning keeps the URL stable (`/v1/messages` stays forever) w
 </details>
 
 ---
+
+<br>
 
 **Q8: How does the Python SDK simplify raw HTTP usage?**
 
@@ -105,6 +117,8 @@ A: Several patterns apply: (1) Use a secrets manager (AWS Secrets Manager, Hashi
 
 ---
 
+<br>
+
 **Q10: Describe how to implement a production-grade API client wrapper that handles rate limits, errors, and observability.**
 
 <details>
@@ -115,6 +129,8 @@ A: The wrapper should: (1) Wrap every call in try/except for `anthropic.RateLimi
 </details>
 
 ---
+
+<br>
 
 **Q11: The Anthropic API is stateless. What does this mean architecturally, and what are the implications for building a production chatbot?**
 

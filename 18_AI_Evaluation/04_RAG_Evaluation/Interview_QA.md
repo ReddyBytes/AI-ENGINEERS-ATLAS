@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What does faithfulness measure in RAG evaluation?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** Faithfulness measures whether every claim in the generated answer is actually supported by the retrieved documents. A model can hallucinate facts that aren't in the retrieved context — generating confident, plausible-sounding answers that contradict or add to the source material. Faithfulness score = (claims supported by retrieved context) / (total claims in answer). Target: > 0.85. A faithfulness score of 0.5 means half the claims in the answer are unsupported hallucinations.
 
 </details>
+
+<br>
 
 **Q3: What's the difference between context precision and context recall?**
 
@@ -46,6 +50,8 @@ This means faithfulness computation itself costs 2–5 LLM API calls per evaluat
 
 </details>
 
+<br>
+
 **Q5: How do you build a test set for RAG evaluation?**
 
 <details>
@@ -58,6 +64,8 @@ This means faithfulness computation itself costs 2–5 LLM API calls per evaluat
 Process: Run your RAG pipeline on each question to get the retrieved context and generated answer. These, combined with questions and ground truth, give you the full dataset for RAGAS evaluation.
 
 </details>
+
+<br>
 
 **Q6: If your RAGAS faithfulness score is 0.6, where should you look to fix it?**
 
@@ -90,6 +98,8 @@ Process: Run your RAG pipeline on each question to get the retrieved context and
 6. **Weekly deep dive**: Human review of 20 failing examples per metric category to validate automated scores and catch systematic issues
 
 </details>
+
+<br>
 
 **Q8: System design question: A RAG system's end-to-end quality dropped. How do you diagnose which component failed?**
 

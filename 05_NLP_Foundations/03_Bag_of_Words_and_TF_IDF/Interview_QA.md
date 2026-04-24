@@ -20,6 +20,8 @@ Main limitations:
 
 ---
 
+<br>
+
 **Q2. What is TF-IDF and how does it improve on BoW?**
 
 <details>
@@ -36,6 +38,8 @@ A word that appears often in one document but rarely in others gets a high score
 </details>
 
 ---
+
+<br>
 
 **Q3. If "the" appears 50 times in a 100-word document, will it have a high TF-IDF score?**
 
@@ -69,6 +73,8 @@ The TF-IDF features capture words like "free", "win", "prize", "click" as high-s
 
 ---
 
+<br>
+
 **Q5. What are n-grams and why are they useful with BoW/TF-IDF?**
 
 <details>
@@ -85,6 +91,8 @@ BoW and TF-IDF lose word order. Adding bigrams partially restores it. "Not good"
 </details>
 
 ---
+
+<br>
 
 **Q6. How does TF-IDF perform compared to word embeddings for NLP tasks?**
 
@@ -124,6 +132,8 @@ Key approaches:
 
 ---
 
+<br>
+
 **Q8. Explain Latent Semantic Analysis (LSA) and how it relates to TF-IDF.**
 
 <details>
@@ -138,6 +148,8 @@ LSA is essentially a precursor to word embeddings. It's less powerful (linear tr
 </details>
 
 ---
+
+<br>
 
 **Q9. When should you choose TF-IDF over a transformer like BERT for a production system?**
 

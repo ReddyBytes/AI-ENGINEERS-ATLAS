@@ -13,6 +13,8 @@ A perceptron is the simplest artificial neuron. It takes several inputs, multipl
 
 ---
 
+<br>
+
 **Q2: What is a weight in a perceptron?**
 
 <details>
@@ -23,6 +25,8 @@ A weight is a number that controls how much influence a particular input has on 
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the bias in a perceptron and why do we need it?**
 
@@ -48,6 +52,8 @@ A dataset is linearly separable if you can draw a single straight line (or hyper
 
 ---
 
+<br>
+
 **Q5: Explain the XOR problem and why it matters historically.**
 
 <details>
@@ -58,6 +64,8 @@ XOR outputs 1 when exactly one of the two inputs is 1. When you plot the four po
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the perceptron learning rule?**
 
@@ -87,6 +95,8 @@ Both take a weighted sum of inputs plus bias. The difference is the activation f
 
 ---
 
+<br>
+
 **Q8: Why can a single perceptron not learn non-linear decision boundaries?**
 
 <details>
@@ -97,6 +107,8 @@ A perceptron computes a linear combination of its inputs: `w·x + b`. Setting th
 </details>
 
 ---
+
+<br>
 
 **Q9: If a single perceptron is so limited, why is it still taught?**
 

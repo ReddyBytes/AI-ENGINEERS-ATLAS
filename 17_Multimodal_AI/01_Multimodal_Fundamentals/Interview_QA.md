@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is a modality?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** A modality is a distinct type or channel of information. Text is one modality. Images are another. Audio is another. Each requires a different kind of encoder to convert it into a format the model can work with.
 
 </details>
+
+<br>
 
 **Q3: Can you give examples of multimodal AI systems?**
 
@@ -33,6 +37,8 @@
 - Gemini 1.5 Pro: accepts images, audio, video, and text, returns text
 
 </details>
+
+<br>
 
 **Q4: Why is multimodal AI useful?**
 
@@ -59,6 +65,8 @@
 
 </details>
 
+<br>
+
 **Q6: What is the "alignment problem" in multimodal AI?**
 
 <details>
@@ -68,6 +76,8 @@
 
 </details>
 
+<br>
+
 **Q7: What is contrastive loss and why is it used?**
 
 <details>
@@ -76,6 +86,8 @@
 **A:** Contrastive loss is a training objective that pulls matching pairs together in embedding space and pushes non-matching pairs apart. For a batch of image-text pairs: the correct pairing (image_i, text_i) should have high cosine similarity, while wrong pairings (image_i, text_j where i≠j) should have low similarity. This is how CLIP creates a shared embedding space where images and text with similar meaning end up near each other.
 
 </details>
+
+<br>
 
 **Q8: What is a projection layer in a vision-language model?**
 
@@ -99,6 +111,8 @@
 
 </details>
 
+<br>
+
 **Q10: What are the key cost and latency trade-offs when adding vision to an application?**
 
 <details>
@@ -111,6 +125,8 @@
 - Always calculate cost per call before building and set resolution appropriately for the task
 
 </details>
+
+<br>
 
 **Q11: What limitations do current vision models still have?**
 
@@ -126,6 +142,8 @@
 Always test your specific use case empirically — don't assume vision models are universally capable.
 
 </details>
+
+<br>
 
 **Q12: System design question: How would you build a multimodal customer support system that handles text questions, image uploads, and voice messages?**
 

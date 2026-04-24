@@ -17,6 +17,8 @@ Word embeddings are dense (all values meaningful), compact (100–300 dimensions
 
 ---
 
+<br>
+
 **Q2. What is the distributional hypothesis and why does it matter for embeddings?**
 
 <details>
@@ -31,6 +33,8 @@ This is why you don't need hand-labeled semantic relationships. The meaning emer
 </details>
 
 ---
+
+<br>
 
 **Q3. What is cosine similarity and why is it used for comparing word embeddings?**
 
@@ -69,6 +73,8 @@ Training adjusts the weights so that context words get high probability given th
 
 ---
 
+<br>
+
 **Q5. What is the difference between Word2Vec, GloVe, and FastText?**
 
 <details>
@@ -85,6 +91,8 @@ All three produce static word embeddings (one fixed vector per word), but they l
 </details>
 
 ---
+
+<br>
 
 **Q6. What are contextual embeddings and how do they differ from static embeddings?**
 
@@ -125,6 +133,8 @@ Intrinsic evaluation is fast but doesn't always predict downstream task performa
 
 ---
 
+<br>
+
 **Q8. How do you handle words not in a pretrained embedding vocabulary (OOV) when using Word2Vec?**
 
 <details>
@@ -143,6 +153,8 @@ In practice, FastText is the most practical solution for production systems that
 </details>
 
 ---
+
+<br>
 
 **Q9. What are the limitations of word embeddings and how did transformers address them?**
 

@@ -19,6 +19,8 @@ When to use which:
 
 ---
 
+<br>
+
 **Q2: What is TTL (time-to-live) and why is it essential for caching?**
 
 <details>
@@ -39,6 +41,8 @@ A common mistake is setting no TTL at all, treating the cache as permanent stora
 </details>
 
 ---
+
+<br>
 
 **Q3: What is prompt caching in the Anthropic and OpenAI APIs, and how does it save money?**
 
@@ -81,6 +85,8 @@ Typical result: 0.92-0.95 works for most customer-facing applications. Adjust up
 
 ---
 
+<br>
+
 **Q5: Describe the architecture of a production semantic cache. What components does it need?**
 
 <details>
@@ -105,6 +111,8 @@ Typical result: 0.92-0.95 works for most customer-facing applications. Adjust up
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you handle cache invalidation when your underlying data or model changes?**
 
@@ -173,6 +181,8 @@ Expected performance at scale: 60-80% of requests served from cache, total P99 l
 </details>
 
 ---
+
+<br>
 
 **Q8: What are the security and privacy implications of caching LLM responses in a multi-tenant system?**
 

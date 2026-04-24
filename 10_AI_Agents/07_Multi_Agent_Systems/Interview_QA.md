@@ -23,6 +23,8 @@ Think of it like a company vs. a solo freelancer. Both can do the work — but t
 
 ---
 
+<br>
+
 **Q2: What is the orchestrator pattern in multi-agent systems?**
 
 <details>
@@ -48,6 +50,8 @@ Example for "write a product comparison article":
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between sequential (pipeline) and parallel multi-agent patterns?**
 
@@ -102,6 +106,8 @@ Both approaches end up at the same place — agent A's result flows to agent B's
 
 ---
 
+<br>
+
 **Q5: What are the main failure modes specific to multi-agent systems?**
 
 <details>
@@ -124,6 +130,8 @@ Mitigation: validate outputs at each handoff, structured output formats, explici
 </details>
 
 ---
+
+<br>
 
 **Q6: When would you NOT use a multi-agent system?**
 
@@ -176,6 +184,8 @@ This is essentially API design applied to agents.
 
 ---
 
+<br>
+
 **Q8: How would you implement error recovery in a multi-agent pipeline?**
 
 <details>
@@ -211,6 +221,8 @@ def run_with_retry(agent, task, max_retries=3):
 </details>
 
 ---
+
+<br>
 
 **Q9: How does AutoGen's GroupChat differ from CrewAI's crew model, and when would you choose each?**
 

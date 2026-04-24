@@ -17,6 +17,8 @@ The three elements that make context assembly work: (1) the grounding instructio
 
 ---
 
+<br>
+
 **Q2: What does the "grounding instruction" do and why is it important?**
 
 <details>
@@ -36,6 +38,8 @@ The grounding instruction is the line between a RAG system and a model that happ
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the "lost in the middle" effect and how does chunk ordering address it?**
 
@@ -95,6 +99,8 @@ This gives you two layers of citation: inline references in the answer text (`[C
 
 ---
 
+<br>
+
 **Q5: How do you handle the context window limit when you have many retrieved chunks?**
 
 <details>
@@ -121,6 +127,8 @@ The right answer for most systems: keep K=3–5, chunks at 400–600 tokens. You
 </details>
 
 ---
+
+<br>
 
 **Q6: What should happen when retrieval finds no relevant chunks?**
 
@@ -185,6 +193,8 @@ In practice: most production RAG systems need approach 1 (version filtering) as 
 
 ---
 
+<br>
+
 **Q8: What is prompt injection in RAG systems and how does the context assembly step mitigate it?**
 
 <details>
@@ -214,6 +224,8 @@ QUESTION: {question}
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you build a context assembly pipeline that dynamically adjusts to available context window space?**
 

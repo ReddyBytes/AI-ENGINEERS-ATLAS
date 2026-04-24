@@ -11,6 +11,8 @@ A: Overfitting is when a model learns the training data so well that it memorize
 
 </details>
 
+<br>
+
 **Q2: What is the difference between overfitting and underfitting?**
 
 <details>
@@ -19,6 +21,8 @@ A: Overfitting is when a model learns the training data so well that it memorize
 A: Overfitting means the model is too complex — it learned the training data including all its noise, so it cannot generalize. Training performance is great but test performance is poor. Underfitting means the model is too simple — it never captured the real patterns in the first place. Both training and test performance are poor. Overfitting is the more common problem in practice. The goal is the middle ground: a model complex enough to learn real patterns, but constrained enough not to memorize noise.
 
 </details>
+
+<br>
 
 **Q3: What are two simple ways to reduce overfitting?**
 
@@ -42,6 +46,8 @@ A: Every model's error has two learnable components. Bias is the error from the 
 
 </details>
 
+<br>
+
 **Q5: What is L2 regularization and how does it work?**
 
 <details>
@@ -50,6 +56,8 @@ A: Every model's error has two learnable components. Bias is the error from the 
 A: L2 regularization (also called Ridge) adds a penalty to the loss function equal to the sum of all weights squared, multiplied by a regularization strength parameter (lambda). During training, the optimizer now minimizes both prediction error AND large weights. This forces the model to keep weights small. Large weights can only survive if they genuinely reduce prediction error enough to outweigh the penalty. The effect is a smoother, more distributed model that generalizes better. Lambda controls the tradeoff — too large and the model is over-constrained (underfits); too small and regularization has no effect.
 
 </details>
+
+<br>
 
 **Q6: What is dropout in neural networks and when is it applied?**
 
@@ -73,6 +81,8 @@ A: Early stopping monitors validation loss after each epoch. Training continues 
 
 </details>
 
+<br>
+
 **Q8: What is the difference between L1 and L2 regularization and when would you choose L1?**
 
 <details>
@@ -81,6 +91,8 @@ A: Early stopping monitors validation loss after each epoch. Training continues 
 A: L2 adds squared weight magnitudes to the loss — it shrinks all weights toward zero but rarely makes them exactly zero. L1 adds absolute weight magnitudes — it can drive some weights to exactly zero, effectively removing those features from the model. L1 performs automatic feature selection. You would choose L1 when you have many features and believe only a few are truly relevant — L1 gives you a sparse model that is easier to interpret. L2 is the default for most cases because it is smoother (L1 has a non-differentiable point at zero, which requires special handling in gradient descent). In practice, ElasticNet combines both.
 
 </details>
+
+<br>
 
 **Q9: How do you tune regularization strength (lambda) in practice?**
 

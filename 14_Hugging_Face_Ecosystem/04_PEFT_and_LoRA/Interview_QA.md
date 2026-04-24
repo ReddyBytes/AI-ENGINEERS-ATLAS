@@ -22,6 +22,8 @@ PEFT (Parameter-Efficient Fine-Tuning) solves this by freezing the base model en
 
 ---
 
+<br>
+
 **Q2: Explain LoRA to someone who has never heard of it.**
 
 <details>
@@ -36,6 +38,8 @@ The output of a LoRA layer is: `original output + (B × A × input) × scaling`.
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the rank `r` in LoRA and how do you choose it?**
 
@@ -75,6 +79,8 @@ The technical trick: during the forward pass, the quantized 4-bit weights are te
 
 ---
 
+<br>
+
 **Q5: What are `target_modules` in LoRA and how do you choose which layers to target?**
 
 <details>
@@ -113,6 +119,8 @@ for name, module in model.named_modules():
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you save, share, and reload a LoRA adapter?**
 
@@ -173,6 +181,8 @@ The practical implication: if the ΔW for your task requires higher rank than yo
 
 ---
 
+<br>
+
 **Q8: A team deployed a QLoRA fine-tuned model but found that performance was noticeably worse than their validation metrics suggested. What might have gone wrong?**
 
 <details>
@@ -195,6 +205,8 @@ The practical implication: if the ΔW for your task requires higher rank than yo
 </details>
 
 ---
+
+<br>
 
 **Q9: Compare LoRA, prefix tuning, and prompt tuning. When is each method preferable?**
 

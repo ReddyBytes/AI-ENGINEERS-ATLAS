@@ -11,6 +11,8 @@ PCA solves the curse of dimensionality. When datasets have many features, models
 
 </details>
 
+<br>
+
 **Q2. What are principal components?**
 
 <details>
@@ -19,6 +21,8 @@ PCA solves the curse of dimensionality. When datasets have many features, models
 Principal components are new directions in feature space, computed by PCA. The first principal component (PC1) points in the direction where the data varies the most. The second (PC2) points in the direction of second-most variation, and it must be perpendicular (orthogonal) to PC1. Each subsequent component captures less and less variance. They are linear combinations of the original features — not selections of original features.
 
 </details>
+
+<br>
 
 **Q3. What does explained variance ratio tell you?**
 
@@ -42,6 +46,8 @@ PCA finds directions of maximum variance. If one feature ranges from 0 to 10,000
 
 </details>
 
+<br>
+
 **Q5. What is the difference between PCA and feature selection?**
 
 <details>
@@ -50,6 +56,8 @@ PCA finds directions of maximum variance. If one feature ranges from 0 to 10,000
 Feature selection picks a subset of the original features and discards the rest. The selected features are still interpretable — you can point to them and say "this is sepal length." PCA creates entirely new features (principal components) that are linear combinations of all original features. After PCA, you cannot directly say what PC1 means in terms of the original features. PCA typically retains more information than simple feature selection, but at the cost of interpretability.
 
 </details>
+
+<br>
 
 **Q6. How do you choose the number of components to keep?**
 
@@ -79,6 +87,8 @@ PCA starts by computing the covariance matrix of the centred (mean-subtracted) f
 
 </details>
 
+<br>
+
 **Q8. When should you use t-SNE or UMAP instead of PCA?**
 
 <details>
@@ -90,6 +100,8 @@ PCA is linear — it can only find linear structure. If the data has non-linear 
 - Use PCA for preprocessing (speed up training, remove correlation). Use t-SNE/UMAP for visualisation only.
 
 </details>
+
+<br>
 
 **Q9. If you apply PCA before training a classifier, can you get the original features back?**
 

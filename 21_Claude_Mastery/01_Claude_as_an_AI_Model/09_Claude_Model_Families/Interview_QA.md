@@ -21,6 +21,8 @@ The mental model: Haiku for scale, Sonnet for quality, Opus for when Sonnet isn'
 
 ---
 
+<br>
+
 **Q2: Why shouldn't you just always use Opus since it's the most capable?**
 
 <details>
@@ -39,6 +41,8 @@ The engineering discipline is matching the model to the task — the same way yo
 </details>
 
 ---
+
+<br>
 
 **Q3: What does it mean to "pin" a model ID in production?**
 
@@ -105,6 +109,8 @@ More sophisticated approaches:
 
 ---
 
+<br>
+
 **Q5: What is the performance difference between Claude model generations (e.g., Sonnet vs Sonnet 4.5 vs Sonnet 4.6)?**
 
 <details>
@@ -129,6 +135,8 @@ Never upgrade production model IDs without testing — even "improvements" can c
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you measure whether a cheaper model is "good enough" for your use case?**
 
@@ -181,6 +189,8 @@ For engineers: track the Anthropic model release blog and check model IDs quarte
 
 ---
 
+<br>
+
 **Q8: How do context window size and model tier interact for cost and quality?**
 
 <details>
@@ -202,6 +212,8 @@ For high-context use cases (analyzing 200-page documents), Opus becomes prohibit
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the tradeoff between using Haiku with a more complex prompt vs Sonnet with a simpler prompt?**
 

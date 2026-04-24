@@ -13,6 +13,8 @@ A: The LLM itself is stateless — it has no persistent storage. Every API call 
 
 ---
 
+<br>
+
 **Q2: What is the difference between in-context memory and external memory?**
 
 <details>
@@ -23,6 +25,8 @@ A: In-context memory is anything already in the conversation history that the mo
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a vector database and why is it the typical choice for agent long-term memory?**
 
@@ -52,6 +56,8 @@ The underlying principle: memory quality matters more than memory quantity. A we
 </details>
 
 ---
+
+<br>
 
 **Q5: Describe how you would implement cross-session memory for a customer support agent.**
 
@@ -95,6 +101,8 @@ Next session, the agent loads the session history and vector memory to have full
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the "context window overflow" problem in long-running agents and what are three ways to solve it?**
 
@@ -150,6 +158,8 @@ The agent has tools: `search_codebase(query)`, `load_file(path)`, `recall_sessio
 
 ---
 
+<br>
+
 **Q8: Compare the tradeoffs between saving raw text vs summaries vs structured data to agent memory.**
 
 <details>
@@ -168,6 +178,8 @@ In practice: use structured data for known-schema facts (preferences, IDs, statu
 </details>
 
 ---
+
+<br>
 
 **Q9: What are the security risks of persistent agent memory and how do you mitigate them?**
 

@@ -21,6 +21,8 @@ Evaluate both stages with separate metrics. Fix retrieval issues (hit rate, cont
 
 ---
 
+<br>
+
 **Q2: What is faithfulness in RAG evaluation and why is it the most important metric?**
 
 <details>
@@ -35,6 +37,8 @@ High faithfulness doesn't guarantee the answer is correct (the context itself mi
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between context precision and context recall?**
 
@@ -98,6 +102,8 @@ For out-of-scope questions: the expected answer is "I don't have information on 
 
 ---
 
+<br>
+
 **Q5: What is LLM-as-judge evaluation and what are its limitations?**
 
 <details>
@@ -139,6 +145,8 @@ Mitigations: use temperature=0 for the judge, use a different model than the one
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you set up a continuous evaluation pipeline for a production RAG system?**
 
@@ -220,6 +228,8 @@ This is elegant because it doesn't require ground truth answers, making it scala
 
 ---
 
+<br>
+
 **Q8: How do you evaluate a RAG system's ability to correctly handle out-of-scope questions?**
 
 <details>
@@ -259,6 +269,8 @@ Key design: your retrieval pipeline should return no context when similarity is 
 </details>
 
 ---
+
+<br>
 
 **Q9: What is G-Eval and how does it improve on standard LLM-as-judge evaluation?**
 

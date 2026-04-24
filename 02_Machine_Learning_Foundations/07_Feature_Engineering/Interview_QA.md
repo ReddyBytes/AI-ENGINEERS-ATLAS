@@ -11,6 +11,8 @@ A: Feature engineering is the process of transforming raw data into features —
 
 </details>
 
+<br>
+
 **Q2: What is one-hot encoding and when do you use it?**
 
 <details>
@@ -19,6 +21,8 @@ A: Feature engineering is the process of transforming raw data into features —
 A: One-hot encoding converts a categorical variable into a set of binary columns — one for each unique category. For example, a "Color" column with values Red, Blue, Green becomes three columns: Color_Red, Color_Blue, Color_Green. Each row has a 1 in the column matching its category and 0s elsewhere. You use it for nominal categories — categories with no natural ordering, like colors, cities, or product types. You avoid it for ordinal categories (like Small/Medium/Large where order matters) and for very high-cardinality features (like country codes with 200 values) which would create too many columns.
 
 </details>
+
+<br>
 
 **Q3: Why do you need to scale features and which models require it?**
 
@@ -42,6 +46,8 @@ A: Min-max normalization rescales all values to a fixed range, typically [0, 1],
 
 </details>
 
+<br>
+
 **Q5: What is feature leakage and how can it occur in feature engineering?**
 
 <details>
@@ -50,6 +56,8 @@ A: Min-max normalization rescales all values to a fixed range, typically [0, 1],
 A: Feature leakage is when a feature contains information about the target that would not be available at prediction time in production. This causes the model to look great in testing but fail in deployment. In feature engineering it can occur in several ways: including future data in time-series features (e.g., using tomorrow's stock price to predict tomorrow's stock price), fitting a scaler or encoder on the combined train+test data (the test data influences the transformation), or creating a feature that is a direct proxy for the target. The fix: always fit all transformations only on training data, and rigorously audit features for any information they could not have at prediction time.
 
 </details>
+
+<br>
 
 **Q6: How do you handle missing values in a feature engineering pipeline?**
 
@@ -73,6 +81,8 @@ A: An interaction feature is a new feature created by combining two or more exis
 
 </details>
 
+<br>
+
 **Q8: How do you handle high-cardinality categorical features (e.g., a "city" column with 500 unique values)?**
 
 <details>
@@ -81,6 +91,8 @@ A: An interaction feature is a new feature created by combining two or more exis
 A: One-hot encoding 500 values creates 500 sparse columns — this causes memory issues, slow training, and the curse of dimensionality. Better approaches: target encoding (replace each category with the mean of the target variable for that category — effective but requires careful cross-validation to avoid leakage), frequency encoding (replace each category with how often it appears), binary encoding (convert category index to binary bits — 500 categories need only 9 columns), or embedding (for neural networks, learn a dense vector representation for each category as part of training). The best choice depends on dataset size, model type, and whether the categories have meaningful relationships.
 
 </details>
+
+<br>
 
 **Q9: How do you approach feature engineering for a time-series prediction problem?**
 

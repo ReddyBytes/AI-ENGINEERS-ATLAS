@@ -15,6 +15,8 @@ Attention solves this by giving the decoder direct access to all encoder hidden 
 
 ---
 
+<br>
+
 **Q2. What are Query, Key, and Value in attention?**
 
 <details>
@@ -31,6 +33,8 @@ Attention computes how well the Query matches each Key (via dot product), normal
 </details>
 
 ---
+
+<br>
 
 **Q3. What is the softmax in attention and why is it used?**
 
@@ -66,6 +70,8 @@ Dividing by √d_k normalizes the dot products to have a magnitude similar to 1,
 
 ---
 
+<br>
+
 **Q5. What is cross-attention and when is it used?**
 
 <details>
@@ -83,6 +89,8 @@ This is the mechanism that aligns source and target words in translation. It rep
 </details>
 
 ---
+
+<br>
 
 **Q6. How do attention weights help with model interpretability?**
 
@@ -122,6 +130,8 @@ This is why context length was a bottleneck for years. Solutions include sparse 
 
 ---
 
+<br>
+
 **Q8. What is the difference between additive attention (Bahdanau) and multiplicative attention (Luong/scaled dot-product)?**
 
 <details>
@@ -144,6 +154,8 @@ At high dimensions, scaled dot-product attention tends to match or exceed additi
 </details>
 
 ---
+
+<br>
 
 **Q9. Why can't you use attention without positional encoding?**
 

@@ -13,6 +13,8 @@ Claude is a family of large language models (LLMs) created by Anthropic, an AI s
 
 ---
 
+<br>
+
 **Q2: What are the three Claude tiers and when would you use each?**
 
 <details>
@@ -29,6 +31,8 @@ A good mental model: Haiku for scale, Sonnet for quality at scale, Opus for when
 </details>
 
 ---
+
+<br>
 
 **Q3: How is Claude different from ChatGPT?**
 
@@ -68,6 +72,8 @@ The key insight is that these three are in tension. Being maximally helpful coul
 
 ---
 
+<br>
+
 **Q5: What is Claude's context window and why does it matter?**
 
 <details>
@@ -87,6 +93,8 @@ For most applications, 200k is sufficient. But engineers still need chunking str
 </details>
 
 ---
+
+<br>
 
 **Q6: What is Claude's knowledge cutoff and how should engineers handle it?**
 
@@ -132,6 +140,8 @@ However, CAI doesn't replace humans entirely — the constitution itself must be
 
 ---
 
+<br>
+
 **Q8: What are the practical implications of Claude having no persistent memory across sessions?**
 
 <details>
@@ -152,6 +162,8 @@ This is an intentional design choice, not a limitation — statelessness makes t
 </details>
 
 ---
+
+<br>
 
 **Q9: How should an engineer make the model tier routing decision programmatically?**
 

@@ -13,6 +13,8 @@ A: (1) Claude Haiku 4.5 (`claude-haiku-4-5-20251001`) — fastest and cheapest, 
 
 ---
 
+<br>
+
 **Q2: What is the context window for current Claude models?**
 
 <details>
@@ -24,6 +26,8 @@ A: All current Claude models (Haiku, Sonnet, Opus) share a 200,000-token context
 
 ---
 
+<br>
+
 **Q3: What is the difference between a dated model ID like `claude-sonnet-4-6-20250219` and an undated one like `claude-sonnet-4-6`?**
 
 <details>
@@ -34,6 +38,8 @@ A: An undated ID always resolves to the latest version of that model family — 
 </details>
 
 ---
+
+<br>
 
 **Q4: Which Claude model supports Extended Thinking?**
 
@@ -59,6 +65,8 @@ A: Benchmark both models on 20-50 real examples from your task. Measure: output 
 
 ---
 
+<br>
+
 **Q6: What are the relative pricing differences between Haiku, Sonnet, and Opus?**
 
 <details>
@@ -70,6 +78,8 @@ A: Using representative input prices: Haiku = $0.80/MTok, Sonnet = $3.00/MTok, O
 
 ---
 
+<br>
+
 **Q7: How do you handle model deprecation in a production system?**
 
 <details>
@@ -80,6 +90,8 @@ A: (1) Always use dated model IDs in production (`claude-sonnet-4-6-20250219`) f
 </details>
 
 ---
+
+<br>
 
 **Q8: Why do all three model families share the same context window?**
 
@@ -105,6 +117,8 @@ A: Two routing layers: (1) Real-time routing: incoming chat messages are classif
 
 ---
 
+<br>
+
 **Q10: Explain the architectural reason output tokens are priced higher than input tokens across all Claude models.**
 
 <details>
@@ -115,6 +129,8 @@ A: Input tokens are processed in a single parallel forward pass through the tran
 </details>
 
 ---
+
+<br>
 
 **Q11: How does model selection interact with Extended Thinking, and when should you use it?**
 

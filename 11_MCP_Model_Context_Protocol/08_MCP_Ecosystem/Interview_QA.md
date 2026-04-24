@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: Where do you find official MCP servers, and how do you install them?**
 
 <details>
@@ -19,6 +21,8 @@
 > Official MCP servers are maintained by Anthropic at `github.com/modelcontextprotocol/servers`. They are also published as npm packages under the `@modelcontextprotocol` scope on npm. Most can be installed with `npm install -g @modelcontextprotocol/server-NAME` (for Node.js-based servers) or run directly without installation using `npx`. After installing, you add the server to your Claude Desktop config file (`claude_desktop_config.json`) with the command to run it and any required environment variables like API keys.
 
 </details>
+
+<br>
 
 **Q3: Name three official MCP servers and explain what each one does.**
 
@@ -53,6 +57,8 @@
 
 </details>
 
+<br>
+
 **Q5: What does the MCP Python SDK provide, and how does it relate to the overall ecosystem?**
 
 <details>
@@ -68,6 +74,8 @@
 > It is the standard library for Python developers building MCP servers, equivalent to what Express.js is for Node.js web servers. The TypeScript SDK serves the same role for the Node.js ecosystem. Having official SDKs in multiple languages ensures the ecosystem can grow in every programming community, not just Python.
 
 </details>
+
+<br>
 
 **Q6: How does the MCP ecosystem handle updates to the protocol itself? What happens if a server was built for an older version of MCP?**
 
@@ -107,6 +115,8 @@
 
 </details>
 
+<br>
+
 **Q8: Describe how the MCP ecosystem could enable a "marketplace of AI capabilities" for enterprise deployments.**
 
 <details>
@@ -124,6 +134,8 @@
 > This creates a sustainable "capability marketplace" where AI capabilities are added incrementally, audited, and controlled — just like an enterprise app store for AI tools.
 
 </details>
+
+<br>
 
 **Q9: How would you build a "server discovery" feature for a custom MCP host application?**
 

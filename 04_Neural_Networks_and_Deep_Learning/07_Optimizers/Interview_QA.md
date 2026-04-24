@@ -13,6 +13,8 @@ Gradient descent (specifically "batch gradient descent") computes the loss over 
 
 ---
 
+<br>
+
 **Q2: What is the learning rate and why does it matter so much?**
 
 <details>
@@ -23,6 +25,8 @@ The learning rate controls how large a step the optimizer takes in the direction
 </details>
 
 ---
+
+<br>
 
 **Q3: What is momentum and what problem does it solve?**
 
@@ -48,6 +52,8 @@ Adam maintains two running averages. The first moment (m) is a running average o
 
 ---
 
+<br>
+
 **Q5: Why does Adam sometimes generalize worse than SGD on image classification tasks?**
 
 <details>
@@ -58,6 +64,8 @@ Research (particularly Wilson et al. 2017) showed that while Adam converges fast
 </details>
 
 ---
+
+<br>
 
 **Q6: What is AdamW and why is it preferred over Adam for transformers?**
 
@@ -83,6 +91,8 @@ Learning rate warmup starts with a very small learning rate (near 0) and linearl
 
 ---
 
+<br>
+
 **Q8: What is the relationship between batch size and learning rate?**
 
 <details>
@@ -93,6 +103,8 @@ When you double the batch size, each gradient estimate is computed over twice as
 </details>
 
 ---
+
+<br>
 
 **Q9: What are second-order optimization methods and why aren't they used more often in deep learning?**
 

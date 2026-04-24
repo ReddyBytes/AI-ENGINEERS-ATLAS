@@ -17,6 +17,8 @@ Encoder-only = understand. Decoder-only = generate.
 
 ---
 
+<br>
+
 **Q2. What is the difference between BERT and GPT at a high level?**
 
 <details>
@@ -39,6 +41,8 @@ The key difference is directionality. BERT's bidirectionality makes it better at
 </details>
 
 ---
+
+<br>
 
 **Q3. What tasks are best suited for encoder-decoder models like T5?**
 
@@ -84,6 +88,8 @@ Encoder-decoder models are still competitive for tasks where training data is la
 
 ---
 
+<br>
+
 **Q5. What is T5's "text-to-text" approach and why is it significant?**
 
 <details>
@@ -103,6 +109,8 @@ This was influential in moving the field toward instruction fine-tuning — the 
 </details>
 
 ---
+
+<br>
 
 **Q6. How does BART differ from BERT and T5?**
 
@@ -148,6 +156,8 @@ PaLM and some other models use this approach for certain tasks. The advantage: m
 
 ---
 
+<br>
+
 **Q8. Why is bidirectional context important for encoding and harmful for generation?**
 
 <details>
@@ -162,6 +172,8 @@ Summary: bidirectionality helps with understanding (offline tasks). Causality is
 </details>
 
 ---
+
+<br>
 
 **Q9. How do you fine-tune a decoder-only model for a classification task?**
 

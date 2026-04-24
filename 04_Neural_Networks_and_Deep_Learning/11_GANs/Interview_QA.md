@@ -13,6 +13,8 @@ A GAN (Generative Adversarial Network) is a framework for training a neural netw
 
 ---
 
+<br>
+
 **Q2: What is the training process for a GAN?**
 
 <details>
@@ -23,6 +25,8 @@ GAN training alternates between two steps. First, train the discriminator: sampl
 </details>
 
 ---
+
+<br>
 
 **Q3: What is mode collapse and why is it a problem?**
 
@@ -48,6 +52,8 @@ GAN training involves a minimax game between two networks, and the optimization 
 
 ---
 
+<br>
+
 **Q5: What is the Wasserstein GAN (WGAN) and how does it improve stability?**
 
 <details>
@@ -58,6 +64,8 @@ Vanilla GAN uses binary cross-entropy, which measures how well D classifies real
 </details>
 
 ---
+
+<br>
 
 **Q6: What is a conditional GAN (cGAN) and how does conditioning work?**
 
@@ -83,6 +91,8 @@ The Nash equilibrium of the GAN game is the point where: (1) the generator perfe
 
 ---
 
+<br>
+
 **Q8: How do GANs compare to Variational Autoencoders (VAEs) and Diffusion Models for generation?**
 
 <details>
@@ -93,6 +103,8 @@ All three are generative models, but with different tradeoffs. VAEs optimize a v
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the training objective of StyleGAN and how does it achieve photorealistic face generation?**
 

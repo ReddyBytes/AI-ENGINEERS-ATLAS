@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What are the four dimensions of AI evaluation?**
 
 <details>
@@ -24,6 +26,8 @@
 All four matter for production systems. A perfectly accurate model that takes 30 seconds per response is not production-ready.
 
 </details>
+
+<br>
 
 **Q3: What is the difference between automated evaluation and human evaluation?**
 
@@ -47,6 +51,8 @@ All four matter for production systems. A perfectly accurate model that takes 30
 
 </details>
 
+<br>
+
 **Q5: How do you define a good test case for an AI system?**
 
 <details>
@@ -60,6 +66,8 @@ All four matter for production systems. A perfectly accurate model that takes 30
 Bad test cases: only happy-path examples, identical structure repeated with different words, or inputs that don't resemble what real users will send.
 
 </details>
+
+<br>
 
 **Q6: Why is having a baseline critical for evaluation?**
 
@@ -95,6 +103,8 @@ The key discipline: your eval score only improves when the AI actually gets bett
 
 </details>
 
+<br>
+
 **Q8: How do you handle evaluating subjective quality at scale?**
 
 <details>
@@ -108,6 +118,8 @@ The key discipline: your eval score only improves when the AI actually gets bett
 Key insight: you need human evaluation to calibrate automated methods, but you can't rely on humans alone at scale.
 
 </details>
+
+<br>
 
 **Q9: System design: How would you build an evaluation system for a production chatbot?**
 

@@ -21,6 +21,8 @@ What made it different:
 
 ---
 
+<br>
+
 **Q2. What is Masked Language Modeling (MLM)?**
 
 <details>
@@ -35,6 +37,8 @@ This forces the model to build deep bidirectional understanding — it can't jus
 </details>
 
 ---
+
+<br>
 
 **Q3. What is the [CLS] token and how is it used for classification?**
 
@@ -80,6 +84,8 @@ Training is typically 3–5 epochs on a few thousand labeled examples. BERT reac
 
 ---
 
+<br>
+
 **Q5. What are the three types of embeddings BERT adds together for input?**
 
 <details>
@@ -98,6 +104,8 @@ All three are the same dimensionality (768) and are added element-wise before th
 </details>
 
 ---
+
+<br>
 
 **Q6. What is Next Sentence Prediction (NSP) and why was it later abandoned?**
 
@@ -131,6 +139,8 @@ In practice, this mismatch is accepted as a minor limitation. The pretrained rep
 
 ---
 
+<br>
+
 **Q8. What is the computational bottleneck when serving BERT in production at scale?**
 
 <details>
@@ -151,6 +161,8 @@ Practical bottlenecks and solutions:
 </details>
 
 ---
+
+<br>
 
 **Q9. How does BERT compare to GPT-3 for NLP tasks, and when would you choose BERT?**
 

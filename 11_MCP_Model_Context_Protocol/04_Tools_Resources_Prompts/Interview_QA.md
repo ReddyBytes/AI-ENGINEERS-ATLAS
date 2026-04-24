@@ -16,6 +16,8 @@
 
 </details>
 
+<br>
+
 **Q2: How does the AI model know what arguments to pass when calling a Tool?**
 
 <details>
@@ -24,6 +26,8 @@
 > Each tool has an `inputSchema` field that is a JSON Schema object. JSON Schema defines the argument names, types, required fields, and descriptions. The AI model reads this schema along with the tool's `description` field to understand what the tool needs. For example, if a tool's schema says it needs a `path` (string, required) and `encoding` (string, optional), the AI model will construct a valid argument object before calling the tool.
 
 </details>
+
+<br>
 
 **Q3: Give an example of when you would use a Resource instead of a Tool.**
 
@@ -59,6 +63,8 @@
 
 </details>
 
+<br>
+
 **Q5: What is the difference between a Prompt and a System Prompt you would write directly in your application?**
 
 <details>
@@ -71,6 +77,8 @@
 > - **Discoverable** — clients can list what prompts are available without reading source code
 
 </details>
+
+<br>
 
 **Q6: Can a Tool return more than just text? What content types are supported?**
 
@@ -106,6 +114,8 @@
 
 </details>
 
+<br>
+
 **Q8: How does JSON Schema in tool definitions help the AI model make better calls?**
 
 <details>
@@ -121,6 +131,8 @@
 > AI models are trained to follow JSON Schema when calling tools, so well-defined schemas result in fewer invalid tool calls and less error handling.
 
 </details>
+
+<br>
 
 **Q9: Describe a scenario where you would use all three MCP primitives (Tools, Resources, and Prompts) together in one server.**
 

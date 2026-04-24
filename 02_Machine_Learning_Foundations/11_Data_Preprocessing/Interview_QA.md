@@ -15,6 +15,8 @@ Data preprocessing is the set of transformations applied to raw data before feed
 
 ---
 
+<br>
+
 **Q2: What is the difference between StandardScaler and MinMaxScaler?**
 
 <details>
@@ -25,6 +27,8 @@ StandardScaler subtracts the mean and divides by the standard deviation, produci
 </details>
 
 ---
+
+<br>
 
 **Q3: When should you use median imputation instead of mean imputation?**
 
@@ -50,6 +54,8 @@ Data leakage occurs when information from the test set contaminates training. Th
 
 ---
 
+<br>
+
 **Q5: When should you use OneHotEncoder vs OrdinalEncoder?**
 
 <details>
@@ -61,6 +67,8 @@ Use OrdinalEncoder when categories have a meaningful natural order: `["low", "me
 
 ---
 
+<br>
+
 **Q6: What is Winsorization and when would you choose it over dropping outliers?**
 
 <details>
@@ -71,6 +79,8 @@ Winsorization caps outliers at the IQR fence values rather than removing them. T
 </details>
 
 ---
+
+<br>
 
 **Q7: Why should you never apply LabelEncoder to a nominal input feature?**
 
@@ -96,6 +106,8 @@ Train-serve skew is the divergence between preprocessing at training time versus
 
 ---
 
+<br>
+
 **Q9: When would you use KNNImputer or IterativeImputer over SimpleImputer?**
 
 <details>
@@ -106,6 +118,8 @@ Use KNNImputer when missingness in one feature is correlated with other features
 </details>
 
 ---
+
+<br>
 
 **Q10: How does TargetEncoder work and what precautions prevent leakage?**
 

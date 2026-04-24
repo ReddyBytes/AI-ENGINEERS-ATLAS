@@ -13,6 +13,8 @@ A: Q stands for "Quality" — the quality of taking a particular action in a par
 
 ---
 
+<br>
+
 **Q2: What is a Q-table?**
 
 <details>
@@ -24,6 +26,8 @@ A: A Q-table is a lookup table with one row per state and one column per action.
 
 ---
 
+<br>
+
 **Q3: What is epsilon-greedy and why is it used?**
 
 <details>
@@ -34,6 +38,8 @@ A: Epsilon-greedy is a strategy for balancing exploration (trying new things) an
 </details>
 
 ---
+
+<br>
 
 **Q4: What is the Q-learning update rule in plain English?**
 
@@ -59,6 +65,8 @@ A: Off-policy means the algorithm learns the optimal Q-function independently of
 
 ---
 
+<br>
+
 **Q6: What are the convergence conditions for Q-Learning?**
 
 <details>
@@ -69,6 +77,8 @@ A: Q-Learning converges to Q* under three conditions: (1) every state-action pai
 </details>
 
 ---
+
+<br>
 
 **Q7: What is the difference between Q-Learning and SARSA?**
 
@@ -104,6 +114,8 @@ The fix: replace the table with a function approximator (neural network) that ma
 </details>
 
 ---
+
+<br>
 
 **Q9: How does Q-Learning relate to the Bellman optimality equation?**
 

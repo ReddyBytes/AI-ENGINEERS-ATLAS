@@ -18,6 +18,8 @@ The `@tool` decorator generates the JSON schema, the `Agent` object wires everyt
 
 ---
 
+<br>
+
 **Q2: What role does the docstring play in a `@tool`-decorated function?**
 
 <details>
@@ -28,6 +30,8 @@ A: The docstring becomes the tool's description — the text Claude reads to dec
 </details>
 
 ---
+
+<br>
 
 **Q3: What's the difference between defining a `@tool` function and having the agent use it?**
 
@@ -62,6 +66,8 @@ A: Here's the sequence:
 
 ---
 
+<br>
+
 **Q5: How does the model "know" what tools are available to it at each loop iteration?**
 
 <details>
@@ -72,6 +78,8 @@ A: The tool schemas are passed as the `tools` parameter in every API call the SD
 </details>
 
 ---
+
+<br>
 
 **Q6: What happens if you give the agent a goal that requires a tool it doesn't have?**
 
@@ -127,6 +135,8 @@ with ThreadPoolExecutor(max_workers=10) as pool:
 
 ---
 
+<br>
+
 **Q8: How would you test an agent that uses external tools without hitting real APIs in CI?**
 
 <details>
@@ -163,6 +173,8 @@ Test strategy: unit test tools in isolation (independent of the agent), integrat
 </details>
 
 ---
+
+<br>
 
 **Q9: What are the token cost implications of running a 10-step agent vs a single API call?**
 

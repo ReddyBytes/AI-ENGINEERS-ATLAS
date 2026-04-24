@@ -18,6 +18,8 @@
 
 ---
 
+<br>
+
 **Q2: What is the `pipeline()` API and what does it abstract away?**
 
 <details>
@@ -38,6 +40,8 @@ Without `pipeline()`, you would write all seven steps yourself.
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between `AutoModel` and `AutoModelForSequenceClassification`?**
 
@@ -77,6 +81,8 @@ The tokenizer **must** match the model because the model's embedding matrix was 
 
 ---
 
+<br>
+
 **Q5: What does `attention_mask` do and when does it matter?**
 
 <details>
@@ -101,6 +107,8 @@ The tokenizer creates the attention mask automatically when you pass `padding=Tr
 </details>
 
 ---
+
+<br>
 
 **Q6: What is `device_map="auto"` and when would you use it?**
 
@@ -158,6 +166,8 @@ It uses the `accelerate` library under the hood to create a device map that fits
 
 ---
 
+<br>
+
 **Q8: Explain how `trust_remote_code=True` works and when it's a security risk.**
 
 <details>
@@ -181,6 +191,8 @@ For well-known models from major providers (Mistral, Meta, Google), `trust_remot
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the difference between `pipeline("text-generation")` and `pipeline("text2text-generation")`? When would you use each?**
 

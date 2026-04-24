@@ -11,6 +11,8 @@ A: A decision tree traverses a series of if/else rules from the root to a leaf. 
 
 </details>
 
+<br>
+
 **Q2: What is Gini impurity and how does the tree use it to choose splits?**
 
 <details>
@@ -19,6 +21,8 @@ A: A decision tree traverses a series of if/else rules from the root to a leaf. 
 A: Gini impurity measures how mixed the classes are in a node. If a node contains only one class, Gini = 0 (perfectly pure). If it contains equal proportions of all classes, Gini is at its maximum (0.5 for binary classification). When choosing a split, the tree evaluates every possible threshold on every feature. It picks the split that reduces the weighted average Gini impurity across the resulting child nodes the most. This "information gain" from the split tells the tree how much more organized the data becomes after asking that question. The goal is to ask the most clarifying question first.
 
 </details>
+
+<br>
 
 **Q3: What is overfitting in a decision tree and how do you prevent it?**
 
@@ -42,6 +46,8 @@ A: Both measure how mixed a node is, and both lead to very similar trees in prac
 
 </details>
 
+<br>
+
 **Q5: How does feature importance work in decision trees?**
 
 <details>
@@ -50,6 +56,8 @@ A: Both measure how mixed a node is, and both lead to very similar trees in prac
 A: Feature importance is calculated as the total impurity reduction that each feature is responsible for across all splits in the tree, weighted by the number of samples at each node. A feature used near the root on a large portion of the data gets a higher importance score. Feature importances sum to 1. High importance means the tree found that feature very useful for making pure splits. Feature importance from decision trees is computationally cheap and gives useful signal about which features drive predictions. However, it can be misleading with correlated features — if two features carry the same information, their importance is split arbitrarily between them.
 
 </details>
+
+<br>
 
 **Q6: What is pruning in decision trees and when is it useful?**
 
@@ -73,6 +81,8 @@ A: Decision trees make axis-aligned splits — each split divides the feature sp
 
 </details>
 
+<br>
+
 **Q8: How is a decision tree for regression different from one for classification?**
 
 <details>
@@ -81,6 +91,8 @@ A: Decision trees make axis-aligned splits — each split divides the feature sp
 A: The structure and splitting process are the same, but the splitting criterion and leaf output differ. For regression, the tree minimizes variance rather than Gini/entropy. It finds the split that minimizes the weighted sum of variance in the child nodes. The leaf output is the mean of all training examples that reach that leaf. The prediction for a new example is whatever mean value is stored in its leaf. A key consequence: regression trees cannot extrapolate beyond the training data range. If all training houses cost between $100k and $500k, the tree will never predict $600k — its predictions are always averages of seen values.
 
 </details>
+
+<br>
 
 **Q9: What are CART, ID3, and C4.5, and how do they differ?**
 

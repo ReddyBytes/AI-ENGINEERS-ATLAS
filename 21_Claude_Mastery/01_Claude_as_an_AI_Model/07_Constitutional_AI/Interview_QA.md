@@ -19,6 +19,8 @@ The secondary benefit: the written constitution makes the model's value system a
 
 ---
 
+<br>
+
 **Q2: What is a "constitution" in Constitutional AI?**
 
 <details>
@@ -36,6 +38,8 @@ The key insight: making the principles explicit means you can read them, critiqu
 </details>
 
 ---
+
+<br>
 
 **Q3: How does the CAI self-critique loop work in practice?**
 
@@ -84,6 +88,8 @@ What is NOT replaced: human feedback for helpfulness, capability evaluation, and
 
 ---
 
+<br>
+
 **Q5: Why is CAI described as "making the value system auditable"?**
 
 <details>
@@ -103,6 +109,8 @@ This is analogous to the difference between "train a classifier on labeled data"
 </details>
 
 ---
+
+<br>
 
 **Q6: What are the limitations of Constitutional AI?**
 
@@ -163,6 +171,8 @@ In practice, RLAIF produces high-quality preference data for harmlessness but is
 
 ---
 
+<br>
+
 **Q8: How does red-teaming feed into the Constitutional AI training loop, and why is this described as a "virtuous cycle"?**
 
 <details>
@@ -185,6 +195,8 @@ The virtuous cycle has practical limits — sufficiently creative adversaries ca
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you implement a simplified Constitutional AI critique-revise system?**
 

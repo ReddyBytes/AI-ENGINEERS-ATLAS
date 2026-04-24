@@ -13,6 +13,8 @@ Text preprocessing is the set of steps you apply to raw text to clean and standa
 
 ---
 
+<br>
+
 **Q2. What is the difference between stemming and lemmatization?**
 
 <details>
@@ -29,6 +31,8 @@ Use stemming when speed matters and accuracy is secondary. Use lemmatization for
 </details>
 
 ---
+
+<br>
 
 **Q3. What are stopwords? Should you always remove them?**
 
@@ -58,6 +62,8 @@ A common pitfall is data leakage: applying preprocessing differently to training
 
 ---
 
+<br>
+
 **Q5. How would you build a preprocessing pipeline for a production NLP system?**
 
 <details>
@@ -76,6 +82,8 @@ Using sklearn's `Pipeline` class or spaCy's processing pipeline makes this clean
 </details>
 
 ---
+
+<br>
 
 **Q6. What preprocessing steps would you skip for a neural network vs a traditional ML model?**
 
@@ -105,6 +113,8 @@ In subword tokenization (used by BERT, GPT), OOV is largely solved by splitting 
 
 ---
 
+<br>
+
 **Q8. What are the trade-offs of removing punctuation from text?**
 
 <details>
@@ -122,6 +132,8 @@ For most classification tasks on general text, removing punctuation helps. For f
 </details>
 
 ---
+
+<br>
 
 **Q9. How would you handle preprocessing for a multilingual NLP system?**
 

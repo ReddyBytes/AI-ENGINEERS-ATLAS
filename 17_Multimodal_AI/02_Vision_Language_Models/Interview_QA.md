@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is LLaVA?**
 
 <details>
@@ -20,6 +22,8 @@
 
 </details>
 
+<br>
+
 **Q3: What is a Vision Transformer (ViT)?**
 
 <details>
@@ -28,6 +32,8 @@
 **A:** ViT applies the transformer architecture to images. Instead of processing pixels directly, it splits the image into fixed-size patches (e.g., 16×16 pixels), flattens each patch into a vector, adds positional embeddings, and processes the resulting sequence through standard transformer layers. This lets the same self-attention mechanism used in language models work on visual content.
 
 </details>
+
+<br>
 
 **Q4: What is zero-shot image classification with CLIP?**
 
@@ -51,6 +57,8 @@
 
 </details>
 
+<br>
+
 **Q6: What does the projection layer in LLaVA do and why is it needed?**
 
 <details>
@@ -60,6 +68,8 @@
 
 </details>
 
+<br>
+
 **Q7: What is visual instruction tuning?**
 
 <details>
@@ -68,6 +78,8 @@
 **A:** Visual instruction tuning is the training strategy where instead of only training on image-caption pairs (which teaches description), you train on diverse instruction-following data: "Describe this image in detail", "What is unusual about this scene?", "What text is visible?", "How many objects are there?", etc. This dramatically improves practical usefulness — the model learns to follow user instructions, not just caption images. LLaVA pioneered this approach.
 
 </details>
+
+<br>
 
 **Q8: Why is CLIP's batch size so important for training quality?**
 
@@ -94,6 +106,8 @@ Rule of thumb: if you need a number/ranking → CLIP. If you need a text respons
 
 </details>
 
+<br>
+
 **Q10: What are the limitations of using CLIP for image understanding?**
 
 <details>
@@ -108,6 +122,8 @@ Rule of thumb: if you need a number/ranking → CLIP. If you need a text respons
 6. **No counting ability**: Similarity score doesn't capture "three dogs" vs "one dog" reliably
 
 </details>
+
+<br>
 
 **Q11: How would you fine-tune a VLM for a specialized domain like medical imaging?**
 

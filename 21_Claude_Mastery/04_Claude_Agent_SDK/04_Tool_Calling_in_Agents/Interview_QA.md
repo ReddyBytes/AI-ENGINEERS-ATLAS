@@ -13,6 +13,8 @@ A: In regular code, a function call is synchronous and direct — the programmer
 
 ---
 
+<br>
+
 **Q2: Why does a good tool docstring matter for agent reliability?**
 
 <details>
@@ -23,6 +25,8 @@ A: The docstring is the model's only source of information about when and how to
 </details>
 
 ---
+
+<br>
 
 **Q3: What happens to a tool call when the function raises an exception?**
 
@@ -71,6 +75,8 @@ The tool result is sent as a `user` role message because it comes from outside t
 
 ---
 
+<br>
+
 **Q5: What is the principle of least privilege in tool design and why does it matter for agents?**
 
 <details>
@@ -81,6 +87,8 @@ A: Least privilege means giving each tool the minimum permissions necessary for 
 </details>
 
 ---
+
+<br>
 
 **Q6: How does the order of tools in the `tools=[]` list affect agent behavior?**
 
@@ -133,6 +141,8 @@ Key design decisions: validate in the tool (not just in the system prompt), writ
 
 ---
 
+<br>
+
 **Q8: What are the token cost implications of running many tool calls in a single agent session, and how do you optimize?**
 
 <details>
@@ -150,6 +160,8 @@ Optimization strategies:
 </details>
 
 ---
+
+<br>
 
 **Q9: Describe a scenario where tool execution order is critical and how you would enforce it in agent design.**
 

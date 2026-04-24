@@ -13,6 +13,8 @@ A: Tool use (also called function calling) is a protocol that lets Claude reques
 
 ---
 
+<br>
+
 **Q2: What three fields are required in a tool definition?**
 
 <details>
@@ -24,6 +26,8 @@ A: `name` (the function identifier, snake_case), `description` (when and why to 
 
 ---
 
+<br>
+
 **Q3: What does `stop_reason: "tool_use"` mean, and what must you do when you see it?**
 
 <details>
@@ -34,6 +38,8 @@ A: It means Claude wants to call a tool. The response is not complete — Claude
 </details>
 
 ---
+
+<br>
 
 **Q4: What is the `tool_use_id` field and why is it important?**
 
@@ -59,6 +65,8 @@ A: Claude returns an assistant message with two `tool_use` blocks in the `conten
 
 ---
 
+<br>
+
 **Q6: How should you handle a tool execution error? Should you raise an exception or return the error?**
 
 <details>
@@ -70,6 +78,8 @@ A: Return the error as a string in the `tool_result` content, with `"is_error": 
 
 ---
 
+<br>
+
 **Q7: Explain the `tool_choice` parameter and its four options.**
 
 <details>
@@ -80,6 +90,8 @@ A: `tool_choice` controls whether and how Claude uses tools. `{"type": "auto"}` 
 </details>
 
 ---
+
+<br>
 
 **Q8: Why is the `description` field the most important part of a tool definition?**
 
@@ -137,6 +149,8 @@ def agent_loop(user_message, tools, executors, max_iterations=10):
 
 ---
 
+<br>
+
 **Q10: How does streaming interact with tool use? What events do you receive during a streamed tool call?**
 
 <details>
@@ -147,6 +161,8 @@ A: During streaming, when Claude decides to call a tool, the sequence is: (1) `c
 </details>
 
 ---
+
+<br>
 
 **Q11: How would you implement a caching strategy for tool definitions in a high-traffic application?**
 

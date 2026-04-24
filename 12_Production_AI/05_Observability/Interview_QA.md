@@ -21,6 +21,8 @@ AI systems need additional layers beyond traditional software: token usage track
 
 ---
 
+<br>
+
 **Q2: What is the difference between a log and a metric, and when would you use each?**
 
 <details>
@@ -35,6 +37,8 @@ Use logs when you need to investigate a specific incident or understand details.
 </details>
 
 ---
+
+<br>
 
 **Q3: Why is tracking P99 latency more important than tracking average latency for an AI system?**
 
@@ -100,6 +104,8 @@ def tracked_call(messages, model):
 
 ---
 
+<br>
+
 **Q5: What is distributed tracing and how does it help debug AI system performance issues?**
 
 <details>
@@ -133,6 +139,8 @@ Tools: OpenTelemetry (standard instrumentation), Jaeger, Zipkin, Datadog APM, La
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you monitor quality in production for an LLM application, given that quality is subjective?**
 
@@ -210,6 +218,8 @@ P3 (daily digest):
 </details>
 
 ---
+
+<br>
 
 **Q8: What is the difference between observability and monitoring, and why does it matter for AI systems?**
 

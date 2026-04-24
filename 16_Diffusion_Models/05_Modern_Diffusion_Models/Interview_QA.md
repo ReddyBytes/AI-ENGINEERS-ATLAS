@@ -17,6 +17,8 @@ A: SDXL (Stable Diffusion XL) improved on SD 1.5 in four key ways:
 
 ---
 
+<br>
+
 **Q2: What is FLUX and how is it different from Stable Diffusion?**
 
 <details>
@@ -34,6 +36,8 @@ The practical cost: FLUX requires significantly more VRAM (24GB ideal, 12GB with
 </details>
 
 ---
+
+<br>
 
 **Q3: What is flow matching and why is it better than DDPM?**
 
@@ -83,6 +87,8 @@ The refiner works because it was trained specifically on the low-noise regime wh
 
 ---
 
+<br>
+
 **Q5: What is a Diffusion Transformer (DiT) and what advantages does it have over U-Net?**
 
 <details>
@@ -113,6 +119,8 @@ The downside: attention over full-resolution patches is expensive. FLUX uses 64Ã
 </details>
 
 ---
+
+<br>
 
 **Q6: How does T5-XXL improve FLUX's text understanding compared to CLIP?**
 
@@ -159,6 +167,8 @@ SD3 also uses three text encoders simultaneously: CLIP-L, OpenCLIP-bigG, and T5-
 
 ---
 
+<br>
+
 **Q8: What is guidance distillation and how do FLUX.1-schnell and SDXL-Turbo use it?**
 
 <details>
@@ -185,6 +195,8 @@ A: Guidance distillation bakes the effect of CFG into model weights so inference
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you decide between SDXL and FLUX for a production system?**
 

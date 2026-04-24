@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What can you do with multimodal embeddings that you couldn't do with separate text and image embeddings?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** With separate embeddings, you can only compare text to text or image to image. With multimodal embeddings you can: search a photo library by typing a description (text → image retrieval), find images similar to an uploaded image (image → image), find text captions that match a photo (image → text retrieval), classify images using arbitrary text labels with no training (zero-shot classification), and build multimodal RAG systems that retrieve both documents and images.
 
 </details>
+
+<br>
 
 **Q3: What is cross-modal retrieval?**
 
@@ -42,6 +46,8 @@
 
 </details>
 
+<br>
+
 **Q5: How do you build an image search system with CLIP?**
 
 <details>
@@ -55,6 +61,8 @@
 For scale, use an ANN index (FAISS, HNSW) instead of brute-force search. For production, use a managed vector database like Qdrant or Weaviate.
 
 </details>
+
+<br>
 
 **Q6: What are the limitations of base CLIP for specialized use cases?**
 
@@ -89,6 +97,8 @@ Solution: fine-tune CLIP on domain-specific (image, text) pairs using the same c
 
 </details>
 
+<br>
+
 **Q8: Explain how multimodal RAG differs from standard text-only RAG.**
 
 <details>
@@ -105,6 +115,8 @@ Architecture:
 Use cases: QA over product catalogs with images, medical reports with scan images, technical documentation with diagrams.
 
 </details>
+
+<br>
 
 **Q9: System design question: Build a Pinterest-style visual discovery system where users can upload an image and find visually similar items.**
 

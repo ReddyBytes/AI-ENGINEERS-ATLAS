@@ -13,6 +13,8 @@ A: The orchestrator-worker pattern has one orchestrator agent that receives a hi
 
 ---
 
+<br>
+
 **Q2: What are the two main reasons to use multi-agent instead of a single agent?**
 
 <details>
@@ -23,6 +25,8 @@ A: Parallelism and specialization. Parallelism: a single agent runs tool calls s
 </details>
 
 ---
+
+<br>
 
 **Q3: How does context isolation benefit a multi-agent system?**
 
@@ -82,6 +86,8 @@ The concurrency semaphore prevents rate limit errors by capping simultaneous API
 
 ---
 
+<br>
+
 **Q5: When is multi-agent orchestration NOT the right approach?**
 
 <details>
@@ -97,6 +103,8 @@ A: Multi-agent is wrong when:
 </details>
 
 ---
+
+<br>
 
 **Q6: How does an orchestrator handle a worker failure (timeout, error, or bad output)?**
 
@@ -168,6 +176,8 @@ The planner agent reads the task and data size, returns an optimal configuration
 
 ---
 
+<br>
+
 **Q8: Describe a hierarchical multi-agent architecture and when you would use three levels of agents.**
 
 <details>
@@ -195,6 +205,8 @@ Use three levels when: the problem has two natural decomposition axes (in this c
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you implement observability and debugging for a complex multi-agent orchestration system in production?**
 

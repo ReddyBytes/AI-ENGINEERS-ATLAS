@@ -11,6 +11,8 @@ Naive Bayes is a probabilistic classification algorithm based on Bayes' theorem.
 
 </details>
 
+<br>
+
 **Q2. Explain Bayes' theorem in plain English.**
 
 <details>
@@ -27,6 +29,8 @@ For classification: `P(class | features) ∝ P(features | class) × P(class)`
 Example: if 40% of emails are spam and the word "FREE" appears in 80% of spam but only 5% of normal emails, seeing "FREE" gives strong evidence for spam.
 
 </details>
+
+<br>
 
 **Q3. What is Laplace smoothing and why is it needed?**
 
@@ -54,6 +58,8 @@ Several reasons work in its favour for text:
 
 </details>
 
+<br>
+
 **Q5. What are the differences between MultinomialNB, BernoulliNB, and GaussianNB?**
 
 <details>
@@ -64,6 +70,8 @@ Several reasons work in its favour for text:
 - **GaussianNB**: assumes each feature follows a Gaussian (normal) distribution within each class. Best for continuous features like measurements, sensor data, or medical readings.
 
 </details>
+
+<br>
 
 **Q6. What are the key limitations of Naive Bayes?**
 
@@ -90,6 +98,8 @@ Naive Bayes naturally incorporates class frequency through the prior probability
 
 </details>
 
+<br>
+
 **Q8. What is ComplementNB and when should you use it?**
 
 <details>
@@ -98,6 +108,8 @@ Naive Bayes naturally incorporates class frequency through the prior probability
 ComplementNB is a variant of Multinomial NB that trains each classifier using data from all *other* classes (the complement) instead of just the target class. This helps when training data is imbalanced — instead of estimating P(word | spam) from the small spam sample, it estimates P(word | NOT spam) from the large ham sample, which is more reliable. ComplementNB tends to outperform MultinomialNB on imbalanced datasets and when combined with TF-IDF features. It also works with negative TF-IDF values (handled differently than MultinomialNB).
 
 </details>
+
+<br>
 
 **Q9. How does Naive Bayes relate to logistic regression, and when would you choose one over the other?**
 

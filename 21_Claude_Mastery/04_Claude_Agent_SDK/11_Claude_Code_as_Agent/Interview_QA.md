@@ -13,6 +13,8 @@ A: Claude Code implements all four components of an agent: (1) the LLM (Claude S
 
 ---
 
+<br>
+
 **Q2: What is the purpose of CLAUDE.md files in Claude Code's architecture?**
 
 <details>
@@ -23,6 +25,8 @@ A: CLAUDE.md files are the mechanism for persistent, context-specific system pro
 </details>
 
 ---
+
+<br>
 
 **Q3: Why does the Edit tool require a unique string match rather than a line number?**
 
@@ -58,6 +62,8 @@ Each step uses the previous result to decide what to do next. This is multi-step
 
 ---
 
+<br>
+
 **Q5: How does the MEMORY.md pattern implement the external agent memory concept from Topic 06?**
 
 <details>
@@ -68,6 +74,8 @@ A: MEMORY.md is a file-based implementation of external memory. At session start
 </details>
 
 ---
+
+<br>
 
 **Q6: What design lessons from Claude Code's architecture are most transferable to building your own agents?**
 
@@ -110,6 +118,8 @@ The worktree is the physical implementation of the logical isolation that the su
 
 ---
 
+<br>
+
 **Q8: How does Claude Code's permission system (allowedTools, deniedTools, permission modes) relate to the safety principles from Topic 10?**
 
 <details>
@@ -126,6 +136,8 @@ For a code review agent that should only read: `allowedTools: ["Read", "Glob", "
 </details>
 
 ---
+
+<br>
 
 **Q9: If you were building a production coding agent similar to Claude Code from scratch, what would be your minimal required tool set and what architectural decisions would you make based on Claude Code's design?**
 

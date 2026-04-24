@@ -13,6 +13,8 @@ A loss function is a function that measures how wrong the model's predictions ar
 
 ---
 
+<br>
+
 **Q2: What is MSE and when would you use it?**
 
 <details>
@@ -23,6 +25,8 @@ MSE stands for Mean Squared Error. It calculates the average of the squared diff
 </details>
 
 ---
+
+<br>
 
 **Q3: What is cross-entropy loss and when is it used?**
 
@@ -48,6 +52,8 @@ MSE can technically be used for classification, but it fails in practice for two
 
 ---
 
+<br>
+
 **Q5: What is the difference between MAE and MSE, and when would you prefer MAE?**
 
 <details>
@@ -58,6 +64,8 @@ MAE (Mean Absolute Error) averages the absolute differences, while MSE averages 
 </details>
 
 ---
+
+<br>
 
 **Q6: What is Focal Loss and when would you use it?**
 
@@ -83,6 +91,8 @@ Cross-entropy originates from information theory. The entropy of a distribution 
 
 ---
 
+<br>
+
 **Q8: What is label smoothing and how does it modify the cross-entropy loss?**
 
 <details>
@@ -93,6 +103,8 @@ Label smoothing replaces hard 0/1 labels with soft labels: instead of `y = 1`, u
 </details>
 
 ---
+
+<br>
 
 **Q9: How does the choice of loss function interact with class imbalance?**
 

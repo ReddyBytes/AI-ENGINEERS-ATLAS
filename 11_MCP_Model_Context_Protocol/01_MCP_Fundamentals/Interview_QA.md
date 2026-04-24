@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What are the three primitives in MCP?**
 
 <details>
@@ -22,6 +24,8 @@
 > - **Prompts** — reusable, parameterized prompt templates that encode pre-built workflows
 
 </details>
+
+<br>
 
 **Q3: What is the difference between an MCP host and an MCP server?**
 
@@ -45,6 +49,8 @@
 
 </details>
 
+<br>
+
 **Q5: What message format does MCP use and why?**
 
 <details>
@@ -53,6 +59,8 @@
 > MCP uses **JSON-RPC 2.0** as its message format. JSON-RPC is a lightweight remote procedure call protocol using JSON. It was chosen because it is simple, widely understood, language-agnostic, and works well over both stdio (standard input/output) and HTTP-based transports. Every MCP message is a JSON object with a method name, optional parameters, and an ID for matching responses to requests.
 
 </details>
+
+<br>
 
 **Q6: Can a single MCP server work with multiple different AI models or applications?**
 
@@ -76,6 +84,8 @@
 
 </details>
 
+<br>
+
 **Q8: What security model does MCP use for controlling what a server can access?**
 
 <details>
@@ -84,6 +94,8 @@
 > MCP itself is a protocol — it does not enforce security policies. Instead, security is the responsibility of the host and the human user. The host decides which MCP servers to connect to, and the user is expected to only connect to servers they trust. For tool calls that have destructive or irreversible consequences, best practice is for the host to show the user a confirmation dialog before executing. The principle of least privilege should guide server design — each server should only expose the tools it absolutely needs for its purpose.
 
 </details>
+
+<br>
 
 **Q9: How does MCP relate to the broader trend of AI agents? Why does it matter architecturally?**
 

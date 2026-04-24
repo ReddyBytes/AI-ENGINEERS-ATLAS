@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is the difference between absolute scoring and pairwise comparison in LLM-as-judge?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** Absolute scoring rates a single response against defined criteria (e.g., "score helpfulness 1–5"). Pairwise comparison shows the judge two responses (A and B) and asks which is better. Absolute scoring is useful for monitoring quality over time and catching regressions. Pairwise comparison is more reliable (relative judgments are easier than absolute ones) and is better for A/B testing two system versions. The trade-off: pairwise is O(n²) comparisons if you want to rank many options; absolute is O(n).
 
 </details>
+
+<br>
 
 **Q3: What is position bias in LLM-as-judge?**
 
@@ -49,6 +53,8 @@ If calibration is poor, revise the rubric: add more precise definitions, add sco
 
 </details>
 
+<br>
+
 **Q5: What is G-Eval and how does it improve on naive LLM judging?**
 
 <details>
@@ -57,6 +63,8 @@ If calibration is poor, revise the rubric: add more precise definitions, add sco
 **A:** G-Eval (from Geval: NLG Evaluation using GPT-4 with Better Human Alignment, 2023) is a structured evaluation framework that improves on naive "rate this 1–5" prompting. Key components: (1) explicit evaluation criteria with definitions, (2) chain-of-thought reasoning before scoring (ask the judge to think through the criteria first, then score), (3) form-filling format that structures the output, (4) running multiple evaluations and averaging to reduce variance. The chain-of-thought reasoning significantly improves consistency because it forces the judge to articulate its reasoning rather than jumping to a score.
 
 </details>
+
+<br>
 
 **Q6: When should you NOT trust LLM-as-judge?**
 
@@ -92,6 +100,8 @@ If calibration is poor, revise the rubric: add more precise definitions, add sco
 8. **Alerts**: If any dimension drops >5% from baseline, trigger immediate review
 
 </details>
+
+<br>
 
 **Q8: How would you detect and correct for length bias in LLM-as-judge evaluations?**
 

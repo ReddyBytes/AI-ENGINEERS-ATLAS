@@ -13,6 +13,8 @@ A: A subagent is an agent instance spawned by another agent (the orchestrator) t
 
 ---
 
+<br>
+
 **Q2: Why do subagents have their own isolated context window?**
 
 <details>
@@ -23,6 +25,8 @@ A: Isolation is the primary benefit of subagents. When a worker agent processes 
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between spawning a subagent in "foreground" vs "background" mode?**
 
@@ -52,6 +56,8 @@ Leave out: the full conversation history, other workers' tasks, background conte
 
 ---
 
+<br>
+
 **Q5: How does failure isolation work in a subagent system and how should the orchestrator handle worker failures?**
 
 <details>
@@ -62,6 +68,8 @@ A: A subagent failure (exception, timeout, or bad output) should not crash the o
 </details>
 
 ---
+
+<br>
 
 **Q6: When is the overhead of spawning a subagent not worth it?**
 
@@ -117,6 +125,8 @@ The pool limits concurrency to 5 simultaneous workers (rate limit protection) an
 
 ---
 
+<br>
+
 **Q8: How do subagents handle partial work completion — what happens if a subagent is interrupted mid-task?**
 
 <details>
@@ -135,6 +145,8 @@ A: By default, a subagent that is interrupted (timeout, cancellation, exception)
 </details>
 
 ---
+
+<br>
 
 **Q9: Compare the security boundaries between a subagent and a tool in the context of an orchestrator agent.**
 

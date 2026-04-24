@@ -15,6 +15,8 @@ The key property: similar meanings produce similar vectors. "Dog" and "puppy" wi
 
 ---
 
+<br>
+
 **Q2: What is cosine similarity and how is it used with embeddings?**
 
 <details>
@@ -27,6 +29,8 @@ For text embeddings, cosine similarity is the standard metric because it's scale
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between dense and sparse embeddings?**
 
@@ -58,6 +62,8 @@ If you exceed the limit, the API typically truncates the input at the limit and 
 
 ---
 
+<br>
+
 **Q5: How do you choose between different embedding models?**
 
 <details>
@@ -76,6 +82,8 @@ Decision tree: Need to run locally and free? Use sentence-transformers. Producti
 </details>
 
 ---
+
+<br>
 
 **Q6: What is "embedding drift" and why does it matter in production systems?**
 
@@ -107,6 +115,8 @@ A good embedding model generalizes across domains, handles short queries vs long
 
 ---
 
+<br>
+
 **Q8: What is matryoshka representation learning (MRL) and why does text-embedding-3-small use it?**
 
 <details>
@@ -119,6 +129,8 @@ Technically: during training, the loss is computed at multiple truncation points
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you handle multilingual embeddings? What are the tradeoffs?**
 

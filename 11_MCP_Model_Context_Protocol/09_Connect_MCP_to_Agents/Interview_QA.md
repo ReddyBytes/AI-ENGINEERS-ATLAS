@@ -13,6 +13,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is the agent loop, and what role does MCP play in it?**
 
 <details>
@@ -29,6 +31,8 @@
 > MCP plays the role of the "act" step — it is the mechanism by which the agent's decision to "call a tool" becomes an actual action in the real world. The agent's thoughts happen in the AI model; the actual actions happen through MCP tool calls.
 
 </details>
+
+<br>
 
 **Q3: What does it mean for an agent to have "multi-server" tool access?**
 
@@ -67,6 +71,8 @@
 
 </details>
 
+<br>
+
 **Q5: An agent calls a tool and gets an error. How should the agent loop handle this?**
 
 <details>
@@ -86,6 +92,8 @@
 > When the model receives this error result, it can reason about it — it might retry with different arguments, try a different tool to accomplish the same goal, or tell the user that the operation failed and explain why. Returning the error as a readable result is always better than crashing the loop, because the AI can respond to error information intelligently.
 
 </details>
+
+<br>
 
 **Q6: What is the purpose of a maximum step limit in an agent loop, and what is a reasonable default?**
 
@@ -131,6 +139,8 @@
 
 </details>
 
+<br>
+
 **Q8: How do you handle tool call routing when an agent is connected to multiple MCP servers that might have tools with the same name?**
 
 <details>
@@ -147,6 +157,8 @@
 > 4. **Explicit selection in tool descriptions**: If two servers genuinely provide similar capabilities, make their descriptions clearly distinguish them: "Read a LOCAL file from the filesystem" vs "Read a file from GITHUB repository."
 
 </details>
+
+<br>
 
 **Q9: How does connecting agents to MCP differ from using function calling directly in the Claude API? When would you choose one over the other?**
 

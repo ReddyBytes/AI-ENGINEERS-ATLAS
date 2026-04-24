@@ -13,6 +13,8 @@
 
 ---
 
+<br>
+
 **Q2: What is a checkpointer in LangGraph and what does it store?**
 
 <details>
@@ -23,6 +25,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a thread_id and how does it enable conversation memory?**
 
@@ -48,6 +52,8 @@
 
 ---
 
+<br>
+
 **Q5: What is astream_events() and when should you use it instead of stream()?**
 
 <details>
@@ -58,6 +64,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the difference between MemorySaver and SqliteSaver, and when should you use each?**
 
@@ -82,6 +90,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q8: How does checkpointing interact with graph cycles/loops? Does it checkpoint every iteration of a loop?**
 

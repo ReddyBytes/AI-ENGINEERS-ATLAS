@@ -13,6 +13,8 @@ A: An MDP is the mathematical framework for describing sequential decision-makin
 
 ---
 
+<br>
+
 **Q2: What is the Markov property?**
 
 <details>
@@ -23,6 +25,8 @@ A: The Markov property says: the future depends only on the current state, not o
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between the value function V(s) and the action-value function Q(s, a)?**
 
@@ -54,6 +58,8 @@ It says: the value of a state = the immediate expected reward + the discounted v
 
 ---
 
+<br>
+
 **Q5: What is the difference between episodic and continuing tasks?**
 
 <details>
@@ -65,6 +71,8 @@ A: Episodic tasks have a natural end — a terminal state. Each episode starts f
 
 ---
 
+<br>
+
 **Q6: What is the discount factor and what does it control?**
 
 <details>
@@ -75,6 +83,8 @@ A: The discount factor γ (between 0 and 1) determines how much the agent values
 </details>
 
 ---
+
+<br>
 
 **Q7: What is the difference between a deterministic and stochastic MDP?**
 
@@ -109,6 +119,8 @@ The difference is the `max_a` instead of `Σ_a π(a|s)`. The optimality equation
 </details>
 
 ---
+
+<br>
 
 **Q9: What is a POMDP and how does it relate to a standard MDP?**
 

@@ -24,6 +24,8 @@ The client never touches the model directly — it's all abstracted behind the H
 
 ---
 
+<br>
+
 **Q2: What is the system prompt and why is it important?**
 
 <details>
@@ -49,6 +51,8 @@ In Anthropic's Claude API, the system prompt is a top-level parameter. In OpenAI
 </details>
 
 ---
+
+<br>
 
 **Q3: What does max_tokens do? What happens if you set it too low or too high?**
 
@@ -142,6 +146,8 @@ The user experience difference between streaming and non-streaming on a long res
 
 ---
 
+<br>
+
 **Q5: How do you implement multi-turn conversation with an LLM API? What are the limitations?**
 
 <details>
@@ -204,6 +210,8 @@ print(chat("What's my name?"))  # Model can answer because history includes it
 </details>
 
 ---
+
+<br>
 
 **Q6: How does structured output (tool use) work? When should you use it instead of prompting for JSON?**
 
@@ -341,6 +349,8 @@ Note: caching behavior and pricing differ between providers. Check current docum
 
 ---
 
+<br>
+
 **Q8: How do you manage conversation history efficiently to avoid context window overflow?**
 
 <details>
@@ -429,6 +439,8 @@ def manage_history(full_history, max_tokens=60000):
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you design an LLM API integration for production reliability? What are the key engineering considerations?**
 

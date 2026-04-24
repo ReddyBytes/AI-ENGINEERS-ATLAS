@@ -20,6 +20,8 @@ RLHF solves this by introducing a feedback loop: actual humans rate the model's 
 
 ---
 
+<br>
+
 **Q2: What is a reward model and how is it trained?**
 
 <details>
@@ -38,6 +40,8 @@ The reward model is essential because running the RL loop requires scoring milli
 </details>
 
 ---
+
+<br>
 
 **Q3: What is PPO and why is it used in RLHF?**
 
@@ -85,6 +89,8 @@ Mitigation strategies:
 
 ---
 
+<br>
+
 **Q5: What is DPO and how does it differ from PPO-based RLHF?**
 
 <details>
@@ -106,6 +112,8 @@ In practice:
 </details>
 
 ---
+
+<br>
 
 **Q6: What is sycophancy in LLMs and how does RLHF cause it?**
 
@@ -163,6 +171,8 @@ Typical β values: 0.01–0.1. The right value is found empirically and depends 
 
 ---
 
+<br>
+
 **Q8: How does multi-stage RLHF training relate to Constitutional AI, and which limitations of RLHF does CAI address?**
 
 <details>
@@ -187,6 +197,8 @@ Anthropic uses a combination: RLHF for helpfulness and general quality, CAI for 
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you evaluate whether a RLHF-trained model has improved compared to the SFT baseline?**
 

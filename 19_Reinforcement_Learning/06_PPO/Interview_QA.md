@@ -13,6 +13,8 @@ A: PPO solves the training instability of vanilla policy gradient methods. In al
 
 ---
 
+<br>
+
 **Q2: What is the probability ratio in PPO?**
 
 <details>
@@ -23,6 +25,8 @@ A: The probability ratio r_t(θ) = π_θ(a_t|s_t) / π_old(a_t|s_t) compares how
 </details>
 
 ---
+
+<br>
 
 **Q3: What does "clipping" do in PPO?**
 
@@ -55,6 +59,8 @@ Combined: L = -L_CLIP + c₁·L_VF - c₂·H(π)
 
 ---
 
+<br>
+
 **Q5: How does PPO differ from TRPO?**
 
 <details>
@@ -67,6 +73,8 @@ PPO uses a soft approximation: it clips the probability ratio instead of directl
 </details>
 
 ---
+
+<br>
 
 **Q6: What is GAE and why is it used in PPO?**
 
@@ -106,6 +114,8 @@ The typical limit is K = 3–10 epochs. A useful diagnostic: monitor the KL dive
 
 ---
 
+<br>
+
 **Q8: How is PPO applied to RLHF for language models?**
 
 <details>
@@ -122,6 +132,8 @@ The KL penalty (KL(π_θ || π_SFT)) penalizes the LM for diverging from the sup
 </details>
 
 ---
+
+<br>
 
 **Q9: What are the most common failure modes in PPO training?**
 

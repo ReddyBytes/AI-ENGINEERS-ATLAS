@@ -13,6 +13,8 @@ A: (1) Model routing — match each task to the cheapest model capable of doing 
 
 ---
 
+<br>
+
 **Q2: How do you count tokens before making an API call?**
 
 <details>
@@ -24,6 +26,8 @@ A: Use `client.messages.count_tokens()` with the same parameters as your intende
 
 ---
 
+<br>
+
 **Q3: Why do output tokens cost more than input tokens?**
 
 <details>
@@ -34,6 +38,8 @@ A: Output tokens require the model to do autoregressive generation — each toke
 </details>
 
 ---
+
+<br>
 
 **Q4: When should you use Haiku instead of Sonnet?**
 
@@ -59,6 +65,8 @@ A: Build a routing layer that classifies each incoming request by task type and 
 
 ---
 
+<br>
+
 **Q6: What monitoring should you build for cost optimization?**
 
 <details>
@@ -70,6 +78,8 @@ A: Track per-call: `input_tokens`, `output_tokens`, `cache_creation_input_tokens
 
 ---
 
+<br>
+
 **Q7: How does reducing output length affect both cost and quality?**
 
 <details>
@@ -80,6 +90,8 @@ A: Output tokens cost 3-5× more than input tokens, so shorter outputs reduce co
 </details>
 
 ---
+
+<br>
 
 **Q8: Explain the ROI calculation for deciding whether to add prompt caching.**
 
@@ -105,6 +117,8 @@ A: Multi-layer strategy: (1) Routing: Build a classifier (Haiku, <10 tokens outp
 
 ---
 
+<br>
+
 **Q10: When is it more cost-effective to use few-shot examples vs a larger model for quality improvement?**
 
 <details>
@@ -115,6 +129,8 @@ A: Few-shot adds input tokens (cost) but may produce the same quality as a large
 </details>
 
 ---
+
+<br>
 
 **Q11: How do you prevent cost overruns from prompt injection or adversarial long inputs?**
 

@@ -13,6 +13,8 @@ Claude Code's built-in tools are limited to the local file system and shell (Rea
 
 ---
 
+<br>
+
 **Q2: How do you add an MCP server to Claude Code?**
 
 <details>
@@ -35,6 +37,8 @@ Claude Code starts the server process at session start and makes its tools avail
 </details>
 
 ---
+
+<br>
 
 **Q3: What are the three MCP primitives and what does each do?**
 
@@ -60,6 +64,8 @@ stdio transport starts the MCP server as a local process and communicates via st
 
 ---
 
+<br>
+
 **Q5: Name five official Anthropic MCP servers and what they provide.**
 
 <details>
@@ -74,6 +80,8 @@ stdio transport starts the MCP server as a local process and communicates via st
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you connect Claude Code to a PostgreSQL database for a development workflow?**
 
@@ -111,6 +119,8 @@ Without MCP, every AI assistant needs custom integration code for every external
 
 ---
 
+<br>
+
 **Q8: What are the security risks of using community MCP servers?**
 
 <details>
@@ -121,6 +131,8 @@ Community servers run as processes on your machine with your permissions. Risks:
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you build a custom MCP server that exposes an internal company API?**
 

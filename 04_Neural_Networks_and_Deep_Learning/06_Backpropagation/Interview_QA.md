@@ -13,6 +13,8 @@ Backpropagation is the training algorithm for neural networks. After the network
 
 ---
 
+<br>
+
 **Q2: What is the chain rule and why does backpropagation need it?**
 
 <details>
@@ -23,6 +25,8 @@ The chain rule is a rule from calculus for computing derivatives of composed fun
 </details>
 
 ---
+
+<br>
 
 **Q3: What happens to weights after backpropagation?**
 
@@ -48,6 +52,8 @@ Backpropagation is efficient because of the dynamic programming principle. When 
 
 ---
 
+<br>
+
 **Q5: What is vanishing gradient and how does it affect training?**
 
 <details>
@@ -58,6 +64,8 @@ The vanishing gradient problem occurs when gradients become extremely small as t
 </details>
 
 ---
+
+<br>
 
 **Q6: What is gradient clipping and when is it used?**
 
@@ -83,6 +91,8 @@ Manual backpropagation requires you to derive and code the gradient formula for 
 
 ---
 
+<br>
+
 **Q8: What is the difference between backpropagation through time (BPTT) and standard backpropagation?**
 
 <details>
@@ -93,6 +103,8 @@ Standard backpropagation works on a static computation graph with a fixed number
 </details>
 
 ---
+
+<br>
 
 **Q9: In a large model with billions of parameters, is backpropagation still efficient?**
 

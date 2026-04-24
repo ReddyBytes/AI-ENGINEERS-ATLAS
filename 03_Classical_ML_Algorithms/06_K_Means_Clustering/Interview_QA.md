@@ -11,6 +11,8 @@ K-Means is an unsupervised learning algorithm that groups data points into K clu
 
 </details>
 
+<br>
+
 **Q2. Walk me through how K-Means works step by step.**
 
 <details>
@@ -23,6 +25,8 @@ K-Means is an unsupervised learning algorithm that groups data points into K clu
 5. Steps 3 and 4 repeat until the assignments stop changing — the algorithm has converged.
 
 </details>
+
+<br>
 
 **Q3. What is inertia in K-Means?**
 
@@ -46,6 +50,8 @@ The elbow method is a visual technique for choosing K. You run K-Means with K = 
 
 </details>
 
+<br>
+
 **Q5. Why is K-Means sensitive to initialization, and how does k-means++ solve this?**
 
 <details>
@@ -54,6 +60,8 @@ The elbow method is a visual technique for choosing K. You run K-Means with K = 
 K-Means can converge to a local optimum rather than the global one. If the initial centroids happen to start in bad positions (e.g. two centroids in the same actual cluster), the algorithm may settle into a suboptimal solution. k-means++ fixes this with a smarter initialization: instead of placing centroids at random, it places the first one randomly, then chooses each subsequent centroid with probability proportional to its squared distance from the nearest already-chosen centroid. This spreads the initial centroids out, making it much more likely to start near the true cluster centres.
 
 </details>
+
+<br>
 
 **Q6. What are the key limitations of K-Means?**
 
@@ -87,6 +95,8 @@ The right choice depends on cluster shape, data size, and whether you need hard 
 
 </details>
 
+<br>
+
 **Q8. What is the silhouette score and how is it better than just using inertia?**
 
 <details>
@@ -100,6 +110,8 @@ The silhouette score measures both how tight a cluster is internally and how sep
 Values range from -1 to 1. Values near 1 mean the point is well-matched to its cluster. Values near 0 mean it is on the boundary. Negative values mean it might be in the wrong cluster. Inertia is always biased toward more clusters. Silhouette score is more honest — it actually decreases if you add unnecessary clusters.
 
 </details>
+
+<br>
 
 **Q9. How does K-Means relate to the Expectation-Maximization (EM) algorithm?**
 

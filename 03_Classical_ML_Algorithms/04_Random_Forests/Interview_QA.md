@@ -11,6 +11,8 @@ A: A random forest is a collection of decision trees that work together. A singl
 
 </details>
 
+<br>
+
 **Q2: What is bagging and why does it improve performance?**
 
 <details>
@@ -19,6 +21,8 @@ A: A random forest is a collection of decision trees that work together. A singl
 A: Bagging (Bootstrap Aggregating) trains each tree on a randomly sampled subset of the training data, drawn with replacement. This means some training examples appear multiple times in a given tree's training set, and some not at all. Each tree ends up with slightly different training data, so it learns slightly different patterns and makes different errors. When you average hundreds of trees with different errors, those individual errors cancel out. What remains is the consistent signal present across all trees. Bagging reduces variance without significantly increasing bias — the ensemble is more stable than any individual model.
 
 </details>
+
+<br>
 
 **Q3: How does a random forest make predictions for classification vs regression?**
 
@@ -42,6 +46,8 @@ A: When bagging trains each tree, about 37% of training examples are not selecte
 
 </details>
 
+<br>
+
 **Q5: How does feature randomness (max_features) in random forests help reduce overfitting?**
 
 <details>
@@ -50,6 +56,8 @@ A: When bagging trains each tree, about 37% of training examples are not selecte
 A: Without feature randomness, all trees would ask the same first question — the single most informative feature in the full dataset. This would create highly correlated trees that make the same mistakes. By limiting each split to a random subset of features (typically sqrt(n_features) for classification), trees are forced to find the best split using different combinations of features. This creates diverse trees with different strengths and blind spots. When diverse trees vote together, their uncorrelated errors cancel out much more effectively than correlated trees' errors would. Feature randomness is what makes random forests truly random and what separates them from simple bagged decision trees.
 
 </details>
+
+<br>
 
 **Q6: What is feature importance in random forests and what are its limitations?**
 
@@ -73,6 +81,8 @@ A: Both are tree-based ensembles but work differently. Random forests train tree
 
 </details>
 
+<br>
+
 **Q8: What are SHAP values and how do they extend feature importance from random forests?**
 
 <details>
@@ -81,6 +91,8 @@ A: Both are tree-based ensembles but work differently. Random forests train tree
 A: SHAP (SHapley Additive exPlanations) values provide per-prediction feature attributions rather than global averages. Based on game theory (Shapley values), SHAP calculates the marginal contribution of each feature for each specific prediction by considering all possible subsets of features. For a specific house price prediction, SHAP might say: "this prediction of $320,000 was driven by +$50,000 from location, +$30,000 from size, -$20,000 from age, and -$5,000 from condition." Standard random forest feature importance only gives global averages. SHAP values are more useful for explaining individual predictions and debugging model behavior. TreeSHAP is an efficient implementation specifically for tree-based models.
 
 </details>
+
+<br>
 
 **Q9: How would you reduce the prediction latency of a random forest in a production system?**
 

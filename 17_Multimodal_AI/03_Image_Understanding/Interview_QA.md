@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is visual grounding?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** Visual grounding is the task of locating a specific object or region in an image given a text description. Input: an image and a phrase like "the person wearing the blue jacket on the right." Output: bounding box coordinates identifying where that person is in the image. It's harder than simple object detection because it requires understanding attributes, relationships, and disambiguation.
 
 </details>
+
+<br>
 
 **Q3: How is AI-based OCR different from traditional OCR?**
 
@@ -48,6 +52,8 @@ The question effectively serves as attention guidance — "how many chairs?" mak
 
 </details>
 
+<br>
+
 **Q5: What are the main approaches to document understanding?**
 
 <details>
@@ -60,6 +66,8 @@ The question effectively serves as attention guidance — "how many chairs?" mak
 For most production use cases, approach 3 is now preferred due to flexibility and accuracy, despite higher cost per call.
 
 </details>
+
+<br>
 
 **Q6: What is image captioning and how does it differ from VQA?**
 
@@ -93,6 +101,8 @@ In practice, with modern VLMs you implement both by prompting: "Describe this im
 
 </details>
 
+<br>
+
 **Q8: How would you build a production-grade receipt extraction system?**
 
 <details>
@@ -109,6 +119,8 @@ In practice, with modern VLMs you implement both by prompting: "Describe this im
 8. **Cost monitoring**: Track per-call cost, batch process overnight for non-urgent receipts
 
 </details>
+
+<br>
 
 **Q9: Why are VLMs still unreliable for spatial reasoning tasks?**
 

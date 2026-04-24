@@ -17,6 +17,8 @@ Percentiles tell the truth: P99 of 10,000ms means "1 in 100 requests is terrible
 
 ---
 
+<br>
+
 **Q2: What is quantization in the context of model inference, and what are its tradeoffs?**
 
 <details>
@@ -34,6 +36,8 @@ The key is: quantize by default, then run your evaluation suite to check whether
 </details>
 
 ---
+
+<br>
 
 **Q3: How does request batching reduce latency at the system level, even though it might add per-request wait time?**
 
@@ -75,6 +79,8 @@ Requirements: the draft model must be from the same model family as the verify m
 
 ---
 
+<br>
+
 **Q5: What is the KV cache in LLMs, and how does prompt caching use it to reduce latency?**
 
 <details>
@@ -91,6 +97,8 @@ Result: up to 90% cost reduction and significant latency reduction for the cache
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you go about diagnosing a latency regression after deploying a new model version?**
 
@@ -134,6 +142,8 @@ vLLM, TGI, and TensorRT-LLM all implement continuous batching. This is one of th
 
 ---
 
+<br>
+
 **Q8: Describe the memory hierarchy of a modern GPU inference stack and how it impacts latency.**
 
 <details>
@@ -157,6 +167,8 @@ For a 70B float16 model: 140GB of weights. They must fit in VRAM. If they don't,
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you design a latency optimization strategy for an LLM application with P99 > 15 seconds that needs to reach P99 < 1 second?**
 

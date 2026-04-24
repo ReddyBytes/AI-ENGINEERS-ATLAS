@@ -23,6 +23,8 @@ It's like the difference between cooking a complex dish with a recipe vs. just i
 
 ---
 
+<br>
+
 **Q2: What is Chain-of-Thought prompting and how does it help with reasoning?**
 
 <details>
@@ -47,6 +49,8 @@ For agents, CoT is often built into the prompt: "Think step by step before takin
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the Plan-and-Execute pattern?**
 
@@ -104,6 +108,8 @@ This allows the agent to explore the "solution space" rather than committing to 
 
 ---
 
+<br>
+
 **Q5: How does BabyAGI-style task management work?**
 
 <details>
@@ -126,6 +132,8 @@ This is more powerful for open-ended exploration, but harder to control. The age
 </details>
 
 ---
+
+<br>
 
 **Q6: What is replanning and when should an agent do it?**
 
@@ -213,6 +221,8 @@ class PlanAndExecuteAgent:
 
 ---
 
+<br>
+
 **Q8: How do you evaluate the quality of an agent's plan?**
 
 <details>
@@ -235,6 +245,8 @@ Automated evaluation approaches:
 </details>
 
 ---
+
+<br>
 
 **Q9: Compare Plan-and-Execute with standard ReAct agents for a complex research task.**
 

@@ -13,6 +13,8 @@ An MLP processes each input independently — it has no memory of previous input
 
 ---
 
+<br>
+
 **Q2: What is the hidden state in an RNN?**
 
 <details>
@@ -23,6 +25,8 @@ The hidden state h_t is a vector of numbers that summarizes the information seen
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the vanishing gradient problem in RNNs?**
 
@@ -48,6 +52,8 @@ An LSTM adds a cell state c_t — a second memory vector that flows through time
 
 ---
 
+<br>
+
 **Q5: What is bidirectional RNN and when would you use it?**
 
 <details>
@@ -58,6 +64,8 @@ A standard RNN processes a sequence from left to right — at time t, it only ha
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the difference between LSTM and GRU?**
 
@@ -83,6 +91,8 @@ BPTT is the application of backpropagation to an unrolled RNN. An RNN processing
 
 ---
 
+<br>
+
 **Q8: Why have Transformers largely replaced RNNs for NLP tasks?**
 
 <details>
@@ -93,6 +103,8 @@ Transformers (introduced 2017) address the fundamental weaknesses of RNNs. First
 </details>
 
 ---
+
+<br>
 
 **Q9: What is a Seq2Seq model and how does the encoder-decoder architecture work?**
 

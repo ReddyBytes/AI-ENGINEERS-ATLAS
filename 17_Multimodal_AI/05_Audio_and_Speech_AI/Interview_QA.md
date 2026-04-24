@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is TTS and what are the main providers?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** TTS (Text-to-Speech) converts written text to spoken audio. Main providers: OpenAI TTS (voices: alloy, echo, fable, onyx, nova, shimmer — fast and cheap), ElevenLabs (highest quality, voice cloning, slightly more expensive), Google Cloud TTS (WaveNet voices, cheap at scale), Azure TTS (extensive voice library). ElevenLabs is the quality leader for realistic speech; OpenAI TTS is the best value for simple applications.
 
 </details>
+
+<br>
 
 **Q3: What is a voice agent pipeline?**
 
@@ -42,6 +46,8 @@
 
 </details>
 
+<br>
+
 **Q5: What are the main trade-offs between Whisper model sizes?**
 
 <details>
@@ -54,6 +60,8 @@
 For production via API (OpenAI Whisper API), always gets large-v3. For local deployment, choose based on hardware and latency requirements.
 
 </details>
+
+<br>
 
 **Q6: What are the main latency challenges in voice agents and how do you address them?**
 
@@ -85,6 +93,8 @@ Total: 3–10s per turn, which feels sluggish. Solutions:
 
 </details>
 
+<br>
+
 **Q8: How does Whisper handle multilingual audio and translation?**
 
 <details>
@@ -93,6 +103,8 @@ Total: 3–10s per turn, which feels sluggish. Solutions:
 **A:** Whisper was trained as a multitask model with four tasks simultaneously: transcribe in original language, translate to English, detect language, and detect non-speech. The decoder is conditioned with special task tokens: `<|transcribe|>` or `<|translate|>`. For translation, the model has learned to internally understand content across 99 languages and map it to English output in one step — no separate translation step needed. Language detection is also automatic — you don't need to specify the language. This makes Whisper especially powerful for multilingual environments.
 
 </details>
+
+<br>
 
 **Q9: System design question: Design a real-time voice meeting assistant that transcribes, diarizes (identifies who is speaking), and summarizes.**
 

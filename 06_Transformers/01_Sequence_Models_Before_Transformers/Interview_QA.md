@@ -17,6 +17,8 @@ The problem is that as sequences get longer, earlier information gets diluted. T
 
 ---
 
+<br>
+
 **Q2. What is the vanishing gradient problem?**
 
 <details>
@@ -31,6 +33,8 @@ The practical consequence: the model can't learn from context that appeared many
 </details>
 
 ---
+
+<br>
 
 **Q3. What is an LSTM and how does it fix the vanishing gradient problem?**
 
@@ -67,6 +71,8 @@ Key limitation: the fixed-size context vector is a bottleneck. For a 100-word in
 
 ---
 
+<br>
+
 **Q5. What is gradient clipping and why is it used with RNNs?**
 
 <details>
@@ -81,6 +87,8 @@ Gradient clipping is a training-time trick, not an architectural fix. Vanishing 
 </details>
 
 ---
+
+<br>
 
 **Q6. What specific problem did attention mechanisms solve in RNN-based seq2seq models?**
 
@@ -118,6 +126,8 @@ These limitations mean LSTM training is much slower per token than transformer t
 
 ---
 
+<br>
+
 **Q8. What is teacher forcing and why is it used in RNN training?**
 
 <details>
@@ -132,6 +142,8 @@ The downside is exposure bias: the model never sees its own mistakes during trai
 </details>
 
 ---
+
+<br>
 
 **Q9. How do bidirectional RNNs (BiRNNs) work and when should you use them?**
 

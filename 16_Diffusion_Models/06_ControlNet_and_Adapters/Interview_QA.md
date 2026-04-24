@@ -13,6 +13,8 @@ A: Standard diffusion models with text prompts give you creative control but no 
 
 ---
 
+<br>
+
 **Q2: What is LoRA and why is it used for diffusion model fine-tuning?**
 
 <details>
@@ -29,6 +31,8 @@ For diffusion, LoRA enables: teaching a model a specific art style, a specific c
 </details>
 
 ---
+
+<br>
 
 **Q3: What are "zero convolutions" in ControlNet and why are they important?**
 
@@ -62,6 +66,8 @@ The original U-Net decoder now has access to two sources of information: its own
 
 ---
 
+<br>
+
 **Q5: What is the difference between using a depth ControlNet and using Canny edge ControlNet?**
 
 <details>
@@ -78,6 +84,8 @@ In practice: use depth for 3D composition control, Canny for shape and outline c
 </details>
 
 ---
+
+<br>
 
 **Q6: Explain how IP-Adapter adds image conditioning without modifying the original model.**
 
@@ -119,6 +127,8 @@ The zero convolutions make this safe: at initialization, they add zero signal. I
 
 ---
 
+<br>
+
 **Q8: How would you implement a custom ControlNet preprocessing pipeline for a non-standard conditioning input (e.g., thermal camera images)?**
 
 <details>
@@ -144,6 +154,8 @@ The key challenge is ensuring the thermal features encode enough spatial informa
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the trade-off between using DreamBooth and LoRA for fine-tuning, and when would you choose each?**
 

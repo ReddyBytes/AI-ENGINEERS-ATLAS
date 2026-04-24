@@ -27,6 +27,8 @@ With `Trainer`, you provide the model, training arguments, and datasets, then ca
 
 ---
 
+<br>
+
 **Q2: What is `TrainingArguments` and why is it important to keep it as a separate object?**
 
 <details>
@@ -53,6 +55,8 @@ args = TrainingArguments.from_json_file("training_args.json")
 </details>
 
 ---
+
+<br>
 
 **Q3: Explain gradient accumulation. Why would you use it and what setting controls it?**
 
@@ -112,6 +116,8 @@ The Trainer uses these metrics in two ways:
 
 ---
 
+<br>
+
 **Q5: How does mixed precision training work in the Trainer and when should you use `fp16` vs `bf16`?**
 
 <details>
@@ -134,6 +140,8 @@ The Trainer uses these metrics in two ways:
 </details>
 
 ---
+
+<br>
 
 **Q6: What is a `DataCollator` and why is `DataCollatorWithPadding` recommended over always padding to max_length at tokenization time?**
 
@@ -198,6 +206,8 @@ The Trainer automatically adjusts the effective batch size: with `per_device_tra
 
 ---
 
+<br>
+
 **Q8: How do you resume a training run from a checkpoint if training was interrupted?**
 
 <details>
@@ -234,6 +244,8 @@ trainer.train(resume_from_checkpoint=True)
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the difference between using `Trainer.train()` and writing your own training loop? When would you skip `Trainer` entirely?**
 

@@ -23,6 +23,8 @@ The key insight is that this is entirely sequential and autoregressive — each 
 
 ---
 
+<br>
+
 **Q2: What is temperature in an LLM? How would you explain it to someone non-technical?**
 
 <details>
@@ -39,6 +41,8 @@ In practice: use low temperature for factual answers and code, high temperature 
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between top-p and top-k sampling?**
 
@@ -85,6 +89,8 @@ For now, autoregressive sampling remains dominant for high-quality text generati
 
 ---
 
+<br>
+
 **Q5: What problems can arise from greedy decoding? Why don't models always use it?**
 
 <details>
@@ -102,6 +108,8 @@ Greedy decoding always picks the highest-probability token at each step. This so
 </details>
 
 ---
+
+<br>
 
 **Q6: How does the generation process scale in terms of compute? What is the KV cache?**
 
@@ -150,6 +158,8 @@ This manifests as:
 
 ---
 
+<br>
+
 **Q8: Explain speculative decoding. Why does it improve throughput without sacrificing quality?**
 
 <details>
@@ -174,6 +184,8 @@ Quality is maintained because rejected tokens are always replaced by samples fro
 </details>
 
 ---
+
+<br>
 
 **Q9: How does the model handle long contexts? What breaks down at very long context lengths?**
 

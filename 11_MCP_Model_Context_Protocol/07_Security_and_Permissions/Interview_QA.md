@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: Why should you never hardcode API keys or passwords in an MCP server file?**
 
 <details>
@@ -19,6 +21,8 @@
 > Source code files can be accidentally committed to version control (git), shared with colleagues, deployed to servers, or discovered if a system is compromised. An API key hardcoded in a file is permanently exposed once the file is shared. Instead, credentials should always come from environment variables — the server reads `os.environ.get("API_KEY")` at runtime. The actual key value lives in the deployment config (like Claude Desktop's `"env"` section) or a secrets manager, not in the code itself.
 
 </details>
+
+<br>
 
 **Q3: What does "human-in-the-loop" mean for MCP tool calls?**
 
@@ -48,6 +52,8 @@
 
 </details>
 
+<br>
+
 **Q5: What is prompt injection, and how does it affect MCP security?**
 
 <details>
@@ -58,6 +64,8 @@
 > In MCP, the risk is that the AI reads a resource (file, web page, database record) containing injected instructions and then makes dangerous tool calls. Defenses include: confirming dangerous tool calls with the user, designing tools that require explicit user intent (not just AI judgment), and validating that tool arguments match expected patterns.
 
 </details>
+
+<br>
 
 **Q6: Should an MCP server ever validate the arguments it receives from the AI model, even though the model was given a JSON Schema?**
 
@@ -126,6 +134,8 @@
 
 </details>
 
+<br>
+
 **Q8: An attacker gains control of an MCP server that your company's Claude deployment connects to. What can they do, and how does good security design limit the damage?**
 
 <details>
@@ -145,6 +155,8 @@
 > - **Minimal permissions**: Run the server process with minimal OS user privileges
 
 </details>
+
+<br>
 
 **Q9: How do you approach security for an MCP server that executes arbitrary code (a code execution server)?**
 

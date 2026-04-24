@@ -13,6 +13,8 @@ A subagent is a new Claude Code instance spawned by the main agent to handle a s
 
 ---
 
+<br>
+
 **Q2: Why would you use subagents instead of having one agent do everything?**
 
 <details>
@@ -23,6 +25,8 @@ Two main reasons: speed and context. Speed: independent tasks can run in paralle
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a worktree and why is it useful with subagents?**
 
@@ -48,6 +52,8 @@ Everything it needs — subagents don't share context with the parent. Include: 
 
 ---
 
+<br>
+
 **Q5: What are background agents and when would you use them?**
 
 <details>
@@ -58,6 +64,8 @@ Background agents are subagents that run without blocking the main session. You 
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you decide whether to parallelize a task across subagents or handle it in the main agent?**
 
@@ -83,6 +91,8 @@ Every Claude model has a fixed context window (e.g., 200K tokens for Claude Sonn
 
 ---
 
+<br>
+
 **Q8: What are the rate limit and cost implications of running many parallel subagents?**
 
 <details>
@@ -93,6 +103,8 @@ Each subagent makes its own API calls, consuming tokens and hitting rate limits 
 </details>
 
 ---
+
+<br>
 
 **Q9: How does the subagent pattern in Claude Code relate to multi-agent architectures in AI systems?**
 

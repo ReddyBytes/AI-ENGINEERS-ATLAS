@@ -17,6 +17,8 @@ This requires Node.js 18 or higher. After installation, the `claude` binary is a
 
 ---
 
+<br>
+
 **Q2: What are the two ways to authenticate Claude Code?**
 
 <details>
@@ -27,6 +29,8 @@ OAuth (recommended for individuals): run `claude` on first launch, which opens a
 </details>
 
 ---
+
+<br>
 
 **Q3: What is CLAUDE.md and why should you create one before first use?**
 
@@ -52,6 +56,8 @@ Claude Code loads config from four levels: global `~/.claude/CLAUDE.md`, global 
 
 ---
 
+<br>
+
 **Q5: What is `settings.json` used for and what are its key fields?**
 
 <details>
@@ -62,6 +68,8 @@ Claude Code loads config from four levels: global `~/.claude/CLAUDE.md`, global 
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you set up Claude Code for a CI/CD pipeline where there's no interactive browser?**
 
@@ -90,6 +98,8 @@ Check `CLAUDE.md` and `.claude/settings.json` into the project's Git repository.
 
 ---
 
+<br>
+
 **Q8: What security considerations apply when configuring `settings.json`?**
 
 <details>
@@ -100,6 +110,8 @@ Never store API keys directly in `settings.json` — use `"${ANTHROPIC_API_KEY}"
 </details>
 
 ---
+
+<br>
 
 **Q9: What happens during `npm install -g @anthropic-ai/claude-code` behind the scenes?**
 

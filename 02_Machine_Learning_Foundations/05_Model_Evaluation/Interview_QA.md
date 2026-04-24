@@ -11,6 +11,8 @@ A: A confusion matrix is a 2x2 table that breaks down a classifier's predictions
 
 </details>
 
+<br>
+
 **Q2: Why is accuracy a bad metric for imbalanced datasets? Give an example.**
 
 <details>
@@ -19,6 +21,8 @@ A: A confusion matrix is a 2x2 table that breaks down a classifier's predictions
 A: Consider a disease affecting 1% of people. A model that always predicts "no disease" has 99% accuracy — but it catches zero actual cases. Accuracy rewards predicting the majority class. On imbalanced datasets it looks good while being completely useless for the rare class. You need metrics that specifically measure performance on the minority class, like recall (how many real positives were caught) or F1-score.
 
 </details>
+
+<br>
 
 **Q3: What is the difference between precision and recall?**
 
@@ -42,6 +46,8 @@ A: Optimize for precision when false alarms are costly: a spam filter that incor
 
 </details>
 
+<br>
+
 **Q5: What is the F1 score and why use it instead of just looking at precision and recall separately?**
 
 <details>
@@ -50,6 +56,8 @@ A: Optimize for precision when false alarms are costly: a spam filter that incor
 A: F1 is the harmonic mean of precision and recall: 2PR/(P+R). It gives you a single number that represents both. The key property of the harmonic mean is that it is only high when BOTH values are high — a high precision with near-zero recall gives a near-zero F1, and vice versa. This makes it impossible for one good metric to hide a bad one. F1 is particularly useful when you need to compare models and want a balanced single-number summary.
 
 </details>
+
+<br>
 
 **Q6: What is ROC-AUC and when is it useful?**
 
@@ -73,6 +81,8 @@ A: You extend the confusion matrix to NxN for N classes. For metrics, you can ag
 
 </details>
 
+<br>
+
 **Q8: What is calibration and how does it differ from accuracy?**
 
 <details>
@@ -81,6 +91,8 @@ A: You extend the confusion matrix to NxN for N classes. For metrics, you can ag
 A: A model is calibrated if its probability outputs match real-world frequencies. If a calibrated model says "70% probability of rain" for 100 different days, it should rain on roughly 70 of them. Accuracy measures whether predictions are correct. Calibration measures whether predicted probabilities are trustworthy. A model can have high accuracy but be poorly calibrated — for example, it might be right most of the time but say 95% confidence for predictions that are actually only correct 60% of the time. Calibration matters when downstream decisions depend on the probability (like risk scoring or ranking). Techniques for improving calibration include Platt scaling and isotonic regression.
 
 </details>
+
+<br>
 
 **Q9: How do you evaluate a model when you have a very small test set and results are noisy?**
 

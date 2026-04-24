@@ -13,6 +13,8 @@ A: DQN (Deep Q-Network) is Q-Learning where the Q-table is replaced by a neural 
 
 ---
 
+<br>
+
 **Q2: What is experience replay and why is it needed?**
 
 <details>
@@ -25,6 +27,8 @@ It's needed because consecutive game frames are highly correlated — frames 1 a
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the target network and why is it needed?**
 
@@ -62,6 +66,8 @@ A:
 
 ---
 
+<br>
+
 **Q5: What is the overestimation problem in DQN and how does Double DQN fix it?**
 
 <details>
@@ -78,6 +84,8 @@ This simple change significantly reduces overestimation bias and improves perfor
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the difference between DQN and policy gradient methods?**
 
@@ -108,6 +116,8 @@ Convolutional layers are used because the Q-value should be spatially invariant 
 
 ---
 
+<br>
+
 **Q8: What are prioritized experience replay and its trade-offs?**
 
 <details>
@@ -124,6 +134,8 @@ Trade-offs:
 </details>
 
 ---
+
+<br>
 
 **Q9: What are the main failure modes of DQN training?**
 

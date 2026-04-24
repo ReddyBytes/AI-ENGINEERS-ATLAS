@@ -22,6 +22,8 @@ Instruction tuning teaches the model that: when a user gives an instruction or a
 
 ---
 
+<br>
+
 **Q2: What is instruction tuning? How does it differ from standard fine-tuning?**
 
 <details>
@@ -38,6 +40,8 @@ Key difference: **generalization across tasks**. A model domain fine-tuned on me
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the FLAN paper and why was it important?**
 
@@ -95,6 +99,8 @@ Self-instruct is best for rapid prototyping and resource-constrained settings. P
 
 ---
 
+<br>
+
 **Q5: What is the difference between instruction tuning and RLHF? Why is both needed?**
 
 <details>
@@ -122,6 +128,8 @@ SFT teaches the model how to respond. RLHF teaches the model what humans actuall
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you create a high-quality instruction dataset? What makes the difference between good and bad training data?**
 
@@ -188,6 +196,8 @@ Task contamination is when examples from benchmark test sets appear in the instr
 
 ---
 
+<br>
+
 **Q8: How does training on chain-of-thought examples improve reasoning in instruction-tuned models?**
 
 <details>
@@ -211,6 +221,8 @@ Including CoT examples in the instruction tuning dataset improved performance on
 </details>
 
 ---
+
+<br>
 
 **Q9: What happened with InstructGPT? How did it demonstrate that a smaller instruction-tuned model can beat a larger base model?**
 

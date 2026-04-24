@@ -15,6 +15,8 @@ We need multiple heads because a single attention distribution has to simultaneo
 
 ---
 
+<br>
+
 **Q2. How does multi-head attention relate to single-head attention?**
 
 <details>
@@ -27,6 +29,8 @@ The final step concatenates all h head outputs (each of dimension d_k) into one 
 </details>
 
 ---
+
+<br>
 
 **Q3. What happens to the dimension per head as you add more heads?**
 
@@ -64,6 +68,8 @@ These specializations emerge from training, not from any explicit labeling. The 
 
 ---
 
+<br>
+
 **Q5. What is the W_O projection matrix and why is it important?**
 
 <details>
@@ -78,6 +84,8 @@ Its role is to learn how to mix the different heads' contributions. Some downstr
 </details>
 
 ---
+
+<br>
 
 **Q6. How does the number of attention heads affect model performance?**
 
@@ -118,6 +126,8 @@ GQA is used in Llama 2/3, Mistral, Falcon, and most modern efficient LLMs. The e
 
 ---
 
+<br>
+
 **Q8. Can you prune attention heads from a trained transformer without retraining?**
 
 <details>
@@ -139,6 +149,8 @@ Pruning heads reduces inference cost proportionally — if you remove half the h
 </details>
 
 ---
+
+<br>
 
 **Q9. How does flash attention make multi-head attention faster without changing the math?**
 

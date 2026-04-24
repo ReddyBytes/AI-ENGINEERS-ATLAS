@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is the grounding problem in multimodal agents?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** Grounding is the challenge of connecting a language description ("click the Submit button") to the actual pixel coordinates on a screen. The agent might understand "Submit button" semantically but needs to know exactly where it is (e.g., x=450, y=820) to click it. This is harder than it sounds because UI layouts vary, buttons aren't always where you'd expect, and vision models aren't precise at outputting exact coordinates.
 
 </details>
+
+<br>
 
 **Q3: What is a voice agent and how does it work?**
 
@@ -42,6 +46,8 @@
 
 </details>
 
+<br>
+
 **Q5: What are the main latency and cost challenges in computer use agents?**
 
 <details>
@@ -50,6 +56,8 @@
 **A:** Each step in a computer use agent involves: screenshot capture (~100ms) + vision API call (1–5 seconds) + action execution (~100ms). A 20-step task takes 20–120 seconds. Cost: at ~$0.02–0.05 per screenshot (depends on resolution and model), a 20-step task costs $0.40–$1.00. Optimization strategies: (1) resize screenshots to 1280×720 (saves ~50% tokens), (2) use efficient models like Claude Haiku for perception, (3) cache UI state when it hasn't changed, (4) decompose tasks into parallel sub-tasks where possible.
 
 </details>
+
+<br>
 
 **Q6: What safety considerations are critical for computer use agents?**
 
@@ -87,6 +95,8 @@
 
 </details>
 
+<br>
+
 **Q8: Compare DOM-based web agents vs pure vision-based web agents. When would you use each?**
 
 <details>
@@ -98,6 +108,8 @@
 - **Hybrid approach** (recommended): Use DOM for web tasks when possible (precise + cheap), fall back to vision when DOM fails or for non-web interfaces. Use Set-of-Marks to bridge visual understanding with programmatic element IDs.
 
 </details>
+
+<br>
 
 **Q9: System design question: Design a voice customer support agent that handles order tracking, returns, and refunds.**
 

@@ -11,6 +11,8 @@ A: Training is the learning phase — the model processes labeled data, makes pr
 
 </details>
 
+<br>
+
 **Q2: When you use a chatbot like ChatGPT, is that training or inference?**
 
 <details>
@@ -19,6 +21,8 @@ A: Training is the learning phase — the model processes labeled data, makes pr
 A: That is inference. The model was trained by OpenAI before you ever accessed it. When you send a message, the frozen model processes your input and generates a response. Your conversation does not update the model's weights or make it smarter.
 
 </details>
+
+<br>
 
 **Q3: Why is training so much more expensive than inference?**
 
@@ -42,6 +46,8 @@ A: An epoch is one complete pass through the entire training dataset. How many y
 
 </details>
 
+<br>
+
 **Q5: What is the difference between batch gradient descent, stochastic gradient descent, and mini-batch gradient descent?**
 
 <details>
@@ -50,6 +56,8 @@ A: An epoch is one complete pass through the entire training dataset. How many y
 A: Batch GD computes the gradient on the full dataset before updating weights — accurate but slow for large datasets. Stochastic GD updates weights after each individual example — fast but very noisy. Mini-batch GD (the standard) processes small batches (e.g. 32 or 128 examples) at a time — balances speed and stability. Mini-batch is what virtually all modern training uses.
 
 </details>
+
+<br>
 
 **Q6: What is fine-tuning and how does it differ from training from scratch?**
 
@@ -73,6 +81,8 @@ A: Several dimensions matter: latency (how fast each request completes), through
 
 </details>
 
+<br>
+
 **Q8: How does the training/inference distinction relate to the concept of train/test split?**
 
 <details>
@@ -81,6 +91,8 @@ A: Several dimensions matter: latency (how fast each request completes), through
 A: The train/test split exists to simulate the training-inference divide during development. You train on the training set (model updates weights), then evaluate on the test set in "inference mode" (no weight updates) to measure real-world performance. The test set must never be seen during training — otherwise you are evaluating on data the model already learned from, which gives falsely optimistic accuracy. The test set mimics real inference conditions.
 
 </details>
+
+<br>
 
 **Q9: What are the risks of "training-serving skew" and how do you address it?**
 

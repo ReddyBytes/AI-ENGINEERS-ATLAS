@@ -13,6 +13,8 @@ A: You include an `image` content block in the user message's `content` array. T
 
 ---
 
+<br>
+
 **Q2: What image formats does Claude support?**
 
 <details>
@@ -24,6 +26,8 @@ A: JPEG (`.jpg`/`.jpeg`), PNG (`.png`), GIF (`.gif`, first frame only), and WebP
 
 ---
 
+<br>
+
 **Q3: What is the difference between `base64` and `url` source types for images?**
 
 <details>
@@ -34,6 +38,8 @@ A: With `base64`, you read the image file, encode its bytes as base64, and inclu
 </details>
 
 ---
+
+<br>
 
 **Q4: Can you send multiple images in a single request?**
 
@@ -59,6 +65,8 @@ A: Images are divided into 512×512 pixel tiles. Each tile costs approximately 1
 
 ---
 
+<br>
+
 **Q6: What order should you put images and text in the content array?**
 
 <details>
@@ -70,6 +78,8 @@ A: For single-image analysis, place the image block first, then the question tex
 
 ---
 
+<br>
+
 **Q7: What are practical limitations of Claude's vision capability?**
 
 <details>
@@ -80,6 +90,8 @@ A: (1) No video — only static images (or first frame of GIFs). (2) No image ge
 </details>
 
 ---
+
+<br>
 
 **Q8: How would you build an OCR pipeline using Claude's vision API?**
 
@@ -105,6 +117,8 @@ A: Architecture: (1) Image upload endpoint receives photo, validates format and 
 
 ---
 
+<br>
+
 **Q10: How does vision interact with tool use? Describe a scenario where you'd combine both.**
 
 <details>
@@ -115,6 +129,8 @@ A: Claude can analyze an image and decide to call tools based on what it sees. E
 </details>
 
 ---
+
+<br>
 
 **Q11: What strategies reduce image token costs in a high-volume production system?**
 

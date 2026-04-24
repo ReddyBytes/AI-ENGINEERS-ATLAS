@@ -13,6 +13,8 @@ Hooks are shell commands that fire automatically at specific points in the tool-
 
 ---
 
+<br>
+
 **Q2: What are the four hook events and when does each fire?**
 
 <details>
@@ -23,6 +25,8 @@ Hooks are shell commands that fire automatically at specific points in the tool-
 </details>
 
 ---
+
+<br>
 
 **Q3: How do you configure a hook that auto-formats Python files after Claude edits them?**
 
@@ -66,6 +70,8 @@ A blocking hook (`"blocking": true`) runs PreToolUse and can prevent the tool fr
 
 ---
 
+<br>
+
 **Q5: What environment variables are available to hook scripts?**
 
 <details>
@@ -76,6 +82,8 @@ Key variables: `CLAUDE_TOOL_NAME` (which tool is being used), `CLAUDE_TOOL_INPUT
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you use hooks to create a complete audit trail of Claude's actions?**
 
@@ -136,6 +144,8 @@ exit 0
 
 ---
 
+<br>
+
 **Q8: What are the performance implications of hooks and how do you design them responsibly?**
 
 <details>
@@ -146,6 +156,8 @@ Every hook adds synchronous latency to the tool loop. A hook that takes 500ms me
 </details>
 
 ---
+
+<br>
 
 **Q9: How do hooks differ from CLAUDE.md instructions and why would you choose one over the other?**
 

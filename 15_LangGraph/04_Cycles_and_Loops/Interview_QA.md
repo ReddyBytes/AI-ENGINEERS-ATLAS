@@ -13,6 +13,8 @@
 
 ---
 
+<br>
+
 **Q2: How do you create a cycle in LangGraph?**
 
 <details>
@@ -23,6 +25,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q3: What is recursion_limit and why does it exist?**
 
@@ -48,6 +52,8 @@
 
 ---
 
+<br>
+
 **Q5: What are the two types of loop termination conditions and why do you need both?**
 
 <details>
@@ -58,6 +64,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q6: If a graph has 3 nodes per loop iteration and recursion_limit is set to 25, how many full loop iterations can it run?**
 
@@ -82,6 +90,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q8: What is the difference between using recursion_limit as the primary loop termination vs as a safety net, and why does it matter?**
 

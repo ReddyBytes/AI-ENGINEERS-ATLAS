@@ -17,6 +17,8 @@ Positional encoding adds position information directly to the word embeddings be
 
 ---
 
+<br>
+
 **Q2. How does sine/cosine positional encoding work at an intuitive level?**
 
 <details>
@@ -31,6 +33,8 @@ When you look at the full vector for position 42, the pattern of high-frequency 
 </details>
 
 ---
+
+<br>
 
 **Q3. How is positional encoding added to word embeddings?**
 
@@ -68,6 +72,8 @@ Benefits: better at capturing relationships like subject-verb distance, negation
 
 ---
 
+<br>
+
 **Q5. What is RoPE (Rotary Position Embedding) and why is it popular in modern LLMs?**
 
 <details>
@@ -86,6 +92,8 @@ Why popular:
 </details>
 
 ---
+
+<br>
 
 **Q6. Can a transformer be trained without positional encoding?**
 
@@ -126,6 +134,8 @@ These techniques allowed models like Llama 2 (trained at 4k context) to be exten
 
 ---
 
+<br>
+
 **Q8. How does positional encoding interact with multi-head attention?**
 
 <details>
@@ -142,6 +152,8 @@ This is why heads specialize: the model learns that some tasks (like NER) benefi
 </details>
 
 ---
+
+<br>
 
 **Q9. What is ALiBi and how does it handle long contexts without positional embeddings in embeddings?**
 

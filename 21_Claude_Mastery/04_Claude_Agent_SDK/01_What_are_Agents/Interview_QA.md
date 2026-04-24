@@ -13,6 +13,8 @@ A: A chatbot receives a message and returns a single response. An AI agent recei
 
 ---
 
+<br>
+
 **Q2: What are the four core components of an agent?**
 
 <details>
@@ -27,6 +29,8 @@ A: Every agent has:
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a "stop condition" and why is it critical for agents?**
 
@@ -52,6 +56,8 @@ A: ReAct (Reason + Act) is the foundational agent loop formulation. At each step
 
 ---
 
+<br>
+
 **Q5: At what point on the spectrum from "single call" to "agent" is something actually an agent? How do you classify it?**
 
 <details>
@@ -62,6 +68,8 @@ A: The spectrum is: Single call → Prompt chain → DAG of prompts → Agent. S
 </details>
 
 ---
+
+<br>
 
 **Q6: Why can't you achieve agent behavior with just a single very long prompt?**
 
@@ -101,6 +109,8 @@ Mitigations include: max-step limits, tool output truncation, defensive tool sch
 
 ---
 
+<br>
+
 **Q8: How does the agent's context window grow during a long loop, and what are the strategies to manage it?**
 
 <details>
@@ -119,6 +129,8 @@ The Agent SDK handles context passing but the engineer must design the memory st
 </details>
 
 ---
+
+<br>
 
 **Q9: Compare the agent pattern to traditional software automation (RPA, scripted workflows). When is an agent better and when is it worse?**
 

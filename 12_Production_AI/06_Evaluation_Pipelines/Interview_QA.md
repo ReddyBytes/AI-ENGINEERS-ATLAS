@@ -17,6 +17,8 @@ Both are necessary. Offline eval is your safety gate before deployment. Online e
 
 ---
 
+<br>
+
 **Q2: What is LLM-as-judge and what are its limitations?**
 
 <details>
@@ -36,6 +38,8 @@ Limitations:
 </details>
 
 ---
+
+<br>
 
 **Q3: What metrics would you use to evaluate a RAG (Retrieval Augmented Generation) system?**
 
@@ -92,6 +96,8 @@ The **RAGAS** library (ragas.io) implements all of these metrics and uses LLM ca
 
 ---
 
+<br>
+
 **Q5: How do you evaluate open-ended creative or conversational AI responses where there's no single correct answer?**
 
 <details>
@@ -122,6 +128,8 @@ Ultimately the ground truth for "is this creative response good?" is whether use
 </details>
 
 ---
+
+<br>
 
 **Q6: What is regression testing for AI models, and how is it different from regression testing in traditional software?**
 
@@ -209,6 +217,8 @@ def evaluate_agent_run(trace: AgentTrace, ground_truth: str) -> AgentEvalResult:
 </details>
 
 ---
+
+<br>
 
 **Q8: How do you detect and handle distribution shift in production AI systems, and how does this relate to evaluation?**
 

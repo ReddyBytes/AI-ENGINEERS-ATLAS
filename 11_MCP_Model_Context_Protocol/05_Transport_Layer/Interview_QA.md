@@ -15,6 +15,8 @@
 
 </details>
 
+<br>
+
 **Q2: Why should you never use print() to write debug messages in a stdio MCP server?**
 
 <details>
@@ -23,6 +25,8 @@
 > In stdio transport, the server communicates with the client through stdout. Every byte written to stdout is treated as part of a JSON-RPC message. If you `print("debug info")`, the client receives "debug info" and tries to parse it as JSON — which fails, causing an error or connection drop. The correct approach is to write debug messages to stderr instead: `print("debug info", file=sys.stderr)`. stderr is separate from stdout and does not interfere with the JSON-RPC channel.
 
 </details>
+
+<br>
 
 **Q3: Can the same MCP server code work with both stdio and SSE transports?**
 
@@ -46,6 +50,8 @@
 
 </details>
 
+<br>
+
 **Q5: How does SSE (Server-Sent Events) actually work in MCP? Why use SSE rather than regular HTTP request/response?**
 
 <details>
@@ -59,6 +65,8 @@
 > Regular HTTP request/response cannot be used alone because the server also needs to send notifications (like progress updates or resource change events) that are not triggered by a client request. SSE provides the persistent connection needed for these server-initiated messages.
 
 </details>
+
+<br>
 
 **Q6: What happens to a stdio server when the host application closes?**
 
@@ -89,6 +97,8 @@
 
 </details>
 
+<br>
+
 **Q8: Design a production deployment for an MCP server that needs to serve thousands of concurrent AI sessions. Which transport would you choose and what infrastructure would you need?**
 
 <details>
@@ -106,6 +116,8 @@
 > - **Observability**: Log every session start/end, every tool call, and error rates
 
 </details>
+
+<br>
 
 **Q9: Is there any scenario where you would intentionally limit an MCP server to only support one transport type, rather than supporting both?**
 

@@ -19,6 +19,8 @@ There's no internal mechanism that says "I don't know this — refuse to answer.
 
 ---
 
+<br>
+
 **Q2: What is alignment? What does "Helpful, Harmless, Honest" mean?**
 
 <details>
@@ -39,6 +41,8 @@ The challenge: these three objectives sometimes conflict. Being maximally helpfu
 </details>
 
 ---
+
+<br>
 
 **Q3: What is Constitutional AI and how is it different from RLHF?**
 
@@ -102,6 +106,8 @@ If a model says "the paper by Smith et al. (2019) found X" with full confidence,
 
 ---
 
+<br>
+
 **Q5: How does RAG (Retrieval-Augmented Generation) mitigate hallucination?**
 
 <details>
@@ -134,6 +140,8 @@ RAG is the most practical and widely deployed hallucination mitigation strategy 
 </details>
 
 ---
+
+<br>
 
 **Q6: What is chain-of-thought prompting? How does it reduce hallucination?**
 
@@ -214,6 +222,8 @@ The best production systems combine: closed-book knowledge for common facts, ope
 
 ---
 
+<br>
+
 **Q8: What causes the factuality vs fluency tradeoff in language models? Is it possible to achieve both?**
 
 <details>
@@ -244,6 +254,8 @@ Current frontier models are significantly better calibrated than early versions,
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you evaluate and measure hallucination in production systems? What are the key metrics and testing approaches?**
 

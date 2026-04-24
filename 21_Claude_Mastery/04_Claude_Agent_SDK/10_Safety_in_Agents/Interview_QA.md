@@ -13,6 +13,8 @@ A: Prompt injection is when malicious instructions are hidden in content that th
 
 ---
 
+<br>
+
 **Q2: What is the principle of least privilege and how does it apply to agent tools?**
 
 <details>
@@ -23,6 +25,8 @@ A: Least privilege means giving every component only the minimum permissions req
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a human-in-the-loop checkpoint and when should you add one?**
 
@@ -53,6 +57,8 @@ A:
 </details>
 
 ---
+
+<br>
 
 **Q5: How would you scope file system tools in an agent that needs to read user-uploaded files and write reports?**
 
@@ -100,6 +106,8 @@ Key principles: use `Path.resolve()` + prefix check to block path traversal, val
 
 ---
 
+<br>
+
 **Q6: What should you log for every agent tool call in a production system, and why?**
 
 <details>
@@ -145,6 +153,8 @@ No single layer is sufficient. Each layer assumes the others can be bypassed and
 
 ---
 
+<br>
+
 **Q8: Describe the threat model for a multi-agent system with an orchestrator and 5 worker agents processing external content.**
 
 <details>
@@ -165,6 +175,8 @@ A: The threat surface expands with each agent:
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you balance agent autonomy with safety — at what point does adding safety controls defeat the purpose of having an agent?**
 

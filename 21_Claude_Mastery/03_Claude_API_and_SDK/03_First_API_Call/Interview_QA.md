@@ -13,6 +13,8 @@ A: `pip install anthropic`. For JavaScript: `npm install @anthropic-ai/sdk`.
 
 ---
 
+<br>
+
 **Q2: How does the Python SDK know which API key to use?**
 
 <details>
@@ -24,6 +26,8 @@ A: By default, `anthropic.Anthropic()` reads the `ANTHROPIC_API_KEY` environment
 
 ---
 
+<br>
+
 **Q3: Why is `message.content[0].text` used instead of just `message.content`?**
 
 <details>
@@ -34,6 +38,8 @@ A: The `content` field is a list of content blocks, not a string. Claude can ret
 </details>
 
 ---
+
+<br>
 
 **Q4: What are the two required parameters in every `messages.create()` call?**
 
@@ -59,6 +65,8 @@ A: The Python SDK calls are synchronous by default — `client.messages.create(.
 
 ---
 
+<br>
+
 **Q6: What error do you get if `ANTHROPIC_API_KEY` is not set, and how do you fix it?**
 
 <details>
@@ -70,6 +78,8 @@ A: `anthropic.AuthenticationError` — the server rejects the request because th
 
 ---
 
+<br>
+
 **Q7: What does `message.stop_reason` tell you about the response?**
 
 <details>
@@ -80,6 +90,8 @@ A: It indicates why Claude stopped generating. `"end_turn"` means the response i
 </details>
 
 ---
+
+<br>
 
 **Q8: How do you print both the response text and the token usage from a single API call?**
 
@@ -114,6 +126,8 @@ A: The wrapper should: (1) catch `AuthenticationError` and raise a clear startup
 
 ---
 
+<br>
+
 **Q10: Describe the internal steps the Python SDK takes between calling `client.messages.create()` and returning the response object.**
 
 <details>
@@ -124,6 +138,8 @@ A: (1) Validate input parameters against the API schema (raises `ValidationError
 </details>
 
 ---
+
+<br>
 
 **Q11: What's the difference between using `client.messages.create()` synchronously vs the async variant in Python?**
 

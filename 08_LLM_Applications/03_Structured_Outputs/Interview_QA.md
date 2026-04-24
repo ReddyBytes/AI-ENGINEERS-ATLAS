@@ -13,6 +13,8 @@ Structured output means getting the LLM to respond in a defined format — JSON,
 
 ---
 
+<br>
+
 **Q2: What are the three main ways to get structured output from an LLM?**
 
 <details>
@@ -27,6 +29,8 @@ Third, Pydantic + libraries like `instructor`: define a Python class using Pydan
 </details>
 
 ---
+
+<br>
 
 **Q3: What is Pydantic and how does it help with structured outputs?**
 
@@ -58,6 +62,8 @@ Set a retry limit (2–3 attempts). If still failing, fall back to a default/nul
 
 ---
 
+<br>
+
 **Q5: Explain how tool-based structured output works. Why is it more reliable than prompt formatting?**
 
 <details>
@@ -72,6 +78,8 @@ It's more reliable because the schema validation happens at the API level, not j
 </details>
 
 ---
+
+<br>
 
 **Q6: When should you NOT use structured outputs?**
 
@@ -117,6 +125,8 @@ Log all failures with the raw model output. Monitor failure rate. If it exceeds 
 
 ---
 
+<br>
+
 **Q8: What is "constrained decoding" and how does it relate to structured outputs?**
 
 <details>
@@ -129,6 +139,8 @@ Libraries like `outlines` and `guidance` implement this by building a state mach
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you handle nested and optional fields in structured outputs?**
 

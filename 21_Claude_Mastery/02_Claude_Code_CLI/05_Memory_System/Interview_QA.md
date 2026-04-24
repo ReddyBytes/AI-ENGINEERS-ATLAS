@@ -13,6 +13,8 @@ Without memory, every Claude Code session starts cold — Claude only knows what
 
 ---
 
+<br>
+
 **Q2: What is MEMORY.md and what does it contain?**
 
 <details>
@@ -23,6 +25,8 @@ Without memory, every Claude Code session starts cold — Claude only knows what
 </details>
 
 ---
+
+<br>
 
 **Q3: How do you explicitly ask Claude to save something to memory?**
 
@@ -48,6 +52,8 @@ Project memory (codebase-specific facts in `.claude/memory/MEMORY.md`), global m
 
 ---
 
+<br>
+
 **Q5: What does Claude auto-save to memory vs what does it skip?**
 
 <details>
@@ -58,6 +64,8 @@ Claude auto-saves when it discovers architecture patterns not obvious from readi
 </details>
 
 ---
+
+<br>
 
 **Q6: How is MEMORY.md different from CLAUDE.md?**
 
@@ -83,6 +91,8 @@ Create a top-level MEMORY.md in `.claude/memory/` as an index, then create servi
 
 ---
 
+<br>
+
 **Q8: What are the risks of poorly managed memory and how do you mitigate them?**
 
 <details>
@@ -93,6 +103,8 @@ Risks: stale facts (architecture changed but memory wasn't updated), bloated mem
 </details>
 
 ---
+
+<br>
 
 **Q9: How do subagents and background agents interact with the memory system?**
 

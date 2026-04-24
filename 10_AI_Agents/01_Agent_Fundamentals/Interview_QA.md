@@ -17,6 +17,8 @@ The key difference: a chatbot answers, an agent acts.
 
 ---
 
+<br>
+
 **Q2: What are the four main components of an AI agent?**
 
 <details>
@@ -30,6 +32,8 @@ The key difference: a chatbot answers, an agent acts.
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the agent loop? Walk me through each step.**
 
@@ -69,6 +73,8 @@ This is why writing good tool descriptions is critical. Vague or confusing descr
 
 ---
 
+<br>
+
 **Q5: What is an "observation" in the context of an agent?**
 
 <details>
@@ -85,6 +91,8 @@ The full loop is: **action (tool call) → observation (tool result) → next th
 </details>
 
 ---
+
+<br>
 
 **Q6: What's the difference between in-context memory and external (vector) memory in agents?**
 
@@ -122,6 +130,8 @@ In production, always set a max iteration limit. An agent without one is a poten
 
 ---
 
+<br>
+
 **Q8: What are the main failure modes of AI agents?**
 
 <details>
@@ -139,6 +149,8 @@ Mitigation: good tool descriptions, max iteration limits, trajectory logging, hu
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you design an agent for a high-stakes task like processing financial transactions?**
 

@@ -17,6 +17,8 @@ The critical detail: you must use the same embedding model for both indexing and
 
 ---
 
+<br>
+
 **Q2: What is cosine similarity and why do we use it for retrieval?**
 
 <details>
@@ -31,6 +33,8 @@ ChromaDB actually returns cosine distance (0 = identical, 2 = opposite), which y
 </details>
 
 ---
+
+<br>
 
 **Q3: What does top-K mean in retrieval, and how do you choose K?**
 
@@ -71,6 +75,8 @@ ChromaDB supports: `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`, `$in`, `$nin`, `$
 
 ---
 
+<br>
+
 **Q5: How do similarity scores help detect out-of-scope queries?**
 
 <details>
@@ -92,6 +98,8 @@ Rule of thumb: >0.7 = strong match, 0.5–0.7 = okay, <0.5 = likely out of scope
 </details>
 
 ---
+
+<br>
 
 **Q6: What are the main causes of retrieval failure, and how do you fix each one?**
 
@@ -134,6 +142,8 @@ The "approximate" means occasionally the true nearest neighbor is missed, but th
 
 ---
 
+<br>
+
 **Q8: How would you build a retrieval pipeline that gracefully handles queries in multiple languages?**
 
 <details>
@@ -154,6 +164,8 @@ For most production cases: multilingual model is the right answer unless you hav
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you evaluate retrieval quality separately from generation quality in a RAG system?**
 

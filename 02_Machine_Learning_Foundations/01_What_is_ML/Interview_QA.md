@@ -11,6 +11,8 @@ A: Machine Learning is a way of teaching computers by showing them examples inst
 
 </details>
 
+<br>
+
 **Q2: What's the difference between traditional programming and ML?**
 
 <details>
@@ -20,6 +22,8 @@ A: In traditional programming, you write the rules and the computer follows them
 
 </details>
 
+<br>
+
 **Q3: Give a real-world example of ML in use.**
 
 <details>
@@ -28,6 +32,8 @@ A: In traditional programming, you write the rules and the computer follows them
 A: A spam filter. You don't manually write rules like "if the email contains 'win a prize' it's spam" — you show the model thousands of spam and non-spam emails and it learns to tell them apart.
 
 </details>
+
+<br>
 
 **Q4: What are the 3 main types of Machine Learning?**
 
@@ -51,6 +57,8 @@ A: A model is the output of the training process — it's the learned function t
 
 </details>
 
+<br>
+
 **Q6: What's the difference between training and inference?**
 
 <details>
@@ -60,6 +68,8 @@ A: Training is when the model learns from data (adjusting its weights). Inferenc
 
 </details>
 
+<br>
+
 **Q7: What is a loss function?**
 
 <details>
@@ -68,6 +78,8 @@ A: Training is when the model learns from data (adjusting its weights). Inferenc
 A: A loss function measures how wrong the model's predictions are. During training, the goal is to minimize the loss — the lower the loss, the better the model.
 
 </details>
+
+<br>
 
 **Q8: What is overfitting?**
 
@@ -90,6 +102,8 @@ A: Overfitting is when a model memorizes the training data instead of learning g
 A: Use ML when: patterns are too complex to hand-code, you have large amounts of labeled data, or the patterns change over time. Use rule-based when: logic is simple and explainable, data is scarce, or you need 100% predictable behavior.
 
 </details>
+
+<br>
 
 **Q10: Why does data quality matter more than data quantity?**
 

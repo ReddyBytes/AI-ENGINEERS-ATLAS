@@ -15,6 +15,8 @@ Bagging builds trees in parallel on random subsamples of data, then averages the
 
 ---
 
+<br>
+
 **Q2: What is the learning rate in XGBoost and why does it matter?**
 
 <details>
@@ -25,6 +27,8 @@ The learning rate (also called shrinkage, parameter `eta`) scales the contributi
 </details>
 
 ---
+
+<br>
 
 **Q3: Why doesn't XGBoost require feature scaling?**
 
@@ -50,6 +54,8 @@ During training, when XGBoost encounters a missing value at a split node, it tri
 
 ---
 
+<br>
+
 **Q5: What is the difference between `weight`, `gain`, and `cover` feature importance in XGBoost, and which should you use?**
 
 <details>
@@ -64,6 +70,8 @@ For model interpretation, prefer `gain` over `weight`. For the most reliable imp
 </details>
 
 ---
+
+<br>
 
 **Q6: How does early stopping work in XGBoost and why is it important?**
 
@@ -89,6 +97,8 @@ XGBoost minimizes: `Obj = Σ L(yᵢ, ŷᵢ) + Σ Ω(fₖ)` where `Ω(fₖ) = γT
 
 ---
 
+<br>
+
 **Q8: When would you choose LightGBM over XGBoost?**
 
 <details>
@@ -99,6 +109,8 @@ Choose LightGBM when: (1) dataset has millions of rows — LightGBM's leaf-wise 
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you handle a severely imbalanced dataset (99% class 0, 1% class 1) with XGBoost?**
 

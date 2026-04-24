@@ -13,6 +13,8 @@ A custom skill is a Markdown file stored in a `skills/` folder that loads rich e
 
 ---
 
+<br>
+
 **Q2: Where do skill files live and how do you invoke them?**
 
 <details>
@@ -23,6 +25,8 @@ Skill files are Markdown files (`.md`) stored in `~/.claude/skills/` for global 
 </details>
 
 ---
+
+<br>
 
 **Q3: What should a skill file contain?**
 
@@ -48,6 +52,8 @@ Slash commands execute tasks — they contain task instructions Claude follows w
 
 ---
 
+<br>
+
 **Q5: How would you write a skill that adapts to different environments (dev, staging, production)?**
 
 <details>
@@ -65,6 +71,8 @@ This makes a single skill file handle multiple environments with appropriate ris
 </details>
 
 ---
+
+<br>
 
 **Q6: When would you use a project-scoped skill vs a global skill?**
 
@@ -90,6 +98,8 @@ Create a shared skills repository checked into a shared dotfiles or tooling repo
 
 ---
 
+<br>
+
 **Q8: What are the limitations of the skill system and how do you work around them?**
 
 <details>
@@ -100,6 +110,8 @@ Skills are loaded into context at invocation, so very long skills consume contex
 </details>
 
 ---
+
+<br>
 
 **Q9: How do skills interact with CLAUDE.md and MEMORY.md at session start?**
 

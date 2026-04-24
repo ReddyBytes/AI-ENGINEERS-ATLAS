@@ -11,6 +11,8 @@ A: The name is historical. Logistic regression models the log-odds of the target
 
 </details>
 
+<br>
+
 **Q2: What is the sigmoid function and why is it essential to logistic regression?**
 
 <details>
@@ -19,6 +21,8 @@ A: The name is historical. Logistic regression models the log-odds of the target
 A: The sigmoid function is sigmoid(z) = 1 / (1 + e^(-z)). It maps any real number to the range (0, 1). It is essential because logistic regression's linear equation can produce any value from negative infinity to positive infinity. Raw values of -10 or +20 cannot be interpreted as probabilities. The sigmoid squishes every possible value into a valid probability. A large positive input gives a probability near 1. A large negative input gives a probability near 0. An input near 0 gives 0.5. This conversion is what makes the linear model's output interpretable as a classification probability.
 
 </details>
+
+<br>
 
 **Q3: What is the decision boundary in logistic regression?**
 
@@ -42,6 +46,8 @@ A: The coefficients directly control the log-odds. For a coefficient w₁ associ
 
 </details>
 
+<br>
+
 **Q5: What happens when you change the decision threshold from 0.5? When would you do this?**
 
 <details>
@@ -50,6 +56,8 @@ A: The coefficients directly control the log-odds. For a coefficient w₁ associ
 A: Lowering the threshold (e.g., to 0.3) makes the model more sensitive — it predicts class 1 for more examples, increasing recall but decreasing precision. Raising the threshold (e.g., to 0.7) makes it more conservative — fewer class 1 predictions, higher precision but lower recall. You would lower the threshold when missing real positives is costly: in a cancer screening test, you want to catch almost all real cancer cases even at the cost of more false alarms. You would raise the threshold when false alarms are costly: in a spam filter, you would rather let some spam through than block legitimate emails. The optimal threshold depends on the relative cost of false positives vs false negatives in your specific application.
 
 </details>
+
+<br>
 
 **Q6: How does logistic regression handle multi-class classification?**
 
@@ -73,6 +81,8 @@ A: Logistic regression training via minimizing cross-entropy loss is mathematica
 
 </details>
 
+<br>
+
 **Q8: How do you deal with class imbalance in logistic regression?**
 
 <details>
@@ -81,6 +91,8 @@ A: Logistic regression training via minimizing cross-entropy loss is mathematica
 A: Several approaches work. Class weights: sklearn supports class_weight='balanced' which automatically adjusts the loss to weight minority class errors more heavily — effectively tells the optimizer to care more about getting minority examples right. Threshold adjustment: after training, lower the decision threshold to increase recall on the minority class. Resampling: oversample the minority class (SMOTE) or undersample the majority class before training. Choosing the right evaluation metric: use F1, precision-recall AUC, or Matthews Correlation Coefficient instead of accuracy. In practice, class_weight='balanced' combined with threshold tuning on a validation set is the most straightforward approach.
 
 </details>
+
+<br>
 
 **Q9: When would logistic regression outperform a random forest?**
 

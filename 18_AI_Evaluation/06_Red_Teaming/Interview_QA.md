@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What are the main categories of attacks in AI red teaming?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** Five main categories: (1) **Jailbreaks** — attempts to bypass safety guidelines, often via role-playing, hypothetical framing, or gradual escalation; (2) **Prompt injection** — injecting instructions into user input to override system instructions; (3) **Data extraction** — attempting to extract private data, training data, or system prompts; (4) **Social engineering** — exploiting the model's helpfulness through authority claims, emotional appeals, or false context; (5) **Harmful content generation** — getting the model to produce content it shouldn't — dangerous instructions, harassment, misinformation.
 
 </details>
+
+<br>
 
 **Q3: What is prompt injection and how does it differ from a jailbreak?**
 
@@ -42,6 +46,8 @@
 
 </details>
 
+<br>
+
 **Q5: How do you measure the effectiveness of red team testing?**
 
 <details>
@@ -55,6 +61,8 @@
 Report ASR by category, not just overall — a 3% overall ASR could hide a 40% ASR on one specific attack type.
 
 </details>
+
+<br>
 
 **Q6: How do you build an automated red teaming pipeline?**
 

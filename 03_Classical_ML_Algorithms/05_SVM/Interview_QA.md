@@ -11,6 +11,8 @@ SVM is a classification algorithm that finds the best boundary (hyperplane) betw
 
 </details>
 
+<br>
+
 **Q2. What are support vectors?**
 
 <details>
@@ -19,6 +21,8 @@ SVM is a classification algorithm that finds the best boundary (hyperplane) betw
 Support vectors are the training data points that lie closest to the decision boundary. They are the only points that actually determine where the boundary goes. If you removed all other training points (keeping just the support vectors), the model would not change at all.
 
 </details>
+
+<br>
 
 **Q3. What is a kernel in SVM?**
 
@@ -42,6 +46,8 @@ Hard margin SVM requires that all training points are correctly classified with 
 
 </details>
 
+<br>
+
 **Q5. What does the C parameter control, and how do you choose it?**
 
 <details>
@@ -54,6 +60,8 @@ C is the regularization parameter. It controls the trade-off between maximizing 
 Choose C using cross-validation (e.g. `GridSearchCV`). If your model overfits, try lowering C.
 
 </details>
+
+<br>
 
 **Q6. Why do you need to scale features before using SVM?**
 
@@ -77,6 +85,8 @@ The kernel trick works because SVM's optimization only ever needs to compute dot
 
 </details>
 
+<br>
+
 **Q8. How does SVM handle multi-class classification? What are the trade-offs?**
 
 <details>
@@ -89,6 +99,8 @@ SVM is inherently a binary classifier. For multi-class problems, sklearn uses tw
 sklearn `SVC` defaults to OvO. `LinearSVC` defaults to OvR. For large numbers of classes, OvR is generally preferred.
 
 </details>
+
+<br>
 
 **Q9. What is the dual formulation of SVM, and why does it matter for kernels?**
 

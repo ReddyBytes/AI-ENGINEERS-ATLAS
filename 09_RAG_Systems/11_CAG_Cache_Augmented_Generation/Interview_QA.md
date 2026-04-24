@@ -15,6 +15,8 @@ CAG (Cache-Augmented Generation) is an approach where an entire document or know
 
 ---
 
+<br>
+
 **Q2: What is a KV cache and why does it make CAG cost-effective?**
 
 <details>
@@ -25,6 +27,8 @@ When a transformer model processes a sequence of tokens, each attention layer co
 </details>
 
 ---
+
+<br>
 
 **Q3: When should you use CAG instead of RAG?**
 
@@ -50,6 +54,8 @@ You mark a `cache_control: {"type": "ephemeral"}` block in your message content 
 
 ---
 
+<br>
+
 **Q5: What are the limitations of CAG?**
 
 <details>
@@ -60,6 +66,8 @@ Three main limitations: (1) **Context window size**: even at 1 million tokens, s
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you compare the cost of CAG vs standard RAG for a high-query workload?**
 
@@ -84,6 +92,8 @@ The "lost in the middle" phenomenon (documented in research by Liu et al., 2023)
 </details>
 
 ---
+
+<br>
 
 **Q8: How would you build a production CAG system that handles cache expiration and multiple concurrent users?**
 

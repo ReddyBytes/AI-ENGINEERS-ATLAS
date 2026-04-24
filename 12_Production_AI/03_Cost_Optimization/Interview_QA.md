@@ -19,6 +19,8 @@ The choice comes down to volume and break-even analysis. At low volume (< a few 
 
 ---
 
+<br>
+
 **Q2: What is prompt caching and how does it reduce costs?**
 
 <details>
@@ -33,6 +35,8 @@ You enable it by explicitly marking the cacheable part of your prompt with a `ca
 </details>
 
 ---
+
+<br>
 
 **Q3: What are the most impactful quick wins for reducing LLM API costs?**
 
@@ -79,6 +83,8 @@ Real savings: 60-85% cost reduction with less than 5% quality degradation (when 
 
 ---
 
+<br>
+
 **Q5: How would you calculate the break-even point between using an LLM API vs self-hosting?**
 
 <details>
@@ -112,6 +118,8 @@ The analysis often reveals: self-hosting only makes economic sense when you can 
 </details>
 
 ---
+
+<br>
 
 **Q6: What is context compression and what techniques are available?**
 
@@ -170,6 +178,8 @@ The analysis often reveals: self-hosting only makes economic sense when you can 
 </details>
 
 ---
+
+<br>
 
 **Q8: When does fine-tuning a smaller model become more cost-effective than using a larger frontier model via API?**
 

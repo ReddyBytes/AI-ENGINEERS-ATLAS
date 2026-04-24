@@ -13,6 +13,8 @@ A: The Agent SDK provides a complete, pre-built implementation of the agent loop
 
 ---
 
+<br>
+
 **Q2: What is the `@tool` decorator and what does it generate?**
 
 <details>
@@ -23,6 +25,8 @@ A: The `@tool` decorator transforms a regular Python function into a Claude-comp
 </details>
 
 ---
+
+<br>
 
 **Q3: When should you use the raw API instead of the Agent SDK?**
 
@@ -48,6 +52,8 @@ A: When a tool function raises an exception, the SDK catches it, formats the exc
 
 ---
 
+<br>
+
 **Q5: What happens inside `agent.run()` if the model never produces a final answer?**
 
 <details>
@@ -58,6 +64,8 @@ A: The SDK enforces a `max_steps` limit (configurable, default typically 20). If
 </details>
 
 ---
+
+<br>
 
 **Q6: Can you mix the Agent SDK and the raw Messages API in the same application?**
 
@@ -82,6 +90,8 @@ A: The SDK stores the full message history in memory and passes it with every AP
 </details>
 
 ---
+
+<br>
 
 **Q8: How would you implement a custom `before_tool` hook to enforce an approval workflow for sensitive operations?**
 
@@ -120,6 +130,8 @@ The model receives the rejection as a tool result and can adjust its approach â€
 </details>
 
 ---
+
+<br>
 
 **Q9: How does the Agent SDK's automatic error recovery differ from implementing retry logic manually, and when is each appropriate?**
 

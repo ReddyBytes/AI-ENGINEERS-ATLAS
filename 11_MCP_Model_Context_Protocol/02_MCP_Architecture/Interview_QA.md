@@ -16,6 +16,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is JSON-RPC 2.0 and why does MCP use it?**
 
 <details>
@@ -24,6 +26,8 @@
 > JSON-RPC 2.0 is a lightweight remote procedure call protocol that uses JSON as its data format. A message includes a method name, optional parameters, and an ID to match responses to requests. MCP uses it because it is simple, language-agnostic, well-understood, and works over any transport channel — the same message format works whether you are using stdio pipes or HTTP-based SSE.
 
 </details>
+
+<br>
 
 **Q3: What happens during the MCP session initialization?**
 
@@ -47,6 +51,8 @@
 
 </details>
 
+<br>
+
 **Q5: Explain the difference between a Request and a Notification in MCP's JSON-RPC usage.**
 
 <details>
@@ -55,6 +61,8 @@
 > A **Request** has an `id` field and expects a corresponding Response with the same `id`. The caller waits for the response before proceeding. A **Notification** has no `id` field and expects no response — it is fire-and-forget. The `initialized` message sent after the handshake is a notification. Server-side log messages and progress updates are also notifications. Requests are used when you need a result; notifications are used for informational messages.
 
 </details>
+
+<br>
 
 **Q6: Can a server initiate communication with the client, or is it always the other way around?**
 
@@ -78,6 +86,8 @@
 
 </details>
 
+<br>
+
 **Q8: What are the implications of MCP's stateful session design compared to REST's stateless design?**
 
 <details>
@@ -86,6 +96,8 @@
 > MCP's statefulness means the server can maintain context across multiple calls in the same conversation — for example, caching expensive query results, maintaining a database transaction, or tracking which files have been opened. This is more efficient for conversational AI use cases where many related tool calls happen in sequence. The tradeoff is that stateful servers are harder to scale horizontally (you need session affinity) and require proper cleanup when sessions end. For REST services, each request is independent, which makes horizontal scaling trivial but means no cross-call state is maintained.
 
 </details>
+
+<br>
 
 **Q9: If you are building a production MCP server that handles hundreds of simultaneous AI sessions, what architectural considerations matter most?**
 

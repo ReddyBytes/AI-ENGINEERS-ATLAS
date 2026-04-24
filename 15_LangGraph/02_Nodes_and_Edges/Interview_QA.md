@@ -13,6 +13,8 @@
 
 ---
 
+<br>
+
 **Q2: What is an edge in LangGraph?**
 
 <details>
@@ -24,6 +26,8 @@
 
 ---
 
+<br>
+
 **Q3: What are START and END?**
 
 <details>
@@ -34,6 +38,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q4: What must a node always return?**
 
@@ -59,6 +65,8 @@
 
 ---
 
+<br>
+
 **Q6: Can a graph have multiple nodes pointing to END?**
 
 <details>
@@ -70,6 +78,8 @@
 
 ---
 
+<br>
+
 **Q7: What is the difference between an unconditional edge and a conditional edge?**
 
 <details>
@@ -80,6 +90,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q8: What happens if a router function returns a node name that does not exist in the graph?**
 

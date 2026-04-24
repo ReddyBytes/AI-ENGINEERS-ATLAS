@@ -19,6 +19,8 @@ The library also provides instant access to 50,000+ Hub datasets with a single `
 
 ---
 
+<br>
+
 **Q2: What does `load_dataset("imdb")` return? Walk through the data structure.**
 
 <details>
@@ -43,6 +45,8 @@ The `features` attribute tells you the schema — column names and types. `Class
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between `.map()`, `.filter()`, and `.select()`?**
 
@@ -83,6 +87,8 @@ Rule of thumb: always use `batched=True` for tokenization. The only time you mig
 
 ---
 
+<br>
+
 **Q5: How does streaming mode work and what are its limitations?**
 
 <details>
@@ -107,6 +113,8 @@ Use streaming for very large datasets where you cannot afford the storage for a 
 </details>
 
 ---
+
+<br>
 
 **Q6: A colleague says the first call to `.map()` was slow but subsequent calls were instant. Why?**
 
@@ -171,6 +179,8 @@ For a corporate use case, Approach 2 is usually fastest to implement, and the re
 
 ---
 
+<br>
+
 **Q8: You're training a model on a 2TB web crawl dataset. Your server has 500GB of disk space and 64GB of RAM. How do you handle this with the datasets library?**
 
 <details>
@@ -217,6 +227,8 @@ Key considerations:
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the Apache Arrow format and why does the datasets library use it instead of something like pickle or HDF5?**
 

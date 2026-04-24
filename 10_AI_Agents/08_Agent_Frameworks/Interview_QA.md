@@ -28,6 +28,8 @@ The tradeoff: convenience vs. control. Frameworks are faster to build with but c
 
 ---
 
+<br>
+
 **Q2: What is LangChain and what are its main components?**
 
 <details>
@@ -52,6 +54,8 @@ chain = prompt | llm | output_parser
 </details>
 
 ---
+
+<br>
 
 **Q3: What is CrewAI and how is it different from LangChain?**
 
@@ -104,6 +108,8 @@ AutoGen also supports `GroupChat` for multi-agent conversations where multiple a
 
 ---
 
+<br>
+
 **Q5: When would you choose to NOT use a framework and write custom agent code?**
 
 <details>
@@ -126,6 +132,8 @@ The rule: start with a framework for prototyping. Only move to custom code if yo
 </details>
 
 ---
+
+<br>
 
 **Q6: What is LCEL and why was it introduced in LangChain?**
 
@@ -191,6 +199,8 @@ For most new projects: prototype with CrewAI or LangChain, decide based on what 
 
 ---
 
+<br>
+
 **Q8: What are the main challenges of using agent frameworks in production?**
 
 <details>
@@ -211,6 +221,8 @@ For most new projects: prototype with CrewAI or LangChain, decide based on what 
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you architect a production-ready agent system, choosing and combining frameworks appropriately?**
 

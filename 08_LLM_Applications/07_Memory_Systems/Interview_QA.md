@@ -17,6 +17,8 @@ This has important implications: there's no built-in persistence across sessions
 
 ---
 
+<br>
+
 **Q2: What happens when a conversation gets too long for the context window?**
 
 <details>
@@ -33,6 +35,8 @@ The right approach: track token count (use a tokenizer library to count). When y
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between episodic and semantic memory in the context of AI applications?**
 
@@ -72,6 +76,8 @@ On each turn: (1) retrieve relevant episodic memories, (2) include semantic prof
 
 ---
 
+<br>
+
 **Q5: How does memory summarization work? When should you trigger it?**
 
 <details>
@@ -104,6 +110,8 @@ The summary goes at the top of your system message or as a special message at th
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the MemGPT architecture and how does it differ from simple history management?**
 
@@ -147,6 +155,8 @@ Design principles:
 
 ---
 
+<br>
+
 **Q8: How do you prevent "hallucinated memory" — the model claiming to remember things you never told it?**
 
 <details>
@@ -167,6 +177,8 @@ Prevention strategies:
 </details>
 
 ---
+
+<br>
 
 **Q9: Compare the cost implications of in-context memory vs. vector store memory for a high-volume application.**
 

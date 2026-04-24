@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is HumanEval and how is it scored?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** HumanEval is a code generation benchmark with 164 Python programming problems. Each problem provides a function signature and docstring; the model must generate working code. The metric is pass@1 — the percentage of problems where the first generated attempt passes all hidden unit tests. This makes it objectively measurable: code either passes tests or it doesn't. Top models score 85–92% pass@1.
 
 </details>
+
+<br>
 
 **Q3: What does it mean when benchmarks become "saturated"?**
 
@@ -42,6 +46,8 @@
 
 </details>
 
+<br>
+
 **Q5: What is benchmark contamination and why is it a problem?**
 
 <details>
@@ -50,6 +56,8 @@
 **A:** Benchmark contamination occurs when a model's training data includes the benchmark questions and/or answers. If MMLU questions appear in web scraping that went into training, the model may have effectively memorized the answers rather than demonstrating genuine reasoning ability. This inflates scores without reflecting real capability. It's hard to detect and is a significant concern for models trained on large undisclosed web crawls. Signs: unrealistically high scores for model size, dramatic jumps from one version to next, performance drops on alternative benchmark versions (MMLU-Pro).
 
 </details>
+
+<br>
 
 **Q6: Why should you always run task-specific evals in addition to looking at benchmark scores?**
 
@@ -80,6 +88,8 @@
 Why it beats MMLU: directly measures the capability you need; uses the exact document types and question styles your system will face; catches failure modes invisible in general benchmarks.
 
 </details>
+
+<br>
 
 **Q8: What is the LMSYS Chatbot Arena and why is it different from other benchmarks?**
 

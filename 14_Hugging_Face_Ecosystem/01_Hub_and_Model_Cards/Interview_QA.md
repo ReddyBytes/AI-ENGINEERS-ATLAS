@@ -13,6 +13,8 @@
 
 ---
 
+<br>
+
 **Q2: What is a model card and what should it contain?**
 
 <details>
@@ -31,6 +33,8 @@ Model cards matter because without them, users might deploy a model in an inappr
 </details>
 
 ---
+
+<br>
 
 **Q3: How does `from_pretrained` work at a high level? What does it actually do?**
 
@@ -69,6 +73,8 @@ You should always prefer `.safetensors` when available. When loading a model tha
 
 ---
 
+<br>
+
 **Q5: How does versioning work on the Hub? How would you pin a model to a specific version in a production system?**
 
 <details>
@@ -92,6 +98,8 @@ In production, always pin to a commit hash in your config files. This ensures th
 </details>
 
 ---
+
+<br>
 
 **Q6: What are the differences between a public repo, a private repo, and an organization repo on the Hub? When would you use each?**
 
@@ -130,6 +138,8 @@ The fix:
 
 ---
 
+<br>
+
 **Q8: How would you set up a private model registry for a company using Hugging Face Hub infrastructure? What enterprise features are relevant?**
 
 <details>
@@ -148,6 +158,8 @@ For on-premise requirements, **Hugging Face Hub on-prem** can be self-hosted. Th
 </details>
 
 ---
+
+<br>
 
 **Q9: What are the ethical and legal implications of deploying a model without reading its model card thoroughly? Give a concrete example.**
 

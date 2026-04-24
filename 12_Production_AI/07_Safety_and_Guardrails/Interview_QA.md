@@ -27,6 +27,8 @@ Defense strategies (in order of strength):
 
 ---
 
+<br>
+
 **Q2: What is the difference between input guardrails and output guardrails? Give an example of each.**
 
 <details>
@@ -51,6 +53,8 @@ Both layers are necessary. An injection attempt that bypasses input guardrails m
 </details>
 
 ---
+
+<br>
 
 **Q3: What is "over-refusal" in AI safety, and why is it a problem?**
 
@@ -119,6 +123,8 @@ STRICT RULES:
 
 ---
 
+<br>
+
 **Q5: How does Llama Guard work and when would you use it?**
 
 <details>
@@ -162,6 +168,8 @@ result = llama_guard.classify(
 </details>
 
 ---
+
+<br>
 
 **Q6: What is Constitutional AI and how does it relate to guardrails?**
 
@@ -236,6 +244,8 @@ Red-teaming is not one-time. Run automated red-team evaluations on every major m
 </details>
 
 ---
+
+<br>
 
 **Q8: How do you handle the tension between user privacy and safety logging?**
 

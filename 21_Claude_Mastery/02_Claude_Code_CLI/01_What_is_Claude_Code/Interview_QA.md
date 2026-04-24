@@ -13,6 +13,8 @@ Claude Code is Anthropic's official CLI agent that runs Claude directly in your 
 
 ---
 
+<br>
+
 **Q2: What does "agentic loop" mean in the context of Claude Code?**
 
 <details>
@@ -23,6 +25,8 @@ The agentic loop is the continuous cycle Claude Code runs: it perceives context 
 </details>
 
 ---
+
+<br>
 
 **Q3: What tools does Claude Code have access to?**
 
@@ -46,6 +50,8 @@ Core tools include: `Read` (read file contents), `Write` (create/overwrite files
 
 </details>
 
+<br>
+
 **Q5: What is the permission system and why does it exist?**
 
 <details>
@@ -54,6 +60,8 @@ Core tools include: `Read` (read file contents), `Write` (create/overwrite files
 The permission system ensures Claude Code asks before taking potentially destructive actions. By default it prompts before writing files, running bash commands, or deleting anything. This allows you to review and approve each action. You can pre-approve specific tools via `settings.json`, or bypass all permissions (with explicit opt-in using `--dangerously-skip-permissions` — only for sandboxed environments).
 
 </details>
+
+<br>
 
 **Q6: How does Claude Code handle multi-step tasks that require iterating on failures?**
 
@@ -77,6 +85,8 @@ A traditional script is deterministic — it executes a fixed sequence of operat
 
 </details>
 
+<br>
+
 **Q8: What are the key advantages of using CLAUDE.md versus just giving instructions at the start of each session?**
 
 <details>
@@ -85,6 +95,8 @@ A traditional script is deterministic — it executes a fixed sequence of operat
 CLAUDE.md is persistent, structured, and version-controlled. Instructions given at session start are ephemeral and require repetition every time. CLAUDE.md files are loaded automatically at the right scope (global, project, subfolder), meaning different projects can have different behaviors without any manual setup. They can also be checked into Git so the whole team benefits from the same Claude behavior.
 
 </details>
+
+<br>
 
 **Q9: When would you NOT use Claude Code, and use the API or chat instead?**
 

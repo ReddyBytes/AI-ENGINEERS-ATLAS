@@ -13,6 +13,8 @@ A: The U-Net is the neural network that acts as the denoiser. At each reverse st
 
 ---
 
+<br>
+
 **Q2: Why does the model need to know the timestep t?**
 
 <details>
@@ -23,6 +25,8 @@ A: Because "remove heavy noise from this near-static image" and "refine the fine
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the training loop for a DDPM?**
 
@@ -42,6 +46,8 @@ The model sees every noise level during training, which means every call to the 
 </details>
 
 ---
+
+<br>
 
 **Q4: What is the difference between DDPM and DDIM sampling?**
 
@@ -74,6 +80,8 @@ Without skip connections, the U-Net would produce blurry outputs because fine sp
 
 ---
 
+<br>
+
 **Q6: What is x₀-prediction and when is it used?**
 
 <details>
@@ -84,6 +92,8 @@ A: Instead of predicting the noise ε, the model can be parameterized to predict
 </details>
 
 ---
+
+<br>
 
 **Q7: What is v-prediction? Why was it introduced?**
 
@@ -101,6 +111,8 @@ This is a velocity-like quantity in the interpolation between x₀ and ε. v-pre
 </details>
 
 ---
+
+<br>
 
 **Q8: How does DPM-Solver++ improve on DDIM?**
 
@@ -132,6 +144,8 @@ p_θ(xₜ₋₁ | xₜ) = N(xₜ₋₁; μ_θ(xₜ, t), Σ_θ(xₜ, t))
 
 ---
 
+<br>
+
 **Q10: Explain DDIM inversion and how it enables image editing.**
 
 <details>
@@ -142,6 +156,8 @@ A: DDIM is deterministic, meaning the same noise x_T always produces the same im
 </details>
 
 ---
+
+<br>
 
 **Q11: Describe the connection between diffusion models and the score function.**
 

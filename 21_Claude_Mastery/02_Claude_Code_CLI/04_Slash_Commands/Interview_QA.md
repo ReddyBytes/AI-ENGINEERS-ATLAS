@@ -13,6 +13,8 @@ A slash command is a shortcut that triggers a pre-written instruction set when t
 
 ---
 
+<br>
+
 **Q2: What do the built-in slash commands do?**
 
 <details>
@@ -23,6 +25,8 @@ A slash command is a shortcut that triggers a pre-written instruction set when t
 </details>
 
 ---
+
+<br>
 
 **Q3: Where do you put custom slash command files?**
 
@@ -48,6 +52,8 @@ Use the `$ARGUMENTS` placeholder in your command file body. When the command is 
 
 ---
 
+<br>
+
 **Q5: What is the YAML frontmatter in a command file and what can you configure?**
 
 <details>
@@ -58,6 +64,8 @@ The frontmatter is a YAML block at the top of the command file delimited by `---
 </details>
 
 ---
+
+<br>
 
 **Q6: When would you use a project command vs a global command?**
 
@@ -113,6 +121,8 @@ CLAUDE.md contains persistent project context and behavior rules that apply to e
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you share custom commands across a team and ensure everyone has the same version?**
 

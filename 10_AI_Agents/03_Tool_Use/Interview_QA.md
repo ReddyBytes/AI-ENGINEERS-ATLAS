@@ -24,6 +24,8 @@ Examples: a web search tool, a calculator, a database lookup function, a file re
 
 ---
 
+<br>
+
 **Q2: How does the agent decide which tool to use?**
 
 <details>
@@ -40,6 +42,8 @@ This is why descriptions are so important. The LLM doesn't execute tools — it 
 </details>
 
 ---
+
+<br>
 
 **Q3: What is "function calling" and how does it relate to tools?**
 
@@ -99,6 +103,8 @@ Key elements of a good description:
 
 ---
 
+<br>
+
 **Q5: How do you handle tool errors gracefully in an agent?**
 
 <details>
@@ -125,6 +131,8 @@ If you raise an exception instead, the agent might crash or get stuck.
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the difference between built-in tools and custom tools?**
 
@@ -178,6 +186,8 @@ Several layers of protection:
 
 ---
 
+<br>
+
 **Q8: How does tool use work differently across LLM providers (OpenAI vs Anthropic vs Google)?**
 
 <details>
@@ -198,6 +208,8 @@ In practice, if you're using a framework, you define tools once and the framewor
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you design a tool registry for a production agent system?**
 

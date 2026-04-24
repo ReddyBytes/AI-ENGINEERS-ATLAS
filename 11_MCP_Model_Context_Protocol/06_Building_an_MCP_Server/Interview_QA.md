@@ -18,6 +18,8 @@
 
 </details>
 
+<br>
+
 **Q2: How do you pass secrets (like API keys) to an MCP server?**
 
 <details>
@@ -26,6 +28,8 @@
 > Use **environment variables** — never hardcode secrets in server files. In your server code, read them with `os.environ.get("MY_API_KEY")`. When configuring the server in Claude Desktop (or any host), set the env variables in the server's config section under `"env"`. This way the key is in the config file (which you can keep private), not in the server source code that might be shared or version-controlled.
 
 </details>
+
+<br>
 
 **Q3: How do you test an MCP server during development?**
 
@@ -53,6 +57,8 @@
 
 </details>
 
+<br>
+
 **Q5: What should you return when a tool encounters an error?**
 
 <details>
@@ -61,6 +67,8 @@
 > You should return a `TextContent` object with an error message — do not raise an unhandled exception. For example: `return [types.TextContent(type="text", text="Error: File not found: /path/to/file")]`. Returning the error as text content allows the AI model to read the error message and make a decision (retry with a different path, tell the user, try an alternative). An unhandled exception propagates as a generic JSON-RPC error that the AI cannot read or understand.
 
 </details>
+
+<br>
 
 **Q6: How do you structure a server that needs to call an external REST API in its tool handlers?**
 
@@ -117,6 +125,8 @@
 
 </details>
 
+<br>
+
 **Q8: What is the difference between returning an error as `TextContent` versus using JSON-RPC error responses?**
 
 <details>
@@ -129,6 +139,8 @@
 > Rule of thumb: if the tool executed and produced an outcome (even a bad one), return TextContent. If something went wrong before the tool even started executing, let the SDK handle it as a protocol error.
 
 </details>
+
+<br>
 
 **Q9: How would you implement a tool that returns streaming results — for example, a tool that runs a long query and streams rows as they arrive?**
 

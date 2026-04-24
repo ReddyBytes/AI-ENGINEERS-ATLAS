@@ -17,6 +17,8 @@ The result is a "base model" that knows a lot but doesn't yet know how to be hel
 
 ---
 
+<br>
+
 **Q2: What is self-supervised learning? How is it different from supervised learning?**
 
 <details>
@@ -37,6 +39,8 @@ Other examples of self-supervised learning: masked language modeling (BERT masks
 </details>
 
 ---
+
+<br>
 
 **Q3: What is in an LLM's training data? Where does it come from?**
 
@@ -87,6 +91,8 @@ They trained Chinchilla (70B parameters, 1.4T tokens) and it outperformed Gopher
 
 ---
 
+<br>
+
 **Q5: How is training distributed across hundreds of GPUs? What are the main parallelism strategies?**
 
 <details>
@@ -107,6 +113,8 @@ In practice, all strategies are combined. Training Llama 3 405B used tensor + pi
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the pretraining loss curve? How do you know if training is going well?**
 
@@ -162,6 +170,8 @@ The tokenizer converts raw text into integer token IDs before training. Every ch
 
 ---
 
+<br>
+
 **Q8: What is "catastrophic forgetting" in the context of continual pretraining? How do you handle it?**
 
 <details>
@@ -191,6 +201,8 @@ If you fine-tune on only new data:
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the difference between GPT-style (decoder-only) and BERT-style (encoder-only) pretraining? When would you choose each?**
 

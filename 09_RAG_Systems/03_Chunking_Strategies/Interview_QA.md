@@ -19,6 +19,8 @@ In short: better chunks → better embeddings → better retrieval → better an
 
 ---
 
+<br>
+
 **Q2: What is chunk overlap and why do we need it?**
 
 <details>
@@ -35,6 +37,8 @@ Typical overlap: 10–20% of chunk size. More overlap = more redundancy (higher 
 </details>
 
 ---
+
+<br>
 
 **Q3: What is `RecursiveCharacterTextSplitter` and why is it the recommended default?**
 
@@ -70,6 +74,8 @@ Use when: your documents have natural hierarchical structure (sections and subse
 
 ---
 
+<br>
+
 **Q5: How does semantic chunking work? What are its tradeoffs?**
 
 <details>
@@ -88,6 +94,8 @@ Use when: your documents have clear topic boundaries (research papers, technical
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the optimal chunk size? How do you choose it for your use case?**
 
@@ -131,6 +139,8 @@ Rule of thumb: make sure your chunk size is well within the embedding model's co
 
 ---
 
+<br>
+
 **Q8: What is the "lost in the middle" problem and how does chunking help or hurt?**
 
 <details>
@@ -147,6 +157,8 @@ Chunking size is the easiest lever: smaller chunks = less "noise" in context = l
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you chunk a technical API reference documentation that has function signatures, code examples, and prose descriptions all mixed together?**
 

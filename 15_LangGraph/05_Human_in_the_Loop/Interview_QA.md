@@ -13,6 +13,8 @@
 
 ---
 
+<br>
+
 **Q2: What is a checkpointer in LangGraph?**
 
 <details>
@@ -23,6 +25,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a thread_id and why is it required for HITL?**
 
@@ -48,6 +52,8 @@
 
 ---
 
+<br>
+
 **Q5: How do you resume a paused LangGraph workflow?**
 
 <details>
@@ -59,6 +65,8 @@
 
 ---
 
+<br>
+
 **Q6: What does app.update_state() do and when would you use it?**
 
 <details>
@@ -69,6 +77,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q7: What is the difference between MemorySaver and SqliteSaver?**
 

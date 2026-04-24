@@ -11,6 +11,8 @@ A: A loss function measures how different a model's prediction is from the corre
 
 </details>
 
+<br>
+
 **Q2: What is Mean Squared Error (MSE) and when do you use it?**
 
 <details>
@@ -19,6 +21,8 @@ A: A loss function measures how different a model's prediction is from the corre
 A: MSE is the average of squared differences between predictions and actual values: mean((ŷ - y)²). You use it for regression tasks where the output is a continuous number — predicting house prices, temperatures, sales figures. The squaring does two things: makes all errors positive (no canceling out), and heavily penalizes large errors. A prediction that is off by 10 contributes 100 to the loss; a prediction off by 1 contributes only 1. This makes MSE appropriate when large errors are significantly worse than small ones.
 
 </details>
+
+<br>
 
 **Q3: What is cross-entropy loss and when do you use it?**
 
@@ -42,6 +46,8 @@ A: MAE (Mean Absolute Error) uses the absolute value of errors rather than squar
 
 </details>
 
+<br>
+
 **Q5: Why should you not use MSE for a classification problem?**
 
 <details>
@@ -50,6 +56,8 @@ A: MAE (Mean Absolute Error) uses the absolute value of errors rather than squar
 A: Using MSE for classification (where outputs should be probabilities) creates several problems. First, MSE has no mechanism to constrain outputs to [0, 1] — the model could output negative values or values above 1. Second, MSE provides weak gradient signal near 0 and 1 with sigmoid activations (the "vanishing gradient" problem for the output layer). Third, MSE treats a prediction of 0.4 and 0.6 equally wrong for a true label of 1, even though 0.6 is closer to correct. Cross-entropy's logarithmic scale gives much stronger gradient signal in the critical probability ranges, leading to faster and better convergence for classification.
 
 </details>
+
+<br>
 
 **Q6: What is the relationship between the loss function and the evaluation metric?**
 
@@ -73,6 +81,8 @@ A: Focal loss was introduced for object detection (RetinaNet) to handle extreme 
 
 </details>
 
+<br>
+
 **Q8: What is the KL divergence and how does it relate to cross-entropy?**
 
 <details>
@@ -81,6 +91,8 @@ A: Focal loss was introduced for object detection (RetinaNet) to handle extreme 
 A: KL divergence (Kullback-Leibler divergence) measures how much one probability distribution differs from another. Cross-entropy H(p, q) = H(p) + KL(p||q), where H(p) is the entropy of the true distribution and KL(p||q) is the divergence from true to predicted. When you minimize cross-entropy during training, you are simultaneously minimizing KL divergence (since H(p) is fixed — the true labels do not change). This connection matters in generative models: VAEs minimize a loss that includes KL divergence between the learned latent distribution and a prior. Language models trained with cross-entropy are implicitly minimizing KL divergence between the model's token distribution and the true data distribution.
 
 </details>
+
+<br>
 
 **Q9: How do you choose a loss function for a multi-task learning problem?**
 

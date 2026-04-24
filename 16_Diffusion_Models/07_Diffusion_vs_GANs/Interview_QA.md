@@ -15,6 +15,8 @@ Diffusion models train a single network (U-Net) with a straightforward MSE objec
 
 ---
 
+<br>
+
 **Q2: What is mode collapse in GANs and why don't diffusion models suffer from it?**
 
 <details>
@@ -27,6 +29,8 @@ Diffusion models don't suffer from mode collapse because their training signal c
 </details>
 
 ---
+
+<br>
 
 **Q3: What is inference speed and why is it a disadvantage for diffusion models compared to GANs?**
 
@@ -58,6 +62,8 @@ GANs historically achieved low FID scores in specific domains (e.g., StyleGAN2 a
 
 ---
 
+<br>
+
 **Q5: When should an ML engineer choose a GAN over a diffusion model for a production system?**
 
 <details>
@@ -78,6 +84,8 @@ A: Choose a GAN over diffusion when:
 </details>
 
 ---
+
+<br>
 
 **Q6: Explain the architectural differences between a GAN discriminator and a diffusion U-Net. What different functions do they serve?**
 
@@ -115,6 +123,8 @@ A: Quality and diversity are often in tension in generative models. High quality
 
 ---
 
+<br>
+
 **Q8: What are the memory requirements for GANs vs diffusion models at inference, and how does this affect deployment architecture?**
 
 <details>
@@ -147,6 +157,8 @@ Deployment implications: GANs can be served from much smaller and cheaper hardwa
 </details>
 
 ---
+
+<br>
 
 **Q9: Explain why text conditioning is fundamentally harder for GANs than for diffusion models, and how this led to diffusion models dominating text-to-image generation.**
 

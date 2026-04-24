@@ -15,6 +15,8 @@ If you stored 1 million 1536-dimensional vectors in a SQL table and wanted to fi
 
 ---
 
+<br>
+
 **Q2: What is HNSW and why is it the most popular vector index algorithm?**
 
 <details>
@@ -29,6 +31,8 @@ It's popular because: (1) Very fast query time even at millions of vectors. (2) 
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between an exact nearest neighbor search and an approximate nearest neighbor search?**
 
@@ -64,6 +68,8 @@ Implementation note: metadata filtering happens before or during the ANN search,
 
 ---
 
+<br>
+
 **Q5: How would you handle a situation where your vector database is becoming a bottleneck in production?**
 
 <details>
@@ -82,6 +88,8 @@ Also consider: are you using the right tool? pgvector is great for small to medi
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the difference between cosine similarity, dot product, and Euclidean distance as distance metrics?**
 
@@ -121,6 +129,8 @@ For most SaaS: approach (2) with mandatory application-level enforcement of tena
 
 ---
 
+<br>
+
 **Q8: Explain product quantization (PQ) and when you'd use it.**
 
 <details>
@@ -137,6 +147,8 @@ When to use: when memory is the bottleneck, you have 50M+ vectors, and you can t
 </details>
 
 ---
+
+<br>
 
 **Q9: What are the tradeoffs between pgvector and a dedicated vector database like Pinecone?**
 

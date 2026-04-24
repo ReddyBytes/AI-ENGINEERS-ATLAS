@@ -19,6 +19,8 @@ The practical approach: vertical scale to fit your model, then horizontal scale 
 
 ---
 
+<br>
+
 **Q2: Why is request queuing important for AI systems, and how does it protect against traffic spikes?**
 
 <details>
@@ -39,6 +41,8 @@ For AI specifically, this matters because inference is slow (100ms-5s per reques
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a cold start in the context of AI serving and how do you mitigate it?**
 
@@ -102,6 +106,8 @@ With routing:    70% → GPT-4o-mini at $0.00046/request
 
 ---
 
+<br>
+
 **Q5: What is the circuit breaker pattern and how does it apply to AI systems?**
 
 <details>
@@ -140,6 +146,8 @@ def call_llm_api(prompt):
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you implement geographic distribution for an AI application serving users globally, given that model weights are large?**
 
@@ -231,6 +239,8 @@ result = await wait_for_webhook(job_id, callback_url)
 </details>
 
 ---
+
+<br>
 
 **Q8: How would you design a rollout strategy for a new model version in a high-traffic production AI system?**
 

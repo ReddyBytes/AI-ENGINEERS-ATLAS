@@ -17,6 +17,8 @@ Semantic similarity is used in search engines, recommendation systems, FAQ match
 
 ---
 
+<br>
+
 **Q2. What is a sentence embedding?**
 
 <details>
@@ -31,6 +33,8 @@ The key difference from word embeddings: word embeddings give one vector per wor
 </details>
 
 ---
+
+<br>
 
 **Q3. What is cosine similarity? Why is it used instead of Euclidean distance?**
 
@@ -62,6 +66,8 @@ SBERT is more accurate for semantic similarity than simple BERT pooling.
 
 ---
 
+<br>
+
 **Q5. How would you build a semantic search system using sentence embeddings?**
 
 <details>
@@ -80,6 +86,8 @@ This is exactly the retrieval step in RAG (Retrieval-Augmented Generation) syste
 </details>
 
 ---
+
+<br>
 
 **Q6. What is the difference between a bi-encoder and a cross-encoder?**
 
@@ -122,6 +130,8 @@ Evaluation strategies:
 
 ---
 
+<br>
+
 **Q8. How would you handle multilingual semantic similarity?**
 
 <details>
@@ -136,6 +146,8 @@ For production: test that the model handles your specific language pairs well, a
 </details>
 
 ---
+
+<br>
 
 **Q9. What are the failure modes of semantic similarity systems and how do you address them?**
 

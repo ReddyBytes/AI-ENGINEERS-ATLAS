@@ -21,6 +21,8 @@ The combination handles both natural language questions and specific term lookup
 
 ---
 
+<br>
+
 **Q2: What is the difference between a bi-encoder and a cross-encoder?**
 
 <details>
@@ -39,6 +41,8 @@ That's why the pattern is: bi-encoder retrieves top-20 candidates fast, cross-en
 </details>
 
 ---
+
+<br>
 
 **Q3: What is HyDE and when would you use it?**
 
@@ -89,6 +93,8 @@ The result: a chunk that ranks #2 in semantic search and #3 in keyword search be
 
 ---
 
+<br>
+
 **Q5: How do you implement multi-query retrieval and handle duplicate results?**
 
 <details>
@@ -126,6 +132,8 @@ Key decisions:
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the "retrieve-then-rerank" pipeline and what are the tradeoffs?**
 
@@ -200,6 +208,8 @@ In practice: start with the "simple" path for everything, then add routing only 
 
 ---
 
+<br>
+
 **Q8: How does contextual compression improve RAG quality after retrieval?**
 
 <details>
@@ -231,6 +241,8 @@ Cost: adds one LLM call per retrieved chunk. For 5 chunks, that's 5 extra calls.
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the "corrective RAG" pattern and how does it prevent hallucination from bad retrievals?**
 

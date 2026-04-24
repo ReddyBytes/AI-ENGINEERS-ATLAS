@@ -15,6 +15,8 @@ It's the first step because RAG can only retrieve what has been indexed, and ind
 
 ---
 
+<br>
+
 **Q2: What are the most common document types in RAG systems and what challenges does each present?**
 
 <details>
@@ -33,6 +35,8 @@ Plain text/Markdown: easiest. No extraction issues — just read the file.
 </details>
 
 ---
+
+<br>
 
 **Q3: What is metadata and why is it important to store alongside document text?**
 
@@ -66,6 +70,8 @@ For production: cloud OCR services dramatically outperform local Tesseract, espe
 
 ---
 
+<br>
+
 **Q5: What document metadata strategy would you use for a legal document RAG system?**
 
 <details>
@@ -94,6 +100,8 @@ Preserve section numbering in metadata and in the chunk text itself — users wi
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you handle a knowledge base that updates frequently — new documents added daily?**
 
@@ -141,6 +149,8 @@ Key design decisions:
 
 ---
 
+<br>
+
 **Q8: What are the challenges of extracting structured data (tables, forms) for RAG?**
 
 <details>
@@ -163,6 +173,8 @@ For financial reports, contracts with schedules, or anything table-heavy: invest
 </details>
 
 ---
+
+<br>
 
 **Q9: How does document ingestion change when dealing with real-time or streaming data sources (e.g., Slack, email)?**
 

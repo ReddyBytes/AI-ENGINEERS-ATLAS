@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What are the two main ways to send images to a vision API?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** (1) **Base64 encoding**: Read the image file as bytes, encode to base64 string, embed in the JSON payload. Works for local files, more reliable for production. (2) **URL**: Include a public URL pointing to the image. The API provider fetches it. Simpler for hosted images but dependent on URL availability and access. For production systems, base64 is preferred.
 
 </details>
+
+<br>
 
 **Q3: Why does image resolution affect API cost?**
 
@@ -42,6 +46,8 @@
 
 </details>
 
+<br>
+
 **Q5: How do you handle multiple images in a single vision API call?**
 
 <details>
@@ -61,6 +67,8 @@ Label each image clearly in text so the model can reference them.
 
 </details>
 
+<br>
+
 **Q6: What prompt engineering techniques work best for vision tasks?**
 
 <details>
@@ -75,6 +83,8 @@ Label each image clearly in text so the model can reference them.
 6. **Specify what NOT to include**: "Do not describe people, only the product"
 
 </details>
+
+<br>
 
 **Q7: How do you implement robust error handling for vision API calls in production?**
 
@@ -109,6 +119,8 @@ Estimated: at $0.002/image with Haiku = $20/day for 10,000 images. Acceptable fo
 
 </details>
 
+<br>
+
 **Q9: What are the key differences between Claude Vision, GPT-4V, and Gemini for production use?**
 
 <details>
@@ -122,6 +134,8 @@ Estimated: at $0.002/image with Haiku = $20/day for 10,000 images. Acceptable fo
 For document parsing: Claude. For speed + cost: Gemini Flash. For visual reasoning: GPT-4o. Always benchmark on your specific task — capabilities evolve quickly.
 
 </details>
+
+<br>
 
 **Q10: System design question: How would you build a real-time receipt processing API?**
 

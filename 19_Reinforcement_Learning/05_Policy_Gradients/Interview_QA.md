@@ -13,6 +13,8 @@ A: A policy gradient method directly optimizes the policy — the function that 
 
 ---
 
+<br>
+
 **Q2: Why would you use policy gradients instead of DQN?**
 
 <details>
@@ -26,6 +28,8 @@ A: Three main reasons:
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the REINFORCE algorithm?**
 
@@ -66,6 +70,8 @@ Why doesn't it bias the gradient? Because E[b(s_t) · ∇_θ log π_θ(a_t|s_t)]
 
 ---
 
+<br>
+
 **Q5: What is Actor-Critic and how does it improve on REINFORCE?**
 
 <details>
@@ -80,6 +86,8 @@ Benefits: lower variance (critic provides a stable baseline), online updates (no
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the advantage function and why is it used?**
 
@@ -112,6 +120,8 @@ Why it matters: computing ∇_θ J(θ) naively would require differentiating thr
 
 ---
 
+<br>
+
 **Q8: What are the trade-offs between on-policy and off-policy methods in the context of policy gradients?**
 
 <details>
@@ -126,6 +136,8 @@ Off-policy methods (DQN, SAC) can reuse old data via replay buffers, making them
 </details>
 
 ---
+
+<br>
 
 **Q9: What is Generalized Advantage Estimation (GAE) and why is it used in PPO?**
 

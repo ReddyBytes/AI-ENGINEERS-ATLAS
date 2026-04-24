@@ -22,6 +22,8 @@ It mirrors how humans edit their own work. A first draft is rarely the best vers
 
 ---
 
+<br>
+
 **Q2: What is the Reflexion framework?**
 
 <details>
@@ -40,6 +42,8 @@ This is much more powerful than just "try again" — the agent learns from each 
 </details>
 
 ---
+
+<br>
 
 **Q3: Why is code generation a great use case for self-correction?**
 
@@ -112,6 +116,8 @@ The loop is: generate → critique → revise → repeat.
 
 ---
 
+<br>
+
 **Q5: What are the different types of evaluators and when do you choose each?**
 
 <details>
@@ -133,6 +139,8 @@ For structured data: use schema validation (instant, deterministic).
 </details>
 
 ---
+
+<br>
 
 **Q6: What's the difference between reflection and fine-tuning?**
 
@@ -199,6 +207,8 @@ The reflections accumulate. By attempt 3, the agent has a record of two failed a
 
 ---
 
+<br>
+
 **Q8: What are the failure modes of self-correction and how do you mitigate them?**
 
 <details>
@@ -217,6 +227,8 @@ The reflections accumulate. By attempt 3, the agent has a record of two failed a
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you design a self-correcting code generation agent for production?**
 

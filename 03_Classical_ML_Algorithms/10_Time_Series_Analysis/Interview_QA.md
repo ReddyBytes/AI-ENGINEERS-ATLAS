@@ -15,6 +15,8 @@ In regular tabular data, rows are assumed to be independent — shuffling the ro
 
 ---
 
+<br>
+
 **Q2: What is stationarity and why does ARIMA require it?**
 
 <details>
@@ -25,6 +27,8 @@ A time series is **stationary** if its statistical properties — mean, variance
 </details>
 
 ---
+
+<br>
 
 **Q3: What are the p, d, q parameters in ARIMA?**
 
@@ -52,6 +56,8 @@ K-fold cross-validation shuffles data and creates random train/test splits. For 
 
 ---
 
+<br>
+
 **Q5: How do you choose p, d, q for an ARIMA model?**
 
 <details>
@@ -65,6 +71,8 @@ K-fold cross-validation shuffles data and creates random train/test splits. For 
 </details>
 
 ---
+
+<br>
 
 **Q6: When would you use Prophet instead of ARIMA?**
 
@@ -115,6 +123,8 @@ Train/test split must be chronological. Walk-forward cross-validation is require
 
 ---
 
+<br>
+
 **Q8: What is the difference between additive and multiplicative decomposition?**
 
 <details>
@@ -127,6 +137,8 @@ In **multiplicative decomposition**: `Y = Trend × Seasonal × Residual`. The se
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you detect seasonality and determine the seasonal period?**
 

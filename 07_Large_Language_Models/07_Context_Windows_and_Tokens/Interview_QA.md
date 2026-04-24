@@ -28,6 +28,8 @@ Why it matters practically:
 
 ---
 
+<br>
+
 **Q2: What is a context window and what happens when you exceed it?**
 
 <details>
@@ -53,6 +55,8 @@ The practical consequence: very long chat sessions can "forget" things you said 
 </details>
 
 ---
+
+<br>
 
 **Q3: Why do output tokens cost more than input tokens in LLM APIs?**
 
@@ -110,6 +114,8 @@ The KV cache grows linearly with context length. For each token in context:
 
 ---
 
+<br>
+
 **Q5: What is the "lost in the middle" problem? How does it affect how you should structure prompts?**
 
 <details>
@@ -135,6 +141,8 @@ The "Lost in the Middle" problem (Liu et al., 2023) is an empirical finding: lan
 </details>
 
 ---
+
+<br>
 
 **Q6: How do different positional encoding schemes affect context length capabilities?**
 
@@ -214,6 +222,8 @@ Code has unusual patterns: indentation (spaces/tabs), special characters, exact 
 
 ---
 
+<br>
+
 **Q8: What is "needle in a haystack" evaluation for context windows? What does it reveal?**
 
 <details>
@@ -251,6 +261,8 @@ Typical failure patterns:
 </details>
 
 ---
+
+<br>
 
 **Q9: How does context window size affect RAG system design? When is a large context not enough?**
 

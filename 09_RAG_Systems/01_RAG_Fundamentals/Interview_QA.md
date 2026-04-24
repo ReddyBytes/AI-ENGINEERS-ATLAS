@@ -17,6 +17,8 @@ It was invented because fine-tuning models on new knowledge was expensive, slow,
 
 ---
 
+<br>
+
 **Q2: Walk me through the basic RAG pipeline step by step.**
 
 <details>
@@ -41,6 +43,8 @@ The pipeline has two phases:
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between RAG and prompt stuffing?**
 
@@ -78,6 +82,8 @@ The key insight: RAG for knowledge, fine-tuning for behavior. They're not mutual
 
 ---
 
+<br>
+
 **Q5: What are the main failure modes of a RAG system?**
 
 <details>
@@ -94,6 +100,8 @@ Three major failure categories:
 </details>
 
 ---
+
+<br>
 
 **Q6: What is "naive RAG" vs "advanced RAG"?**
 
@@ -139,6 +147,8 @@ Scale requirements drive architecture choices. Key decisions:
 
 ---
 
+<br>
+
 **Q8: Explain the concept of faithfulness in RAG and why it's the most important metric.**
 
 <details>
@@ -155,6 +165,8 @@ Enforcement: add to your prompt "Answer ONLY based on the provided context. If t
 </details>
 
 ---
+
+<br>
 
 **Q9: What is self-RAG and corrective RAG? When would you use them?**
 

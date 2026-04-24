@@ -13,6 +13,8 @@
 
 ---
 
+<br>
+
 **Q2: What is the difference between a full state and a partial update?**
 
 <details>
@@ -23,6 +25,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a TypedDict and why does LangGraph use it for state?**
 
@@ -48,6 +52,8 @@
 
 ---
 
+<br>
+
 **Q5: What is MessagesState and how is it different from a custom TypedDict?**
 
 <details>
@@ -59,6 +65,8 @@
 
 ---
 
+<br>
+
 **Q6: Why is it wrong to mutate state directly inside a node function?**
 
 <details>
@@ -69,6 +77,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q7: What types of values should NOT be stored in state?**
 

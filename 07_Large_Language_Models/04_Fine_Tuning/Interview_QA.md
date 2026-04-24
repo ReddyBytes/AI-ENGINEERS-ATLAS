@@ -22,6 +22,8 @@ The metaphor: pretraining is med school (broad). Fine-tuning is residency (speci
 
 ---
 
+<br>
+
 **Q2: What is LoRA? Why is it preferred over full fine-tuning?**
 
 <details>
@@ -42,6 +44,8 @@ The key insight: most of the important adaptation is low-rank — you don't need
 </details>
 
 ---
+
+<br>
 
 **Q3: What kind of data do you need for fine-tuning?**
 
@@ -101,6 +105,8 @@ For most practical cases: use LoRA (solves it structurally) and mix 20% general 
 
 ---
 
+<br>
+
 **Q5: How do you evaluate if fine-tuning worked? What metrics do you use?**
 
 <details>
@@ -131,6 +137,8 @@ Evaluation for fine-tuning depends on the task. There's no single universal metr
 </details>
 
 ---
+
+<br>
 
 **Q6: What is QLoRA? How does it differ from LoRA?**
 
@@ -200,6 +208,8 @@ During training, gradient updates to A and B implicitly define a rank-r update t
 
 ---
 
+<br>
+
 **Q8: What are the differences between SFT, instruction tuning, and domain adaptation? When do you use each?**
 
 <details>
@@ -240,6 +250,8 @@ The general technique: train on (input, output) pairs with supervised cross-entr
 </details>
 
 ---
+
+<br>
 
 **Q9: How does the HuggingFace PEFT + Trainer ecosystem work? What are the key components?**
 

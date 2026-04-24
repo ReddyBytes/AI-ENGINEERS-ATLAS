@@ -15,6 +15,8 @@ Ollama is an open-source tool that makes it trivial to run large language models
 
 ---
 
+<br>
+
 **Q2: What is model quantization and why does it matter for local inference?**
 
 <details>
@@ -25,6 +27,8 @@ Model quantization reduces the precision of model weights from 32-bit or 16-bit 
 </details>
 
 ---
+
+<br>
 
 **Q3: How is the Ollama API related to the OpenAI API?**
 
@@ -50,6 +54,8 @@ For a 7B model at Q4 quantization (~4–5 GB): a consumer GPU with 6–8 GB VRAM
 
 ---
 
+<br>
+
 **Q5: How would you build a fully local RAG system using Ollama?**
 
 <details>
@@ -60,6 +66,8 @@ A local RAG system with Ollama requires three components: (1) **Embedding model*
 </details>
 
 ---
+
+<br>
 
 **Q6: When would you choose a local Ollama model over the OpenAI or Anthropic API?**
 
@@ -84,6 +92,8 @@ GGUF (GPT-Generated Unified Format) is a binary file format that stores all mode
 </details>
 
 ---
+
+<br>
 
 **Q8: How would you deploy Ollama in a production enterprise environment?**
 

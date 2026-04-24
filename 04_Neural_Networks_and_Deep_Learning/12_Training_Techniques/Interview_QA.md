@@ -13,6 +13,8 @@ One epoch is one complete pass through the entire training dataset. After one ep
 
 ---
 
+<br>
+
 **Q2: What is the difference between batch size and epoch?**
 
 <details>
@@ -23,6 +25,8 @@ Batch size is how many examples the model sees before making one weight update. 
 </details>
 
 ---
+
+<br>
 
 **Q3: What is transfer learning in simple terms?**
 
@@ -48,6 +52,8 @@ Learning rate warmup starts training with a very small learning rate (near zero)
 
 ---
 
+<br>
+
 **Q5: What is the difference between feature extraction and fine-tuning in transfer learning?**
 
 <details>
@@ -58,6 +64,8 @@ Feature extraction freezes all pretrained layers and only trains the new head (f
 </details>
 
 ---
+
+<br>
 
 **Q6: What is mixed precision training and what are its requirements?**
 
@@ -83,6 +91,8 @@ During backpropagation, you need the intermediate activations from the forward p
 
 ---
 
+<br>
+
 **Q8: What is curriculum learning and what evidence supports its effectiveness?**
 
 <details>
@@ -93,6 +103,8 @@ Curriculum learning (Bengio et al., 2009) is the strategy of presenting training
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the difference between layer normalization and batch normalization, and why does the choice matter?**
 

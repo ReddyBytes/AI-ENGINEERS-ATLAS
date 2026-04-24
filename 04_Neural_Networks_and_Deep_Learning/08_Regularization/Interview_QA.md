@@ -13,6 +13,8 @@ Overfitting is when a model learns the training data too well — including its 
 
 ---
 
+<br>
+
 **Q2: What is L2 regularization and how does it work?**
 
 <details>
@@ -23,6 +25,8 @@ L2 regularization adds a penalty term to the loss function equal to the sum of s
 </details>
 
 ---
+
+<br>
 
 **Q3: What is dropout and when is it applied?**
 
@@ -48,6 +52,8 @@ Both add a penalty to large weights. L1 adds `λ × Σ|w|` (sum of absolute valu
 
 ---
 
+<br>
+
 **Q5: How does data augmentation work as a regularizer?**
 
 <details>
@@ -58,6 +64,8 @@ Data augmentation creates new training examples by applying transformations to e
 </details>
 
 ---
+
+<br>
 
 **Q6: What is early stopping and what are its practical considerations?**
 
@@ -83,6 +91,8 @@ Batch normalization normalizes each layer's activations to have mean 0 and stand
 
 ---
 
+<br>
+
 **Q8: What is the relationship between model capacity and regularization?**
 
 <details>
@@ -93,6 +103,8 @@ Model capacity refers to the range of functions a model can represent — more p
 </details>
 
 ---
+
+<br>
 
 **Q9: What is DropConnect and how does it differ from standard Dropout?**
 

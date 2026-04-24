@@ -13,6 +13,8 @@ A perceptron is a single neuron with a step function. It can only solve linearly
 
 ---
 
+<br>
+
 **Q2: What is a hidden layer and what does it do?**
 
 <details>
@@ -23,6 +25,8 @@ A hidden layer is any layer between the input and output layers. The word "hidde
 </details>
 
 ---
+
+<br>
 
 **Q3: Why does an MLP need activation functions?**
 
@@ -48,6 +52,8 @@ The Universal Approximation Theorem states that an MLP with a single hidden laye
 
 ---
 
+<br>
+
 **Q5: How do you choose the number of hidden layers and neurons?**
 
 <details>
@@ -63,6 +69,8 @@ Wider networks increase capacity within a layer. Deeper networks allow more abst
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the difference between depth and width in an MLP?**
 
@@ -88,6 +96,8 @@ During backpropagation, gradients are multiplied layer by layer (via the chain r
 
 ---
 
+<br>
+
 **Q8: What is the role of the output layer activation, and how does it differ from hidden layer activations?**
 
 <details>
@@ -103,6 +113,8 @@ Using the wrong output activation causes training to fail in subtle ways — for
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you explain the information bottleneck perspective of MLPs?**
 

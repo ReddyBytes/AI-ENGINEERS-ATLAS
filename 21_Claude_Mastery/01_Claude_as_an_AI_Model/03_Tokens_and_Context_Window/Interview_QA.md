@@ -17,6 +17,8 @@ The practical implication: you cannot assume 1 word = 1 token. The rule of thumb
 
 ---
 
+<br>
+
 **Q2: What is the context window and why does it matter to engineers?**
 
 <details>
@@ -37,6 +39,8 @@ The context window is arguably the most important operational constraint when bu
 </details>
 
 ---
+
+<br>
 
 **Q3: What does stop_reason: "max_tokens" mean and why is it dangerous?**
 
@@ -92,6 +96,8 @@ Engineering implications:
 
 ---
 
+<br>
+
 **Q5: A user sends a document that's 350,000 words. How do you handle it with Claude's 200k token limit?**
 
 <details>
@@ -113,6 +119,8 @@ The right choice depends on the task:
 </details>
 
 ---
+
+<br>
 
 **Q6: How does prompt caching work and when should you use it?**
 
@@ -169,6 +177,8 @@ This is especially important for legal document analysis, medical record review,
 
 ---
 
+<br>
+
 **Q8: How do you accurately budget tokens for a production agent that has long-running conversations?**
 
 <details>
@@ -208,6 +218,8 @@ The agent should proactively compress before hitting limits, not reactively afte
 </details>
 
 ---
+
+<br>
 
 **Q9: How does the context window size affect transformer attention computation and memory?**
 

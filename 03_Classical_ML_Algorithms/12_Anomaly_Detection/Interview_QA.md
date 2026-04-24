@@ -15,6 +15,8 @@ Anomaly detection identifies data points that deviate significantly from the exp
 
 ---
 
+<br>
+
 **Q2: What is Isolation Forest and why does it work well for anomaly detection?**
 
 <details>
@@ -25,6 +27,8 @@ Isolation Forest isolates data points by building random trees: at each node, ra
 </details>
 
 ---
+
+<br>
 
 **Q3: Why is accuracy a bad metric for anomaly detection in highly imbalanced datasets?**
 
@@ -50,6 +54,8 @@ SMOTE (Synthetic Minority Over-sampling Technique) creates synthetic positive ex
 
 ---
 
+<br>
+
 **Q5: What is the difference between ROC-AUC and PR-AUC, and which should you use for fraud detection?**
 
 <details>
@@ -60,6 +66,8 @@ ROC-AUC measures the probability that the model ranks a random positive higher t
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you handle a 99:1 class imbalance with XGBoost?**
 
@@ -85,6 +93,8 @@ An autoencoder is trained on normal data only to compress inputs to a low-dimens
 
 ---
 
+<br>
+
 **Q8: What are the three types of anomalies and give a real-world example of each?**
 
 <details>
@@ -95,6 +105,8 @@ An autoencoder is trained on normal data only to compress inputs to a low-dimens
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you build an anomaly detection system for credit card fraud in production?**
 

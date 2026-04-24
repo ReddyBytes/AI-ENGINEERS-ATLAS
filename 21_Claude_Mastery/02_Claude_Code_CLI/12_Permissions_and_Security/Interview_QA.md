@@ -13,6 +13,8 @@ The permission system controls which tool actions execute automatically and whic
 
 ---
 
+<br>
+
 **Q2: What are the three states a tool can be in with respect to permissions?**
 
 <details>
@@ -23,6 +25,8 @@ Auto-approved (listed in `permissions.allow` in settings.json — executes silen
 </details>
 
 ---
+
+<br>
 
 **Q3: What is `--dangerously-skip-permissions` and when is it appropriate to use?**
 
@@ -55,6 +59,8 @@ This blocks `rm -rf` specifically. `rm some-file.txt` would still require a prom
 
 ---
 
+<br>
+
 **Q5: What is prompt injection and how does Claude Code defend against it?**
 
 <details>
@@ -65,6 +71,8 @@ Prompt injection is when malicious instructions are embedded in content Claude r
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you configure Claude Code for a junior developer on your team who you want to have limited blast radius?**
 
@@ -106,6 +114,8 @@ Defense in depth means no single security layer is the only protection. Claude C
 
 ---
 
+<br>
+
 **Q8: How would you implement a secure Claude Code setup for a CI/CD pipeline that runs on every pull request?**
 
 <details>
@@ -135,6 +145,8 @@ Key security decisions: (1) sandboxed container — limits blast radius; (2) onl
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the security risk of an overly broad allow list, and how do you design one safely?**
 

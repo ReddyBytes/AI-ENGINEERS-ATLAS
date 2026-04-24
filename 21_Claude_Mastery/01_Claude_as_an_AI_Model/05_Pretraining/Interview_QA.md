@@ -24,6 +24,8 @@ When you ask Claude about medieval history or quantum mechanics, it's drawing on
 
 ---
 
+<br>
+
 **Q2: What is the Chinchilla scaling law and why does it matter?**
 
 <details>
@@ -47,6 +49,8 @@ Why it matters practically:
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a knowledge cutoff and how should engineers work around it?**
 
@@ -91,6 +95,8 @@ Mitigations: RLHF (trains on full rollouts), chain-of-thought (makes intermediat
 
 ---
 
+<br>
+
 **Q5: What is the role of data curation in pretraining quality?**
 
 <details>
@@ -110,6 +116,8 @@ The exact curation pipeline is among the most closely guarded intellectual prope
 </details>
 
 ---
+
+<br>
 
 **Q6: What are emergent capabilities and why are they surprising?**
 
@@ -150,6 +158,8 @@ The insight for engineers: don't just compare model sizes — compare model size
 
 ---
 
+<br>
+
 **Q8: What is the relationship between pretraining data diversity and model capabilities?**
 
 <details>
@@ -172,6 +182,8 @@ Anthropic's data mixture for Claude is proprietary, but the general principle is
 </details>
 
 ---
+
+<br>
 
 **Q9: How does pretraining relate to in-context learning (ICL)?**
 

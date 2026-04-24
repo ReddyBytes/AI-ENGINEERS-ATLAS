@@ -21,6 +21,8 @@ Research shows meaningful accuracy improvements on hard benchmarks (MATH, AIME, 
 
 ---
 
+<br>
+
 **Q2: How do you enable extended thinking in the Claude API?**
 
 <details>
@@ -52,6 +54,8 @@ Key: `max_tokens` must be set to cover both thinking tokens and the response. If
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the thinking budget and how should you choose it?**
 
@@ -107,6 +111,8 @@ This billing model means extended thinking can easily make a single API call 10â
 
 ---
 
+<br>
+
 **Q5: What kinds of tasks benefit most from extended thinking vs not at all?**
 
 <details>
@@ -132,6 +138,8 @@ This billing model means extended thinking can easily make a single API call 10â
 </details>
 
 ---
+
+<br>
 
 **Q6: How does streaming work with extended thinking?**
 
@@ -206,6 +214,8 @@ For maximum quality on hard problems: extended thinking > manual CoT. For cost-s
 
 ---
 
+<br>
+
 **Q8: How do you decide when to show thinking tokens to end users vs hide them?**
 
 <details>
@@ -236,6 +246,8 @@ Implementation: filter the thinking block before sending to users, or use a seco
 </details>
 
 ---
+
+<br>
 
 **Q9: How should you handle the case where extended thinking produces a wrong intermediate step?**
 

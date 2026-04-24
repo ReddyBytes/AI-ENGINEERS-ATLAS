@@ -15,6 +15,8 @@ Standard RAG stores text chunks as vectors in a vector database and retrieves th
 
 ---
 
+<br>
+
 **Q2: What are local search and global search in GraphRAG?**
 
 <details>
@@ -25,6 +27,8 @@ Local search handles entity-specific questions by finding the relevant entity no
 </details>
 
 ---
+
+<br>
 
 **Q3: What is community detection in GraphRAG and why is it used?**
 
@@ -50,6 +54,8 @@ The indexing pipeline processes documents in several stages: (1) **Text chunking
 
 ---
 
+<br>
+
 **Q5: When would you choose GraphRAG over standard RAG, and when would you stick with standard RAG?**
 
 <details>
@@ -60,6 +66,8 @@ Choose GraphRAG when: (1) your documents are rich with named entities and explic
 </details>
 
 ---
+
+<br>
 
 **Q6: How does the entity extraction step affect GraphRAG quality?**
 
@@ -84,6 +92,8 @@ Global search works as follows: given a query like "what are the main themes in 
 </details>
 
 ---
+
+<br>
 
 **Q8: How would you build a lightweight GraphRAG alternative without the Microsoft library?**
 

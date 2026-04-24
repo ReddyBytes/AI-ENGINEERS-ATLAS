@@ -13,6 +13,8 @@ A Large Language Model is a neural network with billions of parameters trained o
 
 ---
 
+<br>
+
 **Q2: What is a token, and why does it matter?**
 
 <details>
@@ -30,6 +32,8 @@ Tokens matter because:
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between a base model and a chat model?**
 
@@ -66,6 +70,8 @@ Emergence is one reason why scaling LLMs has been so surprising — you can't al
 
 ---
 
+<br>
+
 **Q5: Why do LLMs need so much data and compute? What would happen with less?**
 
 <details>
@@ -83,6 +89,8 @@ Less compute = fewer steps through the data = less learned. Scaling compute is o
 </details>
 
 ---
+
+<br>
 
 **Q6: How do open-weight models like Llama differ from closed API models like GPT-4?**
 
@@ -126,6 +134,8 @@ The frontier has since shifted further — Llama 3's 8B model trained on 15T tok
 
 ---
 
+<br>
+
 **Q8: What is the "bitter lesson" and how does it apply to LLMs?**
 
 <details>
@@ -142,6 +152,8 @@ That said, the bitter lesson has limits: alignment, safety, and factuality don't
 </details>
 
 ---
+
+<br>
 
 **Q9: What are the key differences between GPT-4, Claude 3, and Gemini architecturally and in terms of design philosophy?**
 

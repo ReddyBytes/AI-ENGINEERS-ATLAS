@@ -11,6 +11,8 @@ A: Linear regression is a supervised learning algorithm that predicts a continuo
 
 </details>
 
+<br>
+
 **Q2: What is MSE and why does linear regression use it as the loss function?**
 
 <details>
@@ -19,6 +21,8 @@ A: Linear regression is a supervised learning algorithm that predicts a continuo
 A: MSE (Mean Squared Error) is the average of squared differences between predicted and actual values: (1/n)×Σ(prediction - actual)². Linear regression uses it because: (1) squaring makes all errors positive so they do not cancel out; (2) it penalizes large errors more than small ones; (3) it is mathematically smooth and differentiable, which means gradient descent can navigate it cleanly. For linear regression specifically, MSE gives a convex loss surface — a perfect bowl shape with exactly one minimum, so gradient descent will always find the global optimum.
 
 </details>
+
+<br>
 
 **Q3: What does R² (R-squared) tell you and what is a "good" value?**
 
@@ -42,6 +46,8 @@ A: The key assumptions are: linearity (the true relationship is linear), indepen
 
 </details>
 
+<br>
+
 **Q5: What is multicollinearity and how does it affect linear regression?**
 
 <details>
@@ -50,6 +56,8 @@ A: The key assumptions are: linearity (the true relationship is linear), indepen
 A: Multicollinearity occurs when two or more features are highly correlated with each other. For example, including both "house size in sqft" and "house size in m²" — they carry identical information. The effect: the coefficient estimates become unstable and unreliable. A small change in the data can cause large swings in coefficient values. The model's predictions can still be good, but the individual coefficients cannot be interpreted as "the effect of this feature." Detection: calculate Variance Inflation Factor (VIF) for each feature. Fix: remove one of the correlated features, or use Ridge regression which handles multicollinearity by shrinking correlated coefficients together.
 
 </details>
+
+<br>
 
 **Q6: What is Ridge regression (L2) and Lasso regression (L1)? When do you use each?**
 
@@ -73,6 +81,8 @@ A: The normal equation gives the exact optimal weights in closed form: θ = (X�
 
 </details>
 
+<br>
+
 **Q8: How would you handle a non-linear relationship using linear regression?**
 
 <details>
@@ -81,6 +91,8 @@ A: The normal equation gives the exact optimal weights in closed form: θ = (X�
 A: Linear regression can capture non-linear relationships through feature engineering. Polynomial features: add x², x³ as separate features — the model remains "linear in parameters" but can fit curves. Log transformation: if the relationship follows y ≈ log(x), transform the feature. Interaction terms: add x₁×x₂ as a feature to capture joint effects. Binning: convert a continuous feature into categorical bins. The key is that "linear" in linear regression refers to linear in the parameters (coefficients), not in the input features — you can transform inputs freely. For complex non-linearities, it is usually cleaner to switch to tree-based models or neural networks rather than adding many polynomial features.
 
 </details>
+
+<br>
 
 **Q9: How would you evaluate two linear regression models and decide which is better?**
 

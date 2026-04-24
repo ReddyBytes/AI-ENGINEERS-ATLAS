@@ -11,6 +11,8 @@ A: Gradient descent is the optimization algorithm used to train machine learning
 
 </details>
 
+<br>
+
 **Q2: What is the learning rate and why does its value matter?**
 
 <details>
@@ -19,6 +21,8 @@ A: Gradient descent is the optimization algorithm used to train machine learning
 A: The learning rate controls how big each step is when updating the model's weights. If it is too large, the model overshoots the minimum — the loss bounces around or even explodes higher with each update. If it is too small, training takes an extremely long time because each step barely moves the weights. The right learning rate leads to steady, smooth convergence. In practice you start with a reasonable default (1e-3 or 1e-4), watch the loss curve, and adjust. A rising loss usually means the learning rate is too high.
 
 </details>
+
+<br>
 
 **Q3: What is the difference between batch gradient descent and stochastic gradient descent?**
 
@@ -42,6 +46,8 @@ A: A local minimum is a point on the loss surface where the gradient is zero but
 
 </details>
 
+<br>
+
 **Q5: What are adaptive learning rate optimizers like Adam and why are they preferred?**
 
 <details>
@@ -50,6 +56,8 @@ A: A local minimum is a point on the loss surface where the gradient is zero but
 A: Basic gradient descent uses the same learning rate for every parameter. Adam (Adaptive Moment Estimation) maintains a separate, adaptive learning rate for each parameter, based on recent gradient history. Parameters with consistently large gradients get a smaller effective learning rate; parameters with small or sparse gradients get a larger effective learning rate. Adam also uses momentum — it accumulates a velocity vector in the direction of consistent gradients, helping it move faster through flat regions and reducing oscillation. In practice Adam converges much faster than plain SGD with a fixed learning rate and requires much less learning rate tuning.
 
 </details>
+
+<br>
 
 **Q6: What does "vanishing gradient" mean and when does it occur?**
 
@@ -73,6 +81,8 @@ A: First-order methods (gradient descent, Adam, SGD) use only the gradient — t
 
 </details>
 
+<br>
+
 **Q8: What is learning rate scheduling and what strategies exist?**
 
 <details>
@@ -81,6 +91,8 @@ A: First-order methods (gradient descent, Adam, SGD) use only the gradient — t
 A: Learning rate scheduling changes the learning rate over the course of training rather than keeping it fixed. Common strategies: step decay (reduce learning rate by a factor every N epochs), exponential decay (learning rate decreases exponentially each epoch), cosine annealing (learning rate follows a cosine curve from high to near-zero, then resets — can find better minima by periodically letting the optimizer explore), warm-up (start with a very small learning rate for the first few epochs, then ramp up — prevents large early updates on randomly initialized weights), and reduce-on-plateau (reduce learning rate when validation loss stops improving). Scheduling often provides better final performance than any fixed learning rate.
 
 </details>
+
+<br>
 
 **Q9: How does gradient clipping work and when should you use it?**
 

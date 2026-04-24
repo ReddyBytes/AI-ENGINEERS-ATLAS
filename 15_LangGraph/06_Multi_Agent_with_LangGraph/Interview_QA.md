@@ -13,6 +13,8 @@
 
 ---
 
+<br>
+
 **Q2: What is a supervisor agent in LangGraph?**
 
 <details>
@@ -23,6 +25,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q3: How do agents in a LangGraph multi-agent system communicate with each other?**
 
@@ -48,6 +52,8 @@
 
 ---
 
+<br>
+
 **Q5: What is the Send API in LangGraph and when would you use it?**
 
 <details>
@@ -58,6 +64,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you terminate a supervisor loop?**
 
@@ -82,6 +90,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q8: What are the tradeoffs between the supervisor pattern and a fixed-pipeline multi-agent graph?**
 

@@ -26,6 +26,8 @@ Rule of thumb: Try prompting first. Only fine-tune when prompting has been exhau
 
 ---
 
+<br>
+
 **Q2: What is LoRA and why is it the preferred fine-tuning method for most production use cases?**
 
 <details>
@@ -46,6 +48,8 @@ For most production fine-tuning: LoRA with rank 8-64 is sufficient. QLoRA (LoRA 
 </details>
 
 ---
+
+<br>
 
 **Q3: How much training data do you need for fine-tuning to be effective?**
 
@@ -101,6 +105,8 @@ Why it happens: gradient updates that push the model toward the new task also mo
 
 ---
 
+<br>
+
 **Q5: Walk me through the process of preparing training data for fine-tuning, including common data quality issues.**
 
 <details>
@@ -141,6 +147,8 @@ Why it happens: gradient updates that push the model toward the new task also mo
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you decide between RAG and fine-tuning for a knowledge-intensive task?**
 
@@ -239,6 +247,8 @@ Example: A medical coding assistant
 </details>
 
 ---
+
+<br>
 
 **Q8: What is RLHF and how is it related to production fine-tuning?**
 

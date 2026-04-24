@@ -13,6 +13,8 @@ A: A single tool call is one action: the model calls a function, gets a result, 
 
 ---
 
+<br>
+
 **Q2: What is a "stop condition" in multi-step reasoning, and why must you always set one?**
 
 <details>
@@ -23,6 +25,8 @@ A: A stop condition is the rule that ends the agent loop. The primary natural co
 </details>
 
 ---
+
+<br>
 
 **Q3: How does context grow in a multi-step agent and why does this matter?**
 
@@ -48,6 +52,8 @@ A: In most agent implementations including the Claude Agent SDK, decomposition i
 
 ---
 
+<br>
+
 **Q5: What is the difference between sequential and parallel tool call chaining, and when would you use each?**
 
 <details>
@@ -60,6 +66,8 @@ Parallel chaining: tools A, B, and C all take the same input and can run simulta
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you debug an agent that keeps calling the same tool repeatedly without making progress?**
 
@@ -99,6 +107,8 @@ Implementation approach with the Agent SDK: at critical decision points, spawn N
 
 ---
 
+<br>
+
 **Q8: In a multi-step agent that processes large tool outputs, how do you prevent context window exhaustion without losing critical information?**
 
 <details>
@@ -119,6 +129,8 @@ Applied together: a 50-step agent analyzing 20 large documents can maintain cont
 </details>
 
 ---
+
+<br>
 
 **Q9: What are the quality vs cost tradeoffs in multi-step agent design, and how do you navigate them?**
 

@@ -15,6 +15,8 @@ LLMs need it because they only know what was in their training data, which has a
 
 ---
 
+<br>
+
 **Q2: Walk me through the tool call cycle.**
 
 <details>
@@ -32,6 +34,8 @@ This cycle can repeat multiple times in one conversation if the model needs to u
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between the tool "definition" and the tool "call"?**
 
@@ -65,6 +69,8 @@ If multiple tools could apply, the model uses context. If no tool applies, it an
 
 ---
 
+<br>
+
 **Q5: What are parallel tool calls and how do they work?**
 
 <details>
@@ -79,6 +85,8 @@ This is significantly faster than sequential calls — instead of 2 round trips 
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you handle tool call errors? What if the function fails?**
 
@@ -140,6 +148,8 @@ Key safeguards: set a max iteration limit (e.g., 10 turns) to prevent infinite l
 
 ---
 
+<br>
+
 **Q8: What are the security risks of tool calling and how do you mitigate them?**
 
 <details>
@@ -156,6 +166,8 @@ Three main risks:
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the difference between tool calling for structured output vs. RAG retrieval?**
 

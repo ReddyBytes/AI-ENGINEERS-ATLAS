@@ -23,6 +23,8 @@ Every patch can attend to every other patch through self-attention, enabling glo
 
 ---
 
+<br>
+
 **Q2. How is processing image patches different from processing words?**
 
 <details>
@@ -37,6 +39,8 @@ The key similarity: both result in a sequence of vectors that the transformer pr
 </details>
 
 ---
+
+<br>
 
 **Q3. Why does ViT need positional encoding for images?**
 
@@ -74,6 +78,8 @@ Consequence: ViT needs much more data or pretraining to match CNN performance on
 
 ---
 
+<br>
+
 **Q5. What is CLIP and how does it relate to ViT?**
 
 <details>
@@ -97,6 +103,8 @@ CLIP essentially gave ViT its "language" — the ability to connect visual conce
 </details>
 
 ---
+
+<br>
 
 **Q6. How is patch size related to model performance and computational cost?**
 
@@ -148,6 +156,8 @@ The key challenge: aligning the feature spaces. A ViT trained on image classific
 
 ---
 
+<br>
+
 **Q8. What are the key weaknesses of ViT compared to CNNs?**
 
 <details>
@@ -164,6 +174,8 @@ The key challenge: aligning the feature spaces. A ViT trained on image classific
 </details>
 
 ---
+
+<br>
 
 **Q9. What is the Swin Transformer and how does it address ViT's limitations?**
 

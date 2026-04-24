@@ -17,6 +17,8 @@ ReAct fixes this by requiring the agent to write out a **Thought** — explicit 
 
 ---
 
+<br>
+
 **Q2: What is the Thought → Action → Observation loop?**
 
 <details>
@@ -33,6 +35,8 @@ Then the agent writes another **Thought** using what it just learned, takes anot
 </details>
 
 ---
+
+<br>
 
 **Q3: Why is writing the Thought step important? Can't the agent just act directly?**
 
@@ -74,6 +78,8 @@ ReAct is like CoT but connected to the real world.
 
 ---
 
+<br>
+
 **Q5: What happens when a tool call in ReAct returns an error or unexpected result?**
 
 <details>
@@ -91,6 +97,8 @@ A well-implemented ReAct agent is self-correcting. The loop naturally allows for
 </details>
 
 ---
+
+<br>
 
 **Q6: How is ReAct implemented in frameworks like LangChain?**
 
@@ -135,6 +143,8 @@ Mitigations: truncating the trajectory, summarizing old steps, and breaking very
 
 ---
 
+<br>
+
 **Q8: How would you evaluate the quality of a ReAct agent's trajectory?**
 
 <details>
@@ -154,6 +164,8 @@ A good evaluation framework logs the full trajectory and checks each of these di
 </details>
 
 ---
+
+<br>
 
 **Q9: Compare ReAct with Plan-and-Execute agents. When would you choose one over the other?**
 

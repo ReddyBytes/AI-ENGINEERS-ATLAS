@@ -18,6 +18,8 @@ You'd use it when you want to:
 
 ---
 
+<br>
+
 **Q2: What is LangSmith used for?**
 
 <details>
@@ -34,6 +36,8 @@ It's especially useful if you're already using LangChain or LangGraph because in
 
 ---
 
+<br>
+
 **Q3: What's the difference between an assertion and an evaluator?**
 
 <details>
@@ -47,6 +51,8 @@ Best practice: use assertions wherever possible; fall back to evaluators for nua
 </details>
 
 ---
+
+<br>
 
 **Q4: What does a test dataset for an eval framework typically look like?**
 
@@ -89,6 +95,8 @@ The key principle: treat eval failures like test failures — they block deploym
 
 ---
 
+<br>
+
 **Q6: When would you build a custom eval framework instead of using Promptfoo or LangSmith?**
 
 <details>
@@ -109,6 +117,8 @@ Use off-the-shelf when:
 
 ---
 
+<br>
+
 **Q7: What is an "experiment" in LangSmith and how does it help?**
 
 <details>
@@ -121,6 +131,8 @@ This lets you answer: "Did my prompt change improve quality?" by comparing Exper
 </details>
 
 ---
+
+<br>
 
 **Q8: What are the main assertion types in Promptfoo and when do you use each?**
 
@@ -166,6 +178,8 @@ Strategies:
 
 ---
 
+<br>
+
 **Q10: Design a production eval system for a customer support chatbot.**
 
 <details>
@@ -205,6 +219,8 @@ Human review loop:
 </details>
 
 ---
+
+<br>
 
 **Q11: What is "eval drift" and how do you detect it?**
 

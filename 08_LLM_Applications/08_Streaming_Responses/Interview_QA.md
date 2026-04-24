@@ -15,6 +15,8 @@ It matters primarily for user experience. People tolerate progressive loading mu
 
 ---
 
+<br>
+
 **Q2: What is SSE (Server-Sent Events) and how does it work?**
 
 <details>
@@ -29,6 +31,8 @@ In Python, the `anthropic` SDK handles all the SSE details for you — you just 
 </details>
 
 ---
+
+<br>
 
 **Q3: How do you display streamed output in a Python terminal?**
 
@@ -86,6 +90,8 @@ Your backend proxies the Anthropic streaming API and forwards the SSE events. Fr
 
 ---
 
+<br>
+
 **Q5: Can you use streaming with tool calling? What are the complications?**
 
 <details>
@@ -100,6 +106,8 @@ You can stream the "thinking" text before the tool call and the "response" text 
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you measure "time to first token" (TTFT) in code?**
 
@@ -177,6 +185,8 @@ Key header: `X-Accel-Buffering: no` — tells Nginx not to buffer the response, 
 
 ---
 
+<br>
+
 **Q8: What are the challenges of streaming responses in multi-tenant production systems?**
 
 <details>
@@ -195,6 +205,8 @@ Rate limiting: streaming connections hold a slot for much longer than regular re
 </details>
 
 ---
+
+<br>
 
 **Q9: How does streaming interact with response caching? Can you cache a streamed response?**
 

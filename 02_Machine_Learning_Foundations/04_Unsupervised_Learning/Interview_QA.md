@@ -11,6 +11,8 @@ A: Unsupervised learning trains on data that has no labels — there are no corr
 
 </details>
 
+<br>
+
 **Q2: What is clustering and can you give a real-world example?**
 
 <details>
@@ -19,6 +21,8 @@ A: Unsupervised learning trains on data that has no labels — there are no corr
 A: Clustering is grouping similar data points together based on their features, without being told what the groups should be. A real-world example: a retail company feeds purchase history data into a clustering algorithm without any predefined categories. The algorithm discovers that customers naturally fall into groups — frequent buyers of electronics, occasional grocery shoppers, discount hunters, etc. The company did not define those categories — the algorithm found them in the data.
 
 </details>
+
+<br>
 
 **Q3: What is K-Means clustering and how does it work?**
 
@@ -42,6 +46,8 @@ A: The most common method is the elbow method. You run K-Means for K = 1, 2, 3..
 
 </details>
 
+<br>
+
 **Q5: What is dimensionality reduction and why is it useful?**
 
 <details>
@@ -50,6 +56,8 @@ A: The most common method is the elbow method. You run K-Means for K = 1, 2, 3..
 A: Dimensionality reduction compresses data with many features into fewer features while preserving the most important patterns. It is useful for three reasons: visualization (you can plot 2D/3D compressed data to see structure), speed (fewer features = faster training), and noise reduction (removing irrelevant features can improve model performance). PCA is the classic method — it finds new axes (principal components) that capture the most variance in the data and projects all data onto those axes.
 
 </details>
+
+<br>
 
 **Q6: What is the difference between K-Means and hierarchical clustering?**
 
@@ -73,6 +81,8 @@ A: Modern LLMs use self-supervised learning — a form of unsupervised learning 
 
 </details>
 
+<br>
+
 **Q8: What are autoencoders and how do they relate to unsupervised learning?**
 
 <details>
@@ -81,6 +91,8 @@ A: Modern LLMs use self-supervised learning — a form of unsupervised learning 
 A: An autoencoder is a neural network trained to compress input into a smaller "latent" representation (the encoder) and then reconstruct the original input from that compressed form (the decoder). No labels are needed — the reconstruction error (how different the output is from the input) is the loss. The compressed latent space is an unsupervised representation of the data. Applications include anomaly detection (unusual inputs reconstruct poorly), denoising, and generating compressed feature representations for downstream supervised tasks.
 
 </details>
+
+<br>
 
 **Q9: How would you use unsupervised learning to build a fraud detection system?**
 

@@ -13,6 +13,8 @@ Anthropic provides official extensions for VS Code (available in the VS Code mar
 
 ---
 
+<br>
+
 **Q2: What does the VS Code Claude Code extension add that the terminal doesn't have?**
 
 <details>
@@ -23,6 +25,8 @@ The VS Code extension adds: a dockable side panel for the Claude conversation (n
 </details>
 
 ---
+
+<br>
 
 **Q3: What does the status bar indicator show during a Claude Code session in VS Code?**
 
@@ -48,6 +52,8 @@ Use the terminal for: CI/CD integration and automation scripts (with `--print` f
 
 ---
 
+<br>
+
 **Q5: How do the CLI and IDE extension share state?**
 
 <details>
@@ -58,6 +64,8 @@ They both read the same configuration files (global `~/.claude/CLAUDE.md`, proje
 </details>
 
 ---
+
+<br>
 
 **Q6: How does the inline diff view work in the IDE extension when Claude makes a file edit?**
 
@@ -83,6 +91,8 @@ The config is already portable: CLAUDE.md and `.claude/settings.json` are in the
 
 ---
 
+<br>
+
 **Q8: What are the performance implications of using the IDE extension vs the terminal?**
 
 <details>
@@ -93,6 +103,8 @@ Performance of the Claude agent loop is identical — both interfaces call the s
 </details>
 
 ---
+
+<br>
 
 **Q9: What's the security model when using Claude Code through an IDE extension?**
 

@@ -13,6 +13,8 @@ A: The Message Batches API allows you to submit up to 10,000 Claude requests in 
 
 ---
 
+<br>
+
 **Q2: What is the `custom_id` field and why is it important?**
 
 <details>
@@ -24,6 +26,8 @@ A: `custom_id` is your application-defined identifier for each request within a 
 
 ---
 
+<br>
+
 **Q3: What does `processing_status: "ended"` mean?**
 
 <details>
@@ -34,6 +38,8 @@ A: It means all requests in the batch have been processed — successfully or wi
 </details>
 
 ---
+
+<br>
 
 **Q4: How long do batch results stay available?**
 
@@ -59,6 +65,8 @@ A: Check each result's `result.type` field. Three types exist: `"succeeded"` (ac
 
 ---
 
+<br>
+
 **Q6: When should you choose batching over the standard real-time API?**
 
 <details>
@@ -70,6 +78,8 @@ A: Choose batching when: (1) the user is NOT waiting for the response in real ti
 
 ---
 
+<br>
+
 **Q7: How does batching interact with rate limits?**
 
 <details>
@@ -80,6 +90,8 @@ A: Batch API requests go through a separate processing queue from real-time requ
 </details>
 
 ---
+
+<br>
 
 **Q8: What is a good polling strategy for batch completion?**
 
@@ -105,6 +117,8 @@ A: Architecture: (1) Load records from database in batches of 10,000. (2) Map ea
 
 ---
 
+<br>
+
 **Q10: How would you implement retry logic for failed batch requests?**
 
 <details>
@@ -115,6 +129,8 @@ A: (1) After retrieving results, collect all `custom_id` values where `result.re
 </details>
 
 ---
+
+<br>
 
 **Q11: Compare the cost efficiency of batching vs prompt caching for a document analysis pipeline.**
 

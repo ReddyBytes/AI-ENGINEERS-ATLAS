@@ -17,6 +17,8 @@ Think of it this way: embedding is the process of assigning a location code to e
 
 ---
 
+<br>
+
 **Q2: Why should you batch-embed your chunks instead of embedding them one at a time?**
 
 <details>
@@ -33,6 +35,8 @@ Always batch. For OpenAI: up to 2,048 per call. For sentence-transformers: `mode
 </details>
 
 ---
+
+<br>
 
 **Q3: What is "embedding drift" and how does it break your RAG system?**
 
@@ -78,6 +82,8 @@ def chunk_id(text: str, source: str) -> str:
 
 ---
 
+<br>
+
 **Q5: What should you store as metadata alongside each vector? Why does it matter?**
 
 <details>
@@ -100,6 +106,8 @@ The rule: store everything you might need downstream. Storage cost for metadata 
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you handle a large corpus of 500,000 documents efficiently during the indexing phase?**
 
@@ -145,6 +153,8 @@ Construction is O(n log n) on average. Query time is roughly O(log n) — sublin
 
 ---
 
+<br>
+
 **Q8: What is the difference between using ChromaDB's built-in embedding function vs. pre-computing embeddings yourself?**
 
 <details>
@@ -163,6 +173,8 @@ Production recommendation: pre-compute and cache. More control, better debuggabi
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you design an indexing system that supports multiple embedding models simultaneously?**
 

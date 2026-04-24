@@ -22,6 +22,8 @@ The trade-off is a small quality loss: some information is lost when mapping con
 
 ---
 
+<br>
+
 **Q2: What does `device_map="auto"` do when you pass it to `from_pretrained`?**
 
 <details>
@@ -48,6 +50,8 @@ This makes it possible to run very large models on hardware that would otherwise
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between FP16 and BF16? Which should you prefer?**
 
@@ -97,6 +101,8 @@ This is why `load_in_8bit=True` maintains quality so well compared to simpler IN
 
 ---
 
+<br>
+
 **Q5: What is Flash Attention and when should you use it?**
 
 <details>
@@ -130,6 +136,8 @@ model = AutoModelForCausalLM.from_pretrained(
 </details>
 
 ---
+
+<br>
 
 **Q6: You're running a text classification service that receives 10,000 requests per day. The current setup processes one request at a time on a T4 GPU. How would you optimize the inference pipeline?**
 
@@ -210,6 +218,8 @@ outputs = target_model.generate(
 
 ---
 
+<br>
+
 **Q8: Compare quantization approaches: bitsandbytes (PyTorch), GGUF (llama.cpp), and GPTQ. What are the trade-offs?**
 
 <details>
@@ -247,6 +257,8 @@ outputs = target_model.generate(
 </details>
 
 ---
+
+<br>
 
 **Q9: You need to serve a 70B parameter LLM with < 200ms latency for an API. Walk through your optimization strategy.**
 

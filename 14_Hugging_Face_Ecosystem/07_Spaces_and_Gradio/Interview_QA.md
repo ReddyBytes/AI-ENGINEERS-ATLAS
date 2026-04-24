@@ -17,6 +17,8 @@ It integrates naturally with the Hugging Face ecosystem — a `pipeline()` outpu
 
 ---
 
+<br>
+
 **Q2: What is the difference between `gr.Interface` and `gr.Blocks`?**
 
 <details>
@@ -46,6 +48,8 @@ Rule of thumb: start with `gr.Interface` for demos, graduate to `gr.Blocks` when
 </details>
 
 ---
+
+<br>
 
 **Q3: What is a Hugging Face Space and how do you deploy a Gradio app to one?**
 
@@ -117,6 +121,8 @@ Module-level code in `app.py` runs once when the Space starts. Everything inside
 
 ---
 
+<br>
+
 **Q5: How does `gr.State` work and when do you need it?**
 
 <details>
@@ -163,6 +169,8 @@ Without `gr.State`, you would need global variables (which break with concurrent
 </details>
 
 ---
+
+<br>
 
 **Q6: What are Gradio examples and why are they important for deployed Spaces?**
 
@@ -267,6 +275,8 @@ demo.launch()
 
 ---
 
+<br>
+
 **Q8: What are the differences between using Gradio and Streamlit for ML demos? When would you choose each?**
 
 <details>
@@ -299,6 +309,8 @@ Both are fully supported on Hugging Face Spaces — create your Space with the a
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you optimize a Gradio Space that's running too slowly on the free CPU tier?**
 

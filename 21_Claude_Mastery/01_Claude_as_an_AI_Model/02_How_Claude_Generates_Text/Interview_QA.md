@@ -23,6 +23,8 @@ The key insight: there is no planning ahead or rewriting — Claude commits to e
 
 ---
 
+<br>
+
 **Q2: What is temperature in an LLM? How does it affect output?**
 
 <details>
@@ -42,6 +44,8 @@ For production: factual tasks use low temperature (0.1–0.3), creative tasks us
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between top-p and top-k sampling?**
 
@@ -84,6 +88,8 @@ For most applications, sampling with moderate temperature and top-p gives better
 
 ---
 
+<br>
+
 **Q5: How does the KV cache work and why is it important?**
 
 <details>
@@ -104,6 +110,8 @@ Why it matters:
 </details>
 
 ---
+
+<br>
 
 **Q6: What are stop sequences and how should you use them in production?**
 
@@ -151,6 +159,8 @@ For Claude-scale models, autoregressive with speculative decoding is currently t
 
 ---
 
+<br>
+
 **Q8: How does temperature interact with top-p? Which is applied first?**
 
 <details>
@@ -171,6 +181,8 @@ In practice, many frameworks apply them together: `logits / temperature → soft
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the "exposure bias" problem and how does it affect Claude's generation quality?**
 

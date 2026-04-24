@@ -13,6 +13,8 @@ An activation function is applied to the output of each neuron after the linear 
 
 ---
 
+<br>
+
 **Q2: What is ReLU and why is it the most popular activation function?**
 
 <details>
@@ -23,6 +25,8 @@ ReLU stands for Rectified Linear Unit. The formula is `f(x) = max(0, x)`. If the
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between sigmoid and softmax?**
 
@@ -48,6 +52,8 @@ During backpropagation, gradients are multiplied layer by layer. If an activatio
 
 ---
 
+<br>
+
 **Q5: What is the dying ReLU problem and how do you fix it?**
 
 <details>
@@ -58,6 +64,8 @@ A ReLU neuron outputs 0 for any negative input, and the gradient is also 0 for n
 </details>
 
 ---
+
+<br>
 
 **Q6: Why should you use no activation function (linear) on the output layer for regression?**
 
@@ -83,6 +91,8 @@ Weight initialization and activation functions interact. For ReLU, He initializa
 
 ---
 
+<br>
+
 **Q8: What is the GELU activation function and why do transformers use it?**
 
 <details>
@@ -93,6 +103,8 @@ GELU (Gaussian Error Linear Unit) is defined as `f(x) = x × Φ(x)` where Φ is 
 </details>
 
 ---
+
+<br>
 
 **Q9: If softmax outputs sum to 1 and look like probabilities, are they actually calibrated probabilities?**
 

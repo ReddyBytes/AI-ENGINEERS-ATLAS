@@ -13,6 +13,8 @@ A: Zero-shot prompting gives Claude a task description with no examples — you 
 
 ---
 
+<br>
+
 **Q2: What does "chain-of-thought" prompting do and when should you use it?**
 
 <details>
@@ -24,6 +26,8 @@ A: Chain-of-thought (CoT) asks Claude to reason through the problem step by step
 
 ---
 
+<br>
+
 **Q3: Why do XML tags improve Claude's prompt adherence?**
 
 <details>
@@ -34,6 +38,8 @@ A: Claude was trained on large amounts of XML-structured text and learned to ass
 </details>
 
 ---
+
+<br>
 
 **Q4: What is prefilling the assistant turn, and when is it useful?**
 
@@ -59,6 +65,8 @@ A: Use a decision tree: (1) If the task is simple and Claude's training covers i
 
 ---
 
+<br>
+
 **Q6: How does temperature affect output quality for different task types?**
 
 <details>
@@ -70,6 +78,8 @@ A: Temperature controls randomness in token sampling. At `0.0`, Claude always pi
 
 ---
 
+<br>
+
 **Q7: What's the most common mistake engineers make with prompt engineering?**
 
 <details>
@@ -80,6 +90,8 @@ A: Insufficient specificity about output format. "Summarize this" without saying
 </details>
 
 ---
+
+<br>
 
 **Q8: How would you extract structured data from unstructured text reliably using Claude?**
 
@@ -105,6 +117,8 @@ A: Structure: (1) System: "Classify support tickets into exactly one of: BILLING
 
 ---
 
+<br>
+
 **Q10: Explain how to build a prompt that reliably generates valid JSON with nested objects and arrays.**
 
 <details>
@@ -115,6 +129,8 @@ A: Use the following stack: (1) System prompt with exact schema defined (use Typ
 </details>
 
 ---
+
+<br>
 
 **Q11: How does prompt engineering interact with model selection? When does Haiku vs Sonnet vs Opus change your prompting strategy?**
 

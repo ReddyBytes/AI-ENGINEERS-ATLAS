@@ -13,6 +13,8 @@ Tokenization is the process of splitting text into smaller units called tokens. 
 
 ---
 
+<br>
+
 **Q2. What is the difference between word tokenization and subword tokenization?**
 
 <details>
@@ -25,6 +27,8 @@ Subword tokenization splits words into smaller pieces — fragments that appear 
 </details>
 
 ---
+
+<br>
 
 **Q3. What is OOV and why does it matter?**
 
@@ -60,6 +64,8 @@ Example: if "lo" appears very often, it gets merged. Then "low" if "low" is comm
 
 ---
 
+<br>
+
 **Q5. Why does the same word sometimes become different numbers of tokens in different models?**
 
 <details>
@@ -72,6 +78,8 @@ For example, "tokenization" might be 1 token in a model trained heavily on NLP t
 </details>
 
 ---
+
+<br>
 
 **Q6. What are special tokens and when are they used?**
 
@@ -111,6 +119,8 @@ For performance: long inputs that exceed the context window get truncated. You m
 
 ---
 
+<br>
+
 **Q8. What is WordPiece and how does it differ from BPE?**
 
 <details>
@@ -126,6 +136,8 @@ In practice, they produce similar results. WordPiece tends to create slightly mo
 </details>
 
 ---
+
+<br>
 
 **Q9. How would you build a custom tokenizer for a domain-specific NLP application (e.g., medical or legal text)?**
 

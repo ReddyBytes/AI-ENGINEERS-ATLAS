@@ -17,6 +17,8 @@ In practice: keyword search wins for exact terms, product codes, and proper noun
 
 ---
 
+<br>
+
 **Q2: What does "embedding" a query mean, and why does it need to use the same model as the documents?**
 
 <details>
@@ -29,6 +31,8 @@ The "same model" requirement exists because different embedding models create di
 </details>
 
 ---
+
+<br>
 
 **Q3: What is hybrid search and when would you use it?**
 
@@ -60,6 +64,8 @@ Why it works well: it's rank-based, not score-based. Cosine similarity scores an
 
 ---
 
+<br>
+
 **Q5: What is re-ranking and how does it differ from the initial retrieval step?**
 
 <details>
@@ -74,6 +80,8 @@ The two-stage pipeline: retrieval finds 20–50 plausible candidates quickly, re
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you evaluate whether your semantic search system is working well?**
 
@@ -121,6 +129,8 @@ For most production RAG: recursive splitting into 256–512 token chunks with 10
 
 ---
 
+<br>
+
 **Q8: What is ColBERT and how does it differ from standard bi-encoder and cross-encoder models?**
 
 <details>
@@ -137,6 +147,8 @@ ColBERT is significantly more accurate than bi-encoders and much faster than cro
 </details>
 
 ---
+
+<br>
 
 **Q9: How would you build a multi-lingual semantic search system?**
 

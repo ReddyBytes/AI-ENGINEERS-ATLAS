@@ -13,6 +13,8 @@ A: `model` (which Claude model to use), `max_tokens` (maximum output tokens to g
 
 ---
 
+<br>
+
 **Q2: What are the two valid values for the `role` field in a message?**
 
 <details>
@@ -24,6 +26,8 @@ A: `"user"` and `"assistant"`. Messages must alternate between these two roles, 
 
 ---
 
+<br>
+
 **Q3: How do you extract the text from a Messages API response in Python?**
 
 <details>
@@ -34,6 +38,8 @@ A: `response.content[0].text`. The `content` field is a list of content blocks, 
 </details>
 
 ---
+
+<br>
 
 **Q4: What does `stop_reason: "max_tokens"` mean, and what should you do about it?**
 
@@ -59,6 +65,8 @@ A: (1) `"text"` — plain text content, used in both user and assistant messages
 
 ---
 
+<br>
+
 **Q6: The Messages API is stateless. How do you implement a persistent chatbot?**
 
 <details>
@@ -70,6 +78,8 @@ A: Maintain a conversation history list in your application. On each user turn: 
 
 ---
 
+<br>
+
 **Q7: What is the difference between the `system` parameter and the first `user` message?**
 
 <details>
@@ -80,6 +90,8 @@ A: The `system` parameter sets persistent instructions that apply across the ent
 </details>
 
 ---
+
+<br>
 
 **Q8: What happens if you send two consecutive user messages in the messages array?**
 
@@ -105,6 +117,8 @@ A: Turn 1: User sends a question → Claude responds with `stop_reason: "tool_us
 
 ---
 
+<br>
+
 **Q10: How does prompt caching interact with the messages array structure?**
 
 <details>
@@ -115,6 +129,8 @@ A: Prompt caching is enabled by adding `"cache_control": {"type": "ephemeral"}` 
 </details>
 
 ---
+
+<br>
 
 **Q11: When would you use an array of content blocks for the `content` field vs a simple string?**
 

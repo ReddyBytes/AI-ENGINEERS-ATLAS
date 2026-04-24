@@ -20,6 +20,8 @@ Transformers replace sequential processing with parallel self-attention: every t
 
 ---
 
+<br>
+
 **Q2: What are Query, Key, and Value in self-attention?**
 
 <details>
@@ -38,6 +40,8 @@ Analogy: imagine a document search engine. Your search query is Q. The document 
 </details>
 
 ---
+
+<br>
 
 **Q3: What is multi-head attention and why use multiple heads?**
 
@@ -79,6 +83,8 @@ This is what makes the same transformer usable for both training (parallel) and 
 
 ---
 
+<br>
+
 **Q5: What are residual connections and layer normalization, and why are they both necessary?**
 
 <details>
@@ -93,6 +99,8 @@ Both are necessary: residuals solve gradient flow, LayerNorm solves activation s
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the feed-forward network in a transformer block and what does it do?**
 
@@ -140,6 +148,8 @@ This is why modern models like Llama 2/3 and presumably Claude use GQA — it's 
 
 ---
 
+<br>
+
 **Q8: Explain the scaling behavior of attention and how Flash Attention addresses it.**
 
 <details>
@@ -167,6 +177,8 @@ Result: Flash Attention 2 is ~2-4x faster than naive attention in practice and e
 </details>
 
 ---
+
+<br>
 
 **Q9: How does RoPE (Rotary Position Embedding) differ from sinusoidal encoding, and why is it preferred for long contexts?**
 

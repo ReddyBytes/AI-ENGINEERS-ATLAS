@@ -13,6 +13,8 @@ A: Gymnasium is a Python library that provides a standardized interface for RL e
 
 ---
 
+<br>
+
 **Q2: What is reward shaping and why is it needed?**
 
 <details>
@@ -25,6 +27,8 @@ Shaping adds informative intermediate signals (like "you're getting closer to th
 </details>
 
 ---
+
+<br>
 
 **Q3: What is stable-baselines3 and when should you use it?**
 
@@ -65,6 +69,8 @@ Prevention strategies:
 
 ---
 
+<br>
+
 **Q5: Why is running multiple random seeds important in RL experiments?**
 
 <details>
@@ -77,6 +83,8 @@ Running a single seed and reporting those results is not scientifically valid. B
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the exploration-exploitation trade-off in practice, and what techniques address it?**
 
@@ -116,6 +124,8 @@ RL is justified when: (1) the environment is too complex to specify rules, (2) n
 
 ---
 
+<br>
+
 **Q8: What is curriculum learning in RL and when is it used?**
 
 <details>
@@ -135,6 +145,8 @@ Implementation: adjust environment difficulty based on the agent's performance m
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the sim-to-real gap and how is it addressed?**
 

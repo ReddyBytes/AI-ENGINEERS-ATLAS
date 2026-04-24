@@ -17,6 +17,8 @@ In self-attention, every word in a sentence computes attention scores against ev
 
 ---
 
+<br>
+
 **Q2. How are Q, K, and V derived from the input in self-attention?**
 
 <details>
@@ -33,6 +35,8 @@ The same word embedding produces three different views. These weight matrices ar
 </details>
 
 ---
+
+<br>
 
 **Q3. What does the attention matrix in self-attention represent?**
 
@@ -64,6 +68,8 @@ This is why transformers with self-attention can handle long documents much bett
 
 ---
 
+<br>
+
 **Q5. What is masked self-attention and why is it needed in GPT?**
 
 <details>
@@ -78,6 +84,8 @@ Masked self-attention sets all attention weights where position j > position i t
 </details>
 
 ---
+
+<br>
 
 **Q6. What is the computational cost of self-attention and what are its implications?**
 
@@ -118,6 +126,8 @@ d_k is the dimension of the Query and Key vectors. It affects two things:
 
 ---
 
+<br>
+
 **Q8. Can self-attention learn positional relationships between words, and how?**
 
 <details>
@@ -132,6 +142,8 @@ Additionally, relative positional encodings (used in Transformer-XL, T5) directl
 </details>
 
 ---
+
+<br>
 
 **Q9. What patterns do self-attention heads typically learn in practice?**
 

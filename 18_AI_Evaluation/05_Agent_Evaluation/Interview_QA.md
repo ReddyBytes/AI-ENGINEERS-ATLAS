@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What is trajectory evaluation?**
 
 <details>
@@ -19,6 +21,8 @@
 **A:** Trajectory evaluation compares the actual sequence of actions (tool calls) an agent took to an expected "golden" sequence. If you expect an agent to call `search_flights` then `get_price` then `book_flight` (3 steps), but the agent called `search_flights` twice, then `get_price` for 3 different flights, then `book_flight` (7 steps), the trajectory evaluation reveals the inefficiency and errors even if the final booking was correct. It evaluates the path, not just the destination.
 
 </details>
+
+<br>
 
 **Q3: What is task completion rate and why isn't it enough on its own?**
 
@@ -47,6 +51,8 @@
 
 </details>
 
+<br>
+
 **Q5: How do you evaluate an agent's tool call accuracy?**
 
 <details>
@@ -59,6 +65,8 @@
 Combined metric: Tool F1 = 2 × (precision × recall) / (precision + recall). Parameter accuracy = correct_params / total_tool_calls.
 
 </details>
+
+<br>
 
 **Q6: What safety-specific test cases should every agent eval suite include?**
 

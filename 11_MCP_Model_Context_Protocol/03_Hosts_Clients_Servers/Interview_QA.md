@@ -11,6 +11,8 @@
 
 </details>
 
+<br>
+
 **Q2: What does the MCP Client do, and where does it live?**
 
 <details>
@@ -19,6 +21,8 @@
 > The MCP Client is a component that lives inside the Host application (not as a separate program). Its job is to handle the MCP protocol details: it sends the `initialize` request to the server, serializes requests into JSON-RPC format, deserializes responses, and manages the session lifecycle. Think of it as the protocol adapter layer inside your AI app. Every server connection needs its own dedicated client.
 
 </details>
+
+<br>
 
 **Q3: Can a Host connect to more than one Server?**
 
@@ -42,6 +46,8 @@
 
 </details>
 
+<br>
+
 **Q5: What is the difference between a server running in stdio mode versus being a remote service?**
 
 <details>
@@ -52,6 +58,8 @@
 > As a **remote service** (SSE transport), the server runs as an HTTP service — either on localhost or on a remote machine. The client connects via HTTP and uses Server-Sent Events to receive responses. This server exists independently of any particular host and can serve multiple clients simultaneously. This is better for shared company services or web-based tools.
 
 </details>
+
+<br>
 
 **Q6: Who is responsible for deciding which tools the AI model can use — the host, the client, or the server?**
 
@@ -87,6 +95,8 @@
 
 </details>
 
+<br>
+
 **Q8: Imagine you are building an AI coding assistant that needs to read files, run code, and search the web. How would you design the host-client-server architecture?**
 
 <details>
@@ -100,6 +110,8 @@
 > The host (the coding assistant app) creates three clients, one per server. The AI model has access to all three tool sets simultaneously. Each server is kept simple and focused, making it easy to test and maintain. If the code execution server has a security issue, I can fix it without touching the other servers.
 
 </details>
+
+<br>
 
 **Q9: What happens if a server crashes mid-session? How should the host/client handle it?**
 

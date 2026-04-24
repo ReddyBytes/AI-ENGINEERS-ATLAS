@@ -13,6 +13,8 @@ A: `AuthenticationError` (401 — bad API key, retrying won't fix it), `BadReque
 
 ---
 
+<br>
+
 **Q2: What is exponential backoff and why does it use jitter?**
 
 <details>
@@ -24,6 +26,8 @@ A: Exponential backoff means waiting progressively longer between retry attempts
 
 ---
 
+<br>
+
 **Q3: What exception does the SDK raise when you hit a rate limit?**
 
 <details>
@@ -34,6 +38,8 @@ A: `anthropic.RateLimitError`. It corresponds to HTTP 429. The response includes
 </details>
 
 ---
+
+<br>
 
 **Q4: What is the `request_id` field and why should you log it?**
 
@@ -78,6 +84,8 @@ def call_claude(prompt: str) -> str:
 
 ---
 
+<br>
+
 **Q6: What is the circuit breaker pattern and when is it useful for Claude API integrations?**
 
 <details>
@@ -89,6 +97,8 @@ A: A circuit breaker monitors failure counts. When failures exceed a threshold, 
 
 ---
 
+<br>
+
 **Q7: How should you handle the `BadRequestError` (400) in a production pipeline?**
 
 <details>
@@ -99,6 +109,8 @@ A: Never retry it — the request body is invalid and retrying would just fail a
 </details>
 
 ---
+
+<br>
 
 **Q8: What is idempotency and why does it matter for retrying Claude API calls?**
 
@@ -174,6 +186,8 @@ class APIClient:
 
 ---
 
+<br>
+
 **Q10: How do you handle errors differently in a synchronous web endpoint vs an async background job?**
 
 <details>
@@ -184,6 +198,8 @@ A: In a synchronous web endpoint (e.g., FastAPI route), errors must be handled q
 </details>
 
 ---
+
+<br>
 
 **Q11: Explain how you would implement per-error-type alerting for a production Claude integration.**
 

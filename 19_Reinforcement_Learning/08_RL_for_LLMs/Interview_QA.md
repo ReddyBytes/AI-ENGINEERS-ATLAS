@@ -17,6 +17,8 @@ The result: a model that generates text that humans prefer, rather than text tha
 
 ---
 
+<br>
+
 **Q2: What are the three stages of RLHF?**
 
 <details>
@@ -32,6 +34,8 @@ A:
 </details>
 
 ---
+
+<br>
 
 **Q3: Why can't you just train a language model with supervised learning on human-written responses?**
 
@@ -70,6 +74,8 @@ This loss trains the model to assign higher scores to preferred responses and lo
 
 ---
 
+<br>
+
 **Q5: What is the KL penalty in RLHF and why is it essential?**
 
 <details>
@@ -89,6 +95,8 @@ With it: the policy is forced to stay "proximal" to the SFT model. This is exact
 </details>
 
 ---
+
+<br>
 
 **Q6: What is DPO and how does it differ from RLHF?**
 
@@ -125,6 +133,8 @@ The severity depends on the optimization budget — more PPO steps = more reward
 
 ---
 
+<br>
+
 **Q8: What are the RL components in an RLHF training step at the token level?**
 
 <details>
@@ -144,6 +154,8 @@ The per-token KL contribution converts the purely sparse reward into something s
 </details>
 
 ---
+
+<br>
 
 **Q9: What is Constitutional AI and how does it extend RLHF?**
 

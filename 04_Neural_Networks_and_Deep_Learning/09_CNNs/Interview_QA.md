@@ -13,6 +13,8 @@ A convolution is the operation of sliding a small filter (e.g., 3×3 grid of wei
 
 ---
 
+<br>
+
 **Q2: What is weight sharing and why is it important?**
 
 <details>
@@ -23,6 +25,8 @@ Weight sharing means the same filter weights are used at every position in the i
 </details>
 
 ---
+
+<br>
 
 **Q3: What is max pooling and what does it do?**
 
@@ -48,6 +52,8 @@ Early convolutional layers have small receptive fields and detect simple local p
 
 ---
 
+<br>
+
 **Q5: What is the receptive field and why does it matter?**
 
 <details>
@@ -58,6 +64,8 @@ The receptive field of a neuron is the region of the original input image that i
 </details>
 
 ---
+
+<br>
 
 **Q6: What is the difference between same padding and valid padding?**
 
@@ -83,6 +91,8 @@ Residual connections (He et al., 2015, ResNet) add the input of a block directly
 
 ---
 
+<br>
+
 **Q8: How does object detection differ from image classification in CNN architecture?**
 
 <details>
@@ -93,6 +103,8 @@ Image classification takes an image and outputs a single label (what is in the i
 </details>
 
 ---
+
+<br>
 
 **Q9: What are depthwise separable convolutions and why do efficient architectures use them?**
 

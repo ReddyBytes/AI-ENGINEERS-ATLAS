@@ -13,6 +13,8 @@ A: Latent diffusion means running the diffusion process in the compressed latent
 
 ---
 
+<br>
+
 **Q2: What is CLIP's role in Stable Diffusion?**
 
 <details>
@@ -23,6 +25,8 @@ A: CLIP (Contrastive Language-Image Pre-training) provides the text encoder. Whe
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the VAE in Stable Diffusion and what is its role?**
 
@@ -38,6 +42,8 @@ The VAE is trained separately on image reconstruction, then frozen during diffus
 </details>
 
 ---
+
+<br>
 
 **Q4: What does the 4-channel latent in Stable Diffusion represent?**
 
@@ -69,6 +75,8 @@ At denoising strength 0.5, you start from a moderately noisy version of the inpu
 
 ---
 
+<br>
+
 **Q6: Why does Stable Diffusion have a VAE scale factor of 0.18215?**
 
 <details>
@@ -79,6 +87,8 @@ A: The VAE's encoder doesn't produce latents with unit standard deviation — em
 </details>
 
 ---
+
+<br>
 
 **Q7: How does CLIP's 77-token limit affect long prompts?**
 
@@ -94,6 +104,8 @@ Key practical lesson: put the most important concepts at the beginning of your p
 </details>
 
 ---
+
+<br>
 
 **Q8: What is the difference between a base model and a fine-tuned model in the SD ecosystem?**
 
@@ -130,6 +142,8 @@ Each spatial position in the image (each query) computes attention weights over 
 
 ---
 
+<br>
+
 **Q10: Explain the difference between the VAE's role in training vs. inference for Latent Diffusion Models.**
 
 <details>
@@ -144,6 +158,8 @@ This separation of concerns is a key design choice: the VAE is trained to be a g
 </details>
 
 ---
+
+<br>
 
 **Q11: What is CLIP vs. OpenCLIP and why does it matter?**
 

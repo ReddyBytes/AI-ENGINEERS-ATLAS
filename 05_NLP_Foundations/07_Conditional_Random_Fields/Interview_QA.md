@@ -17,6 +17,8 @@ Common uses: Named Entity Recognition (labeling spans as Person, Organization, L
 
 ---
 
+<br>
+
 **Q2. How is a CRF different from an HMM?**
 
 <details>
@@ -33,6 +35,8 @@ This lets CRFs use much richer features. An HMM can only use the current word an
 </details>
 
 ---
+
+<br>
 
 **Q3. What is the BIO labeling scheme and why is it needed for NER?**
 
@@ -101,6 +105,8 @@ The CRF learns weights for each feature function — features correlated with co
 
 ---
 
+<br>
+
 **Q5. How does decoding work in a CRF? How is it similar to HMM decoding?**
 
 <details>
@@ -115,6 +121,8 @@ The difference from HMM: instead of simple transition and emission probabilities
 </details>
 
 ---
+
+<br>
 
 **Q6. What is a BiLSTM-CRF and why is it better than a standalone CRF?**
 
@@ -163,6 +171,8 @@ Regularization (L1 or L2 penalty on feature weights) is usually needed to preven
 
 ---
 
+<br>
+
 **Q8. How does BERT+CRF work for NER and why is it better than BiLSTM-CRF?**
 
 <details>
@@ -184,6 +194,8 @@ One challenge: BERT tokenizes into subwords. "Obama" might become ["O", "##bama"
 </details>
 
 ---
+
+<br>
 
 **Q9. When would you choose a CRF over BERT for a production NER system?**
 

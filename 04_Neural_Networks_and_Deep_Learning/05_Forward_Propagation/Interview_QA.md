@@ -13,6 +13,8 @@ Forward propagation is the process of passing input data through a neural networ
 
 ---
 
+<br>
+
 **Q2: What are the two operations that happen at each layer during forward propagation?**
 
 <details>
@@ -23,6 +25,8 @@ Every layer performs two operations in sequence. First, a linear transformation:
 </details>
 
 ---
+
+<br>
 
 **Q3: Does forward propagation change any weights?**
 
@@ -48,6 +52,8 @@ A fully-connected layer has N neurons, each computing a weighted sum over M inpu
 
 ---
 
+<br>
+
 **Q5: What is the role of bias in forward propagation?**
 
 <details>
@@ -58,6 +64,8 @@ Bias is a constant value added to the weighted sum before the activation: `z = W
 </details>
 
 ---
+
+<br>
 
 **Q6: How does a network's depth affect the forward pass?**
 
@@ -83,6 +91,8 @@ In practice, we never process one sample at a time. We process a batch — say 3
 
 ---
 
+<br>
+
 **Q8: What happens to Dropout during the forward pass at inference time?**
 
 <details>
@@ -93,6 +103,8 @@ Dropout randomly zeros out neurons during training to prevent overfitting. But a
 </details>
 
 ---
+
+<br>
 
 **Q9: In the context of a transformer, how does forward propagation differ from a standard MLP?**
 

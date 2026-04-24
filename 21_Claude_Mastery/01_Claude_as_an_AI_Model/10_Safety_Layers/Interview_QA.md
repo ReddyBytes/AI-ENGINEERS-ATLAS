@@ -24,6 +24,8 @@ Claude's training is specifically designed to find good tradeoffs between these 
 
 ---
 
+<br>
+
 **Q2: What is the difference between Claude's "hardcoded" and "softcoded" safety behaviors?**
 
 <details>
@@ -47,6 +49,8 @@ The distinction matters for engineers: you can customize Claude's behavior withi
 </details>
 
 ---
+
+<br>
 
 **Q3: What is prompt injection and why is it dangerous in agent systems?**
 
@@ -102,6 +106,8 @@ The key: refusal is not triggered by the topic but by the intersection of topic,
 
 ---
 
+<br>
+
 **Q5: What is the Responsible Scaling Policy and what does it commit Anthropic to?**
 
 <details>
@@ -126,6 +132,8 @@ Why it matters to engineers: it means Claude's capabilities are gated on demonst
 </details>
 
 ---
+
+<br>
 
 **Q6: How should engineers design their systems to protect against prompt injection attacks?**
 
@@ -193,6 +201,8 @@ Best practices for engineers: design agent systems where Claude proposes actions
 
 ---
 
+<br>
+
 **Q8: What are the key differences between how Anthropic and other AI labs approach safety, and what does this mean for Claude's behavior?**
 
 <details>
@@ -217,6 +227,8 @@ What this means for Claude's behavior:
 </details>
 
 ---
+
+<br>
 
 **Q9: How should you test Claude's safety behaviors for your specific application before deploying?**
 

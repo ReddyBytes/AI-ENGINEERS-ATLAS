@@ -13,6 +13,8 @@ A: A system prompt is text that sets persistent instructions, persona, and const
 
 ---
 
+<br>
+
 **Q2: What is the difference between putting instructions in the `system` parameter vs the first user message?**
 
 <details>
@@ -24,6 +26,8 @@ A: The `system` parameter has higher authority and applies to the entire convers
 
 ---
 
+<br>
+
 **Q3: Does the system prompt appear in the conversation history that users see?**
 
 <details>
@@ -34,6 +38,8 @@ A: No. The system prompt is invisible to users — it's a server-side configurat
 </details>
 
 ---
+
+<br>
 
 **Q4: Can the system prompt be changed mid-conversation?**
 
@@ -59,6 +65,8 @@ A: When the system prompt is long and contains multiple distinct categories of i
 
 ---
 
+<br>
+
 **Q6: How does the system prompt interact with prompt caching?**
 
 <details>
@@ -70,6 +78,8 @@ A: The `system` parameter is the best candidate for prompt caching because it's 
 
 ---
 
+<br>
+
 **Q7: What strategies help write effective system prompts?**
 
 <details>
@@ -80,6 +90,8 @@ A: (1) Be specific: "respond in exactly 3 bullet points" beats "be concise." (2)
 </details>
 
 ---
+
+<br>
 
 **Q8: How can you prevent users from overriding your system prompt instructions?**
 
@@ -105,6 +117,8 @@ A: A production system prompt for support should include: (1) `<persona>` — na
 
 ---
 
+<br>
+
 **Q10: How does the system prompt's authority level work in practice? Can users truly override it?**
 
 <details>
@@ -115,6 +129,8 @@ A: The system prompt occupies a higher-authority layer in Claude's processing �
 </details>
 
 ---
+
+<br>
 
 **Q11: When should you NOT rely on a system prompt for enforcing rules?**
 

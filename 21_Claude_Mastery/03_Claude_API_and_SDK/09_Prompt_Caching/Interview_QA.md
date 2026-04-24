@@ -13,6 +13,8 @@ A: Prompt caching stores large, repeated portions of your API request (like syst
 
 ---
 
+<br>
+
 **Q2: How do you mark content for caching?**
 
 <details>
@@ -24,6 +26,8 @@ A: Add `"cache_control": {"type": "ephemeral"}` to the content block. For the sy
 
 ---
 
+<br>
+
 **Q3: How long does a cache entry last?**
 
 <details>
@@ -34,6 +38,8 @@ A: 5 minutes from the last access (TTL resets on each cache hit). If no request 
 </details>
 
 ---
+
+<br>
 
 **Q4: How do you know if caching is working?**
 
@@ -59,6 +65,8 @@ A: For Claude Sonnet and Opus: 1,024 tokens minimum. For Claude Haiku: 2,048 tok
 
 ---
 
+<br>
+
 **Q6: What are the three cacheable positions in a request, and which is most commonly used?**
 
 <details>
@@ -70,6 +78,8 @@ A: (1) `system` parameter — the most commonly cached position; system prompts 
 
 ---
 
+<br>
+
 **Q7: Why can't you cache the current user message (the final message in the array)?**
 
 <details>
@@ -80,6 +90,8 @@ A: Caching works by computing a cache key from a prefix — everything up to and
 </details>
 
 ---
+
+<br>
 
 **Q8: What happens to cache efficiency if you inject the user's name into the system prompt?**
 
@@ -105,6 +117,8 @@ A: Architecture: (1) Send the document in the first user message as a content bl
 
 ---
 
+<br>
+
 **Q10: How do you calculate the ROI of prompt caching for a specific use case?**
 
 <details>
@@ -115,6 +129,8 @@ A: ROI formula: `savings = (cache_reads × uncached_cost) - (cache_writes × 1.2
 </details>
 
 ---
+
+<br>
 
 **Q11: How does prompt caching interact with streaming and tool use?**
 

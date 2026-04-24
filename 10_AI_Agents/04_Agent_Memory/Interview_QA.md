@@ -17,6 +17,8 @@ Memory lets agents maintain context within a conversation and across conversatio
 
 ---
 
+<br>
+
 **Q2: What is in-context memory and what are its limitations?**
 
 <details>
@@ -41,6 +43,8 @@ Limitations:
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between ConversationBufferMemory and ConversationSummaryMemory?**
 
@@ -83,6 +87,8 @@ This allows the agent to have memories that persist forever across any number of
 
 ---
 
+<br>
+
 **Q5: What is entity memory and when is it useful?**
 
 <details>
@@ -109,6 +115,8 @@ When Sarah says "how's the deadline looking?", entity memory tells the agent she
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you handle memory when the conversation gets very long?**
 
@@ -173,6 +181,8 @@ def get_user_memories(user_id: str, query: str) -> list:
 
 ---
 
+<br>
+
 **Q8: What are the tradeoffs between storing raw conversations vs. summarized memories in a vector store?**
 
 <details>
@@ -196,6 +206,8 @@ The summary becomes the retrieval unit; the raw text is the source of truth if y
 </details>
 
 ---
+
+<br>
 
 **Q9: What is the "lost in the middle" problem and how does memory design address it?**
 

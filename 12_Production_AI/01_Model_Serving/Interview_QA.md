@@ -13,6 +13,8 @@
 
 ---
 
+<br>
+
 **Q2: What is an inference server and why do you need one instead of just writing a Flask app?**
 
 <details>
@@ -23,6 +25,8 @@
 </details>
 
 ---
+
+<br>
 
 **Q3: What is the difference between online inference and batch inference?**
 
@@ -50,6 +54,8 @@ In a **canary release**, you route a small percentage of traffic (5-10%) to the 
 
 ---
 
+<br>
+
 **Q5: How does request batching improve GPU utilization, and what are its tradeoffs?**
 
 <details>
@@ -62,6 +68,8 @@ Tradeoffs: batching adds **latency** for individual requests (a request must wai
 </details>
 
 ---
+
+<br>
 
 **Q6: How would you handle a model version rollback in production?**
 
@@ -99,6 +107,8 @@ Implementation considerations: the routing classifier must be extremely fast (mi
 
 ---
 
+<br>
+
 **Q8: What are the key differences between REST and gRPC for model serving, and when would you choose gRPC?**
 
 <details>
@@ -119,6 +129,8 @@ Choose REST when serving external clients, public APIs, or where simplicity matt
 </details>
 
 ---
+
+<br>
 
 **Q9: How do you handle model serving for very large language models (70B+ parameters) that don't fit on a single GPU?**
 

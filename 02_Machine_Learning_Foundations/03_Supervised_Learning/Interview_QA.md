@@ -11,6 +11,8 @@ A: Supervised learning is a type of machine learning where the model trains on l
 
 </details>
 
+<br>
+
 **Q2: What is the difference between classification and regression in supervised learning?**
 
 <details>
@@ -19,6 +21,8 @@ A: Supervised learning is a type of machine learning where the model trains on l
 A: Both are supervised learning tasks. Classification predicts a discrete category — for example, is this email spam or not? Is this image a cat or a dog? Regression predicts a continuous number — for example, what will this house sell for? What temperature will it be tomorrow? The key question is: is the output a category or a number?
 
 </details>
+
+<br>
 
 **Q3: What is a feature and what is a label in supervised learning?**
 
@@ -42,6 +46,8 @@ A: First, you try to minimize it: use clear labeling guidelines, have multiple a
 
 </details>
 
+<br>
+
 **Q5: What is the train/test split and why do you need it?**
 
 <details>
@@ -50,6 +56,8 @@ A: First, you try to minimize it: use clear labeling guidelines, have multiple a
 A: The train/test split divides your labeled data into two parts. The model only sees the training set during training. The test set is held out completely and only used once — to evaluate how well the model performs on data it has never seen. This simulates real-world inference where the model faces new, unseen inputs. Without a proper split, you could end up with a model that scores 99% on training data but performs badly in production because it memorized examples rather than learning patterns.
 
 </details>
+
+<br>
 
 **Q6: What is label leakage and why is it dangerous?**
 
@@ -73,6 +81,8 @@ A: Imbalanced datasets (e.g., 99% not-fraud, 1% fraud) cause models to predict t
 
 </details>
 
+<br>
+
 **Q8: What is semi-supervised learning and when is it useful?**
 
 <details>
@@ -81,6 +91,8 @@ A: Imbalanced datasets (e.g., 99% not-fraud, 1% fraud) cause models to predict t
 A: Semi-supervised learning uses a small amount of labeled data combined with a large amount of unlabeled data. It is useful when labeling is expensive or slow (medical imaging, legal documents) but unlabeled data is plentiful. A common approach: train on the labeled data, use the model to generate pseudo-labels for the unlabeled data, then retrain on both. Self-training, consistency regularization, and contrastive learning are other approaches. Modern large language models use a form of this — pre-training on massive unlabeled text, then fine-tuning on small labeled sets.
 
 </details>
+
+<br>
 
 **Q9: How do you decide which supervised learning algorithm to use for a new problem?**
 

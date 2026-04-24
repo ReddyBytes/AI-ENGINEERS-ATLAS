@@ -13,6 +13,8 @@ Prompt engineering is the practice of designing input instructions that reliably
 
 ---
 
+<br>
+
 **Q2: What is the difference between zero-shot and few-shot prompting?**
 
 <details>
@@ -23,6 +25,8 @@ Zero-shot prompting gives the model a task with no examples — it relies entire
 </details>
 
 ---
+
+<br>
 
 **Q3: What is chain-of-thought prompting? When does it help?**
 
@@ -48,6 +52,8 @@ The system message sets persistent context — the model's role, tone, constrain
 
 ---
 
+<br>
+
 **Q5: How does temperature affect output, and how do you choose the right value?**
 
 <details>
@@ -58,6 +64,8 @@ Temperature controls the probability distribution over next tokens — high temp
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you get an LLM to output valid JSON reliably?**
 
@@ -87,6 +95,8 @@ The decision order: try prompting first → if still failing after exhausting pr
 
 ---
 
+<br>
+
 **Q8: Explain prompt injection and how to defend against it.**
 
 <details>
@@ -97,6 +107,8 @@ Prompt injection is an attack where malicious content in user-provided input ove
 </details>
 
 ---
+
+<br>
 
 **Q9: What are meta-prompts and self-consistency techniques?**
 

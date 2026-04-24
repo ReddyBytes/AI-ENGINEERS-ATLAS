@@ -17,6 +17,8 @@ This runs the task, prints the result to stdout, and exits. No interactive promp
 
 ---
 
+<br>
+
 **Q2: What happens when Claude Code wants to edit a file?**
 
 <details>
@@ -27,6 +29,8 @@ Claude shows you a unified diff of the proposed changes and prompts: `Allow this
 </details>
 
 ---
+
+<br>
 
 **Q3: What kinds of requests don't require any permission prompts?**
 
@@ -52,6 +56,8 @@ Every tool action falls into one of three states: auto-approved (listed in `perm
 
 ---
 
+<br>
+
 **Q5: How do you build a multi-step verification workflow in Claude Code?**
 
 <details>
@@ -62,6 +68,8 @@ Chain tasks naturally in conversation. For example: "Refactor the login function
 </details>
 
 ---
+
+<br>
 
 **Q6: When would you use `--continue` vs `--resume`?**
 
@@ -96,6 +104,8 @@ The key is using `--print` for non-interactive output, capturing stdout, and set
 
 ---
 
+<br>
+
 **Q8: What is the interaction model difference between asking a question vs requesting an action in Claude Code?**
 
 <details>
@@ -106,6 +116,8 @@ Questions (e.g., "What does X do?") trigger only read tools — no permission pr
 </details>
 
 ---
+
+<br>
 
 **Q9: What does Claude Code do when a bash command fails or a test fails?**
 

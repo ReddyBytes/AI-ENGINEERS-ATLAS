@@ -22,6 +22,8 @@ Because each generation step uses the model's own previous output as context, mi
 
 ---
 
+<br>
+
 **Q2. Why is GPT described as "autoregressive"?**
 
 <details>
@@ -36,6 +38,8 @@ The "auto" in autoregressive means "self" — the model feeds its own outputs ba
 </details>
 
 ---
+
+<br>
 
 **Q3. What is the difference between zero-shot and few-shot learning in GPT?**
 
@@ -86,6 +90,8 @@ Use low temperature for factual, precise tasks. Use higher temperature for creat
 
 ---
 
+<br>
+
 **Q5. How did GPT-3 achieve few-shot learning without any fine-tuning?**
 
 <details>
@@ -100,6 +106,8 @@ When you give GPT-3 a few-shot prompt, it "pattern-matches" to the format it lea
 </details>
 
 ---
+
+<br>
 
 **Q6. What is RLHF and why was it needed for GPT-3 to become InstructGPT?**
 
@@ -141,6 +149,8 @@ KV cache memory scales as: batch_size × num_layers × 2 × sequence_length × d
 
 ---
 
+<br>
+
 **Q8. What is the difference between GPT-style pretraining and instruction fine-tuning?**
 
 <details>
@@ -159,6 +169,8 @@ Instruction fine-tuning doesn't erase pretraining knowledge — it changes the m
 </details>
 
 ---
+
+<br>
 
 **Q9. How do you prevent GPT from repeating itself, and what causes repetition?**
 

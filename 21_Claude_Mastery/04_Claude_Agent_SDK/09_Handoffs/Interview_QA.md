@@ -17,6 +17,8 @@ The practical difference: use handoffs for linear pipelines where each stage han
 
 ---
 
+<br>
+
 **Q2: Why is the handoff message structure important?**
 
 <details>
@@ -27,6 +29,8 @@ A: The handoff message is the only information the next agent receives about eve
 </details>
 
 ---
+
+<br>
 
 **Q3: When would you use a human-in-the-loop handoff versus an automatic handoff to another agent?**
 
@@ -57,6 +61,8 @@ A: State loss happens when the handoff message doesn't include everything the ne
 </details>
 
 ---
+
+<br>
 
 **Q5: How would you implement conditional routing in a handoff system?**
 
@@ -104,6 +110,8 @@ The handoff message (in this case, the classification result) determines which a
 </details>
 
 ---
+
+<br>
 
 **Q6: What are the failure modes specific to handoff pipelines and how do you mitigate them?**
 
@@ -162,6 +170,8 @@ handoff_store: {
 
 ---
 
+<br>
+
 **Q8: How does the handoff pattern relate to LangGraph's state machine model?**
 
 <details>
@@ -181,6 +191,8 @@ For simple 2-3 stage pipelines: the informal handoff pattern is simpler and suff
 </details>
 
 ---
+
+<br>
 
 **Q9: What are the performance implications of a 10-stage handoff pipeline vs a single 10-step multi-step agent?**
 

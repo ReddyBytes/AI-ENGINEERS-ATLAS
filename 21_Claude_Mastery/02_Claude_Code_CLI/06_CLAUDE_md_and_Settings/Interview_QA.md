@@ -13,6 +13,8 @@ CLAUDE.md is a Markdown file that Claude Code reads automatically at session sta
 
 ---
 
+<br>
+
 **Q2: What is the hierarchy of CLAUDE.md files and how does precedence work?**
 
 <details>
@@ -23,6 +25,8 @@ Three levels exist: global (`~/.claude/CLAUDE.md` — applies everywhere), proje
 </details>
 
 ---
+
+<br>
 
 **Q3: What is settings.json and how does it differ from CLAUDE.md?**
 
@@ -48,6 +52,8 @@ Use pattern matching in `permissions.allow`. You can specify exact commands (`"B
 
 ---
 
+<br>
+
 **Q5: What is .claudeignore and when would you use it?**
 
 <details>
@@ -58,6 +64,8 @@ Use pattern matching in `permissions.allow`. You can specify exact commands (`"B
 </details>
 
 ---
+
+<br>
 
 **Q6: How do you inject environment variables through settings.json without hardcoding secrets?**
 
@@ -92,6 +100,8 @@ Structure it like this: root `CLAUDE.md` defines shared conventions (Git workflo
 
 ---
 
+<br>
+
 **Q8: A new engineer joins the team and complains Claude is giving them different suggestions than other team members. What's likely wrong and how do you fix it?**
 
 <details>
@@ -102,6 +112,8 @@ Likely causes: (1) the project CLAUDE.md isn't checked into Git, so new engineer
 </details>
 
 ---
+
+<br>
 
 **Q9: What's the optimal length and structure for a project CLAUDE.md?**
 
