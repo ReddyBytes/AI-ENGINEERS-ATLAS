@@ -11,6 +11,8 @@ Probability measures how likely an event is to occur. It's always a number betwe
 
 </details>
 
+<br>
+
 **Q2: What is the difference between P(A and B) and P(A or B)?**
 
 <details>
@@ -19,6 +21,8 @@ Probability measures how likely an event is to occur. It's always a number betwe
 P(A and B) is the probability that both events happen at the same time — it uses multiplication for independent events. P(A or B) is the probability that at least one of them happens — it uses addition but you subtract the overlap to avoid double-counting: P(A) + P(B) - P(A and B).
 
 </details>
+
+<br>
 
 **Q3: What is a complement in probability?**
 
@@ -42,6 +46,8 @@ Conditional probability P(B|A) is the probability of B happening given that A ha
 
 </details>
 
+<br>
+
 **Q5: What is the difference between independent and dependent events?**
 
 <details>
@@ -50,6 +56,8 @@ Conditional probability P(B|A) is the probability of B happening given that A ha
 Two events are independent if knowing one happened gives you no information about the other — like two separate coin flips. They're dependent if one influences the other — like drawing cards from a deck without replacement. For independent events P(A and B) = P(A) × P(B). For dependent events you must use conditional probability: P(A and B) = P(A) × P(B|A).
 
 </details>
+
+<br>
 
 **Q6: How does Bayes' Theorem relate to conditional probability?**
 
@@ -73,6 +81,8 @@ Frequentists say probability is the long-run frequency of an event — if you fl
 
 </details>
 
+<br>
+
 **Q8: What is a probability distribution and why does every AI model output one?**
 
 <details>
@@ -81,6 +91,8 @@ Frequentists say probability is the long-run frequency of an event — if you fl
 A probability distribution assigns a probability to every possible outcome such that they all sum to 1. Every AI classifier outputs a distribution over classes — for example, a dog vs. cat model might output [dog: 0.92, cat: 0.08]. This is better than a hard yes/no because you also get confidence. Loss functions like cross-entropy compare the model's output distribution to the true distribution.
 
 </details>
+
+<br>
 
 **Q9: What is the law of large numbers and why does it matter for training ML models?**
 

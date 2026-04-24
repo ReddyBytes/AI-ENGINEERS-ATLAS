@@ -11,6 +11,8 @@ Mean is the mathematical average — add all values and divide by the count. Med
 
 </details>
 
+<br>
+
 **Q2: What does standard deviation tell you?**
 
 <details>
@@ -19,6 +21,8 @@ Mean is the mathematical average — add all values and divide by the count. Med
 Standard deviation measures how spread out the data points are around the mean. A small SD means data is tightly clustered near the mean. A large SD means data is scattered widely. For example, if the average test score is 75 with an SD of 5, most students scored between 70 and 80 — that's a tight, consistent class.
 
 </details>
+
+<br>
 
 **Q3: Why is the median sometimes better than the mean?**
 
@@ -42,6 +46,8 @@ Variance is the average of the squared differences from the mean. Squaring means
 
 </details>
 
+<br>
+
 **Q5: What is the normal distribution and why does it matter in machine learning?**
 
 <details>
@@ -50,6 +56,8 @@ Variance is the average of the squared differences from the mean. Squaring means
 The normal distribution is a symmetric, bell-shaped distribution where most values cluster near the mean and values become rarer further away. It matters in ML because many algorithms assume normally distributed data — for example, linear regression assumes normally distributed errors. The 68-95-99.7 rule helps detect outliers, and normalization (standardizing features to mean=0, SD=1) is a common preprocessing step that assumes an approximately normal shape.
 
 </details>
+
+<br>
 
 **Q6: What is the difference between population statistics and sample statistics?**
 
@@ -73,6 +81,8 @@ The Central Limit Theorem states that if you take many random samples and calcul
 
 </details>
 
+<br>
+
 **Q8: What is covariance and correlation, and why do they matter for features in ML?**
 
 <details>
@@ -81,6 +91,8 @@ The Central Limit Theorem states that if you take many random samples and calcul
 Covariance measures how two variables move together — positive covariance means they rise and fall together, negative means they move opposite. Correlation normalizes covariance to a -1 to +1 scale, making it easier to compare. In ML, highly correlated features are redundant — they give the model the same information twice, wasting capacity and sometimes causing instability. Feature selection and dimensionality reduction techniques like PCA are built on these concepts.
 
 </details>
+
+<br>
 
 **Q9: What does it mean for a model's results to be "statistically significant"?**
 

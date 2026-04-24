@@ -11,6 +11,8 @@ Entropy measures the average uncertainty or surprise in a distribution. If all o
 
 </details>
 
+<br>
+
 **Q2: What does it mean for an event to carry "a lot of information"?**
 
 <details>
@@ -19,6 +21,8 @@ Entropy measures the average uncertainty or surprise in a distribution. If all o
 Information content is inversely related to probability — rare events carry more information than common ones. If your city always has sunny weather and the forecast says "sunny tomorrow," that tells you nothing new. But if the forecast says "tornado warning," that's highly surprising and very informative. Mathematically, information = -log P(event): the lower the probability, the higher the information content.
 
 </details>
+
+<br>
 
 **Q3: What is cross-entropy loss and where is it used?**
 
@@ -42,6 +46,8 @@ Entropy H(P) measures the uncertainty in the true distribution P — it's a prop
 
 </details>
 
+<br>
+
 **Q5: What is KL divergence and when does it appear in ML?**
 
 <details>
@@ -50,6 +56,8 @@ Entropy H(P) measures the uncertainty in the true distribution P — it's a prop
 KL divergence (Kullback-Leibler divergence) measures how different probability distribution Q is from distribution P. It's always non-negative and equals zero only when P and Q are identical. It appears explicitly in Variational Autoencoders (VAEs), where the loss has a reconstruction term plus a KL term that keeps the latent distribution close to a standard normal. It also appears in reinforcement learning from human feedback (RLHF), where KL divergence keeps the fine-tuned model from drifting too far from the original base model.
 
 </details>
+
+<br>
 
 **Q6: How is information theory connected to model compression and efficient coding?**
 
@@ -73,6 +81,8 @@ From an information-theoretic view, minimizing cross-entropy loss is equivalent 
 
 </details>
 
+<br>
+
 **Q8: How does information theory apply to the training of large language models?**
 
 <details>
@@ -81,6 +91,8 @@ From an information-theoretic view, minimizing cross-entropy loss is equivalent 
 Language models are trained by predicting the next token in a sequence. At each step, the model outputs a probability distribution over the entire vocabulary (50,000+ tokens). The true "distribution" is a one-hot vector — probability 1 for the actual next token, 0 for everything else. Cross-entropy loss is computed between these two distributions. Minimizing it over trillions of token predictions teaches the model the statistical structure of language. Perplexity — a common LLM evaluation metric — is just 2^(cross-entropy), measuring how "surprised" the model is by real text on average.
 
 </details>
+
+<br>
 
 **Q9: What is mutual information and why is it useful in feature selection?**
 

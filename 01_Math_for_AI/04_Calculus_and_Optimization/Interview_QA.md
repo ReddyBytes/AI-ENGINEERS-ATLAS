@@ -11,6 +11,8 @@ A derivative measures how fast a function is changing at a specific point — it
 
 </details>
 
+<br>
+
 **Q2: What is gradient descent?**
 
 <details>
@@ -19,6 +21,8 @@ A derivative measures how fast a function is changing at a specific point — it
 Gradient descent is the algorithm that trains neural networks by repeatedly adjusting weights in the direction that reduces the loss. You calculate the gradient (the direction of steepest increase in loss), then move each weight a small step in the opposite direction. You repeat this process thousands or millions of times until the loss stops decreasing. It's like a ball rolling downhill — it keeps rolling until it reaches the bottom.
 
 </details>
+
+<br>
 
 **Q3: What is the learning rate and why does it matter?**
 
@@ -42,6 +46,8 @@ Backpropagation is the algorithm that computes gradients for all weights in a ne
 
 </details>
 
+<br>
+
 **Q5: What is the difference between a local minimum and a global minimum?**
 
 <details>
@@ -50,6 +56,8 @@ Backpropagation is the algorithm that computes gradients for all weights in a ne
 A global minimum is the lowest point of the entire loss landscape — the best possible set of weights. A local minimum is a point lower than its immediate neighbors but not the lowest overall — gradient descent can get stuck there because every step appears to go uphill. In modern deep learning, this is less of a problem than it sounds: the high-dimensional loss landscapes of large networks have few true local minima, and most apparent minima are "good enough" for practical use.
 
 </details>
+
+<br>
 
 **Q6: What is the vanishing gradient problem?**
 
@@ -73,6 +81,8 @@ Basic gradient descent uses the same learning rate for all weights. Adam (Adapti
 
 </details>
 
+<br>
+
 **Q8: What is the difference between batch gradient descent, stochastic gradient descent, and mini-batch gradient descent?**
 
 <details>
@@ -81,6 +91,8 @@ Basic gradient descent uses the same learning rate for all weights. Adam (Adapti
 Batch gradient descent computes the gradient over the entire dataset before updating weights — accurate but extremely slow for large datasets. Stochastic gradient descent (SGD) updates weights after every single example — fast but very noisy. Mini-batch gradient descent is the compromise used in practice: compute the gradient over a small batch (typically 32-512 examples), update, repeat. Mini-batches give a good estimate of the true gradient while allowing frequent updates and efficient GPU parallelism.
 
 </details>
+
+<br>
 
 **Q9: What is second-order optimization and why isn't it used more often in deep learning?**
 

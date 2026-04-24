@@ -11,6 +11,8 @@ A vector is an ordered list of numbers, like [0.2, -0.7, 0.5]. In AI, vectors re
 
 </details>
 
+<br>
+
 **Q2: What is a matrix and what does matrix multiplication do?**
 
 <details>
@@ -19,6 +21,8 @@ A vector is an ordered list of numbers, like [0.2, -0.7, 0.5]. In AI, vectors re
 A matrix is a rectangular grid of numbers organized in rows and columns. Matrix multiplication combines two matrices to produce a new one. In neural networks, each layer applies a matrix multiplication to the input vector — the matrix contains the learned weights, and multiplying by the input produces the layer's output. It's how data gets transformed as it flows through a network.
 
 </details>
+
+<br>
 
 **Q3: What is a dot product and what does it measure?**
 
@@ -42,6 +46,8 @@ A matrix is invertible only if it doesn't "squish" the space — specifically, i
 
 </details>
 
+<br>
+
 **Q5: What is cosine similarity and how does it relate to the dot product?**
 
 <details>
@@ -50,6 +56,8 @@ A matrix is invertible only if it doesn't "squish" the space — specifically, i
 Cosine similarity measures the angle between two vectors, ignoring their lengths. It's computed as the dot product divided by the product of both vectors' lengths: similarity = (A · B) / (|A| × |B|). The result ranges from -1 (opposite) to +1 (identical direction). In NLP, cosine similarity between word embeddings measures semantic similarity — "king" and "queen" have high cosine similarity because they appear in similar contexts.
 
 </details>
+
+<br>
 
 **Q6: What is an eigenvector and why does it matter for PCA?**
 
@@ -73,6 +81,8 @@ The attention mechanism computes compatibility between every pair of tokens usin
 
 </details>
 
+<br>
+
 **Q8: What is the relationship between matrix rank and information loss in neural networks?**
 
 <details>
@@ -81,6 +91,8 @@ The attention mechanism computes compatibility between every pair of tokens usin
 The rank of a matrix is the number of linearly independent rows or columns — it measures how much "information capacity" the matrix has. A low-rank matrix compresses data into fewer dimensions. Neural network layers are often approximately low-rank, meaning they can be compressed. Techniques like LoRA (Low-Rank Adaptation) exploit this: instead of fine-tuning all weights of a large model, they add small low-rank matrices, dramatically reducing the number of trainable parameters while preserving most of the model's capability.
 
 </details>
+
+<br>
 
 **Q9: What is Singular Value Decomposition (SVD) and where is it used in ML?**
 
