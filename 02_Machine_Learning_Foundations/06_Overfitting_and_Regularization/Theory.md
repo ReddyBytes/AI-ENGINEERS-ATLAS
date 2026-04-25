@@ -117,7 +117,7 @@ sequenceDiagram
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
+Apply what you just learned → **[B2: ML Model Comparison](../../22_Capstone_Projects/02_ML_Model_Comparison/03_GUIDE.md)**
 > This project uses: detecting overfitting via train vs test score, regularization in logistic regression (C parameter)
 
 

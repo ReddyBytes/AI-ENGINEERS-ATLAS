@@ -103,7 +103,7 @@ An agent with a search tool has up-to-date information. An agent with a code exe
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[I3: Multi-Tool Research Agent](../../20_Projects/01_Intermediate_Projects/03_Multi_Tool_Research_Agent/Project_Guide.md)**
+Apply what you just learned → **[I3: Multi-Tool Research Agent](../../22_Capstone_Projects/08_Multi_Tool_Research_Agent/03_GUIDE.md)**
 > This project uses: the perceive→reason→act loop, maintaining agent state, deciding when the task is done
 
 

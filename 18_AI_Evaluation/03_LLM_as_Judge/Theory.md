@@ -200,7 +200,7 @@ Move to [`04_RAG_Evaluation/Theory.md`](../04_RAG_Evaluation/Theory.md) to learn
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[A3: Automated Eval Pipeline](../../20_Projects/02_Advanced_Projects/03_Automated_Eval_Pipeline/Project_Guide.md)**
+Apply what you just learned → **[A3: Automated Eval Pipeline](../../22_Capstone_Projects/13_Automated_Eval_Pipeline/03_GUIDE.md)**
 > This project uses: Claude grading responses on helpfulness/accuracy/safety 1–5, aggregating scores, flagging regressions
 
 

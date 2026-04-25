@@ -86,7 +86,7 @@ Random forests are harder to interpret than single trees — you can't print 500
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
+Apply what you just learned → **[B2: ML Model Comparison](../../22_Capstone_Projects/02_ML_Model_Comparison/03_GUIDE.md)**
 > This project uses: Random Forest as the strongest baseline, feature importance, comparing ensemble vs single tree
 
 

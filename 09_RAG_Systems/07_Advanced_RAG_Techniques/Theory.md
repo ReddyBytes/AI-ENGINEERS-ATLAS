@@ -121,7 +121,7 @@ Question: "What is the return window for electronics?"
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[A1: Advanced RAG with Reranking](../../20_Projects/02_Advanced_Projects/01_Advanced_RAG_with_Reranking/Project_Guide.md)**
+Apply what you just learned → **[A1: Advanced RAG with Reranking](../../22_Capstone_Projects/11_Advanced_RAG_with_Reranking/03_GUIDE.md)**
 > This project uses: HyDE (generate fake answer → embed → retrieve), hybrid BM25+vector search, cross-encoder reranking top-20 → top-5
 
 

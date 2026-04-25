@@ -132,4 +132,4 @@ Advanced
 
 ## 📂 Navigation
 
-⬅️ **Prev:** [20 — Projects](../20_Projects/) &nbsp;&nbsp;&nbsp; ➡️ **This is the final section**
+⬅️ **Prev:** [20 — Projects](../22_Capstone_Projects/) &nbsp;&nbsp;&nbsp; ➡️ **This is the final section**

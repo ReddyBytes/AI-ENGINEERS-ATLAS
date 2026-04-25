@@ -104,7 +104,7 @@ metadata = {
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)**
+Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../22_Capstone_Projects/07_Personal_Knowledge_Base_RAG/03_GUIDE.md)**
 > This project uses: loading PDF and text files, extracting raw text, cleaning it before chunking
 
 ---

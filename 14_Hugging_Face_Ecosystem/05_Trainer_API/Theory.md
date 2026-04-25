@@ -280,7 +280,7 @@ Dynamic padding vs static padding: static padding pads all sequences to `max_len
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[I4: Custom LoRA Fine-Tuning](../../20_Projects/01_Intermediate_Projects/04_Custom_LoRA_Fine_Tuning/Project_Guide.md)**
+Apply what you just learned → **[I4: Custom LoRA Fine-Tuning](../../22_Capstone_Projects/09_Custom_LoRA_Fine_Tuning/03_GUIDE.md)**
 > This project uses: SFTTrainer from TRL (built on Trainer), TrainingArguments, callbacks, logging training loss
 
 ---

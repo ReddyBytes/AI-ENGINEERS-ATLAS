@@ -113,7 +113,7 @@ flowchart TD
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[I5: Production RAG System](../../20_Projects/01_Intermediate_Projects/05_Production_RAG_System/Project_Guide.md)**
+Apply what you just learned → **[I5: Production RAG System](../../22_Capstone_Projects/10_Production_RAG_System/03_GUIDE.md)**
 > This project uses: tracking token usage per query, estimating cost per API call, implementing caching to reduce redundant API calls
 
 

@@ -152,7 +152,7 @@ flowchart LR
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[B1: Data & Probability Explorer](../../20_Projects/00_Beginner_Projects/01_Data_and_Probability_Explorer/Project_Guide.md)**
+Apply what you just learned → **[B1: Data & Probability Explorer](../../22_Capstone_Projects/01_Data_and_Probability_Explorer/03_GUIDE.md)**
 > This project uses: mean, variance, standard deviation, distributions, descriptive statistics on real data
 
 ---

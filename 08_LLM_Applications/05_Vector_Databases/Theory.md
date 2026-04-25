@@ -107,8 +107,8 @@ This is how enterprise RAG systems scope results to the right data source, user,
 ## 🛠️ Practice Projects
 
 Apply what you just learned:
-- → **[I1: Semantic Search Engine](../../20_Projects/01_Intermediate_Projects/01_Semantic_Search_Engine/Project_Guide.md)** — in-memory numpy vector store with cosine similarity
-- → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)** — ChromaDB as the vector store for your full RAG pipeline
+- → **[I1: Semantic Search Engine](../../22_Capstone_Projects/06_Semantic_Search_Engine/03_GUIDE.md)** — in-memory numpy vector store with cosine similarity
+- → **[I2: Personal Knowledge Base (RAG)](../../22_Capstone_Projects/07_Personal_Knowledge_Base_RAG/03_GUIDE.md)** — ChromaDB as the vector store for your full RAG pipeline
 
 
 ---

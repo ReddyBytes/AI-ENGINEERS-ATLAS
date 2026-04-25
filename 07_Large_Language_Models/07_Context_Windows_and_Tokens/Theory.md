@@ -135,7 +135,7 @@ print(f"Tokens: {tokens}")
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[B4: LLM Chatbot with Memory](../../20_Projects/00_Beginner_Projects/04_LLM_Chatbot_with_Memory/Project_Guide.md)**
+Apply what you just learned → **[B4: LLM Chatbot with Memory](../../22_Capstone_Projects/04_LLM_Chatbot_with_Memory/03_GUIDE.md)**
 > This project uses: managing conversation history to stay within the context window, tracking token usage per turn
 
 

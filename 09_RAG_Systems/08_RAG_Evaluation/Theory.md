@@ -146,8 +146,8 @@ Set your own targets based on use case — a medical information system needs hi
 ## 🛠️ Practice Projects
 
 Apply what you just learned:
-- → **[I5: Production RAG System](../../20_Projects/01_Intermediate_Projects/05_Production_RAG_System/Project_Guide.md)** — RAGAS evaluation on your RAG pipeline
-- → **[A1: Advanced RAG with Reranking](../../20_Projects/02_Advanced_Projects/01_Advanced_RAG_with_Reranking/Project_Guide.md)** — full RAGAS suite: faithfulness, answer relevance, context recall
+- → **[I5: Production RAG System](../../22_Capstone_Projects/10_Production_RAG_System/03_GUIDE.md)** — RAGAS evaluation on your RAG pipeline
+- → **[A1: Advanced RAG with Reranking](../../22_Capstone_Projects/11_Advanced_RAG_with_Reranking/03_GUIDE.md)** — full RAGAS suite: faithfulness, answer relevance, context recall
 
 ---
 

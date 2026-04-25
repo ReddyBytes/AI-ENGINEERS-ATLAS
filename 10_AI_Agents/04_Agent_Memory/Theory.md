@@ -103,7 +103,7 @@ Used together, the agent feels remarkably like talking to a human who actually k
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[I3: Multi-Tool Research Agent](../../20_Projects/01_Intermediate_Projects/03_Multi_Tool_Research_Agent/Project_Guide.md)**
+Apply what you just learned → **[I3: Multi-Tool Research Agent](../../22_Capstone_Projects/08_Multi_Tool_Research_Agent/03_GUIDE.md)**
 > This project uses: persisting conversation history across tool calls, summarizing past context when history gets too long
 
 

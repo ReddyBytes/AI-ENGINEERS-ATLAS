@@ -103,7 +103,7 @@ Violating these doesn't crash the model — it makes predictions less reliable.
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[B2: ML Model Comparison](../../20_Projects/00_Beginner_Projects/02_ML_Model_Comparison/Project_Guide.md)**
+Apply what you just learned → **[B2: ML Model Comparison](../../22_Capstone_Projects/02_ML_Model_Comparison/03_GUIDE.md)**
 > This project uses: training a Logistic Regression classifier, evaluating it, comparing it against tree-based models
 
 

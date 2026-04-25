@@ -127,7 +127,7 @@ None of these are certainties — they're probabilities.
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[B1: Data & Probability Explorer](../../20_Projects/00_Beginner_Projects/01_Data_and_Probability_Explorer/Project_Guide.md)**
+Apply what you just learned → **[B1: Data & Probability Explorer](../../22_Capstone_Projects/01_Data_and_Probability_Explorer/03_GUIDE.md)**
 > This project uses: sample space, P(A|B), AND/OR rules, conditional probability on a real dataset
 
 

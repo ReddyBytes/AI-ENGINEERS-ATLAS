@@ -120,8 +120,8 @@ For most RAG applications: start with `text-embedding-3-small` (cost-effective) 
 ## 🛠️ Practice Projects
 
 Apply what you just learned:
-- → **[B5: Intelligent Document Analyzer](../../20_Projects/00_Beginner_Projects/05_Intelligent_Document_Analyzer/Project_Guide.md)** — embedding document chunks for similarity comparison
-- → **[I1: Semantic Search Engine](../../20_Projects/01_Intermediate_Projects/01_Semantic_Search_Engine/Project_Guide.md)** — embedding 1000+ documents and searching by cosine similarity
+- → **[B5: Intelligent Document Analyzer](../../22_Capstone_Projects/05_Intelligent_Document_Analyzer/03_GUIDE.md)** — embedding document chunks for similarity comparison
+- → **[I1: Semantic Search Engine](../../22_Capstone_Projects/06_Semantic_Search_Engine/03_GUIDE.md)** — embedding 1000+ documents and searching by cosine similarity
 
 
 ---

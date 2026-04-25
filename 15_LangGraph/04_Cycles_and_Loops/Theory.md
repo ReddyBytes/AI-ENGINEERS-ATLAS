@@ -223,7 +223,7 @@ A 3-node loop expecting 10 iterations: `(3 × 10) × 1.2 = 36` → set limit to 
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[A2: LangGraph Support Bot](../../20_Projects/02_Advanced_Projects/02_LangGraph_Support_Bot/Project_Guide.md)**
+Apply what you just learned → **[A2: LangGraph Support Bot](../../22_Capstone_Projects/12_LangGraph_Support_Bot/03_GUIDE.md)**
 > This project uses: retry loop when confidence is low, exit condition when satisfied or max retries reached
 
 ---

@@ -99,8 +99,8 @@ flowchart TD
 ## 🛠️ Practice Projects
 
 Apply what you just learned:
-- → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)** — build the full RAG pipeline over your own documents
-- → **[A1: Advanced RAG with Reranking](../../20_Projects/02_Advanced_Projects/01_Advanced_RAG_with_Reranking/Project_Guide.md)** — extend with HyDE, hybrid search, cross-encoder reranking
+- → **[I2: Personal Knowledge Base (RAG)](../../22_Capstone_Projects/07_Personal_Knowledge_Base_RAG/03_GUIDE.md)** — build the full RAG pipeline over your own documents
+- → **[A1: Advanced RAG with Reranking](../../22_Capstone_Projects/11_Advanced_RAG_with_Reranking/03_GUIDE.md)** — extend with HyDE, hybrid search, cross-encoder reranking
 
 
 ---

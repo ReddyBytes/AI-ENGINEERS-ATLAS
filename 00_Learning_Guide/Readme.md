@@ -11,7 +11,7 @@ No fluff. No overwhelm. Every concept explained with a story first, then the tec
 | 🟢 Beginner | New to AI/ML | 30 topics | ~40–60h | [Start Beginner Path](./01_Beginner_Path.md) |
 | 🟡 Intermediate | Building LLM apps | 32 topics | ~50–70h | [Start Intermediate Path](./02_Intermediate_Path.md) |
 | 🔴 Advanced | Production-grade AI | 45 topics | ~60–80h | [Start Advanced Path](./03_Advanced_Path.md) |
-| 🛠️ Projects | Practice by building | 15 projects | Build as you learn | [Browse Projects](../20_Projects/Readme.md) |
+| 🛠️ Projects | Practice by building | 15 projects | Build as you learn | [Browse Projects](../22_Capstone_Projects/README.md) |
 
 ---
 

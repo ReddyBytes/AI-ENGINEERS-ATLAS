@@ -176,8 +176,8 @@ Dropout probability applied to the LoRA layers during training. Regularizes the 
 ## 🛠️ Practice Projects
 
 Apply what you just learned:
-- → **[I4: Custom LoRA Fine-Tuning](../../20_Projects/01_Intermediate_Projects/04_Custom_LoRA_Fine_Tuning/Project_Guide.md)** — LoRA fine-tune a 7B model on custom Q&A data, push adapter to Hub
-- → **[A5: Fine-Tune → Evaluate → Deploy](../../20_Projects/02_Advanced_Projects/05_Fine_Tune_Evaluate_Deploy/Project_Guide.md)** — QLoRA with 4-bit quantization for maximum efficiency
+- → **[I4: Custom LoRA Fine-Tuning](../../22_Capstone_Projects/09_Custom_LoRA_Fine_Tuning/03_GUIDE.md)** — LoRA fine-tune a 7B model on custom Q&A data, push adapter to Hub
+- → **[A5: Fine-Tune → Evaluate → Deploy](../../22_Capstone_Projects/15_Fine_Tune_Evaluate_Deploy/03_GUIDE.md)** — QLoRA with 4-bit quantization for maximum efficiency
 
 
 ---

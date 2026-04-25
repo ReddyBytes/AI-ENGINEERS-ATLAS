@@ -120,7 +120,7 @@ ReAct showed that just adding explicit reasoning to the prompt — literally jus
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[I3: Multi-Tool Research Agent](../../20_Projects/01_Intermediate_Projects/03_Multi_Tool_Research_Agent/Project_Guide.md)**
+Apply what you just learned → **[I3: Multi-Tool Research Agent](../../22_Capstone_Projects/08_Multi_Tool_Research_Agent/03_GUIDE.md)**
 > This project uses: ReAct loop — Thought → Action → Observation → Thought, stopping when the agent reaches a final answer
 
 

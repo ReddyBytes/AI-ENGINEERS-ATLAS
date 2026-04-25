@@ -124,7 +124,7 @@ flowchart TD
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[A5: Fine-Tune → Evaluate → Deploy](../../20_Projects/02_Advanced_Projects/05_Fine_Tune_Evaluate_Deploy/Project_Guide.md)**
+Apply what you just learned → **[A5: Fine-Tune → Evaluate → Deploy](../../22_Capstone_Projects/15_Fine_Tune_Evaluate_Deploy/03_GUIDE.md)**
 > This project uses: latency tracking per request, token logging, cost per query dashboard, structured logs for debugging
 
 ---

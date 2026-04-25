@@ -262,7 +262,7 @@ flowchart TD
 
 🔨 **Build this now:** Open a project in Claude Code and run a small task (e.g., "add a docstring to this function"). Watch the tool call output. Identify: which tools were called, in what order, and how the results shaped the next action. You've just read the agent loop.
 
-➡️ **Next step:** You've completed Track 4 — Claude Agent SDK. Return to the [Track 4 README](../Readme.md) or proceed to [Section 20: Projects](../../20_Projects/Readme.md) to build with everything you've learned.
+➡️ **Next step:** You've completed Track 4 — Claude Agent SDK. Return to the [Track 4 README](../Readme.md) or proceed to [Section 20: Projects](../../22_Capstone_Projects/README.md) to build with everything you've learned.
 
 ---
 

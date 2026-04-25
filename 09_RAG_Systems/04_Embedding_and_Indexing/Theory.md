@@ -109,7 +109,7 @@ Keeping your index fresh is critical. Outdated chunks produce outdated answers.
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../20_Projects/01_Intermediate_Projects/02_Personal_Knowledge_Base_RAG/Project_Guide.md)**
+Apply what you just learned → **[I2: Personal Knowledge Base (RAG)](../../22_Capstone_Projects/07_Personal_Knowledge_Base_RAG/03_GUIDE.md)**
 > This project uses: embedding every chunk via API, storing vectors + metadata in ChromaDB, building the searchable index
 
 

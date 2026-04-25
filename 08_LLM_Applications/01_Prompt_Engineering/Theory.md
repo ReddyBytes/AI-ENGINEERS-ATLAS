@@ -179,8 +179,8 @@ For production systems needing consistent output — use low temperature.
 ## 🛠️ Practice Projects
 
 Apply what you just learned:
-- → **[B4: LLM Chatbot with Memory](../../20_Projects/00_Beginner_Projects/04_LLM_Chatbot_with_Memory/Project_Guide.md)** — system prompts, few-shot examples, conversation design
-- → **[B5: Intelligent Document Analyzer](../../20_Projects/00_Beginner_Projects/05_Intelligent_Document_Analyzer/Project_Guide.md)** — prompt chaining, task decomposition, structured extraction prompts
+- → **[B4: LLM Chatbot with Memory](../../22_Capstone_Projects/04_LLM_Chatbot_with_Memory/03_GUIDE.md)** — system prompts, few-shot examples, conversation design
+- → **[B5: Intelligent Document Analyzer](../../22_Capstone_Projects/05_Intelligent_Document_Analyzer/03_GUIDE.md)** — prompt chaining, task decomposition, structured extraction prompts
 
 
 ---

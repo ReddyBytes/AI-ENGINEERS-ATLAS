@@ -161,7 +161,7 @@ ds = load_dataset("squad")
 
 ## 🛠️ Practice Project
 
-Apply what you just learned → **[I4: Custom LoRA Fine-Tuning](../../20_Projects/01_Intermediate_Projects/04_Custom_LoRA_Fine_Tuning/Project_Guide.md)**
+Apply what you just learned → **[I4: Custom LoRA Fine-Tuning](../../22_Capstone_Projects/09_Custom_LoRA_Fine_Tuning/03_GUIDE.md)**
 > This project uses: downloading a base model with from_pretrained(), pushing your fine-tuned adapter to Hub, writing a model card
 
 
