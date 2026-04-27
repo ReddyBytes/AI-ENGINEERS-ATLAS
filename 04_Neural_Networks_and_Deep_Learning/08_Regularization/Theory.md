@@ -6,6 +6,19 @@ A student memorizes last year's sample test word for word. Perfect score on prac
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Overfitting](#what-is-overfitting) · [Dropout](#dropout) · [Early Stopping](#early-stopping)
+
+**Should Learn** — important for real projects and interviews:
+[L2 Regularization](#l2-regularization-ridge) · [Data Augmentation](#data-augmentation)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[L1 Regularization](#l1-regularization-lasso) · [Batch Normalization](#batch-normalization)
+
+---
+
 ## What is Overfitting?
 
 Overfitting: model performs well on training data but fails on new data. It has memorized the training set — including its noise — instead of the underlying pattern.

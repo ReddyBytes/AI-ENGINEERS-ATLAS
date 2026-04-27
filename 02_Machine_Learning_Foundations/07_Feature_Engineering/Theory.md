@@ -8,6 +8,22 @@ A detective gets a box of raw evidence: blurry surveillance footage, thousands o
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Are Features](#what-are-features) · [Feature Engineering Pipeline](#the-feature-engineering-pipeline) · [Core Techniques](#core-techniques)
+
+**Should Learn** — important for real projects and interviews:
+[Normalization and Scaling](#3-normalization-and-scaling) · [Encoding Categorical Variables](#4-encoding-categorical-variables)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Handling Missing Values](#5-handling-missing-values)
+
+**Reference** — skim once, look up when needed:
+[Feature Selection](#1-feature-selection)
+
+---
+
 ## What Are Features?
 
 **Features** are the individual input variables the model uses to make predictions. In a spreadsheet, features are the columns.

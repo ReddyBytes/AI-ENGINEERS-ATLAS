@@ -6,6 +6,19 @@ A counterfeiter forges currency. A detective spots the fakes. The counterfeiter 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[The Two Networks](#the-two-networks) · [The Adversarial Game](#the-adversarial-game) · [The Training Loop](#the-training-loop)
+
+**Should Learn** — important for real projects and interviews:
+[Mode Collapse -- The Main Problem](#mode-collapse----the-main-problem) · [Applications](#applications)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Nash Equilibrium](#nash-equilibrium)
+
+---
+
 ## The Two Networks
 
 **The Generator (counterfeiter):**

@@ -8,6 +8,22 @@ Multi-head attention works the same way: several attention mechanisms run in par
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Single Head Limitation](#the-problem-with-single-head-attention) · [How Multi-Head Works](#how-multi-head-attention-works) · [Dimension Math](#dimension-math)
+
+**Should Learn** — important for real projects and interviews:
+[What Each Head Learns](#what-each-head-might-learn) · [Final Projection W_O](#why-the-final-projection-wo-matters)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Head Specialization Patterns](#what-each-head-might-learn)
+
+**Reference** — skim once, look up when needed:
+[Parameter Count Formula](#dimension-math)
+
+---
+
 ## The problem with single-head attention
 
 With one attention head, each word computes one distribution over the sequence. But language has many relationship types at once:

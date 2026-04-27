@@ -6,6 +6,22 @@ Instead of scanning an image pixel by pixel — 1080p is two million pixels — 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[How ViT Works](#how-vit-works) · [ViT vs CNN](#vit-vs-cnn)
+
+**Should Learn** — important for real projects and interviews:
+[Why Not CNNs](#why-not-just-use-cnns) · [Multimodal Models](#multimodal-models)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Patch Count Math](#how-vit-works)
+
+**Reference** — skim once, look up when needed:
+[CLIP and DALL-E Examples](#multimodal-models)
+
+---
+
 ## Why not just use CNNs?
 
 CNNs dominated computer vision for years with built-in assumptions:

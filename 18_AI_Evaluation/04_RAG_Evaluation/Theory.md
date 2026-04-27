@@ -16,6 +16,22 @@ Each of these can fail independently. RAGAS measures each independently.
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[RAG Failure Modes](#what-is-rag-evaluation) · [Faithfulness Metric](#1-faithfulness) · [Answer Relevance](#2-answer-relevance)
+
+**Should Learn** — important for real projects and interviews:
+[Context Precision](#3-context-precision) · [Context Recall](#4-context-recall) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[RAGAS LLM Calls](#how-ragas-uses-llm-as-judge-internally) · [Building a Test Set](#building-a-rag-test-set)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is RAG Evaluation?
 
 **RAG evaluation** measures the quality of a Retrieval-Augmented Generation system along multiple dimensions that correspond to different parts of the pipeline.

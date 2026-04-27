@@ -12,6 +12,22 @@ Claude Code isn't just a user of the Agent SDK. It's a case study in how to desi
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Tool Loop Internals](#the-tool-loop-internals) · [CLAUDE.md as System Prompt](#claudemd-as-system-prompt) · [MEMORY.md as External Memory](#memorymd-as-external-agent-memory)
+
+**Should Learn** — important for real projects and interviews:
+[Worktrees as Subagent Isolation](#worktrees-as-subagent-isolation) · [Permission System as Scoping](#permission-system-as-tool-scoping) · [Design Lessons](#lessons-from-claude-codes-design)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Full Architecture Diagram](#the-full-architecture-in-one-diagram)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Claude Code?
 
 **Claude Code** is Anthropic's CLI for autonomous coding. Users give it goals ("add unit tests for this module," "refactor the auth system") and Claude Code achieves them through the agent loop: reading files, running commands, making edits, running tests, and iterating until done.

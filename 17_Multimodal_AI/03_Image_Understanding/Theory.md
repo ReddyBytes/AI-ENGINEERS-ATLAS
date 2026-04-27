@@ -12,6 +12,22 @@ This is the practical layer above vision-language models. CLIP and LLaVA are the
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Image Understanding Tasks](#what-is-image-understanding) · [VQA Pipeline](#visual-question-answering-vqa) · [Document Understanding](#ocr-with-ai-document-understanding)
+
+**Should Learn** — important for real projects and interviews:
+[Visual Grounding](#visual-grounding) · [VQA as Generation](#vqa-as-conditional-generation) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Grounding Coordinates](#grounding-coordinates) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Image Understanding?
 
 **Image understanding** is the set of tasks where an AI system extracts meaning, answers questions, or generates descriptions from visual input. It focuses on semantic comprehension — understanding *what is happening* — rather than low-level vision (edges, pixel classification).

@@ -14,6 +14,19 @@ But that would cost a fortune in tokens on every query. Enter **KV cache**: the 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is CAG](#what-is-cag) · [KV Cache Mechanics](#step-1-understand-the-kv-cache) · [Anthropic Prompt Caching](#step-2-prompt-caching-with-anthropic-api)
+
+**Should Learn** — important for real projects and interviews:
+[CAG vs RAG Comparison](#cag-vs-rag-comparison) · [Break-Even Math](#the-math--technical-side-simplified)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[OpenAI Prompt Caching](#step-3-openai-prompt-caching) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is CAG?
 
 **CAG (Cache-Augmented Generation)** is an approach where a document or knowledge base is loaded entirely into the model's context window (rather than retrieved in chunks), and the KV (key-value) cache from processing that context is saved and reused across multiple queries.

@@ -6,6 +6,22 @@ You step into the shower. The water is freezing. You turn the dial a little to t
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is a Derivative](#what-is-a-derivative) · [Gradient Descent](#gradient-descent--the-core-algorithm) · [Gradient](#gradient--multi-dimensional-derivative)
+
+**Should Learn** — important for real projects and interviews:
+[Why AI Needs Derivatives](#why-ai-needs-derivatives) · [Chain Rule](#the-chain-rule--how-backpropagation-works)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Local vs Global Minimum](#local-vs-global-minimum)
+
+**Reference** — skim once, look up when needed:
+[Visualizing the Flow](#visualizing-the-flow)
+
+---
+
 ## What Is a Derivative?
 
 A derivative measures how fast something is changing — it's the slope of a function at a point.

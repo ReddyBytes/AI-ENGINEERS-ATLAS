@@ -10,6 +10,19 @@ MCP is going through the same transition. Before MCP, connecting Claude to compa
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is the MCP Ecosystem?](#what-is-the-mcp-ecosystem-) · [How It Works](#how-it-works----step-by-step-)
+
+**Should Learn** — important for real projects and interviews:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Real-World Examples](#real-world-examples-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What Is the MCP Ecosystem? 🤔
 
 The **MCP Ecosystem** is the collection of:

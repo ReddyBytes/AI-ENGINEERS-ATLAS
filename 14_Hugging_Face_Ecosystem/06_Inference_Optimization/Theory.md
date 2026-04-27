@@ -8,6 +8,22 @@ Imagine your model is a sports car — a Ferrari. It can go 200 mph. But someone
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Inference Optimization?](#what-is-inference-optimization) · [Quantization](#quantization--the-main-technique) · [How It Works](#how-it-works--the-optimization-layers)
+
+**Should Learn** — important for real projects and interviews:
+[Batch Inference](#batch-inference) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Device Mapping](#device-mapping--distributing-large-models) · [Optimum Library](#the-optimum-library--onnx-and-hardware-specific-backends)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Inference Optimization?
 
 Inference optimization refers to a collection of techniques that make model inference (prediction, not training) faster, cheaper, and more memory-efficient — without meaningfully degrading output quality.

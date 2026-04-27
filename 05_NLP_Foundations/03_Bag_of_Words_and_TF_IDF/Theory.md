@@ -6,6 +6,16 @@ A librarian categorizes thousands of books without reading them — she counts w
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Bag of Words (BoW)](#bag-of-words-bow) · [TF-IDF -- smarter weighting](#tf-idf----smarter-weighting) · [Limitations of BoW](#limitations-of-bow)
+
+**Should Learn** — important for real projects and interviews:
+[BoW vs TF-IDF at a glance](#bow-vs-tf-idf-at-a-glance) · [Real use cases](#real-use-cases)
+
+---
+
 ## Bag of Words (BoW)
 
 BoW turns a document into a vector of word counts. Every vocabulary word gets a column; every document gets a row; values are occurrence counts.

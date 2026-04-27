@@ -12,6 +12,22 @@ That volume knob is **Classifier-Free Guidance (CFG)**. The setting is called th
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is CFG](#what-is-classifier-free-guidance) · [CFG Formula](#the-cfg-formula) · [Guidance Scale Effect](#what-the-guidance-scale-does)
+
+**Should Learn** — important for real projects and interviews:
+[Negative Prompts](#negative-prompts) · [Cross-Attention Conditioning](#cross-attention-primary-text-conditioning) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Classifier Guidance vs CFG](#classifier-guidance-vs-cfg) · [Other Conditioning Types](#other-conditioning-types)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Classifier-Free Guidance?
 
 **Classifier-Free Guidance (CFG)** is a technique for steering a diffusion model's output toward a desired condition (like a text prompt) without needing a separate classifier model.

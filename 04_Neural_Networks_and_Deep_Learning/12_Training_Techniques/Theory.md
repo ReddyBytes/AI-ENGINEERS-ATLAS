@@ -6,6 +6,19 @@ Training a dog well takes skill: short sessions with breaks, variable difficulty
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Transfer Learning](#transfer-learning) · [Weight Initialization](#weight-initialization) · [Batch Size](#batch-size)
+
+**Should Learn** — important for real projects and interviews:
+[Learning Rate Scheduling](#learning-rate-scheduling) · [Batch Normalization](#batch-normalization-training-behavior)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Mixed Precision Training](#mixed-precision-training) · [Epochs](#epochs)
+
+---
+
 ## Batch Size
 
 You show the model small batches of data, not all at once.

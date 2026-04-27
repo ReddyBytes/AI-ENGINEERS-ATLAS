@@ -8,6 +8,22 @@ You own a bakery. Every night your team perfects the recipe — but bread sittin
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Model Serving?](#what-is-model-serving) · [How It Works](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[Real-World Examples](#real-world-examples) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+**Reference** — skim once, look up when needed:
+[Practice Questions](#-practice-questions)
+
+---
+
 ## What is Model Serving?
 
 **Model serving** is the process of deploying a trained ML model as a live service that accepts requests, runs inference, and returns predictions — the bridge between a notebook experiment and a production product.

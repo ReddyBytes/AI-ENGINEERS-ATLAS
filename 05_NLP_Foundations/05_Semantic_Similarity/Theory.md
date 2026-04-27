@@ -6,6 +6,19 @@ You've finished a novel and want more like it. A librarian doesn't just search f
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Sentence embeddings -- the modern way](#sentence-embeddings----the-modern-way) · [SBERT -- Sentence BERT](#sbert----sentence-bert) · [Approaches ranked by quality](#approaches-ranked-by-quality)
+
+**Should Learn** — important for real projects and interviews:
+[Real-world use cases](#real-world-use-cases) · [Similarity score interpretation](#similarity-score-interpretation)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Word overlap approaches](#word-overlap-approaches-the-old-way)
+
+---
+
 ## The problem with keyword matching
 
 "The car broke down." and "My vehicle stopped working." have zero words in common. A keyword search would say these are completely unrelated — but they mean the same thing.

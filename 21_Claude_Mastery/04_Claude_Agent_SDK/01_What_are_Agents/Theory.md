@@ -14,6 +14,22 @@ Now imagine replacing your assistant with an AI. Same loop, but now the AI uses 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is an Agent](#what-is-an-agent) · [Agent Loop Steps](#how-it-works--step-by-step) · [Four Agent Components](#the-four-components-of-an-agent)
+
+**Should Learn** — important for real projects and interviews:
+[Agent vs Chain](#what-makes-something-an-agent-vs-just-a-chain) · [Real System Examples](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Loop Pseudocode](#the-math--technical-side-simplified)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is an Agent?
 
 An **agent** is an AI system that perceives its environment, reasons about what to do, takes actions using tools, observes the results, and loops until it achieves a goal — without requiring a human to direct each step.

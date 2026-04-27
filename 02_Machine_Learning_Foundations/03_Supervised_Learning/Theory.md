@@ -8,6 +8,22 @@ It's your first week as a bank employee. Your job: approve or reject loan applic
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Supervised Learning](#what-is-supervised-learning) · [How It Works](#how-it-works--step-by-step) · [Two Flavors](#what-is-supervised-learning)
+
+**Should Learn** — important for real projects and interviews:
+[The Catch: You Need Labels](#the-catch-you-need-labels) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Supervised Learning?
 
 **Supervised Learning** is the most common type of machine learning. You train a model on labeled data — examples where the input AND the correct output are both provided.

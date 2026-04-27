@@ -8,6 +8,19 @@ AI agents can do the same thing: generate output, evaluate it, find problems, an
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is Reflection?](#what-is-reflection) · [The Reflexion Framework](#the-reflexion-framework)
+
+**Should Learn** — important for real projects and interviews:
+[Self-Critique Prompting](#self-critique-prompting) · [When Self-Correction Helps](#when-self-correction-helps-most)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Iterative Refinement](#why-iterative-refinement-improves-quality) · [Code Check Loop](#the-check-your-work-loop-for-code)
+
+---
+
 ## What Is Reflection?
 
 Reflection is a second LLM call (or second pass) that acts as a **critic** — reads the output, identifies problems, and then the agent fixes them.

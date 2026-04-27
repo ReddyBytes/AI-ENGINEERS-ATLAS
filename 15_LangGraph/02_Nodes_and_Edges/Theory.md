@@ -8,6 +8,22 @@ A car factory: workers stand at stations along the floor. Worker A bolts on door
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What are Nodes?](#what-are-nodes) · [What are Edges?](#what-are-edges) · [START and END](#start-and-end--special-nodes)
+
+**Should Learn** — important for real projects and interviews:
+[Router Functions](#router-functions--the-full-pattern) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Edge Types Summary](#edge-types-summary) · [Where You'll See This](#where-youll-see-this-in-real-ai-systems)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What are Nodes?
 
 A **node** is simply a Python function. It takes the current state as its only argument and returns a dict of fields to update.

@@ -10,6 +10,22 @@ That stack of sticky notes is a **cache**. The librarian checking it before head
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Caching?](#what-is-caching) · [How It Works](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[Real-World Examples](#real-world-examples) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+**Reference** — skim once, look up when needed:
+[Navigation](#-navigation)
+
+---
+
 ## What is Caching?
 
 **Caching** stores the result of an expensive operation so future requests for the same or similar input can be served from storage instead of recomputing.

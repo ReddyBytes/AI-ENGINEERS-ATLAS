@@ -10,6 +10,22 @@ Understanding the progression is not just history. It tells you what to choose f
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Evolution Table](#what-changed-and-why-it-matters) · [SDXL Architecture](#sdxl-the-bigger-u-net) · [FLUX DiT](#flux-the-diffusion-transformer)
+
+**Should Learn** — important for real projects and interviews:
+[Flow Matching vs DDPM](#flow-matching-vs-ddpm) · [FLUX Variants](#flux-model-variants) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[DiT vs U-Net](#the-dit--why-transformers-for-diffusion) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What Changed and Why It Matters
 
 | Generation | Model | Key Architectural Change | Quality Jump |

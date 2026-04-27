@@ -10,6 +10,22 @@ Now imagine teaching the dog an obstacle course where only completing the whole 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is RL](#what-is-reinforcement-learning) · [Core Concepts](#core-concepts-defined) · [RL Loop](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[RL Landscape](#the-full-rl-landscape) · [RL vs Supervised Learning](#rl-vs-supervised-vs-unsupervised-learning) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Bellman Equation](#the-math--technical-side-simplified) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Reinforcement Learning?
 
 **Reinforcement Learning (RL)** is a branch of machine learning where an **agent** learns to make decisions by interacting with an **environment** and learning from **rewards** and **penalties** over time.

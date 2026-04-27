@@ -6,6 +6,16 @@ Setting up a new library takes a week before a single book is on the shelf — f
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Document Ingestion Does](#what-document-ingestion-does) · [Main Source Types](#the-main-source-types) · [Key Challenges](#key-challenges)
+
+**Should Learn** — important for real projects and interviews:
+[Document Metadata](#document-metadata) · [LangChain Loaders](#langchain-document-loaders)
+
+---
+
 ## What Document Ingestion Does
 
 Takes raw source material in any format and converts it to a standard structure:

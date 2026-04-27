@@ -10,6 +10,19 @@ That's what embeddings do — they convert text into coordinates in a meaning-sp
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is an Embedding](#what-is-an-embedding) · [How It Works](#how-it-works) · [Cosine Similarity](#cosine-similarity-measuring-meaning-distance)
+
+**Should Learn** — important for real projects and interviews:
+[Dense vs Sparse Embeddings](#dense-vs-sparse-embeddings) · [What Embeddings Enable](#what-embeddings-enable)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Popular Embedding Models](#popular-embedding-models)
+
+---
+
 ## What Is an Embedding?
 
 An embedding is a list of numbers (a vector) that represents the meaning of a piece of text.

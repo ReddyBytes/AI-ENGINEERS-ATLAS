@@ -10,6 +10,22 @@ Instead you show them pictures: *"Dog. Dog. Cat. Dog. Bird. Dog."* After enough 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Machine Learning](#what-is-machine-learning) · [How It Works](#how-it-works--step-by-step) · [Why It Exists](#why-it-exists--the-problem-it-solves)
+
+**Should Learn** — important for real projects and interviews:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-world Examples](#real-world-examples)
+
+**Reference** — skim once, look up when needed:
+[Where You'll See This](#where-youll-see-this-in-real-ai-systems)
+
+---
+
 ## What is Machine Learning?
 
 **Machine Learning (ML)** is a way of building software that learns from data instead of following hard-coded rules.

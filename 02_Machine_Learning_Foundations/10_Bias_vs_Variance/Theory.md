@@ -18,6 +18,22 @@ You want an archer who is both accurate AND consistent. Low bias AND low varianc
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Bias](#what-is-bias) · [What is Variance](#what-is-variance) · [The Tradeoff](#the-tradeoff)
+
+**Should Learn** — important for real projects and interviews:
+[How to Diagnose Which Problem](#how-to-diagnose-which-problem-you-have) · [How Complexity Affects Both](#how-complexity-affects-both)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real Model Examples](#real-model-examples)
+
+**Reference** — skim once, look up when needed:
+[Real Model Examples](#real-model-examples)
+
+---
+
 ## What is Bias?
 
 **Bias** is systematic error — the model consistently gets things wrong in the same direction because it made oversimplified assumptions.

@@ -12,6 +12,22 @@ Anthropic's Claude family gives you exactly this routing layer: Haiku for speed 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Model Tiers Overview](#the-claude-model-tiers-️) · [Speed vs Intelligence Tradeoff](#speed-vs-intelligence-vs-cost--the-tradeoff-triangle-️) · [Current Model Reference](#current-model-reference-mid-2025-)
+
+**Should Learn** — important for real projects and interviews:
+[Model Routing Strategy](#model-routing-strategy-️) · [When to Use Haiku](#haiku--the-speed-model-) · [When to Use Sonnet](#sonnet--the-production-default-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[When to Use Opus](#opus--the-capability-pinnacle-) · [Generation Versioning](#when-each-generation-matters-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## The Claude Model Tiers 🏛️
 
 ```mermaid

@@ -10,6 +10,22 @@ The key insight: you don't need to memorize every possible screen. Similar-looki
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is DQN](#what-is-dqn) · [Experience Replay](#innovation-1-experience-replay) · [Target Network](#innovation-2-target-network)
+
+**Should Learn** — important for real projects and interviews:
+[Full DQN Algorithm](#the-full-dqn-algorithm) · [DQN Loss Function](#the-math--technical-side-simplified) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Why Naive DQN Fails](#why-it-exists--the-problem-it-solves) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is DQN?
 
 **DQN** (DeepMind, 2013/2015) uses a **deep neural network** to approximate the Q-function instead of a lookup table.

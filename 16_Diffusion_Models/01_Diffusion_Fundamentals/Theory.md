@@ -10,6 +10,22 @@ That is the core idea behind **diffusion models**: destroy structure step by ste
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Diffusion Model](#what-is-a-diffusion-model) · [Forward Process](#the-forward-process--destroying-structure) · [Training Objective](#training-objective)
+
+**Should Learn** — important for real projects and interviews:
+[Reverse Process](#the-reverse-process--creating-images) · [Noise Schedules](#noise-schedules) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Closed-Form Shortcut](#closed-form-shortcut) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is a Diffusion Model?
 
 A **diffusion model** is a generative AI that creates images (or audio, video, molecules, etc.) by learning to reverse a gradual noising process.

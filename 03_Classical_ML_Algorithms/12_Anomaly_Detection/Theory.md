@@ -12,6 +12,22 @@ The challenge is that you almost never have labeled examples of what "fraud" loo
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Anomaly Detection](#what-is-anomaly-detection) · [Isolation Forest](#step-2-isolation-forest) · [Handling Class Imbalance](#step-4-handling-extreme-class-imbalance)
+
+**Should Learn** — important for real projects and interviews:
+[Evaluating Anomaly Detection](#step-5-evaluating-anomaly-detection-models) · [Understand the Approaches](#step-1-understand-the-approaches)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Local Outlier Factor](#step-3-local-outlier-factor-lof) · [Autoencoder Approach](#autoencoder-for-high-dimensional-anomaly-detection)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Anomaly Detection?
 
 **Anomaly detection** (also called outlier detection) is the task of identifying data points that deviate significantly from the expected behavior of a dataset.

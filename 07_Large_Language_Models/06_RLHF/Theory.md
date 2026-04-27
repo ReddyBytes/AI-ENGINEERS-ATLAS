@@ -8,6 +8,22 @@ That's RLHF — using human feedback expressed as preferences to shape model beh
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[3-Step RLHF Process](#the-3-step-rlhf-process) · [Reward Model Training](#step-2-reward-model-training) · [PPO Reinforcement Learning](#step-3-reinforcement-learning-with-ppo)
+
+**Should Learn** — important for real projects and interviews:
+[What RLHF Achieves](#what-rlhf-achieves) · [Alternatives to RLHF](#alternatives-to-rlhf)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[RLHF Limitations](#the-limitations-of-rlhf)
+
+**Reference** — skim once, look up when needed:
+[PPO vs DPO Comparison](#alternatives-to-rlhf)
+
+---
+
 ## The problem instruction tuning leaves unsolved
 
 Writing perfect training responses is hard:

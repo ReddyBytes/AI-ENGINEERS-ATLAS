@@ -12,6 +12,22 @@ The key distinction from slash commands: a slash command is an on-demand action 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What are Custom Skills](#what-are-custom-skills-) · [Skills vs Commands vs CLAUDE.md](#skills-vs-slash-commands-vs-claudemd-) · [Skill File Format](#skillmd-format-)
+
+**Should Learn** — important for real projects and interviews:
+[Invoking Skills](#invoking-skills-) · [Writing Effective Skills](#writing-effective-skill-prompts-️) · [Skill File Location](#skill-file-location-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Skill Examples](#real-world-skill-examples-) · [Frontmatter Fields](#frontmatter-fields-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What are Custom Skills? 🎓
 
 **Custom Skills** are Markdown files stored in a `skills/` folder that define reusable playbooks — rich context packages that load everything Claude needs to work effectively in a specific domain. Unlike slash commands (which execute a task), skills establish how Claude should think and behave within a domain.

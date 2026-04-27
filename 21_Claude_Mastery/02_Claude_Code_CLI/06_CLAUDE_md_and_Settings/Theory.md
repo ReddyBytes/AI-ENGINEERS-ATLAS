@@ -16,6 +16,22 @@ And beyond the brief, there's the toolbox. Which tools can the contractor use wi
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is CLAUDE.md](#what-is-claudemd-) · [Loading Hierarchy](#the-loading-hierarchy-) · [settings.json Structure](#settingsjson--the-permissions-and-configuration-file-️)
+
+**Should Learn** — important for real projects and interviews:
+[What to Put in CLAUDE.md](#what-to-put-in-claudemd-) · [Tool Permission Patterns](#tool-permission-patterns-) · [.claudeignore](#claudeignore-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Environment Variable Injection](#environment-variable-injection-) · [Subfolder Override Rules](#subfolder-projectlegacyclaudemd)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is CLAUDE.md? 📋
 
 **CLAUDE.md** is a Markdown file that Claude Code reads automatically at session start. It contains project-specific instructions, conventions, tech stack information, and behavioral rules. Unlike the memory system (which Claude writes dynamically), CLAUDE.md is written by you and remains static until you edit it.

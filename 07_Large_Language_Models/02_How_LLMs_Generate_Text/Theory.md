@@ -8,6 +8,22 @@ That's an LLM. At its core: **what word comes next?**
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[From Text to Tokens](#from-text-to-tokens) · [Generation Loop](#the-generation-loop) · [Temperature Dial](#temperature-the-creativity-dial)
+
+**Should Learn** — important for real projects and interviews:
+[Greedy vs Sampling](#greedy-vs-sampling) · [Top-p Sampling](#top-p-sampling-nucleus-sampling)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Application Implications](#why-this-matters-for-your-applications)
+
+**Reference** — skim once, look up when needed:
+[Stochastic Parrot Critique](#the-stochastic-parrot-critique)
+
+---
+
 ## From text to tokens
 
 Before the model can generate anything, your text gets split into **tokens** — sub-word units, not words.

@@ -14,6 +14,22 @@ When you ask Claude "What is the capital of France?", it doesn't look anything u
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Pretraining](#what-is-pretraining-) · [Next-Token Objective](#the-training-objective--next-token-prediction-) · [Pretraining vs Fine-Tuning](#pretraining-vs-fine-tuning--what-each-provides-)
+
+**Should Learn** — important for real projects and interviews:
+[Scaling Laws Chinchilla](#scaling-laws--the-chinchilla-result-) · [Emergent Capabilities](#emergent-capabilities-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Data Curation at Scale](#data-curation-at-scale-) · [Compute Scaling](#compute-scaling-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems-️)
+
+---
+
 ## What is Pretraining? 📚
 
 **Pretraining** is the first — and computationally dominant — phase of LLM development. The model learns from an enormous corpus of text using a single self-supervised objective: **next-token prediction**.

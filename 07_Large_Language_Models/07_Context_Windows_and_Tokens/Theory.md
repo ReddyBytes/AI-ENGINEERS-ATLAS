@@ -8,6 +8,22 @@ That's the context window: the model can only use what's within its window. Ever
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is a Token](#what-is-a-token) · [What Is Context Window](#what-is-the-context-window) · [Application Implications](#why-context-windows-matter-for-applications)
+
+**Should Learn** — important for real projects and interviews:
+[Token Counting](#token-counting-in-practice) · [Lost in the Middle](#positional-encoding-and-context-limits)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[KV Cache](#the-kv-cache) · [Context Window Growth](#how-context-windows-have-grown)
+
+**Reference** — skim once, look up when needed:
+[Token Count Table](#token-counting-in-practice)
+
+---
+
 ## What is a token?
 
 A token is the basic unit of text an LLM processes — a chunk of text, not necessarily a word. Most tokenizers use **Byte Pair Encoding (BPE)**:

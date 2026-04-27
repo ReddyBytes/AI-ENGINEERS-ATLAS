@@ -14,6 +14,22 @@ No one starts from scratch. No information is lost. The patient's journey contin
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Handoff Lifecycle](#how-it-works--the-handoff-lifecycle) · [Shared State Patterns](#shared-state-patterns) · [Handoff Message Format](#handoff-message-format)
+
+**Should Learn** — important for real projects and interviews:
+[Coordination Protocols](#coordination-protocols) · [Human-in-the-Loop Handoffs](#human-in-the-loop-handoffs)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real System Examples](#where-youll-see-this-in-real-ai-systems)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is a Handoff?
 
 A **handoff** is a structured transfer of control from one agent to another. Unlike subagent delegation (orchestrator sends work and waits for results), a handoff is a sequential transfer: Agent A does its part, then hands off to Agent B, which continues the task.

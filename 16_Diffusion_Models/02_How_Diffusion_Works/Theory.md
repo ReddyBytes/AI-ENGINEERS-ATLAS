@@ -10,6 +10,22 @@ That's a U-Net learning to denoise. It never "sees" the final image it will prod
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Forward Process](#step-1-the-forward-process) · [Training the Denoiser](#step-2-training-the-denoiser) · [Inference Loop](#step-3-inference--generating-new-images)
+
+**Should Learn** — important for real projects and interviews:
+[DDIM Sampling](#ddim-denoising-diffusion-implicit-models) · [DDPM vs DDIM](#ddpm-vs-ddim-sampling) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Parameterization Choices](#parameterization-choices) · [DDPM Reverse Step](#ddpm-reverse-step)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is the Mechanics of Diffusion?
 
 Three concrete components work together:

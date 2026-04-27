@@ -6,6 +6,22 @@ Imagine a new employee who, before starting any real work, spends six months in 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Self-Supervised Learning](#what-is-self-supervised-learning) · [Training Objective](#the-training-objective) · [What Pretraining Gives You](#what-pretraining-does-not-give-you)
+
+**Should Learn** — important for real projects and interviews:
+[What the Model Learns](#what-the-model-actually-learns) · [Data Quality](#data-quality-over-quantity)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Compute Costs](#the-compute-cost) · [Training Dynamics](#training-dynamics)
+
+**Reference** — skim once, look up when needed:
+[Training Data Sources](#the-data)
+
+---
+
 ## What is self-supervised learning?
 
 Pretraining uses **self-supervised learning** — no human labels needed. The task: given the text so far, predict the next token.

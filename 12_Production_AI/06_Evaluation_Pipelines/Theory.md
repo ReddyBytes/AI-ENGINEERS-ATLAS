@@ -10,6 +10,22 @@ AI systems need exactly this quality control. But the challenge is harder: "good
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is an Evaluation Pipeline?](#what-is-an-evaluation-pipeline) · [Two Types of Evaluation](#two-types-of-evaluation) · [Evaluation Method Types](#evaluation-method-types)
+
+**Should Learn** — important for real projects and interviews:
+[How It Works](#how-it-works--step-by-step) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is an Evaluation Pipeline?
 
 An **evaluation pipeline** is an automated system that:

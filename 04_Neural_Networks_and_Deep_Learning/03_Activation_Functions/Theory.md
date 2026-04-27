@@ -6,6 +6,19 @@ An old-fashioned light switch is either fully off or fully on — that's a step 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Why Activation Functions Exist](#why-activation-functions-exist) · [ReLU](#relu-rectified-linear-unit) · [Which Activation Goes Where](#which-activation-goes-where)
+
+**Should Learn** — important for real projects and interviews:
+[Sigmoid](#sigmoid) · [Softmax](#softmax)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Tanh](#tanh-hyperbolic-tangent) · [Step Function](#step-function-historical)
+
+---
+
 ## Why Activation Functions Exist
 
 1. **Non-linearity.** Without them, stacking layers does nothing — every linear combination of linear transformations is still linear. Activation functions allow decision boundaries to bend and curve.

@@ -12,6 +12,22 @@ Understanding these layers matters for engineers because: (1) you need to know w
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[HHH Framework](#the-hhh-framework-) · [Refusal Patterns](#layer-4--refusal-patterns-) · [Hardcoded Behaviors](#what-operators-can-and-cannot-do-)
+
+**Should Learn** — important for real projects and interviews:
+[Jailbreak Resistance](#layer-5--jailbreak-resistance-) · [Prompt Injection Defense](#layer-6--prompt-injection-defense-) · [CAI and RLHF Layers](#layer-2--constitutional-ai-training-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Responsible Scaling Policy](#the-responsible-scaling-policy-rsp-) · [Pretraining Data Layer](#layer-1--pretraining-data-curation-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## The HHH Framework 🎯
 
 The core alignment target for Claude is **HHH**: Helpful, Harmless, Honest. These three objectives are in deliberate tension with each other and Claude's training is specifically designed to find good trade-offs between them.

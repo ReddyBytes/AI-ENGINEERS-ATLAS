@@ -8,6 +8,22 @@ Planning a road trip: 200 km took 2 hours, 350 km took 3.5 hours, 100 km took 1 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Does Linear Regression Do](#what-does-linear-regression-do) · [The Best-Fit Line](#the-best-fit-line) · [How the Model Learns](#how-the-model-learns)
+
+**Should Learn** — important for real projects and interviews:
+[Multiple Features](#multiple-features-multiple-linear-regression) · [When It Works and Doesn't](#when-linear-regression-works-and-when-it-does-not)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Assumptions to Know About](#assumptions-to-know-about)
+
+**Reference** — skim once, look up when needed:
+[Assumptions to Know About](#assumptions-to-know-about)
+
+---
+
 ## What Does Linear Regression Do?
 
 Linear regression predicts a **continuous numeric value** based on one or more input features:

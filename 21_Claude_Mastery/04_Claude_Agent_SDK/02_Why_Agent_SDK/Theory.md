@@ -14,6 +14,22 @@ The **Claude Agent SDK** is the second plumber's toolkit. It ships the loop, too
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Raw API vs SDK](#raw-api-vs-agent-sdk--what-changes) · [What SDK Handles](#what-the-sdk-handles-automatically)
+
+**Should Learn** — important for real projects and interviews:
+[When to Use SDK](#when-to-use-the-sdk-vs-raw-api)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[SDK State Machine](#the-math--technical-side-simplified)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is the Claude Agent SDK?
 
 The **Claude Agent SDK** (also called the Anthropic Agent SDK or `claude_agent_sdk`) is a Python library that wraps the raw Messages API to provide a production-ready implementation of the agent loop.

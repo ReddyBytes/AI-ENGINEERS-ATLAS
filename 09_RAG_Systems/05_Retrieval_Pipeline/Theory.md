@@ -6,6 +6,19 @@ A user types a question. Somewhere in your 10,000 documents, there are 3 chunks 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Retrieval Steps](#the-retrieval-steps) · [Top-K Selection](#top-k-how-many-to-retrieve) · [What Results Look Like](#what-the-results-look-like)
+
+**Should Learn** — important for real projects and interviews:
+[Metadata Filtering](#metadata-filtering) · [Retrieval Quality Problem](#the-retrieval-quality-problem)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Cosine Similarity at Retrieval](#cosine-similarity-at-retrieval-time)
+
+---
+
 ## The Retrieval Steps
 
 ```mermaid

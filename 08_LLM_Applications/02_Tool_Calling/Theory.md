@@ -8,6 +8,19 @@ That's tool calling: giving an LLM specific "phones" it can use when it decides 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is Tool Calling](#what-is-tool-calling) · [Tool Call Cycle](#the-tool-call-cycle) · [Tool Definition Structure](#the-tool-definition-structure)
+
+**Should Learn** — important for real projects and interviews:
+[Parallel Tool Calls](#parallel-tool-calls) · [Real Use Cases](#real-use-cases)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Why It Is Powerful](#why-is-this-powerful) · [How Model Decides](#how-the-model-decides-to-use-a-tool)
+
+---
+
 ## What Is Tool Calling?
 
 Tool calling (also called function calling) lets you define functions the model can request to use. The model decides when to use them; your code executes them and sends back results. The model doesn't run the tool itself — it says "I want to call this tool with these inputs."

@@ -12,6 +12,22 @@ Agents face the same problem — but at machine speed. An agent with broad tool 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Prompt Injection Defense](#threat-1-prompt-injection-in-agent-context) · [Tool Permission Scoping](#threat-2-overly-broad-tool-permissions) · [Human-in-the-Loop](#threat-3-missing-human-in-the-loop)
+
+**Should Learn** — important for real projects and interviews:
+[Dangerous Action Detection](#threat-4-dangerous-action-detection) · [Audit Logging](#audit-logging)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real System Examples](#where-youll-see-this-in-real-ai-systems)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Agent Safety?
 
 **Agent safety** is the set of design practices that prevent agents from taking harmful, unintended, or unauthorized actions. It covers four main concerns:

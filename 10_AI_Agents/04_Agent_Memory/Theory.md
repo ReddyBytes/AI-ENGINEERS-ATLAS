@@ -11,6 +11,19 @@ Without these, every conversation starts from scratch. AI agents have all three 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[In-Context Memory](#1-in-context-memory-short-term) · [Vector Long-Term Memory](#4-vector-long-term-memory)
+
+**Should Learn** — important for real projects and interviews:
+[When to Use Each](#when-to-use-each) · [Summarization Memory](#2-summarization-memory) · [Entity Memory](#3-entity-memory)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[A Practical Example](#a-practical-example)
+
+---
+
 ## The Four Types of Agent Memory
 
 ### 1. In-Context Memory (Short-Term)

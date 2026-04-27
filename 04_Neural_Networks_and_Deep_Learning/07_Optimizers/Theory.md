@@ -6,6 +6,19 @@ Three hikers try to reach the valley bottom. The first takes tiny careful steps 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is an Optimizer](#what-is-an-optimizer) · [Adam](#adam-adaptive-moment-estimation) · [SGD](#sgd----stochastic-gradient-descent)
+
+**Should Learn** — important for real projects and interviews:
+[SGD + Momentum](#sgd--momentum) · [Learning Rate Scheduling](#learning-rate-scheduling)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[RMSProp](#rmsprop)
+
+---
+
 ## What is an Optimizer?
 
 An optimizer uses gradients from backpropagation to update weights. The basic rule: `w = w - lr × gradient`. Different optimizers do more sophisticated things with that gradient to converge faster and more reliably.

@@ -8,6 +8,22 @@ You built an amazing AI model that classifies medical images, translates 50 lang
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Gradio?](#what-is-gradio) · [What are Spaces?](#what-are-hugging-face-spaces) · [How It Works](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[gr.Interface vs gr.Blocks](#grinterface-vs-grblocks) · [Deploying to Spaces](#deploying-to-hugging-face-spaces) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Gradio Components](#gradio-components-reference) · [ChatInterface](#building-a-chatbot-with-grchatinterface)
+
+**Reference** — skim once, look up when needed:
+[Streamlit Alternative](#streamlit--the-alternative)
+
+---
+
 ## What is Gradio?
 
 **Gradio** is a Python library that creates web interfaces for machine learning models. You write a Python function, you tell Gradio what the inputs and outputs are, and it builds the UI automatically.

@@ -10,6 +10,22 @@ The robot does the hard work — the analysis, the planning, the precision execu
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is HITL?](#what-is-human-in-the-loop-in-langgraph) · [How It Works](#how-it-works--step-by-step) · [Checkpointing System](#the-checkpointing-system)
+
+**Should Learn** — important for real projects and interviews:
+[Modifying State During Pause](#modifying-state-during-a-pause) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[interrupt_before vs interrupt_after](#interrupt_before-vs-interrupt_after) · [Where You'll See This](#where-youll-see-this-in-real-ai-systems)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Human-in-the-Loop in LangGraph?
 
 **Human-in-the-Loop (HITL)** in LangGraph is the ability to pause a running graph at a specific node, save the entire graph state to persistent storage, wait for a human to review and optionally modify the state, and then resume execution from exactly where it left off.

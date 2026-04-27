@@ -12,6 +12,22 @@ Before MCP, an AI agent had the intelligence but not the tools. It could reason 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is an MCP-Powered Agent?](#what-is-an-mcp-powered-agent-) · [How It Works](#how-it-works----step-by-step-)
+
+**Should Learn** — important for real projects and interviews:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Real-World Examples](#real-world-examples-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Multi-Server Agent Pattern](#what-is-an-mcp-powered-agent-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What Is an MCP-Powered Agent? 🤔
 
 An **agent** takes sequences of actions to accomplish longer-horizon tasks — not just answering a single question, but doing a series of things to complete a goal.

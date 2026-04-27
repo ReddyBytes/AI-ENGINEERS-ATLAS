@@ -8,6 +8,19 @@ AI multi-agent systems work exactly the same way.
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[The Three Patterns](#the-three-patterns) · [Why One Agent Fails](#why-one-agent-isnt-always-enough)
+
+**Should Learn** — important for real projects and interviews:
+[Inter-Agent Communication](#inter-agent-communication) · [CrewAI and AutoGen](#crewai-and-autogen)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Parallel Agents Pattern](#pattern-3-parallel-agents)
+
+---
+
 ## Why One Agent Isn't Always Enough
 
 A single agent faces fundamental limitations:

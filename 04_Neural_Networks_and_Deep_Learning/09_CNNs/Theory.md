@@ -6,6 +6,16 @@ When you look at a face, your eye scans small patches — an edge here, a curve 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[The Core Idea: Filters](#the-core-idea-filters) · [Key Concepts](#key-concepts) · [Depth](#depth)
+
+**Should Learn** — important for real projects and interviews:
+[Why Not Just Use an MLP](#why-not-just-use-an-mlp) · [Why CNNs Beat MLPs on Images](#why-cnns-beat-mlps-on-images)
+
+---
+
 ## Why Not Just Use an MLP?
 
 A 28×28 pixel image has 784 pixels. A dense layer with 256 neurons needs 200,704 weights — just for the first layer. A 224×224 RGB image would need 38.5 million weights for one layer.

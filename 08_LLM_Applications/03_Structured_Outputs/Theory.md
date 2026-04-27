@@ -8,6 +8,19 @@ LLMs are the same. Ask a free-form question and you get an essay. In production,
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Why This Matters](#why-this-matters) · [Three Output Methods](#three-ways-to-get-structured-output) · [Pydantic Approach](#method-3-pydantic--structured-output-libraries)
+
+**Should Learn** — important for real projects and interviews:
+[Tool-Based Output](#method-2-tool-based-structured-output) · [When to Use Each](#when-to-use-each-method)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Validating Output](#validating-output) · [Common Use Cases](#common-use-cases)
+
+---
+
 ## Why This Matters
 
 LLMs generate text token by token — natural language prose by default. Your code needs JSON with fields, types, and predictable shapes.

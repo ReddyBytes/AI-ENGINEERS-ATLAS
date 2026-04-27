@@ -12,6 +12,22 @@ Then came a natural question: if CLIP can understand images and text in the same
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a VLM](#what-is-a-vision-language-model) · [CLIP Architecture](#clip-learning-a-shared-embedding-space) · [LLaVA Architecture](#llava-connecting-vision-to-language-generation)
+
+**Should Learn** — important for real projects and interviews:
+[Contrastive Objective](#clips-contrastive-objective) · [Visual Instruction Tuning](#visual-instruction-tuning) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[ViT Image Encoding](#vision-transformer-vit-image-encoding) · [Zero-Shot Classification](#clip-learning-a-shared-embedding-space)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is a Vision-Language Model?
 
 A **Vision-Language Model (VLM)** processes both images and text, understanding the relationship between them. Unlike pure image classifiers (which categorize), VLMs can reason, describe, answer questions, follow instructions, and generate text about visual content.

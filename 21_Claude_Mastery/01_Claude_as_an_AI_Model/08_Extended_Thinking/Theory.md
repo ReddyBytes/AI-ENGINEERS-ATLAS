@@ -12,6 +12,22 @@ Claude's **extended thinking** is the second doctor. Instead of immediately gene
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Extended Thinking](#what-is-extended-thinking-) · [When to Use It](#when-to-use-extended-thinking--decision-guide-) · [Thinking Budget](#the-thinking-budget-)
+
+**Should Learn** — important for real projects and interviews:
+[Why It Improves Reasoning](#why-extended-thinking-improves-complex-reasoning-) · [Cost Implications](#cost-implications-) · [How Thinking Tokens Work](#how-thinking-tokens-work-internally-️)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Streaming Thinking Tokens](#streaming-thinking-tokens-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems-️)
+
+---
+
 ## What is Extended Thinking? 🧠
 
 **Extended thinking** is a Claude feature that allows the model to perform chain-of-thought reasoning in a dedicated thinking space before generating its final response. The thinking tokens are generated with the same autoregressive process as normal tokens, but they are treated differently — they represent internal deliberation rather than output content.

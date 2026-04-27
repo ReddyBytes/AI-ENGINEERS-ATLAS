@@ -6,6 +6,22 @@ You check the weather app before leaving home. It says "70% chance of rain." You
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is Probability](#what-is-probability) · [AND Rule](#the-and-rule-both-happen) · [Conditional Probability](#conditional-probability-given-that-something-already-happened)
+
+**Should Learn** — important for real projects and interviews:
+[OR Rule](#the-or-rule-at-least-one-happens) · [Complement Rule](#the-complement-rule-what-doesnt-happen)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Visualizing It](#visualizing-it)
+
+**Reference** — skim once, look up when needed:
+[Why AI Cares](#why-ai-cares)
+
+---
+
 ## What Is Probability?
 
 Probability is a number between 0 and 1 measuring how likely something is to happen.

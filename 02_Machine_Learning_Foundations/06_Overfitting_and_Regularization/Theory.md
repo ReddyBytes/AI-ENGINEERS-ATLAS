@@ -8,6 +8,22 @@ Meet Alex. Instead of understanding the exam material, Alex memorizes every past
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Overfitting](#what-is-overfitting) · [Bias-Variance Tradeoff](#the-bias-variance-tradeoff) · [How to Fix Overfitting](#how-to-fix-overfitting)
+
+**Should Learn** — important for real projects and interviews:
+[Regularization L1 and L2](#2-regularization--l1-and-l2) · [Dropout](#3-dropout-neural-networks) · [Early Stopping](#4-early-stopping)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Training and Validation Curves](#the-training-and-validation-curves)
+
+**Reference** — skim once, look up when needed:
+[What is Underfitting](#what-is-underfitting)
+
+---
+
 ## What is Overfitting?
 
 **Overfitting** is when a model learns training data too well — including noise and random quirks — and fails to generalize to new data.

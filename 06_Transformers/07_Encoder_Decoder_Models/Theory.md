@@ -6,6 +6,22 @@ Reading comprehension: you read the whole passage and answer questions — you n
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Three Architecture Flavors](#the-three-flavors) · [How to Choose](#how-to-choose)
+
+**Should Learn** — important for real projects and interviews:
+[Encoder-Only Models](#encoder-only-bert-family) · [Decoder-Only Models](#decoder-only-gpt-family) · [Modern Practice](#a-note-on-modern-practice)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Encoder-Decoder Examples](#encoder-decoder-t5-bart-family)
+
+**Reference** — skim once, look up when needed:
+[Task-to-Architecture Decision Tree](#how-to-choose)
+
+---
+
 ## The three flavors
 
 ### Encoder-only (BERT family)

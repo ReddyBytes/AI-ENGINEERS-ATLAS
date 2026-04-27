@@ -8,6 +8,19 @@ Agent frameworks are the power tools for building AI agents — they handle the 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[The Three Major Frameworks](#the-three-major-frameworks) · [Choosing a Framework](#choosing-a-framework)
+
+**Should Learn** — important for real projects and interviews:
+[Why Frameworks Exist](#why-frameworks-exist) · [Convenience vs Control](#the-tradeoffs-convenience-vs-control)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[AutoGen](#autogen-microsoft)
+
+---
+
 ## Why Frameworks Exist
 
 Without a framework, building an agent means:

@@ -6,6 +6,22 @@ Imagine sorting oranges and apples on a table. You want to draw a line between t
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[The Core Idea](#the-core-idea) · [Maximum Margin Classifier](#maximum-margin-classifier) · [The Kernel Trick](#the-kernel-trick-for-non-linear-data)
+
+**Should Learn** — important for real projects and interviews:
+[The C Parameter](#the-c-parameter--trading-off-margin-vs-mistakes) · [When SVM Shines](#when-svm-shines)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Support Vectors](#support-vectors)
+
+**Reference** — skim once, look up when needed:
+[Hyperplane](#hyperplane)
+
+---
+
 ## The Core Idea
 
 SVM finds the *best* line — the one that maximizes the gap between two groups. That gap is the **margin**. The data points at the edges of that margin are **support vectors** — they define the boundary. Remove any other point and the boundary stays the same. Remove a support vector and it shifts.

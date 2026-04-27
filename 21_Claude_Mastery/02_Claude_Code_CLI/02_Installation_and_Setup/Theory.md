@@ -12,6 +12,22 @@ The good news: the whole process takes under five minutes for a clean install. T
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Setup Process Overview](#what-is-the-setup-process-) · [Authentication Options](#step-3-authentication) · [Config Hierarchy](#the-full-config-hierarchy-️)
+
+**Should Learn** — important for real projects and interviews:
+[settings.json Structure](#settingsjson-structure-) · [CLI Flags](#useful-cli-flags-) · [Common Issues and Fixes](#common-installation-issues-and-fixes-️)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Environment Variables](#environment-variables-) · [Global vs Project Config](#step-5-global-configuration)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is the Setup Process? 📦
 
 **Setting up Claude Code** involves four distinct phases:

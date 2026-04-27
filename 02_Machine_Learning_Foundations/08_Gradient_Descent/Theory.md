@@ -8,6 +8,22 @@ You're blindfolded in the mountains, trying to reach the lowest valley. You can'
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Gradient Descent](#what-is-gradient-descent) · [How It Works](#how-it-works--step-by-step) · [Learning Rate](#the-learning-rate--how-big-is-each-step)
+
+**Should Learn** — important for real projects and interviews:
+[3 Flavors of Gradient Descent](#3-flavors-of-gradient-descent) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Gradient Descent?
 
 **Gradient Descent** minimizes the **loss** by repeatedly adjusting weights in the direction that reduces it.

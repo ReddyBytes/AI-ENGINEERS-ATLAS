@@ -6,6 +6,19 @@ You're a doctor and your patient just walked in. You can't see the weather outsi
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Two kinds of things in an HMM](#two-kinds-of-things-in-an-hmm) · [Three components](#three-components) · [The Markov assumption](#the-markov-assumption)
+
+**Should Learn** — important for real projects and interviews:
+[POS tagging with HMM](#pos-tagging-with-hmm) · [Viterbi algorithm](#viterbi-algorithm----finding-the-best-path)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[The chain structure](#the-chain-structure)
+
+---
+
 ## Two kinds of things in an HMM
 
 **Hidden states** — what you can't observe directly.

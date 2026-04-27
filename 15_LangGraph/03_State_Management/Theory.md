@@ -8,6 +8,22 @@ A relay race with four runners and one baton — but this baton carries a scroll
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is State?](#what-is-state-in-langgraph) · [How State Flows](#how-state-flows-between-nodes) · [Reducers](#reducers--how-state-gets-merged)
+
+**Should Learn** — important for real projects and interviews:
+[MessagesState](#messagesstate--the-built-in-chat-state) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Immutable Update Pattern](#immutable-update-pattern) · [Why State Design Matters](#why-state-design-is-the-most-important-architectural-decision)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is State in LangGraph?
 
 **State** is a Python `TypedDict` — a dictionary with declared, typed fields — passed to every node. Every node reads any field and returns updates to any field. LangGraph creates it from initial input, merges partial updates from each node, and returns the final state at termination.

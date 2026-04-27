@@ -12,6 +12,22 @@ A smarter approach: brief the TAs once. Write it all down. The TAs keep the brie
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[How to Enable Caching](#how-to-enable-caching-) · [Cacheable Positions](#what-can-be-cached--cacheable-positions-) · [Pricing Model](#pricing-model-)
+
+**Should Learn** — important for real projects and interviews:
+[Cache TTL Window](#cache-ttl--5-minute-ephemeral-window-) · [Identifying Cache Activity](#identifying-cache-activity-in-responses-) · [When Caching Saves Money](#when-caching-saves-money--decision-guide-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Minimum Token Threshold](#minimum-cacheable-token-threshold-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Prompt Caching? 💾
 
 **Prompt caching** is a feature that lets you mark portions of your request for caching on Anthropic's infrastructure. When you make a request with a cache marker, Anthropic stores the KV (key-value) cache for that prefix and reuses it on subsequent requests with the same prefix.

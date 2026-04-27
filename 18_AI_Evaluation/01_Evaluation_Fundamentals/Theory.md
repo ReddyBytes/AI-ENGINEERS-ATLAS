@@ -18,6 +18,22 @@ The best AI teams in the world treat evaluation as a first-class engineering dis
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is AI Evaluation](#what-is-ai-evaluation) · [Eval-Improvement Loop](#the-eval-improvement-loop) · [Three Evaluation Types](#types-of-evaluation)
+
+**Should Learn** — important for real projects and interviews:
+[What to Measure](#what-to-measure) · [Test Set Design](#defining-a-test-set) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Statistical Significance](#statistical-significance) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is AI Evaluation?
 
 **AI evaluation** (or "evals") is the systematic process of measuring how well an AI system performs on the tasks it's supposed to do, using defined metrics, test cases, and measurement methodologies.

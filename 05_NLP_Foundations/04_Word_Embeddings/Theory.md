@@ -6,6 +6,19 @@
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a word embedding](#what-is-a-word-embedding) · [Word2Vec](#word2vec) · [The key idea: distributional hypothesis](#the-key-idea-distributional-hypothesis)
+
+**Should Learn** — important for real projects and interviews:
+[Cosine similarity](#cosine-similarity) · [Why embeddings beat BoW](#why-embeddings-beat-bow)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[The famous king-queen example](#the-famous-king-queen-example) · [Types of embeddings](#types-of-embeddings)
+
+---
+
 ## The problem with BoW and TF-IDF
 
 In a BoW vector, "happy" and "joyful" look completely unrelated — just two different columns. Word embeddings fix this: words with similar meanings end up close together in embedding space.

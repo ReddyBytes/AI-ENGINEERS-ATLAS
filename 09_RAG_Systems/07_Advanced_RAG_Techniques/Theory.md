@@ -28,6 +28,19 @@ flowchart LR
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[The Three Levers](#the-three-levers) · [Hybrid Search](#hybrid-search) · [Reranking](#reranking)
+
+**Should Learn** — important for real projects and interviews:
+[Query Transformation](#query-transformation) · [When to Use Each](#when-to-use-each-technique)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[HyDE Technique](#query-transformation)
+
+---
+
 ## Hybrid Search
 
 Pure semantic search misses exact keyword matches. Pure keyword search misses paraphrasing. Hybrid uses both.

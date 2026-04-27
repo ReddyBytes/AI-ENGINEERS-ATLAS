@@ -8,6 +8,22 @@ That's Stable Diffusion. Running diffusion on a 512×512 RGB image means operati
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Stable Diffusion](#what-is-stable-diffusion) · [Full Pipeline](#the-full-stable-diffusion-pipeline) · [CLIP Text Encoder](#the-clip-text-encoder--text-becomes-a-vector)
+
+**Should Learn** — important for real projects and interviews:
+[VAE Compression](#the-vae--compressing-and-decompressing) · [CFG in Latent Space](#classifier-free-guidance-in-latent-space) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Latent Space Scale Factor](#the-latent-space-scale-factor) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Stable Diffusion?
 
 **Stable Diffusion** is an open-source text-to-image model using **Latent Diffusion** — diffusion in the compressed latent space of a VAE rather than in pixel space. Released by Stability AI in August 2022, trained on LAION-5B (5 billion image-text pairs).

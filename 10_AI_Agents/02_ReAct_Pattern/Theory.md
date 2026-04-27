@@ -6,6 +6,19 @@ A detective doesn't just guess who did it. They look at footprints, think: "some
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is ReAct?](#what-is-react) · [The Thought-Action-Observation Loop](#the-thought-action-observation-loop)
+
+**Should Learn** — important for real projects and interviews:
+[Why It's More Reliable](#why-its-more-reliable) · [The Prompting Format](#the-prompting-format) · [A Complete ReAct Trace](#a-complete-react-trace)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[ReAct vs Pure Generation](#react-vs-pure-generation)
+
+---
+
 ## What Is ReAct?
 
 **ReAct** = **Re**asoning + **Act**ing. A prompting pattern (from a 2022 research paper) that makes the agent explicitly write out its reasoning before each action, then acts, reads the result, writes reasoning again, and so on.

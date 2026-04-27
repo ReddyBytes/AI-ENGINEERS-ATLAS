@@ -6,6 +6,19 @@ You're baking a cake. Before mixing anything, you wash the vegetables, peel off 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[The full preprocessing pipeline](#the-full-preprocessing-pipeline) · [Stemming vs Lemmatization](#5-stemming-vs-lemmatization) · [Step by step](#step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[Do you always need all steps](#do-you-always-need-all-steps) · [Quick comparison: Stemming vs Lemmatization](#quick-comparison-stemming-vs-lemmatization)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[The problem with raw text](#the-problem-with-raw-text)
+
+---
+
 ## The problem with raw text
 
 Three tweets, same meaning, completely different to a model:

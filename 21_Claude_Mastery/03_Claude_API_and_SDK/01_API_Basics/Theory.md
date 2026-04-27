@@ -12,6 +12,22 @@ The Anthropic API is a REST API — meaning your code sends HTTP requests over t
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[REST API Basics](#what-is-the-anthropic-rest-api-) · [Required Headers](#required-headers-) · [API Versioning](#api-versioning-)
+
+**Should Learn** — important for real projects and interviews:
+[Env Variable Best Practices](#environment-variable-best-practices-) · [Rate Limits](#rate-limits-) · [Python SDK Usage](#raw-http-vs-sdk-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Request Anatomy](#the-full-request-anatomy-) · [Base URL and Endpoints](#the-base-url-and-endpoints-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is the Anthropic REST API? 🌐
 
 The **Anthropic REST API** is an HTTP-based interface that lets any program — Python scripts, web apps, mobile apps, data pipelines — send messages to Claude and receive intelligent responses.

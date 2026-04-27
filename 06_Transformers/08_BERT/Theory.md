@@ -8,6 +8,22 @@ BERT was trained exactly this way — predicting masked words using context from
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What BERT Is](#what-bert-actually-is) · [Why Bidirectional Matters](#why-bidirectional-matters-so-much) · [Fine-Tuning BERT](#fine-tuning-bert)
+
+**Should Learn** — important for real projects and interviews:
+[Special Tokens](#special-tokens) · [BERT Sizes](#bert-sizes)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[NSP Objective](#what-bert-actually-is)
+
+**Reference** — skim once, look up when needed:
+[BERT vs ELMo vs GPT](#why-bidirectional-matters-so-much)
+
+---
+
 ## What BERT actually is
 
 BERT is an encoder-only transformer pretrained on two objectives:

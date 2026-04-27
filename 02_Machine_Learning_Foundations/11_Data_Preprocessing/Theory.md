@@ -10,6 +10,22 @@ Raw data is exactly this crate of vegetables. Machine learning models are the ch
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Data Preprocessing](#what-is-data-preprocessing) · [Handling Missing Values](#step-1-handling-missing-values) · [Feature Scaling](#step-4-feature-scaling)
+
+**Should Learn** — important for real projects and interviews:
+[Encoding Categorical Variables](#step-2-encoding-categorical-variables) · [sklearn Pipeline](#step-5-sklearn-pipeline)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Outlier Detection](#step-3-outlier-detection) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Where You'll See This](#where-youll-see-this-in-real-ai-systems)
+
+---
+
 ## What is Data Preprocessing?
 
 **Data Preprocessing** is the set of transformations applied to raw data before it is fed into a machine learning model. It converts real-world data into a numerical, normalized, model-ready format.

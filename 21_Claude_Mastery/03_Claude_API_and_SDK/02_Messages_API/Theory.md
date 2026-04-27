@@ -12,6 +12,22 @@ The Messages API is the central endpoint in the Anthropic platform. Everything f
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Request Structure](#the-request-structure-) · [Messages Array](#the-messages-array-) · [Response Structure](#the-response-structure-)
+
+**Should Learn** — important for real projects and interviews:
+[Content Block Types](#content-blocks--the-full-type-system-) · [Stop Reasons](#stop-reasons-) · [Multi-Turn Pattern](#multi-turn-conversation-pattern-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Usage and Token Counting](#usage--token-counting-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is the Messages API? 📬
 
 The **Messages API** is the primary interface for sending text (and other content) to Claude and receiving a response. It is accessed via:

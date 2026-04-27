@@ -10,6 +10,22 @@ AI guardrails work the same way. They don't change what the model knows or how i
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What are Guardrails?](#what-are-guardrails) · [Input Guardrails](#input-guardrails-what-comes-in) · [Output Guardrails](#output-guardrails-what-goes-out)
+
+**Should Learn** — important for real projects and interviews:
+[How It Works](#how-it-works--step-by-step) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What are Guardrails?
 
 **Guardrails** are safety checks and filters applied to AI inputs and outputs to prevent harmful, unsafe, or non-compliant content from entering or leaving your system.

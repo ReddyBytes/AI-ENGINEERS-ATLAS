@@ -8,6 +8,22 @@ GPT works exactly like this: generate text by predicting the next token, given a
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What GPT Is](#what-gpt-is) · [Autoregressive Generation](#autoregressive-generation) · [GPT Family Scale](#the-gpt-family-scale-matters)
+
+**Should Learn** — important for real projects and interviews:
+[Why Decoder-Only](#why-decoder-only-no-encoder) · [Zero-Shot and Few-Shot](#zero-shot-and-few-shot-learning)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Temperature and Sampling](#temperature-and-sampling)
+
+**Reference** — skim once, look up when needed:
+[GPT Parameter Timeline](#the-gpt-family-scale-matters)
+
+---
+
 ## What GPT is
 
 GPT (Generative Pretrained Transformer) is a decoder-only transformer using causal (masked) self-attention — each token sees only tokens before it, never after.

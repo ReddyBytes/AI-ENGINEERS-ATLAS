@@ -10,6 +10,22 @@ The fix wasn't to train a bigger model or feed it more data. The fix was to ask 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is RLHF](#what-is-rlhf) · [Three-Stage Pipeline](#the-three-stage-rlhf-pipeline) · [Reward Model Training](#stage-2-reward-model-training)
+
+**Should Learn** — important for real projects and interviews:
+[PPO Fine-Tuning Stage](#stage-3-rl-fine-tuning-with-ppo) · [DPO vs RLHF](#dpo--the-simpler-alternative) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Reward Hacking](#reward-hacking-in-llms--goodharts-law) · [Future Directions](#future-directions)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is RLHF?
 
 **RLHF** is a training procedure that fine-tunes a language model to be more helpful, harmless, and honest using human preference data and reinforcement learning.

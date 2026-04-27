@@ -12,6 +12,22 @@ The discipline here matters. Surgeons don't improvise with wrong instruments mid
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Full Tool Lifecycle](#how-it-works--the-full-tool-call-lifecycle) · [Tool Schema Best Practices](#tool-schema-best-practices) · [Error Recovery](#phase-4-error-recovery)
+
+**Should Learn** — important for real projects and interviews:
+[Auto vs Manual Execution](#automatic-vs-manual-execution) · [Retry Logic](#retry-logic) · [Tool Output Format](#tool-output-format)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real System Examples](#where-youll-see-this-in-real-ai-systems)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Tool Calling in Agents?
 
 **Tool calling** (also called **function calling**) is the mechanism by which an agent takes real-world actions. When Claude decides it needs information or needs to do something, it produces a structured tool call — a JSON object specifying which tool to use and what parameters to pass. The SDK executes the function and returns the result to Claude.

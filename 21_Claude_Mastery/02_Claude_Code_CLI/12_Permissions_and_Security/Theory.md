@@ -14,6 +14,22 @@ And just as a cockpit has an emergency override (available to pilots in genuine 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is the Permission System](#what-is-the-permission-system-) · [allowedTools and disallowedTools](#allowedtools-and-disallowedtools-in-detail-️) · [Permission Modes](#permission-modes-)
+
+**Should Learn** — important for real projects and interviews:
+[Risky Operation Detection](#risky-operation-detection-️) · [Prompt Injection Defense](#prompt-injection-defense-️) · [Security Hierarchy](#the-security-hierarchy-️)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Bash Sandboxing](#bash-sandboxing-️) · [Security Best Practices](#security-best-practices-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is the Permission System? 🔐
 
 The **permission system** is Claude Code's mechanism for controlling which tool actions execute automatically and which require human approval. It operates at three levels:

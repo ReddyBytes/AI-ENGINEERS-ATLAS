@@ -6,6 +6,19 @@ A library cataloging system assigns every book a "call number" — a code encodi
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[The Two Steps](#the-two-steps) · [What Gets Stored](#what-gets-stored) · [Index Types](#index-types)
+
+**Should Learn** — important for real projects and interviews:
+[Batch Embedding](#batch-embedding-for-efficiency)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Updating and Deleting](#updating-and-deleting)
+
+---
+
 ## The Two Steps
 
 ### Step 1: Embedding

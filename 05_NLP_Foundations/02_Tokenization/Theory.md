@@ -6,6 +6,19 @@ You find a recipe in a language you're learning. Before translating you break it
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a token](#what-is-a-token) · [Subword tokenization -- the solution](#subword-tokenization----the-solution) · [Byte Pair Encoding (BPE)](#byte-pair-encoding-bpe)
+
+**Should Learn** — important for real projects and interviews:
+[The OOV problem](#the-oov-problem-out-of-vocabulary) · [Token is not Word](#token--word)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Word tokenization](#word-tokenization) · [Tokenization types compared](#tokenization-types-compared)
+
+---
+
 ## What is a token?
 
 A token is the basic unit of text a model works with. It might be a whole word, part of a word, a character, or punctuation. **A token is not always the same as a word.**

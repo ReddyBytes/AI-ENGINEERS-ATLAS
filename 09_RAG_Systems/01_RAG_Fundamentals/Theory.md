@@ -8,6 +8,19 @@ That's RAG: Retrieval-Augmented Generation. Retrieval = look up the facts. Gener
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is RAG](#what-is-rag) · [Why RAG Beats Pure LLM](#why-rag-beats-pure-llm-for-factual-tasks) · [Basic RAG Pipeline](#the-basic-rag-pipeline)
+
+**Should Learn** — important for real projects and interviews:
+[RAG vs Fine-tuning](#rag-vs-fine-tuning-when-to-use-each)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[What Makes a Good RAG System](#what-makes-a-good-rag-system)
+
+---
+
 ## What is RAG?
 
 RAG combines two capabilities:

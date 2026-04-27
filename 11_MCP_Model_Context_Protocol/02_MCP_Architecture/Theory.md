@@ -8,6 +8,22 @@ A company manager needs specialized contractors — accounting work, legal revie
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is MCP Architecture?](#what-is-mcp-architecture-) · [Three Layers](#what-is-mcp-architecture-)
+
+**Should Learn** — important for real projects and interviews:
+[How It Works](#how-it-works----step-by-step-) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is MCP Architecture? 🤔
 
 MCP Architecture is the three-layer design pattern that defines how an AI application connects to external tools and services.

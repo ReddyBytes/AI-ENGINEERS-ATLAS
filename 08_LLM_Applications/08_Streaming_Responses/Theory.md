@@ -8,6 +8,19 @@ LLM responses are the same. Without streaming: stare at a blank screen for 8 sec
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[How Token Streaming Works](#how-token-streaming-works) · [Server-Sent Events](#server-sent-events-sse) · [UX Impact](#ux-impact)
+
+**Should Learn** — important for real projects and interviews:
+[When to Use Streaming](#when-streaming-is-and-isnt-appropriate)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Collecting Full Response](#collecting-the-full-response-from-a-stream)
+
+---
+
 ## How Token Streaming Works
 
 LLMs generate text one token at a time. Without streaming, all tokens are collected and sent back in one response. With streaming, each token is sent to your client as soon as it's generated.

@@ -6,6 +6,22 @@ You're translating "The bank was closed." You reach "bank" and need to decide �
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Bottleneck Problem](#the-bottleneck-attention-was-designed-to-solve) · [Query Key Value](#the-query-key-value-framework) · [Attention Scores](#attention-scores)
+
+**Should Learn** — important for real projects and interviews:
+[Library Analogy](#a-simple-analogy) · [Why Better Than Fixed Vector](#why-this-beats-a-fixed-context-vector)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Softmax Normalization](#attention-scores)
+
+**Reference** — skim once, look up when needed:
+[QKV Math Formula](#attention-scores)
+
+---
+
 ## The bottleneck attention was designed to solve
 
 In old RNN-based translation:

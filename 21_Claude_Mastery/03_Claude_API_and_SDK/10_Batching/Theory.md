@@ -12,6 +12,22 @@ If your application doesn't need immediate responses — data annotation, docume
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Creating a Batch](#creating-a-batch-) · [Batch Request Format](#batch-request-format-) · [Polling for Completion](#polling-for-completion-)
+
+**Should Learn** — important for real projects and interviews:
+[Retrieving Results](#retrieving-results-) · [Batch Lifecycle States](#batch-lifecycle-) · [When to Use Batching](#when-to-use-batching-vs-real-time-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Complete Batch Pipeline](#complete-batch-pipeline-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is the Message Batches API? 📦
 
 The **Message Batches API** is an asynchronous processing system for large volumes of Claude requests. You submit up to 10,000 requests in a single batch, and Anthropic processes them as a background job.

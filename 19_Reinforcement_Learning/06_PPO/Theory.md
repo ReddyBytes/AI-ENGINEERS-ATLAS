@@ -12,6 +12,22 @@ PPO is like a ski instructor who won't let you make a turn that's too steep. It 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is PPO](#what-is-ppo) · [Clipped Objective](#the-clipped-objective) · [Probability Ratio](#the-probability-ratio-explained)
+
+**Should Learn** — important for real projects and interviews:
+[Full PPO Loss](#the-full-ppo-loss) · [PPO and RLHF](#ppo-and-rlhf) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[PPO vs TRPO](#ppo-vs-trpo) · [GAE](#generalized-advantage-estimation-gae)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is PPO?
 
 **PPO** (Schulman et al., 2017) is an on-policy actor-critic algorithm that stabilizes policy gradient training through a **clipped surrogate objective**. It ensures that the updated policy doesn't deviate too far from the old policy in any single training step.

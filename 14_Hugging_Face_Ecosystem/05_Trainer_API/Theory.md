@@ -8,6 +8,22 @@ Managing a construction project yourself means tracking every worker's hours, or
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is the Trainer API?](#what-is-the-trainer-api) · [How It Works](#how-it-works--step-by-step) · [TrainingArguments Key Parameters](#trainingarguments--key-parameters-explained)
+
+**Should Learn** — important for real projects and interviews:
+[compute_metrics](#compute_metrics--custom-evaluation) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Callbacks](#callbacks--extending-trainer-behavior) · [Data Collator](#the-data-collator)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is the Trainer API?
 
 Think of `Trainer` as a pre-built training loop with every feature already implemented. You provide the model, data, and configuration — it handles everything else.

@@ -12,6 +12,22 @@ Theory says RL works. Practice says RL is brutally sensitive to implementation d
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Gymnasium Interface](#gymnasium--your-rl-environment-playground) · [Reward Shaping](#reward-shaping--the-most-important-practical-skill) · [Debugging Flow](#debugging-rl-agents)
+
+**Should Learn** — important for real projects and interviews:
+[Common Failure Modes](#1-reward-hacking) · [When Not to Use RL](#when-not-to-use-rl) · [stable-baselines3](#stable-baselines3--the-practitioners-toolkit)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Observation Normalization](#the-math--technical-side-simplified) · [Reward Shaping Patterns](#common-reward-shaping-patterns)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What This Chapter Covers
 
 - The Gymnasium ecosystem (environments)

@@ -12,6 +12,22 @@ The everyday loop with Claude Code is simpler than it sounds: you type a natural
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Basic Interaction Loop](#step-1-the-basic-interaction-loop) · [Permission System](#step-5-the-permission-system-in-detail) · [Requesting File Edits](#step-3-requesting-file-edits)
+
+**Should Learn** — important for real projects and interviews:
+[Non-Interactive Mode](#step-6-non-interactive-mode---print-flag) · [Running Bash Commands](#step-4-running-bash-commands) · [Useful Interaction Patterns](#useful-interaction-patterns-️)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Multi-Turn Conversations](#multi-turn-conversations-) · [Continue and Resume](#the---continue-and---resume-flags-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is Basic Usage? 🖥️
 
 **Basic usage** covers the everyday interactions with Claude Code: asking questions about your codebase, requesting file edits, running shell commands, and understanding how each interaction passes through the permission system. It also covers the `--print` flag for non-interactive (scripted) usage and the key modes Claude Code operates in.

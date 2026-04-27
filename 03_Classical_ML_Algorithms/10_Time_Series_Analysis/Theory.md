@@ -10,6 +10,22 @@ Time series data has a hidden contract: **order matters**. Today's temperature d
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Time Series Analysis](#what-is-time-series-analysis) · [Decompose the Signal](#step-1-decompose-the-signal) · [Walk-Forward Validation](#walk-forward-validation)
+
+**Should Learn** — important for real projects and interviews:
+[ARIMA](#step-4-arima-p-d-q) · [Stationarity](#step-2-check-stationarity) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Prophet for Production](#step-6-prophet-for-production-forecasting) · [SARIMA for Seasonal Data](#step-5-sarima-for-seasonal-data)
+
+**Reference** — skim once, look up when needed:
+[ACF and PACF Plots](#step-3-read-acf-and-pacf-plots)
+
+---
+
 ## What is Time Series Analysis?
 
 A **time series** is a sequence of observations recorded at successive points in time. Unlike standard tabular data where rows are independent, time series rows are dependent — each observation is influenced by preceding ones (**autocorrelation**).

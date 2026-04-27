@@ -14,6 +14,22 @@ That is exactly how Claude works. There is no meaning-engine inside, no understa
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Autoregressive Generation](#what-is-autoregressive-text-generation-) · [Softmax and Logits](#step-3--softmax-converts-logits-to-probabilities-) · [Temperature Sampling](#step-4--sampling-picks-the-next-token-)
+
+**Should Learn** — important for real projects and interviews:
+[The Generation Loop](#step-5--the-generation-loop-) · [Stop Sequences](#stop-sequences-) · [Top-p Sampling](#top-p-sampling-nucleus-sampling)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Why Generation is Expensive](#why-generation-is-sequential-and-expensive-) · [Temperature Math](#the-math-behind-temperature-)
+
+**Reference** — skim once, look up when needed:
+[Real AI Systems Usage](#where-youll-see-this-in-real-ai-systems-️) · [Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is Autoregressive Text Generation? 📝
 
 **Autoregressive generation** means generating text one token at a time, where each new token is conditioned on all previous tokens. The model processes the entire history (your prompt plus any tokens it has already generated) and outputs a probability score for every token in its vocabulary. One token is then selected, appended to the sequence, and the process repeats.

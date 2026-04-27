@@ -8,6 +8,22 @@ Before the `transformers` library, using BERT or GPT meant cloning research repo
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is the Transformers Library?](#what-is-the-transformers-library) · [Three Layers of Abstraction](#three-layers-of-abstraction) · [AutoClass System](#the-autoclass-system)
+
+**Should Learn** — important for real projects and interviews:
+[Supported Pipeline Tasks](#supported-pipeline-tasks) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[The Technical Side](#the-technical-side)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is the Transformers Library?
 
 The Hugging Face `transformers` Python package provides:

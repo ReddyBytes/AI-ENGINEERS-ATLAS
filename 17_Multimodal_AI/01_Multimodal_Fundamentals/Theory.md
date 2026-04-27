@@ -12,6 +12,22 @@ The first wave of AI was unimodal: text models read text, image classifiers look
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Multimodal AI](#what-is-multimodal-ai) · [Encode-Fuse-Output Pattern](#step-2-fusion) · [Cross-Attention Fusion](#three-fusion-strategies)
+
+**Should Learn** — important for real projects and interviews:
+[Alignment Problem](#the-alignment-problem) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Projection Layers](#projection-layers) · [Early vs Late Fusion](#three-fusion-strategies)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Multimodal AI?
 
 **Multimodal AI** refers to systems that can process, understand, and/or generate information across more than one **modality** — a distinct type of data or sensory input.

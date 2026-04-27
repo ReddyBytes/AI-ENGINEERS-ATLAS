@@ -8,6 +8,22 @@ A contractor renovating your kitchen brings three kinds of things. First, **powe
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Tools Resources and Prompts](#what-are-tools-resources-and-prompts-) · [The Key Difference](#what-are-tools-resources-and-prompts-)
+
+**Should Learn** — important for real projects and interviews:
+[How It Works](#how-it-works----step-by-step-) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What Are Tools, Resources, and Prompts? 🤔
 
 **Tools — "Do Things"**

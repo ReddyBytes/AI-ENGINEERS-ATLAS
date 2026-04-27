@@ -12,6 +12,22 @@ The difference is repeatability. Slash commands let you codify workflows you run
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What are Slash Commands](#what-are-slash-commands-️) · [Built-in Commands](#built-in-slash-commands-) · [Custom Commands](#custom-slash-commands-️)
+
+**Should Learn** — important for real projects and interviews:
+[Command File Format](#yaml-frontmatter) · [Argument Passing](#argument-passing-) · [Command Resolution Flow](#the-command-resolution-flow-️)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Global vs Project Scope](#global-vs-project-commands-) · [Real-World Examples](#real-world-command-examples-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What are Slash Commands? ⌨️
 
 **Slash commands** are shortcut invocations in Claude Code that trigger pre-written instruction sets. They come in two varieties:

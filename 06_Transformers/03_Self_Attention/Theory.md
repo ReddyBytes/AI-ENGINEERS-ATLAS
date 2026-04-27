@@ -8,6 +8,22 @@ That's self-attention. A word reading its own sentence to understand itself.
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Makes It Self](#what-makes-it-self) · [Q K V Derivation](#how-q-k-v-are-derived-from-input) · [Self-Attention Formula](#the-formula)
+
+**Should Learn** — important for real projects and interviews:
+[Attention Matrix](#the-attention-matrix) · [What Self-Attention Enables](#what-self-attention-enables)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Parallelism Advantage](#what-self-attention-enables)
+
+**Reference** — skim once, look up when needed:
+[Attention Matrix Example](#the-attention-matrix)
+
+---
+
 ## What makes it "self"?
 
 In regular attention (seq2seq), the Query comes from the decoder and Keys/Values from the encoder — two different sequences.

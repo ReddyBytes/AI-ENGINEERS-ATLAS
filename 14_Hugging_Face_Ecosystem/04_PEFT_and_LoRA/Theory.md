@@ -8,6 +8,22 @@ You want to teach a world-class professor a new specialty — say, tax law. You 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is PEFT?](#what-is-peft) · [How LoRA Works](#how-lora-works--step-by-step) · [Key Hyperparameters](#key-hyperparameters)
+
+**Should Learn** — important for real projects and interviews:
+[QLoRA](#qlora--making-lora-even-more-accessible) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Where You'll See This](#where-youll-see-this-in-real-ai-systems)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is PEFT?
 
 **PEFT** is a category of techniques for fine-tuning large language models (LLMs) while updating only a small fraction of the total parameters. Instead of unfreezing and training all 7B+ parameters of a model (which requires 100GB+ of GPU memory), PEFT methods add small trainable components while keeping the original weights frozen.

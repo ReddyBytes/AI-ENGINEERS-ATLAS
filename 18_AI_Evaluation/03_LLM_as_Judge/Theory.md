@@ -14,6 +14,22 @@ The key innovation: instead of writing hand-crafted rules ("does the answer cont
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is LLM-as-Judge](#what-is-llm-as-judge) · [Absolute Scoring](#absolute-scoring) · [Pairwise Comparison](#pairwise-comparison)
+
+**Should Learn** — important for real projects and interviews:
+[Judge Biases](#why-judges-have-biases) · [Calibrating Your Judge](#calibrating-your-judge) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[G-Eval Framework](#g-eval-framework) · [Cohen's Kappa](#cohens-kappa)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is LLM-as-Judge?
 
 **LLM-as-judge** is an evaluation technique where a large language model is used to assess the quality of outputs produced by another (typically smaller or lower-capability) language model or AI system.

@@ -12,6 +12,22 @@ The system parameter is one of the most powerful tools in prompt engineering. It
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What System Prompts Do](#what-is-a-system-prompt-) · [System vs User Messages](#system-vs-user-messages--key-differences-) · [How It Works](#how-it-works--step-by-step-)
+
+**Should Learn** — important for real projects and interviews:
+[Common Use Cases](#common-use-cases-) · [Best Practices](#best-practices-) · [Multi-Turn Persistence](#multi-turn-persistence-example-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Why It Exists](#why-it-exists--the-problem-it-solves-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is a System Prompt? 🎯
 
 A **system prompt** is text passed via the `system` parameter in a `messages.create()` call. It sets context, persona, and constraints that apply to the entire conversation.

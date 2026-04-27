@@ -8,6 +8,22 @@ Before the Hugging Face Hub, every AI team built from scratch, shared models as 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is the Hub?](#what-is-the-hugging-face-hub) · [How It Works](#how-it-works--step-by-step) · [Repository Structure](#repository-structure)
+
+**Should Learn** — important for real projects and interviews:
+[Versioning and Private Repos](#versioning-and-private-repos) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Datasets on the Hub](#datasets-on-the-hub) · [Where You'll See This](#where-youll-see-this-in-real-ai-systems)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is the Hugging Face Hub?
 
 GitHub for AI models. A platform at [huggingface.co](https://huggingface.co) where researchers and companies publish:

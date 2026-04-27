@@ -12,6 +12,22 @@ That's multi-step reasoning in agents. The agent doesn't know the full path to t
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Chaining Tool Calls](#chaining-tool-calls) · [Task Decomposition Patterns](#task-decomposition-patterns) · [Loop Termination](#loop-termination-conditions)
+
+**Should Learn** — important for real projects and interviews:
+[Planning Before Acting](#planning-before-acting) · [Intermediate Results as Context](#intermediate-results-as-context)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Greedy Search Model](#the-math--technical-side-simplified)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Multi-Step Reasoning?
 
 **Multi-step reasoning** is an agent's ability to decompose a complex goal into a sequence of sub-tasks, where each task's result informs the next task. The agent does not pre-determine the full sequence — it plans one or a few steps ahead, executes, observes, and replans.

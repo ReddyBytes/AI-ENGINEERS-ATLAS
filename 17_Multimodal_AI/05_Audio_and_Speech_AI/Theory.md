@@ -16,6 +16,22 @@ Chain them together: user speaks → Whisper hears → LLM thinks → TTS speaks
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[STT and TTS Components](#what-is-audio-and-speech-ai) · [Whisper Architecture](#whisper-speech-to-text) · [Voice Agent Pipeline](#voice-agent-pipeline)
+
+**Should Learn** — important for real projects and interviews:
+[Log-Mel Spectrogram](#log-mel-spectrogram) · [Whisper Model Sizes](#whisper-model-sizes) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Voice Cloning](#text-to-speech-tts) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Audio and Speech AI?
 
 **Audio and Speech AI** covers systems that process or generate audio, particularly human speech. The main components:

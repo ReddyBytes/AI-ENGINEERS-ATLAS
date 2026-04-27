@@ -6,6 +6,19 @@ You're reading a detective novel. On page 150, "he grabbed the knife." You insta
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is an RNN](#what-is-an-rnn) · [The Hidden State](#the-hidden-state----memory-across-time) · [LSTMs -- The Solution](#lstms----the-solution)
+
+**Should Learn** — important for real projects and interviews:
+[The Vanishing Gradient Problem](#the-vanishing-gradient-problem) · [Types of RNN Problems](#types-of-rnn-problems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[GRUs -- Simpler Alternative](#grus----simpler-alternative)
+
+---
+
 ## What is an RNN?
 
 A Recurrent Neural Network (RNN) is designed for sequential data — text, time series, audio, video — where order and history matter. After processing each element, it passes a **hidden state** to the next step. The hidden state is its memory.

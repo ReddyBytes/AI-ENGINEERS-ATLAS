@@ -8,6 +8,19 @@ LLMs, by default, are that stranger. Every new conversation, complete blank slat
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[The Memory Problem](#the-memory-problem) · [Four Types of Memory](#four-types-of-memory) · [In-Context Memory](#1-in-context-memory-conversation-history)
+
+**Should Learn** — important for real projects and interviews:
+[External Vector Memory](#3-external-vector-memory) · [Choosing Your Architecture](#choosing-your-memory-architecture)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Memory Summarization](#2-memory-summarization) · [MemGPT Concept](#the-memgpt-concept)
+
+---
+
 ## The Memory Problem
 
 LLMs have a context window that holds the current conversation. When the conversation ends, the context is gone. Start a new conversation — complete blank slate. For a simple chatbot, this is fine. For a personal assistant or customer support agent that needs continuity — it's a dealbreaker.

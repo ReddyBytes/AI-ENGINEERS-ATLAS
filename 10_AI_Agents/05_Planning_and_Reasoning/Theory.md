@@ -8,6 +8,19 @@ AI agents do exactly this when faced with complex tasks.
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Chain-of-Thought Planning](#chain-of-thought-planning) · [Plan-and-Execute](#plan-and-execute)
+
+**Should Learn** — important for real projects and interviews:
+[Why Simple Agents Fail](#why-simple-agents-fail-on-complex-tasks) · [Approach Comparison](#approach-comparison)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Tree of Thoughts](#tree-of-thoughts) · [BabyAGI-Style Task Management](#babyagi-style-task-management)
+
+---
+
 ## Why Simple Agents Fail on Complex Tasks
 
 A basic ReAct agent works well for 2-3 step tasks. But for something like "Research the top 5 AI startups, summarize their products, compare funding rounds, identify common themes, and write a 500-word analysis" — a simple agent might:

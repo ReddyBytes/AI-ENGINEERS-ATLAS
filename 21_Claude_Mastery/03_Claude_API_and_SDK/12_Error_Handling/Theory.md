@@ -12,6 +12,22 @@ An Anthropic API integration is that highway. 99.9% of calls succeed immediately
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Error Hierarchy](#the-error-hierarchy-) · [Basic Error Handling](#basic-error-handling-pattern-) · [Exponential Backoff](#exponential-backoff-with-tenacity-)
+
+**Should Learn** — important for real projects and interviews:
+[Manual Backoff Pattern](#manual-exponential-backoff-) · [Retry-After Headers](#respecting-retry-after-headers-) · [Structured Error Logging](#structured-error-logging-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Circuit Breaker Pattern](#circuit-breaker-pattern-) · [Idempotency in Retries](#idempotency--safe-retry-patterns-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What Can Go Wrong? 🔴
 
 The Anthropic API can fail in several distinct ways, each requiring a different response:

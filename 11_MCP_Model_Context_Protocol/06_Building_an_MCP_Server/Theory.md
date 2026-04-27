@@ -10,6 +10,22 @@ Building an MCP server is exactly that: declare your capabilities, set up the tr
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Goes Into an MCP Server?](#what-goes-into-an-mcp-server-) · [How It Works](#how-it-works----step-by-step-)
+
+**Should Learn** — important for real projects and interviews:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Real-World Examples](#real-world-examples-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Server Lifecycle](#what-goes-into-an-mcp-server-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What Goes Into an MCP Server? 🤔
 
 An MCP server is a program that:

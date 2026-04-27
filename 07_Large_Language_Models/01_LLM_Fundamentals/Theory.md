@@ -6,6 +6,22 @@ Imagine a student who spent years reading the entire internet — every Wikipedi
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What an LLM Is](#what-actually-is-an-llm) · [Emergent Capabilities](#emergent-capabilities) · [Base vs Chat Model](#base-model-vs-chat-model)
+
+**Should Learn** — important for real projects and interviews:
+[Scale Numbers](#scale-the-numbers-that-matter) · [Famous LLMs](#famous-llms-you-should-know)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[What LLMs Learn](#what-does-an-llm-actually-learn)
+
+**Reference** — skim once, look up when needed:
+[Parameter and Token Counts](#scale-the-numbers-that-matter)
+
+---
+
 ## What actually is an LLM?
 
 An LLM (Large Language Model) is a neural network trained to predict text. Three things make it "large":

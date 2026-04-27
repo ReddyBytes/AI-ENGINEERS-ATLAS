@@ -10,6 +10,22 @@ Eventually the sheet is complete enough that you can walk into any room and imme
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Q-Learning](#what-is-q-learning) · [Q-Learning Update Rule](#the-q-learning-update-rule) · [Q-Learning Algorithm](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[Epsilon-Greedy Exploration](#exploration-vs-exploitation--epsilon-greedy) · [Q-Learning vs SARSA](#q-learning-vs-sarsa) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Convergence Conditions](#the-math--technical-side-simplified) · [Q-Table Limitations](#limitations-of-the-q-table)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Q-Learning?
 
 **Q-Learning** is a **model-free**, **off-policy** reinforcement learning algorithm that learns the **Q-function**: Q(s, a) = the expected total future reward from taking action a in state s, then acting optimally.

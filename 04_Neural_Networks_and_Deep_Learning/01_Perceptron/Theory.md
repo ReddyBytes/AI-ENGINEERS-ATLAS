@@ -6,6 +6,19 @@ Your teacher grades homework by checking three things: did you answer all questi
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Perceptron](#what-is-a-perceptron) · [The Parts](#the-parts) · [Linear Separability](#linear-separability)
+
+**Should Learn** — important for real projects and interviews:
+[The Math](#the-math) · [The XOR Problem](#the-xor-problem)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[How Weights Are Learned](#how-weights-are-learned)
+
+---
+
 ## What is a Perceptron?
 
 A perceptron is one artificial neuron — the atom of every neural network. It:

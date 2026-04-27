@@ -14,6 +14,22 @@ Benchmarks tell you what a model can do in controlled conditions. Your eval tell
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Benchmark](#what-is-a-benchmark) · [MMLU](#mmlu--massive-multitask-language-understanding) · [HumanEval](#humaneval--code-generation)
+
+**Should Learn** — important for real projects and interviews:
+[GSM8K](#gsm8k--grade-school-math) · [What Benchmarks Miss](#what-benchmarks-dont-tell-you) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[HELM](#helm--holistic-evaluation-of-language-models) · [Contamination Risks](#contamination-risks-in-benchmarks)
+
+**Reference** — skim once, look up when needed:
+[Other Key Benchmarks](#other-key-benchmarks) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is a Benchmark?
 
 A **benchmark** is a standardized evaluation dataset with defined tasks, scoring methodology, and reference results that allows models to be compared on a common scale.

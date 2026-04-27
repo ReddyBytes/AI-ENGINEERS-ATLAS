@@ -6,6 +6,22 @@ Reading a 400-page novel, on page 400 the story references a character introduce
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Recurrent Neural Networks](#recurrent-neural-networks-rnns) · [Vanishing Gradient Problem](#the-vanishing-gradient-problem) · [LSTMs](#lstms--the-partial-fix)
+
+**Should Learn** — important for real projects and interviews:
+[Why LSTMs Fell Short](#why-lstms-werent-enough) · [What Came Next](#what-came-next)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[LSTM Gates Detail](#lstms--the-partial-fix)
+
+**Reference** — skim once, look up when needed:
+[Sequential vs Parallel Tradeoff](#why-lstms-werent-enough)
+
+---
+
 ## Recurrent Neural Networks (RNNs)
 
 An RNN processes one step at a time. At each step it takes the current word embedding and the hidden state from the previous step, producing a new hidden state and optionally a prediction.

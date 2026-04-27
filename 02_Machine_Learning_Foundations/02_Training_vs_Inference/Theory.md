@@ -8,6 +8,22 @@ A chef spends 10 years learning to cook — tasting dishes, making mistakes, adj
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Training](#what-is-training) · [What is Inference](#what-is-inference) · [Side by Side](#side-by-side)
+
+**Should Learn** — important for real projects and interviews:
+[Why This Distinction Matters](#why-this-distinction-matters) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Analogy](#real-world-analogy-the-exam)
+
+**Reference** — skim once, look up when needed:
+[Where You'll See This](#where-youll-see-this-in-real-ai-systems)
+
+---
+
 ## What is Training?
 
 **Training** is showing a model thousands (or billions) of examples until it learns the patterns. The model makes a prediction, checks how wrong it was (the loss), adjusts its weights, and repeats — millions of times. Slow, expensive, done once (or occasionally to update).

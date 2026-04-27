@@ -8,6 +8,22 @@ You run a taxi company. Cars cost money the moment they leave the garage — fue
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Cost Optimization?](#what-is-cost-optimization) · [How It Works](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[Real-World Examples](#real-world-examples) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+**Reference** — skim once, look up when needed:
+[Practice Questions](#-practice-questions)
+
+---
+
 ## What is Cost Optimization?
 
 **Cost optimization** means reducing monetary cost per inference without reducing quality below acceptable levels. It's a continuous engineering practice, not a one-time fix.

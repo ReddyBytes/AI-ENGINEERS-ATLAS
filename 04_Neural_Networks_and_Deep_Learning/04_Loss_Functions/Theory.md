@@ -6,6 +6,16 @@ Your GPS makes small corrections for a small wrong turn, and urgent corrections 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Loss Function](#what-is-a-loss-function) · [Classification Loss](#classification-loss-picking-a-category) · [How Loss Guides Training](#how-loss-guides-training)
+
+**Should Learn** — important for real projects and interviews:
+[Regression Loss](#regression-loss-predicting-a-number) · [Choosing the Right Loss](#choosing-the-right-loss)
+
+---
+
 ## What is a Loss Function?
 
 A loss function takes the model's prediction and the correct answer, then outputs a single number: **the loss**. Higher = more wrong. During training, the goal is to minimize it.

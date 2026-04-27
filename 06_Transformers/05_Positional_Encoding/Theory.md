@@ -8,6 +8,22 @@ This is exactly the problem with attention: it connects words but has no idea wh
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Why Attention Is Order-Agnostic](#why-attention-is-order-agnostic) · [Adding Position to Embeddings](#the-solution-add-position-to-the-embedding) · [Sine/Cosine Encoding](#sinecosine-encoding--the-original-approach)
+
+**Should Learn** — important for real projects and interviews:
+[Fixed vs Learned Encodings](#fixed-vs-learned-positional-encodings) · [RoPE and Modern Approaches](#fixed-vs-learned-positional-encodings)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Encoding Properties](#sinecosine-encoding--the-original-approach)
+
+**Reference** — skim once, look up when needed:
+[Clock Frequency Analogy](#sinecosine-encoding--the-original-approach)
+
+---
+
 ## Why attention is order-agnostic
 
 Self-attention computes dot products between Q and K vectors. The score between word 1 and word 5 is computed the same way regardless of their positions. Shuffle the input words — the mechanism has nothing encoding "word 3 is position 3." It sees a set, not a sequence.

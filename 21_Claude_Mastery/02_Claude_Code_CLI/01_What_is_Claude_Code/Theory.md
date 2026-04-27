@@ -14,6 +14,22 @@ The difference isn't just convenience. It's a fundamentally different loop: read
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Claude Code](#what-is-claude-code-️) · [The Agentic Loop](#how-it-works--the-agentic-loop-) · [CLI vs Chat Interfaces](#claude-code-vs-chat-interfaces-)
+
+**Should Learn** — important for real projects and interviews:
+[Why It Exists](#why-it-exists--the-problem-it-solves-) · [Tool Architecture](#the-tool-architecture-️) · [CLAUDE.md System](#the-claudemd-system-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Memory System](#the-memory-system-) · [Where Claude Code Fits](#where-claude-code-fits-in-the-ecosystem-️)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is Claude Code? 🖥️
 
 **Claude Code** is Anthropic's official command-line interface (CLI) that runs Claude as an autonomous coding agent directly in your terminal. Unlike chat interfaces where you exchange messages, Claude Code operates in an **agentic loop** — it perceives your project, plans actions, executes tools, observes results, and iterates until the task is complete.

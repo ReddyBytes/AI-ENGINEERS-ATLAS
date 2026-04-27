@@ -12,6 +12,22 @@ This is **vision capability**: the ability for Claude to accept images as part o
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Image Content Blocks](#image-content-block-structure-) · [Sending Images in Python](#how-to-send-an-image--python-) · [Formats and Limits](#supported-formats-and-limits-)
+
+**Should Learn** — important for real projects and interviews:
+[Multiple Images](#multiple-images-in-one-request-) · [Vision Use Cases](#vision-use-cases-) · [Image Token Cost](#cost-of-vision-requests-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Image Ordering](#putting-text-before-vs-after-the-image-) · [Auto Media Type Detection](#detecting-image-type-automatically-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Vision in the Claude API? 👁️
 
 **Vision** is the ability to include image content blocks in your API requests. Claude can then see, analyze, and reason about those images alongside text.

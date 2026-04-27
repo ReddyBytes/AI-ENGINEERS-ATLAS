@@ -6,6 +6,22 @@ You come home to a buried desk: books, pens, cables, receipts all mixed together
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is Clustering](#what-is-clustering) · [How the Algorithm Works](#how-the-k-means-algorithm-works) · [How to Choose K](#how-to-choose-k--the-elbow-method)
+
+**Should Learn** — important for real projects and interviews:
+[Limitations](#limitations) · [What K-Means Assumes](#what-k-means-assumes)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Uses](#real-world-uses)
+
+**Reference** — skim once, look up when needed:
+[Real-World Uses](#real-world-uses)
+
+---
+
 ## What Is Clustering?
 
 Everything covered so far was **supervised learning** — labeled data, known answers. Clustering is **unsupervised**. No labels, no right answers. K-Means asks: "given these data points, can you group them into K natural clusters?"

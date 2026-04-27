@@ -8,6 +8,19 @@ A restaurant has front of house (the customer-facing area), a kitchen (where foo
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Are Hosts Clients and Servers?](#what-are-hosts-clients-and-servers-) · [How It Works](#how-it-works----step-by-step-)
+
+**Should Learn** — important for real projects and interviews:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Real-World Examples](#real-world-examples-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What Are Hosts, Clients, and Servers? 🤔
 
 **Host** — The application the user directly interacts with. It runs the AI model, manages conversation history, and decides which MCP servers to connect to.

@@ -12,6 +12,22 @@ The result: a model that can track "the party of the first part" 2,000 words aft
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Transformer](#what-is-a-transformer-️) · [Self-Attention Mechanism](#step-2--self-attention-the-core-mechanism-) · [Causal Masked Attention](#step-3--causal-masked-attention-in-decoders-)
+
+**Should Learn** — important for real projects and interviews:
+[Multi-Head Attention](#step-4--multi-head-attention-) · [Residuals and LayerNorm](#step-6--layer-normalization-and-residual-connections-) · [Claude vs Original Transformer](#how-claudes-architecture-differs-from-the-original-transformer-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Feed-Forward Network](#step-5--feed-forward-network-) · [Positional Encoding](#step-1--token-embedding--positional-encoding-)
+
+**Reference** — skim once, look up when needed:
+[Real AI Systems](#where-youll-see-this-in-real-ai-systems-️) · [Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is a Transformer? 🏗️
 
 A **transformer** is a neural network architecture introduced in the 2017 paper "Attention Is All You Need" by Vaswani et al. It replaces sequential processing with parallel **self-attention** — a mechanism where every token in a sequence attends to every other token to build contextual representations.

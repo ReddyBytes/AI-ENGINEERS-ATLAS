@@ -8,6 +8,22 @@
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Does Logistic Regression Do](#what-does-logistic-regression-do) · [Sigmoid Function](#the-sigmoid-function--the-secret-ingredient) · [How It Works](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[Decision Boundary](#the-decision-boundary) · [Training Log Loss](#training-log-loss)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Logistic vs Linear Regression](#logistic-vs-linear-regression)
+
+**Reference** — skim once, look up when needed:
+[Logistic vs Linear Regression](#logistic-vs-linear-regression)
+
+---
+
 ## What Does Logistic Regression Do?
 
 Despite the name, logistic regression is a **classification** algorithm, not regression. It predicts the probability that an input belongs to a particular class.

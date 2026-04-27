@@ -12,6 +12,22 @@ That's Claude — a **large language model (LLM)** built by Anthropic.
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Claude](#what-is-claude-) · [Model Family Tiers](#the-claude-model-family-️) · [Key Limitations](#claudes-limitations-️)
+
+**Should Learn** — important for real projects and interviews:
+[Why It Exists](#why-it-exists--the-problem-it-solves-) · [Differs from GPT/Gemini](#how-claude-differs-from-gpt-and-gemini-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Capabilities Overview](#claudes-capabilities-overview-) · [Real AI Systems](#where-youll-see-claude-in-real-ai-systems-️)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️) · [Concept Connections](#connection-to-other-concepts-)
+
+---
+
 ## What is Claude? 🤖
 
 **Claude** is a family of large language models created by Anthropic, a safety-focused AI company founded in 2021 by former OpenAI researchers including Dario Amodei and Daniela Amodei.

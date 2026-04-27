@@ -12,6 +12,22 @@ That's **ControlNet**: a way to give the diffusion model a structural blueprint 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is ControlNet](#what-is-controlnet) · [ControlNet Architecture](#controlnet-architecture) · [Zero Convolutions](#zero-convolutions)
+
+**Should Learn** — important for real projects and interviews:
+[LoRA Fine-Tuning](#lora--efficient-diffusion-fine-tuning) · [ControlNet Types](#different-controlnet-types) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[IP-Adapter](#ip-adapter--condition-on-reference-images) · [LoRA Training Workflow](#lora-training-workflow)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is ControlNet?
 
 **ControlNet** (Zhang et al., 2023) is an adapter architecture that adds conditional structural control to a pretrained diffusion model without retraining it.

@@ -16,6 +16,22 @@ The difference between naive AI deployment and responsible AI deployment is ofte
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Red Teaming](#what-is-red-teaming) · [Attack Categories](#attack-categories) · [Red Teaming Pipeline](#the-red-teaming-pipeline)
+
+**Should Learn** — important for real projects and interviews:
+[Attack Success Rate](#attack-success-rate) · [Automated Red Teaming](#automated-red-teaming) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Red Team Test Sets](#red-team-test-sets) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Red Teaming?
 
 **Red teaming** is systematic adversarial testing — deliberately trying to make an AI system fail, behave unsafely, or produce harmful outputs, in order to discover and fix vulnerabilities before deployment.

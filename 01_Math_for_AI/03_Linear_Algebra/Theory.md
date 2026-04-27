@@ -6,6 +6,22 @@ Your phone's GPS knows exactly where you are. It describes your location as two 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is a Vector](#what-is-a-vector) · [Dot Product](#the-dot-product--measuring-similarity) · [Matrix Multiplication](#matrix-multiplication--a-transformation)
+
+**Should Learn** — important for real projects and interviews:
+[What Is a Matrix](#what-is-a-matrix) · [Vector Addition and Scaling](#vector-addition-and-scaling)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Visualizing the Flow](#visualizing-the-flow)
+
+**Reference** — skim once, look up when needed:
+[Why AI Needs This](#why-ai-needs-this)
+
+---
+
 ## What Is a Vector?
 
 A vector is an ordered list of numbers.

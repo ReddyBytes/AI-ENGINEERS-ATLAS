@@ -14,6 +14,22 @@ The consequences are profound: multimodal agents can do anything a human can do 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Multimodal Agent](#what-is-a-multimodal-agent) · [Computer Use Loop](#computer-use-agent-loop) · [Visual Grounding Problem](#visual-grounding-for-action-targeting)
+
+**Should Learn** — important for real projects and interviews:
+[Set-of-Marks Prompting](#set-of-marks-som-prompting) · [Voice Agent Pipeline](#voice-agent-pipeline) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Token Budget](#token-budget-for-computer-use) · [Agent Challenges](#challenges-of-multimodal-agents)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is a Multimodal Agent?
 
 A **multimodal agent** is an AI agent that can perceive the world through multiple modalities (primarily vision + text) and act based on what it perceives. Unlike text-only agents that receive information pre-formatted as strings, multimodal agents receive raw visual input and must extract meaning from it before deciding what to do.

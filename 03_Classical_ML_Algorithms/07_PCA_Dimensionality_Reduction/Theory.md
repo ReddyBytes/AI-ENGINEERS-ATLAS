@@ -6,6 +6,22 @@ You sculpted a detailed face in 3D. To show someone far away, you take two photo
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[PCA -- Finding the Best Angles](#pca-finding-the-best-angles) · [Variance Explained](#variance-explained) · [Curse of Dimensionality](#the-curse-of-dimensionality)
+
+**Should Learn** — important for real projects and interviews:
+[When to Use PCA](#when-to-use-pca) · [PCA Is Unsupervised](#important-pca-is-unsupervised)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[What PCA Does to Data](#what-does-pca-actually-do-to-the-data)
+
+**Reference** — skim once, look up when needed:
+[What Is Dimensionality](#what-is-dimensionality)
+
+---
+
 ## What Is Dimensionality?
 
 Every feature is a dimension. A dataset with 500 features lives in 500-dimensional space.

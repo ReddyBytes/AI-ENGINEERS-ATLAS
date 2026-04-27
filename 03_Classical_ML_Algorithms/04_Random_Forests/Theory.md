@@ -8,6 +8,22 @@ Big financial decision: ask one friend and risk their bias, or ask 100 friends, 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Random Forest](#what-is-a-random-forest) · [Bagging and Feature Randomness](#two-key-ideas-bagging-and-feature-randomness) · [Why Ensembles Beat Single Trees](#why-ensembles-beat-single-trees)
+
+**Should Learn** — important for real projects and interviews:
+[Feature Importance](#feature-importance) · [Strengths of Random Forests](#strengths-of-random-forests)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[The One Weakness](#the-one-weakness)
+
+**Reference** — skim once, look up when needed:
+[The One Weakness](#the-one-weakness)
+
+---
+
 ## What is a Random Forest?
 
 A random forest is an **ensemble** of decision trees. Instead of training one tree, you train hundreds of them — each on slightly different data and with access to different features. Then you combine their predictions.

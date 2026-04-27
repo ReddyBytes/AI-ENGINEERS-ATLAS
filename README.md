@@ -1,14 +1,14 @@
-<div align="center">
-  <img src="./assets/banner.svg" width="100%" alt="The AI Engineer's Atlas"/>
+se<div align="center">
+  <img src="./23_Assets/banner.svg" width="100%" alt="The AI Engineer's Atlas"/>
 </div>
 
 <br/>
 
 <div align="center">
 
-[![](https://img.shields.io/badge/175%2B%20Topics-6366f1?style=for-the-badge&logoColor=white)](#full-curriculum)&nbsp;
-[![](https://img.shields.io/badge/760%2B%20Files-0ea5e9?style=for-the-badge)](#full-curriculum)&nbsp;
-[![](https://img.shields.io/badge/20%20Sections-10b981?style=for-the-badge)](#full-curriculum)&nbsp;
+[![](https://img.shields.io/badge/200%2B%20Topics-6366f1?style=for-the-badge&logoColor=white)](#full-curriculum)&nbsp;
+[![](https://img.shields.io/badge/1000%2B%20Files-0ea5e9?style=for-the-badge)](#full-curriculum)&nbsp;
+[![](https://img.shields.io/badge/22%20Sections-10b981?style=for-the-badge)](#full-curriculum)&nbsp;
 [![](https://img.shields.io/badge/100%25%20Complete-22c55e?style=for-the-badge)](#full-curriculum)
 
 <br/>
@@ -19,7 +19,7 @@
 
 <br/>
 
-<img src="./assets/divider.svg" width="100%"/>
+<img src="./23_Assets/divider.svg" width="100%"/>
 
 <div align="center">
 
@@ -32,7 +32,7 @@
 
 </div>
 
-<img src="./assets/divider.svg" width="100%"/>
+<img src="./23_Assets/divider.svg" width="100%"/>
 <div align="center">
 
 ## 🗺️ Section Overview
@@ -73,7 +73,7 @@
 
 </div>
 
-<img src="./assets/divider.svg" width="100%"/>
+<img src="./23_Assets/divider.svg" width="100%"/>
 
 <div align="center">
 
@@ -492,7 +492,7 @@
 </details>
 
 <details>
-<summary><kbd>&nbsp;21&nbsp;</kbd>&nbsp; 🧠 &nbsp;<b>Claude Mastery</b>&nbsp; <code>4 tracks · 44 topics</code>&nbsp; — &nbsp;<i>Master the model, the CLI, the API, and the Agent SDK</i></summary>
+<summary><kbd>&nbsp;21&nbsp;</kbd>&nbsp; 🧠 &nbsp;<b>Claude Mastery</b>&nbsp; <code>4 tracks · 46 topics</code>&nbsp; — &nbsp;<i>Master the model, the CLI, the API, and the Agent SDK</i></summary>
 
 <br/>
 
@@ -535,7 +535,7 @@
 <br/>
 </details>
 
-<img src="./assets/divider.svg" width="100%"/>
+<img src="./23_Assets/divider.svg" width="100%"/>
 
 <div align="center">
 
@@ -578,9 +578,9 @@
 
 </div>
 
-<img src="./assets/divider.svg" width="100%"/>
+<img src="./23_Assets/divider.svg" width="100%"/>
 
-<img src="./assets/paths_header.svg" width="100%"/>
+<img src="./23_Assets/paths_header.svg" width="100%"/>
 
 <div align="center">
 
@@ -654,9 +654,9 @@
 </details>
 
 
-<img src="./assets/divider.svg" width="100%"/>
+<img src="./23_Assets/divider.svg" width="100%"/>
 
-<img src="./assets/start_here_banner.svg" width="100%"/>
+<img src="./23_Assets/start_here_banner.svg" width="100%"/>
 
 <br/>
 
@@ -668,7 +668,7 @@
 
 **Want to test yourself?** → [100 AI Engineering Practice Questions](./ai_practice_questions_100.md)
 
-<img src="./assets/divider.svg" width="100%"/>
+<img src="./23_Assets/divider.svg" width="100%"/>
 
 <div align="center">
 <br/>

@@ -10,6 +10,22 @@ The maze doesn't care about your history. Whether you arrived via the north or s
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[MDP Definition](#what-is-a-markov-decision-process) · [Five Components](#the-five-components-up-close) · [Markov Property](#states-s)
+
+**Should Learn** — important for real projects and interviews:
+[Bellman Expectation Equation](#the-bellman-expectation-equation) · [Bellman Optimality Equation](#the-bellman-optimality-equation) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Episodic vs Infinite Horizon](#episodes-vs-infinite-horizon) · [MDP Problem Types](#types-of-mdp-problems)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is a Markov Decision Process?
 
 A **Markov Decision Process (MDP)** is defined by five components:

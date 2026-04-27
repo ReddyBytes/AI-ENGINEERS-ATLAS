@@ -6,6 +6,22 @@ Ms. Chen just finished grading 30 exams. She spreads them on her desk. One score
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Mean](#mean--the-average) · [Standard Deviation](#standard-deviation--variance-in-plain-units) · [Normal Distribution](#the-normal-distribution)
+
+**Should Learn** — important for real projects and interviews:
+[Variance](#variance--how-spread-out-is-the-data) · [Median](#median--the-middle-value)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Mode](#mode--the-most-common-value) · [Visualizing the Pipeline](#visualizing-the-pipeline)
+
+**Reference** — skim once, look up when needed:
+[Why AI Cares](#why-ai-cares)
+
+---
+
 ## From Raw Data to Insight
 
 These 7 exam scores: **55, 60, 70, 72, 75, 88, 95** — statistics gives us tools to summarize them.

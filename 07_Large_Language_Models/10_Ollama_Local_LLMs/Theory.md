@@ -14,6 +14,22 @@ The problem is that running a 70-billion-parameter model requires 140GB of GPU m
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is Ollama](#what-is-ollama) · [Why It Exists](#why-it-exists--the-problem-it-solves) · [REST API Usage](#step-3-rest-api)
+
+**Should Learn** — important for real projects and interviews:
+[Model Sizes and Hardware](#step-2-understand-model-sizes-and-hardware-requirements) · [OpenAI-Compatible Interface](#step-5-openai-compatible-interface) · [Local RAG Example](#step-6-local-rag-with-ollama)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[GGUF Quantization Math](#the-math--technical-side-simplified) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Quantization Format Table](#step-2-understand-model-sizes-and-hardware-requirements)
+
+---
+
 ## What is Ollama?
 
 **Ollama** is an open-source tool that packages LLM inference into a local server with a simple CLI and REST API. It handles model downloading, quantization, hardware detection, and serving — exposing a familiar API that mirrors the OpenAI interface.

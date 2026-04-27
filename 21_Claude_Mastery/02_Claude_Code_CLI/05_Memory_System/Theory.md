@@ -16,6 +16,22 @@ With memory, Claude builds a notebook across sessions. Facts worth remembering g
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is the Memory System](#what-is-the-memory-system-) · [MEMORY.md Index File](#memorymd--the-index-file-) · [Memory Architecture](#memory-architecture-️)
+
+**Should Learn** — important for real projects and interviews:
+[Auto-Memory Behavior](#auto-memory-how-claude-saves-facts-) · [Manual Memory Commands](#manual-memory-telling-claude-what-to-remember-) · [When to Save vs Not Save](#when-to-save-vs-when-not-to-save-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Memory Scope Project vs Global](#memory-scope-project-vs-global-) · [Memory File Format](#memory-file-format-best-practices-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is the Memory System? 🧠
 
 The **Memory System** in Claude Code is a set of mechanisms for persisting knowledge across sessions. It has three layers:

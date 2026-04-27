@@ -6,6 +6,19 @@ A car factory assembly line: raw parts enter, each station transforms them — f
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Forward Propagation](#what-is-forward-propagation) · [What Happens at Each Layer](#what-happens-at-each-layer) · [The Flow](#the-flow)
+
+**Should Learn** — important for real projects and interviews:
+[Matrix Multiplication Intuition](#matrix-multiplication-intuition) · [No Learning During Forward Prop](#no-learning-during-forward-prop)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[What Does Each Layer Learn](#what-does-each-layer-learn)
+
+---
+
 ## What is Forward Propagation?
 
 Forward propagation (or "forward pass") is the process of passing data through the network from input to output. Every prediction the network makes is a forward pass. Data moves in one direction: forward through the layers.

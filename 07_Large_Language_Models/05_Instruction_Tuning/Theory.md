@@ -8,6 +8,22 @@ Instruction tuning teaches that librarian to actually answer questions.
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Instruction Tuning Is](#what-instruction-tuning-is) · [Dataset Format](#the-dataset-format) · [What Changes After Tuning](#what-changes-after-instruction-tuning)
+
+**Should Learn** — important for real projects and interviews:
+[Why Base Models Fail](#why-base-models-dont-just-work) · [Key Datasets](#key-instruction-tuning-datasets)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Self-Instruct Loop](#the-self-instruct-loop)
+
+**Reference** — skim once, look up when needed:
+[Tasks and Data Needed](#how-many-tasksinstructions-are-needed)
+
+---
+
 ## Why base models don't just work
 
 A base model has one trained behavior: predict what text comes next. Given a question, it might:

@@ -6,6 +6,19 @@ A relay race team finishes last. The coach reviews the video: runner 3 dropped t
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Backpropagation](#what-is-backpropagation) · [The Chain Rule](#the-chain-rule-intuition-only) · [Weight Update Rule](#weight-update-rule-gradient-descent)
+
+**Should Learn** — important for real projects and interviews:
+[The Flow](#the-flow) · [Why This Made Training Possible](#why-this-made-training-possible)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[What Can Go Wrong](#what-can-go-wrong)
+
+---
+
 ## What is Backpropagation?
 
 After a forward pass produces a prediction and a loss, backpropagation:

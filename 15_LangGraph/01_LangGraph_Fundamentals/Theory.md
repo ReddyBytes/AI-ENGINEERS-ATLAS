@@ -10,6 +10,22 @@ Now you need to branch (refund *or* store credit *or* escalation), loop back (ch
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is LangGraph?](#what-is-langgraph) · [How It Works](#how-it-works--step-by-step) · [StateGraph Key Properties](#the-stategraph--key-properties)
+
+**Should Learn** — important for real projects and interviews:
+[LangGraph vs LangChain](#langgraph-vs-langchain-vs-plain-api-calls) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Where You'll See This](#where-youll-see-this-in-real-ai-systems)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is LangGraph?
 
 **LangGraph** is a library built on LangChain for defining AI workflows as a **graph** — nodes connected by edges — rather than a linear chain.

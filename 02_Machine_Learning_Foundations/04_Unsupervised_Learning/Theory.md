@@ -8,6 +8,22 @@ You're a new librarian. Someone drops 50,000 books with no titles, no categories
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Unsupervised Learning](#what-is-unsupervised-learning) · [Two Main Tasks](#what-is-unsupervised-learning) · [How It Works](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Supervised vs Unsupervised](#supervised-vs-unsupervised)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Unsupervised Learning?
 
 **Unsupervised Learning** is ML without labeled data. The model receives only inputs — no "correct answers." Its job is to find hidden structure, groupings, or patterns on its own.

@@ -14,6 +14,22 @@ This is the modern reality. Claude, GPT-4V, and Gemini can all see images throug
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Vision API](#what-is-a-vision-api) · [Prepare the Image](#step-1-prepare-the-image) · [Construct the Request](#step-2-construct-the-request)
+
+**Should Learn** — important for real projects and interviews:
+[Prompt Engineering for Vision](#prompt-engineering-for-vision) · [API Capabilities](#can-do-well) · [Cost Considerations](#cost-considerations)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Token Counting](#how-images-become-tokens) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is a Vision API?
 
 A **Vision API** is an endpoint that accepts images (alongside text) and returns text responses. The provider hosts the model; you send images and questions; you get answers.

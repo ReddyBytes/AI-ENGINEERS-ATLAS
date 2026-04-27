@@ -8,6 +8,19 @@ Then Google introduced semantic search. Now "fix a runny nose" returns "remedies
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Keyword vs Semantic Search](#keyword-search-vs-semantic-search) · [How Semantic Search Works](#how-semantic-search-works)
+
+**Should Learn** — important for real projects and interviews:
+[Hybrid Search](#hybrid-search-the-best-of-both-worlds) · [Re-ranking](#re-ranking)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Performance Characteristics](#performance-characteristics)
+
+---
+
 ## Keyword Search vs Semantic Search
 
 | | Keyword Search | Semantic Search |

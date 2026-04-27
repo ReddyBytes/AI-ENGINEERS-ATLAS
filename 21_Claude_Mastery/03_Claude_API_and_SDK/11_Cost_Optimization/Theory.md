@@ -12,6 +12,22 @@ None of this reduces quality. A well-optimized Claude integration gives you the 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Model Routing Strategy](#lever-2-model-routing-strategy-) · [Output Length Control](#lever-5-output-length-control-) · [Token Counting](#lever-1-token-counting-)
+
+**Should Learn** — important for real projects and interviews:
+[Combined Strategy](#combined-strategy-maximum-savings-) · [Cost Monitoring](#cost-monitoring-) · [Prompt Caching ROI](#lever-3-prompt-caching-roi-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Batching for Async Work](#lever-4-batching-for-non-real-time-work-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Cost Optimization? 💰
 
 Cost optimization for Claude API is the systematic application of strategies that reduce token spending and API costs without sacrificing output quality. The strategies compound: applying all of them together can reduce costs by 5-10× compared to a naive implementation.

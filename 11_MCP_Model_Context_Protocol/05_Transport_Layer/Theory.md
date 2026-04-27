@@ -10,6 +10,22 @@ Both let you have the same conversation. The difference is the channel — how m
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is the Transport Layer?](#what-is-the-transport-layer-) · [stdio vs SSE](#what-is-the-transport-layer-)
+
+**Should Learn** — important for real projects and interviews:
+[How It Works](#how-it-works----step-by-step-) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is the Transport Layer? 🤔
 
 The transport layer defines the physical mechanism by which JSON-RPC messages travel between the MCP client and server.

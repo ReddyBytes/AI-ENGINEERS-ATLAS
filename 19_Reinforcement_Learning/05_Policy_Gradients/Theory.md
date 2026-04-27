@@ -10,6 +10,22 @@ DQN learns the value of every (state, action) pair and then derives a policy fro
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Policy Gradient](#what-is-a-policy-gradient-method) · [REINFORCE Algorithm](#reinforce--the-simplest-policy-gradient-algorithm) · [Advantage and Baselines](#the-high-variance-problem-and-baselines)
+
+**Should Learn** — important for real projects and interviews:
+[Actor-Critic Architecture](#actor-critic-combining-policy-and-value) · [Policy Gradient Theorem](#the-policy-gradient-theorem-intuition-only) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Value-Based vs Policy Gradient](#policy-gradients-vs-value-based-methods) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is a Policy Gradient Method?
 
 A **policy gradient method** parameterizes the policy as a neural network with parameters θ, and directly adjusts those parameters to maximize expected return using gradient ascent.

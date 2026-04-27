@@ -12,6 +12,22 @@ The IDE extensions for Claude Code (VS Code, JetBrains) don't replace the CLI �
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is IDE Integration](#what-is-ide-integration-️) · [VS Code Extension](#vs-code-extension-) · [CLI vs IDE When to Use](#cli-vs-ide-integration--when-to-use-each-)
+
+**Should Learn** — important for real projects and interviews:
+[Diff View in IDE](#diff-view-in-ide-) · [Inline Editing](#inline-editing-) · [Keyboard Shortcuts](#keyboard-shortcuts-vs-code)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[JetBrains Plugin](#jetbrains-plugin-) · [Switching CLI and IDE](#switching-between-cli-and-ide-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is IDE Integration? 🖥️
 
 **IDE Integration** refers to the official extensions that bring Claude Code into your code editor:

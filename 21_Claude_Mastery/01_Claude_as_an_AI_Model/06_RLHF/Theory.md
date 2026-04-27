@@ -14,6 +14,22 @@ That is exactly RLHF: using human preference judgments to teach an AI model what
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is RLHF](#what-is-rlhf-) · [Three RLHF Stages](#stage-1--supervised-fine-tuning-sft-) · [Why RLHF Matters](#why-rlhf-matters-for-alignment-)
+
+**Should Learn** — important for real projects and interviews:
+[Reward Model Training](#stage-2--reward-model-training-) · [PPO Optimization](#stage-3--rl-optimization-with-ppo-) · [RLHF Limitations](#limitations-of-rlhf-️)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[DPO Alternative](#dpo--direct-preference-optimization-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems-️)
+
+---
+
 ## What is RLHF? 🎓
 
 **Reinforcement Learning from Human Feedback (RLHF)** is the training methodology that transforms a pretrained language model into a useful assistant. It was popularized by Anthropic and OpenAI's research teams and is now used to train all major commercial LLMs.

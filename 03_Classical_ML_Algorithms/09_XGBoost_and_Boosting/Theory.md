@@ -10,6 +10,22 @@ That is gradient boosting — and XGBoost is its most powerful implementation.
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is XGBoost](#what-is-xgboost) · [How It Works](#how-it-works--step-by-step) · [Key Hyperparameters](#key-hyperparameters)
+
+**Should Learn** — important for real projects and interviews:
+[LightGBM and CatBoost](#lightgbm-and-catboost-the-modern-alternatives) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[The Math / Technical Side](#the-math--technical-side-simplified)
+
+**Reference** — skim once, look up when needed:
+[Where You'll See This](#where-youll-see-this-in-real-ai-systems)
+
+---
+
 ## What is XGBoost?
 
 **XGBoost** (Extreme Gradient Boosting) is a gradient boosting framework that builds an ensemble of decision trees sequentially. Unlike bagging methods (Random Forest) where trees are built independently and averaged, boosting builds each tree to correct the *residual errors* of all previous trees combined.

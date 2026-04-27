@@ -12,6 +12,22 @@ This is the difference between `.invoke()` and `.stream()` in LangGraph. Both pr
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Streaming?](#what-is-streaming-in-langgraph) · [invoke vs stream](#invoke-vs-stream--the-core-difference) · [What is Checkpointing?](#what-is-checkpointing)
+
+**Should Learn** — important for real projects and interviews:
+[Conversation Persistence](#conversation-persistence-with-thread-ids) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Streaming Modes](#streaming-modes) · [Token-Level Streaming](#token-level-streaming--seeing-llm-output-live)
+
+**Reference** — skim once, look up when needed:
+[Checkpointer Types](#checkpointer-types)
+
+---
+
 ## What is Streaming in LangGraph?
 
 **Streaming** is the ability to receive output from a LangGraph graph incrementally, as each node finishes executing, rather than waiting for the entire graph to complete.

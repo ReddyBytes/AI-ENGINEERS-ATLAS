@@ -14,6 +14,22 @@ The power is in the standardization. Every MCP server speaks the same protocol, 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is MCP in Claude Code](#what-is-mcp-in-the-claude-code-context-) · [Adding MCP Servers](#adding-mcp-servers-to-claude-code-️) · [MCP Architecture](#mcp-architecture-in-claude-code-️)
+
+**Should Learn** — important for real projects and interviews:
+[Tools vs Resources vs Prompts](#tools-vs-resources-vs-prompts-) · [Official Anthropic Servers](#official-anthropic-mcp-servers-️) · [Transport Options](#transport-options-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Community MCP Servers](#community-mcp-servers-) · [Using MCP in a Session](#using-mcp-tools-in-a-session-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is MCP in the Claude Code Context? 🔌
 
 In Claude Code, **MCP (Model Context Protocol)** is a system for adding external tools and data sources to the Claude tool loop. When you register an MCP server, it exposes:

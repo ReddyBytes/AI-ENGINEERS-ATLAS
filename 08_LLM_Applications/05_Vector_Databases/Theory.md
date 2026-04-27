@@ -8,6 +8,19 @@ That's a vector database: instead of storing books, it stores embeddings (numeri
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Why Regular Databases Fail](#why-regular-databases-cant-do-this) · [How Vector Databases Work](#how-vector-databases-work) · [ANN Search](#approximate-nearest-neighbor-ann-search)
+
+**Should Learn** — important for real projects and interviews:
+[Metadata Filtering](#metadata-filtering) · [Main Options](#the-main-options)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[What Makes a Vector Database](#what-makes-a-vector-database)
+
+---
+
 ## Why Regular Databases Can't Do This
 
 A regular SQL database queries with exact matches and ranges:

@@ -12,6 +12,22 @@ The key insight: hooks run independently of Claude's reasoning. Claude doesn't c
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What are Hooks](#what-are-hooks-) · [Hook Event Types](#hook-event-types-) · [Blocking vs Non-Blocking](#blocking-vs-non-blocking-hooks-)
+
+**Should Learn** — important for real projects and interviews:
+[Hook Configuration](#hook-configuration-in-settingsjson-️) · [Hook Environment Variables](#environment-variables-available-to-hooks-) · [Real-World Use Cases](#real-world-hook-use-cases-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Hook Object Structure](#hook-object-structure-) · [Hook Input/Output Format](#hook-inputoutput-format-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What are Hooks? 🪝
 
 **Hooks** are shell scripts (or commands) that execute automatically when specific Claude Code tool events fire. They intercept the agent loop at defined points and can:

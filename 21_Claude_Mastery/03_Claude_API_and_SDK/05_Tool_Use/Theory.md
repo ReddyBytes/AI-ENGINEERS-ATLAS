@@ -12,6 +12,22 @@ Now imagine giving that consultant a toolbox: a phone to call the stock exchange
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Tool Definition Schema](#tool-definition-schema-) · [Tool Use Flow](#the-tool-use-flow--step-by-step-) · [Multi-Turn Tool Loop](#the-complete-multi-turn-tool-loop-)
+
+**Should Learn** — important for real projects and interviews:
+[Tool Choice Parameter](#tool-choice-parameter-) · [Error Handling in Tools](#error-handling-in-tools-) · [Parallel Tool Calls](#parallel-tool-calls-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real System Examples](#where-youll-see-this-in-real-ai-systems-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Tool Use? 🔧
 
 **Tool use** (also called function calling) is a protocol that lets Claude request that your application execute specific functions, then uses the results in its response.

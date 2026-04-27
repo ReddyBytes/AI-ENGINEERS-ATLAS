@@ -6,6 +6,19 @@ You study for an exam: collect notes (inputs), summarize each chapter into key p
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is an MLP](#what-is-an-mlp) · [Why Hidden Layers](#why-hidden-layers) · [Why Activation Functions Are Essential](#why-activation-functions-are-essential)
+
+**Should Learn** — important for real projects and interviews:
+[The Architecture](#the-architecture) · [Forward Pass Summary](#forward-pass-summary)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Fully Connected vs Sparse](#fully-connected-vs-sparse) · [Universal Approximation Theorem](#universal-approximation-theorem)
+
+---
+
 ## What is an MLP?
 
 MLP stands for **Multi-Layer Perceptron** — a neural network with:

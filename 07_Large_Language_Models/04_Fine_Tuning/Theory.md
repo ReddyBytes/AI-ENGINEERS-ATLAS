@@ -6,6 +6,22 @@ A new doctor graduates from medical school with broad knowledge — that's pretr
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Fine-Tuning Does](#what-fine-tuning-actually-does) · [LoRA Explained](#lora-low-rank-adaptation) · [When to Fine-Tune](#when-to-fine-tune-vs-just-prompt)
+
+**Should Learn** — important for real projects and interviews:
+[Types of Fine-Tuning](#types-of-fine-tuning) · [QLoRA](#qlora-lora--quantization) · [How Much Data](#how-much-data-do-you-need)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Supervised Fine-Tuning](#supervised-fine-tuning-sft)
+
+**Reference** — skim once, look up when needed:
+[What Fine-Tuning Changes](#what-fine-tuning-changes-vs-doesnt-change)
+
+---
+
 ## What fine-tuning actually does
 
 Fine-tuning takes a pretrained model and continues training it on a smaller, task-specific dataset.

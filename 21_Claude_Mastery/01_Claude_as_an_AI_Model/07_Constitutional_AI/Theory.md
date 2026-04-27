@@ -12,6 +12,22 @@ That is Constitutional AI. Instead of paying hundreds of human labelers to evalu
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is CAI](#what-is-constitutional-ai-) · [CAI Training Pipeline](#the-cai-training-pipeline-) · [Why CAI Scales Better](#why-cai-scales-better-than-pure-rlhf-️)
+
+**Should Learn** — important for real projects and interviews:
+[Self-Critique Loop](#the-self-critique-loop-in-detail-) · [CAI vs RLHF](#cai-vs-rlhf--key-differences-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[The Constitution Content](#the-constitution-content-) · [Red-Teaming Connection](#connection-to-red-teaming-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is Constitutional AI? 📜
 
 **Constitutional AI (CAI)** is Anthropic's training methodology for making AI systems safer, first published in their December 2022 paper. It extends RLHF by replacing a significant portion of the human-labeled harmlessness data with AI-generated data produced by the model critiquing itself against a written constitution.

@@ -6,6 +6,19 @@ You're studying for an exam on a 500-page textbook. You don't memorize the whole
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Why Chunking Matters](#why-chunking-matters) · [Recursive Text Splitting](#2-recursive-character-text-splitting) · [Chunk Overlap](#chunk-overlap)
+
+**Should Learn** — important for real projects and interviews:
+[Semantic Chunking](#4-semantic-chunking) · [Parent-Child Chunking](#5-parent-child-chunking)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Strategy Comparison](#chunking-strategy-comparison) · [Fixed-Size Chunking](#1-fixed-size-chunking)
+
+---
+
 ## Why Chunking Matters
 
 A 20-page document embedded as a single vector captures everything and nothing specifically. A 300-token chunk about just the refund policy will match "what is the refund policy?" precisely.

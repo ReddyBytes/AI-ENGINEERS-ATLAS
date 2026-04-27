@@ -10,6 +10,22 @@ This is the structure of every effective organization — and it is also the str
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Multi-Agent System?](#what-is-a-multi-agent-system) · [Supervisor Pattern](#the-supervisor-pattern) · [Communication via State](#how-agents-communicate-via-shared-state)
+
+**Should Learn** — important for real projects and interviews:
+[Handoffs Between Agents](#handoffs-between-agents) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Subgraph Pattern](#the-subgraph-pattern) · [Parallel Execution](#parallel-execution)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is a Multi-Agent System?
 
 A **multi-agent system** is a collection of AI agents that work together to complete tasks that are too complex for a single agent. Each agent has:

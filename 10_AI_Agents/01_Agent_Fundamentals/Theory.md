@@ -6,6 +6,19 @@ You call your personal assistant and say: "Book me a flight to Paris next Friday
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is an AI Agent?](#what-is-an-ai-agent) · [The Agent Loop](#the-agent-loop) · [The Four Parts Up Close](#the-four-parts-up-close)
+
+**Should Learn** — important for real projects and interviews:
+[Agent vs Chatbot](#agent-vs-chatbot) · [A Concrete Example](#a-concrete-example)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Why This Matters](#why-this-matters)
+
+---
+
 ## What Is an AI Agent?
 
 A chatbot answers a question and stops. An agent gets a goal and keeps working until it's done.

@@ -10,6 +10,22 @@ This is a **recommendation system**: a model that predicts which items a user wi
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Recommendation System](#what-is-a-recommendation-system) · [Collaborative Filtering](#step-3-collaborative-filtering) · [Matrix Factorization](#step-4-matrix-factorization)
+
+**Should Learn** — important for real projects and interviews:
+[Content-Based Filtering](#step-2-content-based-filtering) · [Cold Start Problem](#step-6-the-cold-start-problem) · [Evaluation Metrics](#the-math--technical-side-simplified)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Two-Tower Model](#modern-deep-learning-approaches) · [Implicit vs Explicit Feedback](#step-5-implicit-vs-explicit-feedback)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is a Recommendation System?
 
 A **recommendation system** (also called a recommender system) is a model that predicts a user's preference for items they haven't yet seen, based on historical interaction data and/or item properties.

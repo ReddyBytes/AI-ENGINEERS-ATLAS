@@ -12,6 +12,22 @@ Knowing exactly which model to use — their IDs, context windows, pricing, and 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Current Model Lineup](#current-claude-model-lineup-) · [Model Selection Guide](#model-selection-guide-) · [Pricing Comparison Table](#pricing-comparison-table)
+
+**Should Learn** — important for real projects and interviews:
+[Capabilities Matrix](#capabilities-per-model-matrix) · [Model ID Versioning](#model-id-versioning-pattern-) · [Context Window Scale](#context-window--200k-tokens-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Legacy Model Deprecation](#legacy-model-deprecation-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## Current Claude Model Lineup 🗂️
 
 As of April 2026, the current production models are:

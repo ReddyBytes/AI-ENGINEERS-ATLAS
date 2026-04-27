@@ -12,6 +12,22 @@ When your application breaks in production with a "context_length_exceeded" erro
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Token](#what-is-a-token-) · [Context Window Defined](#what-is-the-context-window-) · [At-Limit Behavior](#what-happens-when-you-hit-the-limit-)
+
+**Should Learn** — important for real projects and interviews:
+[Token Counting Rules](#rules-of-thumb-for-token-counting-) · [Cost Implications](#cost-implications-) · [Counting with API](#counting-tokens-with-the-anthropic-api-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Lost in the Middle](#the-lost-in-the-middle-problem-) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems-️)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What is a Token? 🔤
 
 A **token** is the atomic unit that Claude processes. It is not a word, not a character, not a sentence. It is a sub-word piece determined by a **Byte Pair Encoding (BPE)** tokenizer that was trained on the same (or similar) text corpus as the model.

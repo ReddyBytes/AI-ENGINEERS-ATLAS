@@ -12,6 +12,22 @@ Scaling AI applications follows the same logic. One inference server works perfe
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Scaling?](#what-is-scaling-in-ai-systems) · [Scaling Challenges](#scaling-challenges-specific-to-ai)
+
+**Should Learn** — important for real projects and interviews:
+[How It Works](#how-it-works--step-by-step) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Scaling in AI Systems?
 
 **Scaling** is the ability to handle increased load — more requests, more users, more data — while maintaining acceptable latency, throughput, and reliability.

@@ -16,6 +16,22 @@ The solution is **agent memory** — deliberately persisting information outside
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Four Memory Types](#what-is-agent-memory) · [In-Context Memory](#in-context-memory-working-memory) · [External Memory via Tools](#external-memory-vector-database)
+
+**Should Learn** — important for real projects and interviews:
+[Passing Context Between Steps](#passing-context-between-steps) · [Memory Limitations](#memory-limitations)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Session State Pattern](#session-state) · [Embedding Retrieval](#the-math--technical-side-simplified)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Agent Memory?
 
 **Agent memory** is any mechanism by which an agent retains information beyond a single context window. It exists on a spectrum from immediate (in-context) to long-term (external databases).

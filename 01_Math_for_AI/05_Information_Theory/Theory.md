@@ -6,6 +6,22 @@ Imagine two weather forecasters. Forecaster A works in the Sahara Desert and pre
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Is Information](#what-is-information) · [Entropy](#entropy--average-surprise) · [Cross-Entropy](#cross-entropy--comparing-two-distributions)
+
+**Should Learn** — important for real projects and interviews:
+[KL Divergence](#kl-divergence--how-different-are-two-distributions) · [Why This Matters for AI](#why-this-matters-for-ai)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[The Information Flow](#the-information-flow)
+
+**Reference** — skim once, look up when needed:
+[Why This Matters for AI](#why-this-matters-for-ai)
+
+---
+
 ## What Is Information?
 
 Claude Shannon (1948) asked: can we measure information like we measure weight or temperature? His answer: the information in an event is related to how surprising it is.

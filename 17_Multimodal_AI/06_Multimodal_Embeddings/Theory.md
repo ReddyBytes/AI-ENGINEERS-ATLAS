@@ -14,6 +14,22 @@ This is **cross-modal retrieval**: using one type of input to search for another
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Multimodal Embedding](#what-is-a-multimodal-embedding) · [CLIP Shared Space](#encoding-images-for-the-shared-space) · [Cross-Modal Similarity](#cross-modal-similarity)
+
+**Should Learn** — important for real projects and interviews:
+[Image Similarity Search](#image-similarity-search) · [ANN Search](#approximate-nearest-neighbor-ann-search) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Cosine Similarity Math](#cosine-similarity) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is a Multimodal Embedding?
 
 A **multimodal embedding** is a vector representation where different modality types — images, text, (and in some systems, audio) — are mapped to the same vector space with the same dimensions.

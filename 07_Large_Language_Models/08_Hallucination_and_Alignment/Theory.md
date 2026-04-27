@@ -6,6 +6,22 @@ Picture a very confident intern on their first week. Asked a question they don't
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Hallucination Is](#what-hallucination-actually-is) · [Why Hallucination Happens](#why-hallucination-happens) · [What Is Alignment](#what-is-alignment)
+
+**Should Learn** — important for real projects and interviews:
+[Types of Hallucination](#types-of-hallucination) · [Constitutional AI](#constitutional-ai-anthropics-approach)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Factuality vs Fluency](#factuality-vs-fluency) · [Why Alignment Unsolved](#why-alignment-is-still-unsolved)
+
+**Reference** — skim once, look up when needed:
+[HHH Tension Diagram](#what-is-alignment)
+
+---
+
 ## What hallucination actually is
 
 Hallucination is when an LLM generates factually incorrect, made-up, or unsupported content — presented with the same fluency and confidence as correct information.

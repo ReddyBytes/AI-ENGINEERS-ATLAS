@@ -8,6 +8,22 @@ Playing "20 Questions" — your friend thinks of an animal. You ask: mammal? fou
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Does a Decision Tree Do](#what-does-a-decision-tree-do) · [How the Tree Chooses Splits](#how-does-the-tree-choose-which-question-to-ask-first) · [Key Parts of a Tree](#key-parts-of-a-tree)
+
+**Should Learn** — important for real projects and interviews:
+[Depth and Overfitting](#depth-and-overfitting) · [Why Decision Trees Are Loved](#why-decision-trees-are-loved)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Why Decision Trees Are Loved](#why-decision-trees-are-loved)
+
+**Reference** — skim once, look up when needed:
+[Why Decision Trees Are Loved](#why-decision-trees-are-loved)
+
+---
+
 ## What Does a Decision Tree Do?
 
 A decision tree learns a hierarchy of if/else rules from training data. Used for **classification** ("Is this spam?") or **regression** ("What's the house price?"). Every prediction traces a path from root to leaf — fully readable.

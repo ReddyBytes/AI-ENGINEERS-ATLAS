@@ -10,6 +10,22 @@ Both this and a weather model iterating to convergence share the same pattern: *
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Makes LangGraph Different](#what-makes-langgraph-different-cycles) · [Loop Termination](#loop-termination--how-to-stop) · [Standard Agent Loop](#the-standard-agent-loop-pattern)
+
+**Should Learn** — important for real projects and interviews:
+[Preventing Infinite Loops](#preventing-infinite-loops) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Loop Execution Step by Step](#loop-execution--step-by-step) · [Setting recursion_limit](#setting-recursion_limit)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What Makes LangGraph Different: Cycles
 
 LangChain LCEL is a DAG (directed acyclic graph) — data flows one direction, no cycles. LangGraph supports **directed graphs with cycles** — an edge that points backward to an earlier node.

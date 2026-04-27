@@ -12,6 +12,22 @@ This isn't magic — it's communication. Claude is extraordinarily capable, but 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Few-Shot Prompting](#few-shot-prompting-) · [XML Tags for Structure](#xml-tags-for-structure-) · [Structured Output Extraction](#structured-output-extraction-)
+
+**Should Learn** — important for real projects and interviews:
+[Chain-of-Thought Reasoning](#chain-of-thought-cot-reasoning-) · [Claude-Specific Tips](#claude-specific-tips-) · [Prefilling Assistant Turn](#structured-output-extraction-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Role Prompting](#role-prompting-) · [Iteration Loop](#the-prompt-engineering-iteration-loop-)
+
+**Reference** — skim once, look up when needed:
+[Zero-Shot Prompting](#zero-shot-prompting-)
+
+---
+
 ## What is Prompt Engineering? 🎯
 
 **Prompt engineering** is the practice of designing, structuring, and iterating on inputs (prompts) to language models to achieve consistent, high-quality outputs for a specific task.

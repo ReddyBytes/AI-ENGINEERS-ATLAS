@@ -8,6 +8,19 @@ LLMs are the same. Without tools, they're limited to training knowledge. With to
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Are Tools?](#what-are-tools) · [Tool Schemas](#tool-schemas) · [The Tool Use Flow](#the-tool-use-flow)
+
+**Should Learn** — important for real projects and interviews:
+[How the Agent Decides](#how-the-agent-decides-which-tool-to-use) · [Good Tool Design](#good-tool-design)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Built-in vs Custom Tools](#built-in-vs-custom-tools)
+
+---
+
 ## What Are Tools?
 
 A tool is a **function the agent can call**. Every tool has three parts:

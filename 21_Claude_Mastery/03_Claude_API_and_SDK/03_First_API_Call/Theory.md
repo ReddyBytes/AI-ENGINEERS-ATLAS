@@ -12,6 +12,22 @@ This topic is about that first drive: getting from zero to a working API call in
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[SDK Setup](#the-python-sdk--installation-and-client-setup-) · [First Complete Call](#your-first-complete-call-) · [Reading the Response](#reading-the-response-object-)
+
+**Should Learn** — important for real projects and interviews:
+[Python vs JavaScript](#python-and-javascript-side-by-side-) · [Basic Error Handling](#basic-error-handling-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[SDK Verification Steps](#installing-and-verifying-the-sdk-) · [Real System Uses](#where-youll-use-this-in-real-systems-)
+
+**Reference** — skim once, look up when needed:
+[Common First-Call Mistakes](#common-first-call-mistakes-)
+
+---
+
 ## What You Need Before Starting 🛠️
 
 ### 1. An Anthropic API key

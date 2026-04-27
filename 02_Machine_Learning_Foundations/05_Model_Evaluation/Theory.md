@@ -8,6 +8,22 @@ You took a practice exam and got 80% correct. Then your teacher says: "90% of th
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Confusion Matrix](#the-confusion-matrix--the-foundation) · [Precision](#precision) · [Recall](#recall-sensitivity)
+
+**Should Learn** — important for real projects and interviews:
+[Precision-Recall Tradeoff](#the-precision-recall-tradeoff) · [F1 Score](#f1-score) · [When to Use Which Metric](#when-to-use-which-metric)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Accuracy](#accuracy)
+
+**Reference** — skim once, look up when needed:
+[Why Accuracy Alone Lies](#why-accuracy-alone-lies)
+
+---
+
 ## Why Accuracy Alone Lies
 
 A model detecting a rare disease (1% prevalence) that predicts "No disease" for everyone gets **99% accuracy** — but is completely useless. When one class is much rarer, accuracy is misleading. You need metrics that focus on specific error types.

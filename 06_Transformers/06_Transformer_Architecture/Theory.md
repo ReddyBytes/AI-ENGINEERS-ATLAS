@@ -8,6 +8,22 @@ That's the transformer: the encoder reads everything; the decoder generates one 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Encoder and Decoder](#the-two-halves) · [Residual Connections](#residual-connections--why-they-matter) · [Feed-Forward Network](#feed-forward-network-ffn)
+
+**Should Learn** — important for real projects and interviews:
+[One Encoder Layer](#one-encoder-layer) · [One Decoder Layer](#one-decoder-layer) · [Layer Normalization](#layer-normalization)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[FFN Inner Dimension](#feed-forward-network-ffn)
+
+**Reference** — skim once, look up when needed:
+[Full Architecture Diagram](#what-you-just-learned)
+
+---
+
 ## The two halves
 
 ### Encoder

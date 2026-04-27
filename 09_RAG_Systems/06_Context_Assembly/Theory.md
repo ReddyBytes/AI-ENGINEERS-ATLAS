@@ -18,6 +18,19 @@ flowchart TD
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Basic Template](#the-basic-template) · [Including Source Metadata](#including-source-metadata) · [Chunk Ordering](#chunk-ordering)
+
+**Should Learn** — important for real projects and interviews:
+[Context Window Limits](#context-window-limits) · [Complete Assembly Function](#the-complete-assembly-function)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Handling No Good Match](#handling-no-good-match)
+
+---
+
 ## The Basic Template
 
 ```

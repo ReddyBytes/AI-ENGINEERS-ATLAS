@@ -10,6 +10,19 @@ AI tools in 2023 were stuck in the "pre-USB era." Every AI app had custom code t
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is MCP?](#what-is-mcp-) · [How It Works](#how-it-works----step-by-step-)
+
+**Should Learn** — important for real projects and interviews:
+[Three MCP Primitives](#what-is-mcp-) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is MCP? 🤔
 
 **MCP** is an open protocol created by Anthropic that standardizes how AI applications connect to external tools, data sources, and services. Just like HTTP standardized how browsers talk to web servers, MCP standardizes how AI models talk to tools.

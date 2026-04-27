@@ -8,6 +8,22 @@ That's working with LLM APIs: enormous capability, but you need to be intentiona
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Messages Format](#the-messages-format) · [Key Parameters](#key-parameters-you-control) · [Error Handling](#error-handling)
+
+**Should Learn** — important for real projects and interviews:
+[Streaming](#streaming) · [Structured Output](#structured-output-getting-json-back) · [Cost Management](#cost-management)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[What Is an LLM API](#what-is-an-llm-api)
+
+**Reference** — skim once, look up when needed:
+[Exponential Backoff Code](#error-handling)
+
+---
+
 ## What is an LLM API?
 
 A REST endpoint: send text (your prompt), receive generated text back.

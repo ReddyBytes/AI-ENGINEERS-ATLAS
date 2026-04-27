@@ -8,6 +8,22 @@ Before the `datasets` library, AI practitioners spent up to 80% of project time 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is the Datasets Library?](#what-is-the-datasets-library) · [How It Works](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[Streaming Mode](#streaming-mode) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Loading Custom Datasets](#loading-custom-and-local-datasets) · [Apache Arrow](#technical-side--apache-arrow)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is the Datasets Library?
 
 A universal data loader with superpowers:

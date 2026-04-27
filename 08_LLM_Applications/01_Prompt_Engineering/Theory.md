@@ -8,6 +8,19 @@ Same intern. Same skill level. Completely different result — just because the 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Zero-Shot Prompting](#1-zero-shot-prompting) · [Few-Shot Prompting](#2-few-shot-prompting) · [Chain-of-Thought](#3-chain-of-thought-cot-prompting) · [System vs User Messages](#6-system-vs-user-messages)
+
+**Should Learn** — important for real projects and interviews:
+[Role Prompting](#4-role-prompting) · [Output Format Control](#5-output-format-control) · [Perfect Prompt Structure](#the-perfect-prompt-structure)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Temperature Settings](#why-temperature-matters)
+
+---
+
 ## What is a Prompt?
 
 A prompt is everything you send to an LLM before it responds:

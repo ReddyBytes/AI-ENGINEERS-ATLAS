@@ -6,6 +6,22 @@ A doctor sees a patient with three symptoms: fever, cough, fatigue. From experie
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Bayes Theorem](#bayes-theorem--plain-english-first) · [The Naive Part](#the-naive-part) · [Why Naive Bayes Works for Text](#why-naive-bayes-works-for-text)
+
+**Should Learn** — important for real projects and interviews:
+[Types of Naive Bayes](#types-of-naive-bayes) · [When It Shines vs Struggles](#when-naive-bayes-shines-vs-when-it-struggles)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Laplace Smoothing](#the-laplace-smoothing-problem)
+
+**Reference** — skim once, look up when needed:
+[Laplace Smoothing](#the-laplace-smoothing-problem)
+
+---
+
 ## Bayes' Theorem — Plain English First
 
 Bayes' theorem answers: given that I just observed something, how should I update my belief?

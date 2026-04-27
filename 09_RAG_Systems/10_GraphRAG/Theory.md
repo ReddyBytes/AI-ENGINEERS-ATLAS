@@ -14,6 +14,19 @@ Now imagine the same investigation but first we extract all named entities (peop
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is GraphRAG](#what-is-graphrag) · [How It Works Step by Step](#how-it-works--step-by-step) · [Two Query Modes](#step-5-two-query-modes)
+
+**Should Learn** — important for real projects and interviews:
+[GraphRAG vs Standard RAG](#graphrag-vs-standard-rag) · [Community Detection](#step-3-community-detection)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Louvain Math](#the-math--technical-side-simplified) · [Microsoft GraphRAG Library](#using-microsofts-graphrag-library)
+
+---
+
 ## What is GraphRAG?
 
 **GraphRAG** (Knowledge Graph-based Retrieval-Augmented Generation) is an extension of standard RAG that first constructs a **knowledge graph** from the document corpus, then retrieves information by traversing graph structure rather than (or in addition to) vector similarity search.

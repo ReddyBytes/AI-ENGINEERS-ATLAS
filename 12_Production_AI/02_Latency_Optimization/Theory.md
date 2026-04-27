@@ -8,6 +8,22 @@ You run a pizza delivery business with a perfect recipe — but 45-minute delive
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Latency Optimization?](#what-is-latency-optimization) · [How It Works](#how-it-works--step-by-step)
+
+**Should Learn** — important for real projects and interviews:
+[Real-World Examples](#real-world-examples) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+**Reference** — skim once, look up when needed:
+[Practice Questions](#-practice-questions)
+
+---
+
 ## What is Latency Optimization?
 
 **Latency** is the elapsed time between a client sending a request and receiving a complete response, measured in milliseconds.

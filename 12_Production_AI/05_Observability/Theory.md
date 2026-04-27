@@ -10,6 +10,22 @@ A production AI system without observability is exactly that. Requests are flowi
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Observability?](#what-is-observability) · [Three Pillars](#the-three-pillars)
+
+**Should Learn** — important for real projects and interviews:
+[AI-Specific Additions](#ai-specific-additions) · [How It Works](#how-it-works--step-by-step) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Real-World Examples](#real-world-examples)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Observability?
 
 **Observability** is the ability to understand the internal state of your system from its external outputs. A system is observable if you can answer "Why is this happening?" from the data it produces.

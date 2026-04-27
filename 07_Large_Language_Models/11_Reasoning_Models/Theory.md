@@ -12,6 +12,22 @@ The standard model pattern-matched to an answer. The reasoning model *worked it 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Are Reasoning Models](#what-are-reasoning-models) · [How It Works](#how-it-works--step-by-step) · [When to Use Them](#when-to-use-reasoning-models)
+
+**Should Learn** — important for real projects and interviews:
+[The Models](#the-models) · [API Differences](#api-differences-vs-standard-llms)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Process Reward Models](#step-2-process-reward-models-prms) · [Test-Time Compute](#step-3-test-time-compute-scaling)
+
+**Reference** — skim once, look up when needed:
+[Cost Comparison](#when-to-use-reasoning-models)
+
+---
+
 ## What are Reasoning Models?
 
 **Reasoning models** are LLMs trained to produce explicit chain-of-thought reasoning before generating a final answer. They spend **thinking tokens** — internal reasoning steps — working through a problem before outputting a response.

@@ -14,6 +14,22 @@ The result: complex, multi-part tasks that would take an hour sequentially can f
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What are Agents and Subagents](#what-are-agents-and-subagents-) · [The Agent Tool](#the-agent-tool-️) · [Parallel vs Sequential](#parallel-vs-sequential-agents-)
+
+**Should Learn** — important for real projects and interviews:
+[When to Delegate](#when-to-delegate-to-a-subagent-) · [Worktrees for Isolation](#worktrees-for-isolation-) · [Context Window Management](#context-window-management-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Background Agents](#background-agents-) · [Subagent Context Passing](#subagent-context-passing-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-️)
+
+---
+
 ## What are Agents and Subagents? 🤖
 
 In Claude Code, **agents** and **subagents** refer to separate Claude instances (each with their own context window) that can be spawned to work on specific tasks in parallel.

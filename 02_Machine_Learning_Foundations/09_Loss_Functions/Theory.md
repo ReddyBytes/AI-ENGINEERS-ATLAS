@@ -8,6 +8,22 @@ GPS constantly measures "how far off am I?" and uses that to correct course. A t
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is a Loss Function](#what-is-a-loss-function) · [MSE for Regression](#loss-function-for-regression-mse) · [Cross-Entropy for Classification](#loss-function-for-classification-cross-entropy)
+
+**Should Learn** — important for real projects and interviews:
+[Why the Choice Matters](#why-the-choice-of-loss-function-matters) · [Summary: Which Loss to Use](#summary-which-loss-to-use)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[MAE for Outliers](#summary-which-loss-to-use)
+
+**Reference** — skim once, look up when needed:
+[Summary: Which Loss to Use](#summary-which-loss-to-use)
+
+---
+
 ## What is a Loss Function?
 
 A **loss function** measures how different the model's prediction is from the correct answer. Small loss = close to right. Large loss = far off. The model's only goal during training is to minimize this number — which means the choice of loss function determines what the model actually optimizes for.

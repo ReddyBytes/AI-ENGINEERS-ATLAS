@@ -16,6 +16,22 @@ By the time you've built all that, you've built Promptfoo.
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is an Eval Framework](#what-is-an-eval-framework) · [Promptfoo Workflow](#promptfoo-config-based-evals) · [Assertion Types](#assertion-types)
+
+**Should Learn** — important for real projects and interviews:
+[LangSmith Workflow](#langsmith-observability--evals) · [Framework Comparison](#framework-comparison) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Off-the-Shelf vs Custom](#when-to-use-off-the-shelf-vs-custom) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is an Eval Framework?
 
 An **eval framework** is a tool that provides the infrastructure for running, managing, and tracking AI evaluations at scale. Instead of writing custom scripts, you configure what to test and the framework handles running, scoring, comparing, and reporting.

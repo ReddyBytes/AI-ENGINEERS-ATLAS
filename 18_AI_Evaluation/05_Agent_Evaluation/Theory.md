@@ -16,6 +16,22 @@ This is **trajectory evaluation** — judging the journey, not just the destinat
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What is Agent Evaluation](#what-is-agent-evaluation) · [Task Completion Rate](#task-completion-rate) · [Tool Call Accuracy](#tool-call-accuracy)
+
+**Should Learn** — important for real projects and interviews:
+[Trajectory Evaluation](#trajectory-evaluation) · [Safety Evaluation](#setting-up-agent-evaluation) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Step Efficiency](#step-efficiency) · [Edit Distance for Trajectories](#normalized-edit-distance-for-trajectories)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-) · [Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What is Agent Evaluation?
 
 **Agent evaluation** measures the quality of an AI agent's behavior across multiple dimensions:

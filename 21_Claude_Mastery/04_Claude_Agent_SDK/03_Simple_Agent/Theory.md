@@ -12,6 +12,22 @@ The simplest possible agent has three parts: a model that reasons, one tool it c
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Defining Tools](#step-1-define-your-tools) · [Creating the Agent](#step-2-create-the-agent) · [Running the Loop](#step-3-run-the-agent-loop)
+
+**Should Learn** — important for real projects and interviews:
+[@tool Decorator Anatomy](#anatomy-of-the-tool-decorator) · [Minimal Working Example](#the-complete-minimal-working-example)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[SDK Internal Payload](#the-math--technical-side-simplified)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is a Simple Agent?
 
 A **simple agent** is the minimal implementation of the agent pattern: one Claude model, one or more tools defined with the `@tool` decorator, and the agent loop managed by the SDK.

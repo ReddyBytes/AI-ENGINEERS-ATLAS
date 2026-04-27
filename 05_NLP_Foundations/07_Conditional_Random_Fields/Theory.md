@@ -6,6 +6,19 @@ A teacher labeling every word in an essay doesn't work word by word in isolation
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[CRF vs HMM: the key difference](#crf-vs-hmm-the-key-difference) · [What makes CRFs powerful](#what-makes-crfs-powerful) · [Named Entity Recognition (NER) with CRF](#named-entity-recognition-ner-with-crf)
+
+**Should Learn** — important for real projects and interviews:
+[Why CRFs still matter](#why-crfs-still-matter)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[What's wrong with labeling words in isolation](#whats-wrong-with-labeling-words-in-isolation)
+
+---
+
 ## What's wrong with labeling words in isolation?
 
 "bank" alone → no answer. HMMs improve on this but have a key limitation: they compute P(word | tag), forcing them to model the distribution of words — complex and often unnecessary.

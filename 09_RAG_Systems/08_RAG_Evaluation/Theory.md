@@ -6,6 +6,19 @@ You shipped a RAG system. Your manager asks: "Is it working?" You say "It seems 
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[What Can Go Wrong](#what-can-go-wrong-in-a-rag-pipeline) · [Four Core RAGAS Metrics](#the-four-core-ragas-metrics) · [Retrieval-Only Metrics](#retrieval-only-metrics)
+
+**Should Learn** — important for real projects and interviews:
+[LLM-as-Judge Evaluation](#llm-as-judge-evaluation) · [How to Create a Test Set](#how-to-create-a-test-set)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Benchmark Targets](#benchmark-targets)
+
+---
+
 ## What Can Go Wrong in a RAG Pipeline
 
 RAG has two separate stages, each of which can fail independently:

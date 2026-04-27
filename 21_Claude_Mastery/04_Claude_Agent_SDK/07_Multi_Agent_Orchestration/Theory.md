@@ -12,6 +12,22 @@ The orchestrator doesn't need to be an expert in every domain — it needs to be
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Orchestrator-Worker Pattern](#the-orchestrator-worker-pattern) · [Spawning Subagents in SDK](#spawning-subagents-in-the-sdk) · [Sequential vs Parallel Workers](#sequential-vs-parallel-workers)
+
+**Should Learn** — important for real projects and interviews:
+[Task Delegation Patterns](#task-delegation-patterns) · [When to Use Multi-Agent](#when-to-use-multi-agent-vs-single-agent)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Parallelism Math](#the-math--technical-side-simplified) · [Result Aggregation](#result-aggregation)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Multi-Agent Orchestration?
 
 **Multi-agent orchestration** is a system design pattern where an **orchestrator** agent decomposes a goal into sub-tasks and delegates each to one or more **worker** (subagent) instances of Claude. Each worker runs its own agent loop, executes its task, and returns results to the orchestrator, which assembles the final output.

@@ -12,6 +12,22 @@ The key insight: the senior partner is shielded from the details. She doesn't re
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Spawning a Subagent](#how-it-works--spawning-a-subagent) · [Context Passing](#context-passing) · [Isolation Benefits](#isolation-benefits)
+
+**Should Learn** — important for real projects and interviews:
+[Foreground vs Background](#foreground-vs-background-subagents) · [When to Spawn](#when-to-spawn-a-subagent-vs-doing-it-in-the-orchestrator)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Result Formats](#result-formats)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is a Subagent?
 
 A **subagent** is an agent instance spawned by a parent (orchestrator) agent to handle a specific sub-task. The subagent runs its own agent loop, has its own context window, its own tools, and its own system prompt. When it completes, it returns a result to the parent.

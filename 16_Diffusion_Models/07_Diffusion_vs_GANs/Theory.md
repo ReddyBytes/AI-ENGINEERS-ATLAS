@@ -12,6 +12,22 @@ The cost: the second chef needs more steps to bake each loaf (more inference tim
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[Three Model Families](#what-are-we-comparing) · [GAN Training Loop](#gan-adversarial-generation) · [Why Diffusion is Stable](#why-diffusion-is-stable)
+
+**Should Learn** — important for real projects and interviews:
+[Diffusion vs GAN Tradeoffs](#diffusion-models-denoising-generation) · [VAE Role](#vaes-latent-variable-generation) · [Real AI Systems](#where-youll-see-this-in-real-ai-systems)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[GAN Instability Math](#training-stability-why-gans-fail) · [Common Mistakes](#common-mistakes-to-avoid-)
+
+**Reference** — skim once, look up when needed:
+[Connection to Other Concepts](#connection-to-other-concepts-)
+
+---
+
 ## What Are We Comparing?
 
 This section compares three families of generative models that have each dominated the state-of-the-art at different points:

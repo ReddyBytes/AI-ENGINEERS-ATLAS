@@ -14,6 +14,22 @@ For applications where user experience matters — chatbots, code generators, wr
 
 ---
 
+## 📌 Learning Priority
+
+**Must Learn** — core concepts, needed to understand the rest of this file:
+[How to Enable Streaming](#how-to-enable-streaming-) · [SSE Event Types](#event-types--reference-) · [Getting Final Message](#accessing-the-full-message-after-streaming-)
+
+**Should Learn** — important for real projects and interviews:
+[Streaming in Web Apps](#streaming-in-web-applications-) · [Streaming with Tools](#streaming-with-system-prompts-and-tools-)
+
+**Good to Know** — useful in specific situations, not needed daily:
+[Raw Streaming Mode](#raw-streaming-without-the-context-manager-) · [JavaScript Streaming](#javascript-streaming-)
+
+**Reference** — skim once, look up when needed:
+[Common Mistakes](#common-mistakes-to-avoid-)
+
+---
+
 ## What is Streaming? ⚡
 
 **Streaming** is a mode where the Anthropic API sends Claude's response token by token (in small chunks) as it's generated, rather than waiting for the complete response and sending it all at once.
